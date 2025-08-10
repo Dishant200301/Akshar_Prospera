@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import { Shield, Users, Target, Heart, Award, CheckCircle, Phone, Mail } from 'lucide-react';
 
 const AboutUs: React.FC = () => {
+  const chipClass = "inline-flex items-center px-3 py-1.5 rounded-full border border-gray-200 bg-white text-sm text-gray-700 whitespace-nowrap";
   const values = [
     { icon: Heart, title: 'Customer First', desc: 'We design every policy and interaction around your needs.' },
     { icon: Shield, title: 'Trust & Transparency', desc: 'Clear terms, honest guidance, and dependable coverage.' },
@@ -117,7 +118,6 @@ const AboutUs: React.FC = () => {
 
       {/* Meet Your Expert Advisor */}
       <section className="py-24 bg-white">
-
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
@@ -136,120 +136,157 @@ const AboutUs: React.FC = () => {
               </p>
             </div>
             
-            <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
-              <div className="p-8 md:p-10 grid md:grid-cols-[220px_1fr] gap-10 items-start">
-                {/* Profile summary */}
-                <div className="text-center md:text-left">
-                  <div className="w-36 h-36 mx-auto md:mx-0 mb-6 bg-gradient-to-br from-insurance-blue to-insurance-blue-accent rounded-full flex items-center justify-center shadow-xl">
-                    <span className="text-white text-5xl font-bold">AI</span>
-                  </div>
-                  <h3 className="text-3xl font-bold text-gray-900">Arun Isamaliya</h3>
-                  <div className="mt-1 text-insurance-blue font-semibold">Founder & Lead Advisor</div>
-
-                  {/* Quick facts */}
-                  <div className="mt-6 grid grid-cols-3 gap-3">
-                    <div className="text-center p-3 rounded-xl border border-gray-200 bg-white">
-                      <div className="text-lg font-bold text-insurance-blue">15+</div>
-                      <div className="text-xs text-gray-600">Years</div>
-                    </div>
-                    <div className="text-center p-3 rounded-xl border border-gray-200 bg-white">
-                      <div className="text-lg font-bold text-insurance-blue">10k+</div>
-                      <div className="text-xs text-gray-600">Families</div>
-                    </div>
-                    <div className="text-center p-3 rounded-xl border border-gray-200 bg-white">
-                      <div className="text-lg font-bold text-insurance-blue">4.9★</div>
-                      <div className="text-xs text-gray-600">Rating</div>
-                    </div>
-                  </div>
-
-                  {/* CTAs */}
-                  <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
-                    <button className="bg-insurance-blue text-white px-5 py-3 rounded-lg font-semibold hover:bg-insurance-blue/90 transition-colors inline-flex items-center justify-center">
-                      <Phone className="w-5 h-5 mr-2" /> Call Arun
-                    </button>
-                    <button className="border-2 border-insurance-blue text-insurance-blue px-5 py-3 rounded-lg font-semibold hover:bg-insurance-blue hover:text-white transition-colors inline-flex items-center justify-center">
-                      <Mail className="w-5 h-5 mr-2" /> Email Arun
-                    </button>
-                  </div>
-                </div>
-
-                {/* Detailed info */}
-                <div className="space-y-8">
-                  <div>
-                    <h4 className="text-lg font-semibold text-gray-900 mb-2">About Arun</h4>
-                    <p className="text-gray-600 leading-relaxed">
-                      Arun has helped thousands of families navigate health, travel, visitor, and life insurance with
-                      clarity and confidence. His approach is transparent, patient, and focused on long‑term security.
-                    </p>
-                  </div>
-
-                  <div className="grid sm:grid-cols-2 gap-6">
-                    <div>
-                      <h5 className="text-sm font-semibold text-gray-900 mb-2">Specialties</h5>
-                      <ul className="space-y-2 text-gray-700">
-                        <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-green-500 mt-0.5" /> Health Insurance Planning</li>
-                        <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-green-500 mt-0.5" /> Travel & Visitor Coverage</li>
-                        <li className="flex items-start gap-2"><CheckCircle className="w-4 h-4 text-green-500 mt-0.5" /> Family Life Insurance</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h5 className="text-sm font-semibold text-gray-900 mb-2">Licenses & Credentials</h5>
-                      <ul className="space-y-2 text-gray-700">
-                        <li className="flex items-start gap-2"><Shield className="w-4 h-4 text-insurance-blue mt-0.5" /> Licensed Advisor: Canada & USA</li>
-                        <li className="flex items-start gap-2"><Award className="w-4 h-4 text-amber-500 mt-0.5" /> 15+ Years Experience</li>
-                      </ul>
-                    </div>
-                  </div>
-
-                  <div className="grid sm:grid-cols-3 gap-6">
-                    <div>
-                      <h5 className="text-sm font-semibold text-gray-900 mb-2">Languages</h5>
-                      <div className="flex flex-wrap gap-2">
-                        <span className="px-2.5 py-1 rounded-full border text-sm text-gray-700">English</span>
-                        <span className="px-2.5 py-1 rounded-full border text-sm text-gray-700">Gujarati</span>
-                        <span className="px-2.5 py-1 rounded-full border text-sm text-gray-700">Hindi</span>
+            {/* Profile Card */}
+            <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden max-w-5xl mx-auto">
+              {/* Header Section */}
+              <div className="relative">
+                {/* Profile Info */}
+                <div className="px-6 md:px-10 pt-8 pb-6">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                    {/* Profile Avatar and Name */}
+                    <div className="flex items-center gap-6">
+                      <div className="w-28 h-28 bg-gradient-to-br from-insurance-blue to-insurance-blue-accent rounded-full p-2 shadow-xl ring-4 ring-gray-100">
+                        <div className="w-full h-full rounded-full bg-gradient-to-br from-insurance-blue to-insurance-blue-accent flex items-center justify-center text-white text-4xl font-bold">AI</div>
+                      </div>
+                      <div>
+                        <h3 className="text-4xl font-bold text-gray-900 mb-2">Arun Isamaliya</h3>
+                        <div className="text-xl text-insurance-blue font-semibold">Founder & Lead Advisor</div>
                       </div>
                     </div>
-                    <div>
-                      <h5 className="text-sm font-semibold text-gray-900 mb-2">Serving</h5>
-                      <div className="flex flex-wrap gap-2">
-                        <span className="px-2.5 py-1 rounded-full border text-sm text-gray-700">Canada</span>
-                        <span className="px-2.5 py-1 rounded-full border text-sm text-gray-700">United States</span>
-                      </div>
-                    </div>
-                    <div>
-                      <h5 className="text-sm font-semibold text-gray-900 mb-2">Availability</h5>
-                      <div className="flex flex-wrap gap-2">
-                        <span className="px-2.5 py-1 rounded-full border text-sm text-gray-700">Virtual Meetings</span>
-                        <span className="px-2.5 py-1 rounded-full border text-sm text-gray-700">In‑Person by Appointment</span>
-                      </div>
+                    
+                    {/* Action Buttons */}
+                    <div className="flex flex-col sm:flex-row gap-3 md:justify-end">
+                      <button className="bg-white text-insurance-blue border-2 border-insurance-blue px-6 py-3 rounded-xl font-semibold hover:bg-insurance-blue hover:text-white transition-all duration-200 inline-flex items-center justify-center shadow-sm">
+                        <Phone className="w-5 h-5 mr-2" /> Call Arun
+                      </button>
+                      <button className="bg-insurance-blue text-white px-6 py-3 rounded-xl font-semibold hover:bg-insurance-blue/90 transition-all duration-200 inline-flex items-center justify-center shadow-sm">
+                        <Mail className="w-5 h-5 mr-2" /> Email Arun
+                      </button>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="px-8 md:px-10 py-6 bg-white border-t border-gray-200 text-center">
-                <p className="text-gray-700 italic">
-                  "Your financial security is my mission. Let's build a protected future for you and your family."
+              {/* Content Section */}
+              <div className="px-6 md:px-10 pt-8 pb-10">
+                {/* Description */}
+                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                  Trusted advisor helping families across Canada and the U.S. choose clear, right‑fit coverage.
                 </p>
+
+                {/* Statistics Row */}
+                <div className="grid grid-cols-3 gap-6 mb-10">
+                  <div className="bg-gradient-to-br from-slate-50 to-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div className="text-3xl font-bold text-insurance-blue mb-1">15+</div>
+                    <div className="text-sm text-gray-600 font-medium">Years</div>
+                  </div>
+                  <div className="bg-gradient-to-br from-slate-50 to-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div className="text-3xl font-bold text-insurance-blue mb-1">10k+</div>
+                    <div className="text-sm text-gray-600 font-medium">Families</div>
+                  </div>
+                  <div className="bg-gradient-to-br from-slate-50 to-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div className="text-3xl font-bold text-insurance-blue mb-1">4.9★</div>
+                    <div className="text-sm text-gray-600 font-medium">Rating</div>
+                  </div>
+                </div>
+
+                {/* Specialties and Credentials */}
+                <div className="grid md:grid-cols-2 gap-8 mb-10">
+                  <div className="bg-white rounded-2xl border-2 border-gray-100 p-8 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-500" />
+                      Specialties
+                    </h4>
+                    <ul className="space-y-3 text-gray-700">
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                        <span>Health Insurance Planning</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                        <span>Travel & Visitor Coverage</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                        <span>Family Life Insurance</span>
+                      </li>
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-white rounded-2xl border-2 border-gray-100 p-8 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                      <Shield className="w-5 h-5 text-insurance-blue" />
+                      Licenses & Credentials
+                    </h4>
+                    <ul className="space-y-3 text-gray-700">
+                      <li className="flex items-start gap-3">
+                        <Shield className="w-4 h-4 text-insurance-blue mt-0.5 flex-shrink-0" />
+                        <span>Licensed Advisor: Canada & USA</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <Award className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" />
+                        <span>15+ Years Experience</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Additional Information */}
+                <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr_1.5fr] gap-x-5 gap-y-4">
+                  <div className="space-y-4">
+                    <h5 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+                      <Users className="w-5 h-5 text-insurance-blue" />
+                      Languages
+                    </h5>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="inline-flex items-center px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-insurance-blue hover:text-insurance-blue transition-colors">English</span>
+                      <span className="inline-flex items-center px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-insurance-blue hover:text-insurance-blue transition-colors">Gujarati</span>
+                      <span className="inline-flex items-center px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-insurance-blue hover:text-insurance-blue transition-colors">Hindi</span>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <h5 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+                      <Target className="w-5 h-5 text-insurance-blue" />
+                      Serving
+                    </h5>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="inline-flex items-center px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-insurance-blue hover:text-insurance-blue transition-colors">Canada</span>
+                      <span className="inline-flex items-center px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-insurance-blue hover:text-insurance-blue transition-colors">United States</span>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <h5 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-insurance-blue" />
+                      Availability
+                    </h5>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="inline-flex items-center px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-insurance-blue hover:text-insurance-blue transition-colors">Virtual Meetings</span>
+                      <span className="inline-flex items-center px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-insurance-blue hover:text-insurance-blue transition-colors">In‑Person</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Have Questions? Talk to an Advisor</h2>
-          <p className="text-gray-600 mb-8 max-w-2xl mx-auto">We're here to help you pick the right coverage.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-insurance-blue text-white px-8 py-4 rounded-lg font-semibold hover:bg-insurance-blue/90 transition-colors flex items-center justify-center">
-              <Phone className="w-5 h-5 mr-2" /> 1-800-AKSHAR-PRO
-            </button>
-            <button className="border-2 border-insurance-blue text-insurance-blue px-8 py-4 rounded-lg font-semibold hover:bg-insurance-blue hover:text-white transition-colors flex items-center justify-center">
-              <Mail className="w-5 h-5 mr-2" /> Get in Touch
-            </button>
+      {/* Signature Quote */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto relative">
+            <div className="absolute -top-6 -left-6 w-32 h-32 bg-insurance-blue/10 rounded-full blur-2xl"></div>
+            <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-insurance-blue-accent/10 rounded-full blur-2xl"></div>
+            <div className="relative rounded-3xl border-2 border-gray-100 bg-white p-10 text-center shadow-xl">
+              <div className="text-4xl text-insurance-blue mb-4">“</div>
+              <p className="text-2xl md:text-3xl font-semibold text-gray-900 leading-snug">
+                Your financial security is my mission. Let's build a protected future for you and your family.
+              </p>
+              <div className="mt-5 text-insurance-blue font-bold">- Arun Isamaliya</div>
+              <div className="text-gray-500 text-sm">Founder & Lead Advisor</div>
+            </div>
           </div>
         </div>
       </section>
