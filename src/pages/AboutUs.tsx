@@ -44,7 +44,7 @@ const AboutUs: React.FC = () => {
               <Users className="w-4 h-4 mr-2" />
               Our Values
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Our Core Values</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">What We Stand For</h2>
             <p className="text-gray-600 mt-3 max-w-2xl mx-auto">Principles that guide how we serve you.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
