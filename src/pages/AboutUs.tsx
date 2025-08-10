@@ -1,7 +1,7 @@
 import React from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
-import { Shield, Users, Target, Heart, Star, Award, CheckCircle, Phone, Mail } from 'lucide-react';
+import { Shield, Users, Target, Heart, Award, CheckCircle, Phone, Mail } from 'lucide-react';
 
 const AboutUs: React.FC = () => {
   const values = [
@@ -18,11 +18,11 @@ const AboutUs: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
       <Navigation />
 
       {/* Hero */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-blue-50 to-cyan-50">
+      <section className="pt-24 pb-16 bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 min-h-[50vh] flex items-center">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
@@ -30,32 +30,20 @@ const AboutUs: React.FC = () => {
               About Us
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">We Protect What Matters Most</h1>
-            <p className="text-lg md:text-xl text-gray-700">
-              Akshar Prospera is a client-focused insurance advisory helping families and travelers across
-              Canada and the United States make confident protection decisions.
+            <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto">
+              Your trusted, client-focused insurance advisory. We help families and travelers across North America make confident protection decisions.
             </p>
           </div>
         </div>
       </section>
-
-      {/* Highlights */}
-      <section className="py-12 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            {highlights.map((item, i) => (
-              <div key={i} className="text-center p-6 rounded-xl border-2 border-gray-100 shadow-sm bg-gradient-to-br from-white to-slate-50">
-                <div className="text-3xl font-extrabold text-insurance-blue">{item.value}</div>
-                <div className="text-sm text-gray-600 mt-1">{item.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Our Values */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-10">
+            <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
+              <Users className="w-4 h-4 mr-2" />
+              Our Values
+            </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Our Core Values</h2>
             <p className="text-gray-600 mt-3 max-w-2xl mx-auto">Principles that guide how we serve you.</p>
           </div>
@@ -73,68 +61,64 @@ const AboutUs: React.FC = () => {
         </div>
       </section>
 
+
       {/* Why Choose Us */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center max-w-6xl mx-auto">
-            <div>
-              <div className="inline-flex items-center px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-xs font-medium mb-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center max-w-3xl mx-auto mb-10">
+              <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
                 <Award className="w-4 h-4 mr-2" /> Trusted Advisors
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Families Choose Akshar Prospera</h2>
-              <p className="text-gray-600 mb-6">
-                We combine deep insurance expertise with a personal touch—tailoring solutions for health,
-                travel, visitor, and life insurance needs.
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                We blend expert guidance with a warm, personal approach—so you get clear advice, flexible options,
+                and support at every step for health, travel, visitor, and life insurance.
               </p>
-              <ul className="space-y-3">
-                {[
-                  'Personalized guidance and transparent recommendations',
-                  'Access to top North American carriers',
-                  'End-to-end support—from quote to claim',
-                  'Multilingual assistance and 24/7 availability',
-                ].map((point, i) => (
-                  <li key={i} className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-green-500 mt-0.5" />
-                    <span className="text-gray-700">{point}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
-            <div className="rounded-2xl border-2 border-gray-200 p-8 bg-gradient-to-br from-slate-50 to-gray-50">
-              <div className="flex items-center space-x-4">
-                <div className="w-14 h-14 rounded-xl bg-insurance-blue text-white flex items-center justify-center">
+
+            {/* Feature cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="p-8 rounded-2xl border-2 border-gray-200 bg-white hover:shadow-lg transition-all">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-insurance-blue to-insurance-blue-accent text-white flex items-center justify-center mb-4">
+                  <Heart className="w-7 h-7" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Personalized Guidance</h3>
+                <p className="text-gray-600">Recommendations tailored to your family, budget, and goals.</p>
+              </div>
+              <div className="p-8 rounded-2xl border-2 border-gray-200 bg-white hover:shadow-lg transition-all">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-insurance-blue to-insurance-blue-accent text-white flex items-center justify-center mb-4">
                   <Shield className="w-7 h-7" />
                 </div>
-                <div>
-                  <div className="text-lg font-semibold text-gray-900">Licensed & Experienced</div>
-                  <div className="text-gray-600">Serving Canada and the United States</div>
-                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Top Carrier Access</h3>
+                <p className="text-gray-600">Choice from leading Canadian and U.S. insurers with transparent terms.</p>
               </div>
-              <div className="mt-6 grid grid-cols-2 gap-4">
-                <div className="p-4 rounded-xl bg-white border border-gray-200 text-center">
-                  <div className="text-2xl font-bold text-insurance-blue">4.9★</div>
-                  <div className="text-xs text-gray-600">Average Rating</div>
+              <div className="p-8 rounded-2xl border-2 border-gray-200 bg-white hover:shadow-lg transition-all">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-insurance-blue to-insurance-blue-accent text-white flex items-center justify-center mb-4">
+                  <Target className="w-7 h-7" />
                 </div>
-                <div className="p-4 rounded-xl bg-white border border-gray-200 text-center">
-                  <div className="text-2xl font-bold text-insurance-blue">98%</div>
-                  <div className="text-xs text-gray-600">Claim Guidance Success</div>
-                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">End‑to‑End Support</h3>
+                <p className="text-gray-600">From quotes to claims, we handle details so you stay confident.</p>
               </div>
+            </div>
+
+            {/* Key metrics (moved highlights here) */}
+            <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+              {highlights.map((item, i) => (
+                <div key={i} className="text-center p-6 rounded-xl border-2 border-gray-100 shadow-sm bg-gradient-to-br from-white to-slate-50">
+                  <div className="text-3xl font-extrabold text-insurance-blue">{item.value}</div>
+                  <div className="text-sm text-gray-600 mt-1">{item.label}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* Meet Your Expert Advisor */}
-      <section className="py-24 bg-gradient-to-br from-slate-50 to-gray-50 relative overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-64 h-64 bg-insurance-blue/5 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-20 w-80 h-80 bg-insurance-blue-accent/5 rounded-full blur-3xl"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-200/5 rounded-full blur-3xl"></div>
-        </div>
+      <section className="py-24 bg-white">
 
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <div className="inline-flex items-center px-4 py-2 bg-insurance-blue/10 text-insurance-blue rounded-full text-sm font-medium mb-6">
@@ -175,11 +159,11 @@ const AboutUs: React.FC = () => {
                   
                   {/* Quick Stats */}
                   <div className="grid grid-cols-2 gap-4 mb-8">
-                    <div className="text-center p-4 bg-gradient-to-br from-slate-50 to-gray-50 border-2 border-gray-200 rounded-2xl">
+                    <div className="text-center p-4 bg-white border-2 border-gray-200 rounded-2xl">
                       <div className="text-2xl font-bold text-insurance-blue">15+</div>
                       <div className="text-sm text-gray-600">Years Experience</div>
                     </div>
-                    <div className="text-center p-4 bg-gradient-to-br from-slate-50 to-gray-50 border-2 border-gray-200 rounded-2xl">
+                    <div className="text-center p-4 bg-white border-2 border-gray-200 rounded-2xl">
                       <div className="text-2xl font-bold text-insurance-blue">10,000+</div>
                       <div className="text-sm text-gray-600">Families Protected</div>
                     </div>
@@ -187,7 +171,7 @@ const AboutUs: React.FC = () => {
                 </div>
                 
                 <div className="space-y-6">
-                  <div className="flex items-start space-x-6 p-6 bg-gradient-to-br from-slate-50 to-gray-50 border-2 border-gray-200 rounded-2xl hover:shadow-lg transition-all duration-300">
+                  <div className="flex items-start space-x-6 p-6 bg-white border-2 border-gray-200 rounded-2xl hover:shadow-lg transition-all duration-300">
                     <div className="w-16 h-16 bg-gradient-to-br from-insurance-blue to-insurance-blue-accent rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
                       <Shield className="w-8 h-8 text-white" />
                     </div>
@@ -197,7 +181,7 @@ const AboutUs: React.FC = () => {
                     </div>
                   </div>
                   
-                  <div className="flex items-start space-x-6 p-6 bg-gradient-to-br from-slate-50 to-gray-50 border-2 border-gray-200 rounded-2xl hover:shadow-lg transition-all duration-300">
+                  <div className="flex items-start space-x-6 p-6 bg-white border-2 border-gray-200 rounded-2xl hover:shadow-lg transition-all duration-300">
                     <div className="w-16 h-16 bg-gradient-to-br from-insurance-blue to-insurance-blue-accent rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
                       <Heart className="w-8 h-8 text-white" />
                     </div>
@@ -207,7 +191,7 @@ const AboutUs: React.FC = () => {
                     </div>
                   </div>
                   
-                  <div className="flex items-start space-x-6 p-6 bg-gradient-to-br from-slate-50 to-gray-50 border-2 border-gray-200 rounded-2xl hover:shadow-lg transition-all duration-300">
+                  <div className="flex items-start space-x-6 p-6 bg-white border-2 border-gray-200 rounded-2xl hover:shadow-lg transition-all duration-300">
                     <div className="w-16 h-16 bg-gradient-to-br from-insurance-blue to-insurance-blue-accent rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
                       <Target className="w-8 h-8 text-white" />
                     </div>
@@ -219,8 +203,8 @@ const AboutUs: React.FC = () => {
                 </div>
               </div>
               
-              <div className="mt-12 pt-8 border-t border-gray-200 text-center relative z-10">
-                <div className="bg-gradient-to-r from-slate-50 to-gray-50 rounded-2xl p-8 border-2 border-gray-200">
+              <div className="mt-12 pt-8 border-t border-gray-200 text-center">
+                <div className="bg-white rounded-2xl p-8 border-2 border-gray-200">
                   <p className="text-xl text-gray-700 font-medium mb-4 italic">
                     "Your financial security is my mission. Let's work together to build a protected future for you and your family."
                   </p>
@@ -234,15 +218,15 @@ const AboutUs: React.FC = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-r from-insurance-blue to-insurance-blue-accent">
-        <div className="container mx-auto px-4 text-center text-white">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Have Questions? Talk to an Advisor</h2>
-          <p className="text-blue-100 mb-8 max-w-2xl mx-auto">Were here to help you pick the right coverage.</p>
+      <section className="py-16">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">Have Questions? Talk to an Advisor</h2>
+          <p className="text-gray-600 mb-8 max-w-2xl mx-auto">We're here to help you pick the right coverage.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-insurance-blue px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors flex items-center justify-center">
+            <button className="bg-insurance-blue text-white px-8 py-4 rounded-lg font-semibold hover:bg-insurance-blue/90 transition-colors flex items-center justify-center">
               <Phone className="w-5 h-5 mr-2" /> 1-800-AKSHAR-PRO
             </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-insurance-blue transition-colors flex items-center justify-center">
+            <button className="border-2 border-insurance-blue text-insurance-blue px-8 py-4 rounded-lg font-semibold hover:bg-insurance-blue hover:text-white transition-colors flex items-center justify-center">
               <Mail className="w-5 h-5 mr-2" /> Get in Touch
             </button>
           </div>
@@ -255,5 +239,6 @@ const AboutUs: React.FC = () => {
 };
 
 export default AboutUs;
+
 
 
