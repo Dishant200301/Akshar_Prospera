@@ -1,178 +1,163 @@
 
-import React, { useState } from 'react';
-import { Shield, ChevronDown, Menu, X } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Shield, ChevronDown, Menu, X, MapPin, Star } from 'lucide-react';
 
 const Navigation = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
-  const [activePanel, setActivePanel] = useState<string | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 10);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const serviceTypes = [
-    {
-      id: 'health',
-      name: 'Health Insurance',
-      description: 'Comprehensive health coverage for individuals and families',
-      features: ['Emergency Care', 'Prescription Coverage', 'Specialist Visits']
-    },
-    {
-      id: 'travel',
-      name: 'Travel Insurance',
-      description: 'Protection for domestic and international travel',
-      features: ['Trip Cancellation', 'Medical Coverage', 'Lost Baggage']
-    },
-    {
-      id: 'visitor',
-      name: 'Visitor Visa Insurance',
-      description: 'Coverage for visitors to Canada and USA',
-      features: ['Emergency Medical', 'Repatriation', 'Extended Stay Options']
-    },
-    {
-      id: 'other',
-      name: 'Other Plans',
-      description: 'Specialized insurance solutions',
-      features: ['Life Insurance', 'Disability', 'Critical Illness']
-    }
+    'Health Insurance',
+    'Travel Insurance', 
+    'Visitor Visa Insurance',
+    'Other Plans'
   ];
 
   return (
-    <nav className="bg-white shadow-card sticky top-0 z-50">
+    <nav className={`sticky top-0 z-50 transition-all duration-300 ${
+      isScrolled 
+        ? 'bg-white/80 backdrop-blur-md shadow-lg' 
+        : 'bg-transparent'
+    }`}>
       <div className="container-custom">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <div className="relative">
-              <Shield className="w-8 h-8 text-insurance-blue" />
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full flex items-center justify-center">
-                <div className="w-1 h-1 bg-white rounded-full"></div>
+              <div className="w-8 h-8 bg-gradient-to-br from-insurance-blue to-insurance-blue-accent rounded-lg flex items-center justify-center">
+                <Shield className="w-5 h-5 text-white" />
+              </div>
+              {/* Maple Leaf (Canada) */}
+              <div className="absolute -top-1 -left-1 w-3 h-3 bg-red-500 rounded-full flex items-center justify-center">
+                <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
+              </div>
+              {/* Star (USA) */}
+              <div className="absolute -top-1 -right-1 w-3 h-3 bg-insurance-gold rounded-full flex items-center justify-center">
+                <Star className="w-1.5 h-1.5 text-white" />
               </div>
             </div>
-            <span className="text-xl font-bold text-gray-900">Akshar Prospera</span>
+            <span className={`text-xl font-bold transition-colors duration-300 ${
+              isScrolled ? 'text-gray-900' : 'text-white'
+            }`}>Akshar Prospera</span>
           </div>
 
-          {/* Desktop Menu */}
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="/" className="text-gray-700 hover:text-insurance-blue transition-colors">
+            <a href="#" className={`font-medium transition-colors duration-300 ${
+              isScrolled ? 'text-gray-700 hover:text-insurance-blue' : 'text-white/80 hover:text-white'
+            }`}>
               Home
             </a>
             
             {/* Services Dropdown */}
             <div 
               className="relative"
-              onMouseEnter={() => setActiveSubmenu('services')}
-              onMouseLeave={() => {
-                setActiveSubmenu(null);
-                setActivePanel(null);
-              }}
+              onMouseEnter={() => setIsServicesOpen(true)}
+              onMouseLeave={() => setIsServicesOpen(false)}
             >
-              <button className="flex items-center text-gray-700 hover:text-insurance-blue transition-colors">
-                Services
-                <ChevronDown className="w-4 h-4 ml-1" />
+              <button className={`flex items-center space-x-1 font-medium transition-colors duration-300 ${
+                isScrolled ? 'text-gray-700 hover:text-insurance-blue' : 'text-white/80 hover:text-white'
+              }`}>
+                <span>Services</span>
+                <ChevronDown className="w-4 h-4" />
               </button>
               
-              <div className={`mega-menu ${activeSubmenu === 'services' ? 'show' : ''}`}>
-                <div className="container-custom py-8">
-                  <div className="grid grid-cols-2 gap-8">
-                    {/* Left Column - Service Types */}
-                    <div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-4">Insurance Types</h3>
-                      <div className="space-y-2">
-                        {serviceTypes.map((service) => (
-                          <button
-                            key={service.id}
-                            className="block w-full text-left p-3 rounded-lg hover:bg-insurance-blue-light/10 transition-colors"
-                            onMouseEnter={() => setActivePanel(service.id)}
-                          >
-                            <div className="font-medium text-gray-900">{service.name}</div>
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                    
-                    {/* Right Column - Dynamic Panel */}
-                    <div className="bg-gray-50 rounded-xl p-6">
-                      {activePanel && serviceTypes.find(s => s.id === activePanel) && (
-                        <div className={`mega-menu-panel ${activePanel ? 'active' : ''}`}>
-                          {(() => {
-                            const service = serviceTypes.find(s => s.id === activePanel);
-                            return service ? (
-                              <>
-                                <h4 className="text-xl font-semibold text-gray-900 mb-3">
-                                  {service.name}
-                                </h4>
-                                <p className="text-gray-600 mb-4">{service.description}</p>
-                                <ul className="space-y-2">
-                                  {service.features.map((feature, index) => (
-                                    <li key={index} className="flex items-center text-sm text-gray-600">
-                                      <div className="w-1.5 h-1.5 bg-insurance-gold rounded-full mr-3"></div>
-                                      {feature}
-                                    </li>
-                                  ))}
-                                </ul>
-                                <button className="btn-primary mt-4">
-                                  Learn More
-                                </button>
-                              </>
-                            ) : null;
-                          })()}
-                        </div>
-                      )}
-                      {!activePanel && (
-                        <div className="text-center text-gray-500">
-                          Hover over a service type to see details
-                        </div>
-                      )}
-                    </div>
-                  </div>
+              {isServicesOpen && (
+                <div className="absolute top-full left-0 w-64 bg-white shadow-premium border border-gray-100 rounded-lg py-4 mt-2">
+                  {serviceTypes.map((service, index) => (
+                    <a
+                      key={index}
+                      href="#"
+                      className="block px-6 py-3 text-gray-700 hover:bg-insurance-blue hover:text-white transition-colors"
+                    >
+                      {service}
+                    </a>
+                  ))}
                 </div>
-              </div>
+              )}
             </div>
-
-            <a href="/about" className="text-gray-700 hover:text-insurance-blue transition-colors">
+            
+            <a href="#" className={`font-medium transition-colors duration-300 ${
+              isScrolled ? 'text-gray-700 hover:text-insurance-blue' : 'text-white/80 hover:text-white'
+            }`}>
               About Us
             </a>
-            <a href="/resources" className="text-gray-700 hover:text-insurance-blue transition-colors">
+            <a href="#" className={`font-medium transition-colors duration-300 ${
+              isScrolled ? 'text-gray-700 hover:text-insurance-blue' : 'text-white/80 hover:text-white'
+            }`}>
               Resources
             </a>
-            <a href="/contact" className="text-gray-700 hover:text-insurance-blue transition-colors">
+            <a href="#" className={`font-medium transition-colors duration-300 ${
+              isScrolled ? 'text-gray-700 hover:text-insurance-blue' : 'text-white/80 hover:text-white'
+            }`}>
               Contact
             </a>
           </div>
 
           {/* CTA Button */}
-          <button className="hidden md:block btn-hero">
-            Get a Free Quote
-          </button>
+          <div className="hidden md:block">
+            <button className="btn-primary bg-gradient-to-r from-insurance-blue to-insurance-blue-accent hover:from-insurance-blue-dark hover:to-insurance-blue-hover">
+              Talk to an Advisor
+            </button>
+          </div>
 
           {/* Mobile Menu Button */}
-          <button 
-            className="md:hidden text-gray-700"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          <button
+            className={`md:hidden p-2 transition-colors duration-300 ${
+              isScrolled ? 'text-gray-700' : 'text-white'
+            }`}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 
         {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden bg-white border-t animate-fade-in">
-            <div className="py-4 space-y-4">
-              <a href="/" className="block text-gray-700 hover:text-insurance-blue transition-colors">
+        {isMobileMenuOpen && (
+          <div className={`md:hidden py-4 border-t rounded-b-lg transition-all duration-300 ${
+            isScrolled 
+              ? 'border-gray-200 bg-white/95 backdrop-blur-sm' 
+              : 'border-white/20 bg-slate-900/90 backdrop-blur-sm'
+          }`}>
+            <div className="flex flex-col space-y-4">
+              <a href="#" className={`font-medium transition-colors duration-300 ${
+                isScrolled ? 'text-gray-700 hover:text-insurance-blue' : 'text-white/80 hover:text-white'
+              }`}>
                 Home
               </a>
-              <a href="/services" className="block text-gray-700 hover:text-insurance-blue transition-colors">
+              <a href="#" className={`font-medium transition-colors duration-300 ${
+                isScrolled ? 'text-gray-700 hover:text-insurance-blue' : 'text-white/80 hover:text-white'
+              }`}>
                 Services
               </a>
-              <a href="/about" className="block text-gray-700 hover:text-insurance-blue transition-colors">
+              <a href="#" className={`font-medium transition-colors duration-300 ${
+                isScrolled ? 'text-gray-700 hover:text-insurance-blue' : 'text-white/80 hover:text-white'
+              }`}>
                 About Us
               </a>
-              <a href="/resources" className="block text-gray-700 hover:text-insurance-blue transition-colors">
+              <a href="#" className={`font-medium transition-colors duration-300 ${
+                isScrolled ? 'text-gray-700 hover:text-insurance-blue' : 'text-white/80 hover:text-white'
+              }`}>
                 Resources
               </a>
-              <a href="/contact" className="block text-gray-700 hover:text-insurance-blue transition-colors">
+              <a href="#" className={`font-medium transition-colors duration-300 ${
+                isScrolled ? 'text-gray-700 hover:text-insurance-blue' : 'text-white/80 hover:text-white'
+              }`}>
                 Contact
               </a>
-              <button className="btn-primary w-full">
-                Get a Free Quote
+              <button className="btn-primary w-full mt-4">
+                Talk to an Advisor
               </button>
             </div>
           </div>

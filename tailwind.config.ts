@@ -59,6 +59,7 @@ export default {
 					'blue-dark': 'hsl(var(--insurance-blue-dark))',
 					'blue-accent': 'hsl(var(--insurance-blue-accent))',
 					'blue-hover': 'hsl(var(--insurance-blue-hover))',
+					gold: 'hsl(var(--insurance-gold))',
 				}
 			},
 			fontFamily: {

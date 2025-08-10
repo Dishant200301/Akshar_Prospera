@@ -1,73 +1,215 @@
-# Welcome to your Lovable project
+# Akshar Prospera - Professional Insurance Website
 
-## Project info
+A modern, premium, and trustworthy website for Akshar Prospera, a professional insurance company serving Canada and the USA. The site conveys trust, security, and reliability using a clean, corporate yet welcoming style with soft gradients, high-quality professional imagery, and a clear layout.
 
-**URL**: https://lovable.dev/projects/2e9ddb3a-163d-4225-b934-6286c77a1983
+## 🚀 Features
 
-## How can I edit this code?
+### Navigation/Header
+- **Sticky top navigation** with multi-level hover-triggered mega menu
+- **Top-level menu items**: Home, Services, About Us, Resources, Contact
+- **Services mega dropdown** with two-column layout:
+  - Left column: Insurance types (Health, Travel, Visitor Visa, Other Plans)
+  - Right column: Dynamic panel with descriptions and features
+- **North America-inspired logo** (maple leaf + US star)
+- **Prominent CTA**: "Get a Free Quote" button
 
-There are several ways of editing your application.
+### Hero Section
+- **Full-width banner** with diverse, smiling people
+- **Compelling headline**: "Protecting Your Health, Travel, and Future Across North America"
+- **Animated background** featuring Canadian and US landmarks:
+  - CN Tower (Toronto)
+  - Parliament Hill (Ottawa)
+  - Statue of Liberty (NYC)
+  - Golden Gate Bridge (San Francisco)
+- **Trust badges** and quick stats
 
-**Use Lovable**
+### Main Services Section
+- **Grid layout** for all insurance types
+- **Interactive cards** with icons, descriptions, and CTAs
+- **Feature lists** for each service
+- **Bottom CTA** for consultation
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/2e9ddb3a-163d-4225-b934-6286c77a1983) and start prompting.
+### Why Choose Us Section
+- **4 key benefits** with minimalist vector icons:
+  - 24/7 Support
+  - North America-wide Coverage
+  - Affordable Plans
+  - Licensed Advisors
+- **Trust indicators** and regulatory information
 
-Changes made via Lovable will be committed automatically to this repo.
+### Testimonials
+- **Client reviews carousel** with photos, star ratings, and quotes
+- **Navigation controls** and dot indicators
+- **Bottom statistics** showing company achievements
 
-**Use your preferred IDE**
+### Contact Form
+- **Prominent quote request form** with all necessary fields
+- **Trust badges**: Licensed Insurance Provider, Secure Data Protection
+- **Contact information** and office locations
+- **Quick response guarantee**
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🎨 Design Style
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- **Mobile-first responsive design**
+- **Minimalist yet rich visuals**
+- **Soft shadows and generous whitespace**
+- **Balanced typography hierarchy**
 
-Follow these steps:
+### Color Palette
+- **Primary Blue**: #0056b3 (hsl(213 100% 35%))
+- **White**: #ffffff
+- **Gold Accents**: #c9a34e (hsl(42 67% 55%)) for elegance and trust
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Typography
+- **Clean sans-serif font** (Inter) for body text
+- **Bold headings** with clear hierarchy
+- **Responsive text sizing**
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 🛠️ Technical Stack
 
-# Step 3: Install the necessary dependencies.
-npm i
+- **React 18** with TypeScript
+- **Vite** for fast development and building
+- **Tailwind CSS** for styling
+- **Lucide React** for icons
+- **React Router** for navigation
+- **Intersection Observer API** for scroll animations
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+## 📱 Responsive Design
+
+- **Mobile-first approach**
+- **Breakpoints**: sm (640px), md (768px), lg (1024px), xl (1280px), 2xl (1400px)
+- **Touch-friendly navigation**
+- **Optimized layouts** for all screen sizes
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 16+ 
+- npm or yarn
+
+### Installation
+```bash
+# Clone the repository
+git clone <repository-url>
+cd akshar-prospera
+
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
 
-**Edit a file directly in GitHub**
+### Development
+```bash
+# Start development server with hot reload
+npm run dev
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+# Run linting
+npm run lint
 
-**Use GitHub Codespaces**
+# Run type checking
+npm run type-check
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 📁 Project Structure
 
-## What technologies are used for this project?
+```
+src/
+├── components/          # Reusable UI components
+│   ├── ui/            # Base UI components (shadcn/ui)
+│   ├── Navigation.tsx # Main navigation with mega menu
+│   ├── HeroSection.tsx # Hero banner with landmarks
+│   ├── ServicesSection.tsx # Insurance services grid
+│   ├── WhyChooseUsSection.tsx # Company benefits
+│   ├── TestimonialsSection.tsx # Client reviews carousel
+│   ├── ContactSection.tsx # Contact form and info
+│   └── Footer.tsx     # Footer with locations map
+├── hooks/              # Custom React hooks
+├── pages/              # Page components
+├── lib/                # Utility functions
+└── main.tsx           # Application entry point
+```
 
-This project is built with:
+## 🎯 Key Components
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Navigation Component
+- **Mega menu** with hover interactions
+- **Responsive mobile menu**
+- **Company branding** with North America theme
 
-## How can I deploy this project?
+### Hero Section
+- **Animated background** with landmark icons
+- **Trust indicators** and statistics
+- **Call-to-action buttons**
 
-Simply open [Lovable](https://lovable.dev/projects/2e9ddb3a-163d-4225-b934-6286c77a1983) and click on Share -> Publish.
+### Services Grid
+- **Interactive cards** with hover effects
+- **Feature lists** and CTAs
+- **Responsive grid layout**
 
-## Can I connect a custom domain to my Lovable project?
+### Testimonials Carousel
+- **Smooth transitions** between testimonials
+- **Navigation controls** and indicators
+- **Responsive design** for all devices
 
-Yes, you can!
+## 🔧 Customization
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Colors
+Update the CSS variables in `src/index.css`:
+```css
+:root {
+  --insurance-blue: 213 100% 35%;
+  --insurance-gold: 42 67% 55%;
+  /* ... other colors */
+}
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### Content
+- Update company information in component files
+- Modify service descriptions and features
+- Change testimonials and contact details
+
+### Styling
+- Adjust Tailwind classes in components
+- Modify CSS custom properties
+- Update animations and transitions
+
+## 📱 Browser Support
+
+- **Chrome** 90+
+- **Firefox** 88+
+- **Safari** 14+
+- **Edge** 90+
+
+## 🚀 Deployment
+
+### Build
+```bash
+npm run build
+```
+
+### Deploy
+The built files in `dist/` can be deployed to:
+- Vercel
+- Netlify
+- AWS S3
+- Any static hosting service
+
+## 📄 License
+
+This project is proprietary software for Akshar Prospera.
+
+## 🤝 Support
+
+For technical support or questions about the website, please contact the development team.
+
+---
+
+**Akshar Prospera** - Protecting your health, travel, and future across North America.

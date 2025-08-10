@@ -1,101 +1,69 @@
 
 import React from 'react';
-import { Clock, MapPin, DollarSign, Award, Shield, Phone } from 'lucide-react';
+import { Shield, DollarSign, Target, Clock, CheckCircle, Star, ArrowRight } from 'lucide-react';
 
 const WhyChooseUsSection = () => {
   const benefits = [
     {
-      icon: Clock,
-      title: '24/7 Customer Support',
-      description: 'Round-the-clock assistance whenever you need help with claims, questions, or emergencies.',
-      stat: '99.8%',
-      statLabel: 'Customer Satisfaction'
-    },
-    {
-      icon: MapPin,
-      title: 'North America Coverage',
-      description: 'Comprehensive protection across Canada and USA with extensive network of healthcare providers.',
-      stat: '50K+',
-      statLabel: 'Network Providers'
+      icon: Shield,
+      title: 'Licensed & Experienced',
+      description: 'Our advisors have 15+ years of experience and are fully licensed across Canada and USA.',
+      color: 'from-blue-500 to-indigo-500'
     },
     {
       icon: DollarSign,
       title: 'Competitive Pricing',
-      description: 'Affordable premiums without compromising on coverage quality. Best value guaranteed.',
-      stat: '30%',
-      statLabel: 'Average Savings'
+      description: 'Get the best rates with our transparent pricing and no hidden fees policy.',
+      color: 'from-green-500 to-emerald-500'
     },
     {
-      icon: Award,
-      title: 'Licensed Advisors',
-      description: 'Expert guidance from certified insurance professionals who understand your needs.',
-      stat: '25+',
-      statLabel: 'Years Experience'
+      icon: Target,
+      title: 'Personalized Coverage',
+      description: 'Tailored insurance solutions that perfectly match your unique needs and lifestyle.',
+      color: 'from-purple-500 to-pink-500'
+    },
+    {
+      icon: Clock,
+      title: '24/7 Support',
+      description: 'Round-the-clock assistance for claims, questions, and emergency situations.',
+      color: 'from-orange-500 to-red-500'
     }
   ];
 
   return (
-    <section className="section-padding bg-white">
-      <div className="container-custom">
-        <div className="text-center mb-16">
-          <h2 className="text-section-title">Why Choose NorthGuard Insurance?</h2>
-          <p className="text-section-subtitle max-w-3xl mx-auto">
-            We're more than just an insurance company. We're your trusted partners in 
-            protecting your health, travel, and financial future.
+    <section className="py-16 bg-gradient-to-br from-white to-blue-50">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-medium mb-6">
+            <Star className="w-4 h-4 mr-2" />
+            Why Choose Us
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+            The Trusted Choice for
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> Insurance Excellence</span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            We're committed to providing you with the best insurance experience through personalized service and comprehensive coverage.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {benefits.map((benefit, index) => (
-            <div 
-              key={index}
-              className="text-center group animate-on-scroll"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-insurance-blue-light/20 rounded-xl mb-4 group-hover:bg-insurance-blue group-hover:text-white transition-all duration-300">
-                <benefit.icon className="w-8 h-8 text-insurance-blue group-hover:text-white" />
+            <div key={index} className="group text-center p-6 rounded-2xl hover:bg-white hover:shadow-lg transition-all duration-300">
+              <div className={`w-16 h-16 bg-gradient-to-br ${benefit.color} rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                <benefit.icon className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">{benefit.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed mb-4">{benefit.description}</p>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-insurance-gold">{benefit.stat}</div>
-                <div className="text-xs text-gray-500">{benefit.statLabel}</div>
-              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">{benefit.title}</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">{benefit.description}</p>
             </div>
           ))}
         </div>
 
-        {/* Trust Indicators */}
-        <div className="bg-gradient-card rounded-2xl p-8 md:p-12">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Trusted & Regulated</h3>
-            <p className="text-gray-600">
-              Licensed in all Canadian provinces and US states where we operate
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
-            <div className="text-center">
-              <Shield className="w-12 h-12 text-insurance-blue mx-auto mb-2" />
-              <div className="text-sm font-medium text-gray-900">FSRA Licensed</div>
-              <div className="text-xs text-gray-500">Ontario</div>
-            </div>
-            <div className="text-center">
-              <Award className="w-12 h-12 text-insurance-blue mx-auto mb-2" />
-              <div className="text-sm font-medium text-gray-900">A+ Rating</div>
-              <div className="text-xs text-gray-500">Better Business Bureau</div>
-            </div>
-            <div className="text-center">
-              <Phone className="w-12 h-12 text-insurance-blue mx-auto mb-2" />
-              <div className="text-sm font-medium text-gray-900">ISO Certified</div>
-              <div className="text-xs text-gray-500">Quality Management</div>
-            </div>
-            <div className="text-center">
-              <MapPin className="w-12 h-12 text-insurance-blue mx-auto mb-2" />
-              <div className="text-sm font-medium text-gray-900">Multi-State</div>
-              <div className="text-xs text-gray-500">USA Licensed</div>
-            </div>
-          </div>
+        <div className="text-center">
+          <button className="group px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center mx-auto">
+            Learn More About Us
+            <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+          </button>
         </div>
       </div>
     </section>

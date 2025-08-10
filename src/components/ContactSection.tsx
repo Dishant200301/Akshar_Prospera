@@ -155,8 +155,8 @@ const ContactSection = () => {
                   <Phone className="w-5 h-5 text-insurance-blue mt-1" />
                   <div>
                     <div className="font-medium text-gray-900">Phone</div>
-                    <div className="text-gray-600">1-800-NORTHGUARD</div>
-                    <div className="text-gray-600">(1-800-667-8442)</div>
+                    <div className="text-gray-600">1-800-AKSHAR-PRO</div>
+                    <div className="text-gray-600">(1-800-257-4277)</div>
                   </div>
                 </div>
 
@@ -164,8 +164,8 @@ const ContactSection = () => {
                   <Mail className="w-5 h-5 text-insurance-blue mt-1" />
                   <div>
                     <div className="font-medium text-gray-900">Email</div>
-                    <div className="text-gray-600">quotes@northguard.com</div>
-                    <div className="text-gray-600">support@northguard.com</div>
+                    <div className="text-gray-600">quotes@aksharprospera.com</div>
+                    <div className="text-gray-600">support@aksharprospera.com</div>
                   </div>
                 </div>
 
