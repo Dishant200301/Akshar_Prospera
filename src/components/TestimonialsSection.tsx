@@ -1,60 +1,70 @@
 
-import React, { useState, useEffect } from 'react';
-import { Star, ChevronLeft, ChevronRight, MessageCircle } from 'lucide-react';
+import React from 'react';
+import { Star, MessageCircle, Quote } from 'lucide-react';
 
-const TestimonialsSection = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+type Testimonial = {
+  name: string;
+  role?: string;
+  rating: number;
+  text: string;
+};
 
-  const testimonials = [
-    {
-      name: 'Jane R.',
-      text: 'Akshar Prospera helped me find the perfect travel insurance plan in minutes!',
-      rating: 5
-    },
-    {
-      name: 'Mark L.',
-      text: 'Excellent service, very professional and caring.',
-      rating: 5
-    },
-    {
-      name: 'Sarah M.',
-      text: 'The team at Akshar Prospera made the insurance process so simple and stress-free.',
-      rating: 5
-    },
-    {
-      name: 'David K.',
-      text: 'Highly recommend! They found me better coverage at a lower price.',
-      rating: 5
-    },
-    {
-      name: 'Emily T.',
-      text: 'Outstanding customer service and expert advice throughout the entire process.',
-      rating: 5
-    },
-    {
-      name: 'Robert P.',
-      text: 'Professional, reliable, and truly care about their clients\' needs.',
-      rating: 5
-    }
-  ];
+const testimonials: Testimonial[] = [
+  {
+    name: 'Jane Roberts',
+    role: 'Travel Enthusiast',
+    rating: 5,
+    text:
+      'Akshar Prospera took the confusion out of insurance. They listened to what I needed and matched me with a plan that made total sense. I felt informed and protected the whole time.',
+  },
+  {
+    name: 'Mark Lewis',
+    role: 'Young Parent',
+    rating: 5,
+    text:
+      'Exceptionally professional. They explained every detail in simple language and helped us get the right coverage for our family without overselling anything.',
+  },
+  {
+    name: 'Sarah Miller',
+    role: 'Remote Professional',
+    rating: 5,
+    text:
+      'Seamless, stress-free and fast. I compared multiple options in one place and actually understood the differences. Could not have asked for a smoother experience.',
+  },
+  {
+    name: 'David Kim',
+    role: 'Frequent Flyer',
+    rating: 5,
+    text:
+      'I ended up with stronger coverage and a lower premium. The team guided me through each choice like a trusted advisor, not a salesperson. Highly recommended.',
+  },
+  {
+    name: 'Emily Turner',
+    role: 'New Homeowner',
+    rating: 5,
+    text:
+      'Courteous, quick and knowledgeable. They helped me understand what truly mattered for my situation and optimized my plan accordingly. Real peace of mind.',
+  },
+  {
+    name: 'Robert Patel',
+    role: 'Small Business Owner',
+    rating: 5,
+    text:
+      'Responsive and reliable from day one. Claims guidance was clear and prompt, and renewals have been effortless. It feels like having an expert on my side.',
+  },
+];
 
-  // Auto-scroll effect
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-    }, 3000); // Change every 3 seconds
+function Stars({ count }: { count: number }) {
+  return (
+    <div className="flex items-center gap-1">
+      {Array.from({ length: count }).map((_, i) => (
+        <Star key={i} className="w-5 h-5 text-insurance-gold fill-current" />
+      ))}
+    </div>
+  );
+}
 
-    return () => clearInterval(interval);
-  }, [testimonials.length]);
-
-  const nextTestimonial = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
-  };
-
+const TestimonialsSection: React.FC = () => {
   return (
     <section className="section-padding bg-gray-50">
       <div className="container-custom">
@@ -63,68 +73,56 @@ const TestimonialsSection = () => {
             <MessageCircle className="w-4 h-4 mr-2" />
             Client Testimonials
           </div>
-          <h2 className="text-section-title">What Our Clients Say</h2>
+          <h2 className="text-section-title">Trusted by Customers Who Value Clarity</h2>
           <p className="text-section-subtitle max-w-3xl mx-auto">
-            Don't just take our word for it. Here's what our satisfied customers have to say about their experience.
+            Real stories from people who simplified insurance with the right guidance.
           </p>
         </div>
 
-        {/* Carousel Container */}
-        <div className="relative max-w-6xl mx-auto">
-          {/* Navigation Buttons */}
-          <button 
-            onClick={prevTestimonial}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12 bg-white border-2 border-gray-200 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 hover:border-insurance-blue flex items-center justify-center"
-          >
-            <ChevronLeft className="w-6 h-6 text-gray-600" />
-          </button>
-          
-          <button 
-            onClick={nextTestimonial}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 w-12 h-12 bg-white border-2 border-gray-200 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 hover:border-insurance-blue flex items-center justify-center"
-          >
-            <ChevronRight className="w-6 h-6 text-gray-600" />
-          </button>
-
-          {/* Testimonials Carousel */}
-          <div className="overflow-hidden">
-            <div 
-              className="flex transition-transform duration-700 ease-in-out"
-              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        {/* Static, stunning grid – no transitions */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {testimonials.map((t, idx) => (
+            <article
+              key={`${t.name}-${idx}`}
+              className="relative group rounded-2xl border-2 border-gray-200 bg-gradient-to-br from-white to-slate-50 p-6 shadow-card hover:shadow-xl transition-shadow"
             >
-              {testimonials.map((testimonial, index) => (
-                <div 
-                  key={index} 
-                  className="w-full flex-shrink-0 px-4"
-                >
-                  <div className="bg-gradient-to-br from-slate-50 to-gray-50 border-2 border-gray-200 rounded-xl p-8 shadow-card max-w-2xl mx-auto">
-                    <div className="flex justify-center mb-6">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-6 h-6 text-insurance-gold fill-current" />
-                      ))}
-                    </div>
-                    <p className="text-gray-700 mb-6 italic text-lg leading-relaxed text-center">"{testimonial.text}"</p>
-                    <p className="font-semibold text-gray-900 text-lg text-center">— {testimonial.name}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+              {/* Accent ring */}
+              <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-black/5 group-hover:ring-insurance-blue/30"></div>
 
-          {/* Indicators */}
-          <div className="flex justify-center space-x-2 mt-8">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentIndex
-                    ? 'bg-insurance-blue scale-125'
-                    : 'bg-gray-300 hover:bg-gray-400'
-                }`}
-              />
-            ))}
-          </div>
+              {/* Quote icon */}
+              <div className="absolute -top-3 -left-3 h-12 w-12 rounded-xl bg-blue-600/10 text-blue-700 flex items-center justify-center shadow-sm">
+                <Quote className="w-6 h-6" />
+              </div>
+
+              {/* Header */}
+              <div className="flex items-start justify-between gap-4 mb-4">
+                <div>
+                  <h3 className="font-semibold text-gray-900 leading-tight">
+                    {t.name}
+                  </h3>
+                  {t.role && (
+                    <p className="text-sm text-gray-500 mt-0.5">{t.role}</p>
+                  )}
+                </div>
+                <Stars count={t.rating} />
+              </div>
+
+              {/* Body */}
+              <p className="text-gray-700 leading-relaxed">
+                "{t.text}"
+              </p>
+            </article>
+          ))}
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="mt-12 text-center">
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 rounded-full bg-insurance-blue text-white px-6 py-3 text-sm font-medium shadow-md hover:shadow-lg transition-shadow"
+          >
+            Get a free consultation
+          </a>
         </div>
       </div>
     </section>

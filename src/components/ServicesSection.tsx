@@ -38,7 +38,7 @@ const ServicesSection = () => {
     {
       icon: Heart,
       title: 'Health Insurance',
-      description: 'Comprehensive health coverage for you and your family.',
+      description: 'Comprehensive health coverage for you and your family with complete protection.',
       features: ['24/7 Medical Support', 'Prescription Coverage', 'Dental & Vision', 'Mental Health Services'],
       color: 'from-insurance-blue to-insurance-blue-accent',
       bgColor: 'from-slate-50 to-gray-50',
@@ -48,7 +48,7 @@ const ServicesSection = () => {
     {
       icon: Plane,
       title: 'Travel Insurance',
-      description: 'Worldwide travel protection with emergency medical coverage.',
+      description: 'Worldwide travel protection with emergency medical coverage and full support.',
       features: ['Emergency Medical', 'Trip Cancellation', 'Baggage Protection', '24/7 Travel Support'],
       color: 'from-insurance-blue to-insurance-blue-accent',
       bgColor: 'from-slate-50 to-gray-50',
@@ -58,7 +58,7 @@ const ServicesSection = () => {
     {
       icon: Users,
       title: 'Visitor Visa Insurance',
-      description: 'Specialized coverage for visitors to Canada and USA.',
+      description: 'Specialized coverage for visitors to Canada and USA with complete protection.',
       features: ['Visa Compliance', 'Medical Coverage', 'Emergency Evacuation', 'Family Plans'],
       color: 'from-insurance-blue to-insurance-blue-accent',
       bgColor: 'from-slate-50 to-gray-50',
@@ -68,7 +68,7 @@ const ServicesSection = () => {
     {
       icon: Shield,
       title: 'Life Insurance',
-      description: 'Secure your family\'s future with flexible life insurance plans.',
+      description: 'Secure your family\'s future with flexible life insurance plans and protection.',
       features: ['Flexible Coverage', 'Cash Value Options', 'Family Protection', 'Tax Benefits'],
       color: 'from-insurance-blue to-insurance-blue-accent',
       bgColor: 'from-slate-50 to-gray-50',
@@ -97,7 +97,7 @@ const ServicesSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {services.map((service, index) => (
-            <Link to={service.href} key={index} className="group block perspective-1000">
+            <div key={index} className="group block perspective-1000">
               <div 
                 ref={el => cardRefs.current[index] = el}
                 onMouseMove={(e) => handleMouseMove(index, e)}
@@ -118,28 +118,29 @@ const ServicesSection = () => {
                   
                   {/* Content */}
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed text-sm">{service.description}</p>
+                  <p className="text-gray-600 mb-4 leading-relaxed text-base">{service.description}</p>
                   
                   {/* Features */}
                   <div className="space-y-2 mb-6">
                     {service.features.map((feature, featureIndex) => (
                       <div key={featureIndex} className="flex items-center space-x-2">
                         <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
-                        <span className="text-gray-700 font-medium text-sm">{feature}</span>
+                        <span className="text-gray-700 font-medium text-base">{feature}</span>
                       </div>
                     ))}
                   </div>
                   
-                  {/* Button */}
-                  <div 
+                  {/* Button - Only this is clickable now */}
+                  <Link 
+                    to={service.href}
                     className="group/btn w-full bg-white border-2 border-gray-200 text-slate-700 font-semibold py-3 px-4 rounded-lg shadow-lg flex items-center justify-center text-sm transition-all duration-300 group-hover:shadow-xl hover:bg-gray-50 hover:text-slate-900 hover:border-blue-300"
                   >
                     <span className="mr-2">Learn More</span>
                     <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
-                  </div>
+                  </Link>
                 </div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </div>
