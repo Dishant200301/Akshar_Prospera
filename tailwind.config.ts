@@ -19,6 +19,10 @@ export default {
 			}
 		},
 		extend: {
+			perspective: {
+				'1000': '1000px',
+				'2000': '2000px',
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',

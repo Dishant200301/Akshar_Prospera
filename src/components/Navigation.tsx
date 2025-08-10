@@ -48,14 +48,14 @@ const Navigation = () => {
               </div>
             </div>
             <span className={`text-xl font-bold transition-colors duration-300 ${
-              isScrolled ? 'text-gray-900' : 'text-white'
+              isScrolled ? 'text-gray-900' : 'text-slate-800'
             }`}>Akshar Prospera</span>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <a href="#" className={`font-medium transition-colors duration-300 ${
-              isScrolled ? 'text-gray-700 hover:text-insurance-blue' : 'text-white/80 hover:text-white'
+              isScrolled ? 'text-gray-700 hover:text-insurance-blue' : 'text-slate-600 hover:text-slate-800'
             }`}>
               Home
             </a>
@@ -67,7 +67,7 @@ const Navigation = () => {
               onMouseLeave={() => setIsServicesOpen(false)}
             >
               <button className={`flex items-center space-x-1 font-medium transition-colors duration-300 ${
-                isScrolled ? 'text-gray-700 hover:text-insurance-blue' : 'text-white/80 hover:text-white'
+                isScrolled ? 'text-gray-700 hover:text-insurance-blue' : 'text-slate-600 hover:text-slate-800'
               }`}>
                 <span>Services</span>
                 <ChevronDown className="w-4 h-4" />
@@ -89,17 +89,17 @@ const Navigation = () => {
             </div>
             
             <a href="#" className={`font-medium transition-colors duration-300 ${
-              isScrolled ? 'text-gray-700 hover:text-insurance-blue' : 'text-white/80 hover:text-white'
+              isScrolled ? 'text-gray-700 hover:text-insurance-blue' : 'text-slate-600 hover:text-slate-800'
             }`}>
               About Us
             </a>
             <a href="#" className={`font-medium transition-colors duration-300 ${
-              isScrolled ? 'text-gray-700 hover:text-insurance-blue' : 'text-white/80 hover:text-white'
+              isScrolled ? 'text-gray-700 hover:text-insurance-blue' : 'text-slate-600 hover:text-slate-800'
             }`}>
               Resources
             </a>
             <a href="#" className={`font-medium transition-colors duration-300 ${
-              isScrolled ? 'text-gray-700 hover:text-insurance-blue' : 'text-white/80 hover:text-white'
+              isScrolled ? 'text-gray-700 hover:text-insurance-blue' : 'text-slate-600 hover:text-slate-800'
             }`}>
               Contact
             </a>
@@ -115,7 +115,7 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             className={`md:hidden p-2 transition-colors duration-300 ${
-              isScrolled ? 'text-gray-700' : 'text-white'
+              isScrolled ? 'text-gray-700' : 'text-slate-700'
             }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
@@ -128,11 +128,11 @@ const Navigation = () => {
           <div className={`md:hidden py-4 border-t rounded-b-lg transition-all duration-300 ${
             isScrolled 
               ? 'border-gray-200 bg-white/95 backdrop-blur-sm' 
-              : 'border-white/20 bg-slate-900/90 backdrop-blur-sm'
+              : 'border-slate-200 bg-white/90 backdrop-blur-sm'
           }`}>
             <div className="flex flex-col space-y-4">
               <a href="#" className={`font-medium transition-colors duration-300 ${
-                isScrolled ? 'text-gray-700 hover:text-insurance-blue' : 'text-white/80 hover:text-white'
+                isScrolled ? 'text-gray-700 hover:text-insurance-blue' : 'text-slate-600 hover:text-slate-800'
               }`}>
                 Home
               </a>
@@ -142,7 +142,7 @@ const Navigation = () => {
                 Services
               </a>
               <a href="#" className={`font-medium transition-colors duration-300 ${
-                isScrolled ? 'text-gray-700 hover:text-insurance-blue' : 'text-white/80 hover:text-white'
+                isScrolled ? 'text-gray-700 hover:text-insurance-blue' : 'text-slate-600 hover:text-slate-800'
               }`}>
                 About Us
               </a>
@@ -152,7 +152,7 @@ const Navigation = () => {
                 Resources
               </a>
               <a href="#" className={`font-medium transition-colors duration-300 ${
-                isScrolled ? 'text-gray-700 hover:text-insurance-blue' : 'text-white/80 hover:text-white'
+                isScrolled ? 'text-gray-700 hover:text-insurance-blue' : 'text-slate-600 hover:text-slate-800'
               }`}>
                 Contact
               </a>

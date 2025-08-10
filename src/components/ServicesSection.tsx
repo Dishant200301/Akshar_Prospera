@@ -1,17 +1,47 @@
 
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Heart, Plane, Users, Shield, ArrowRight, CheckCircle, Star } from 'lucide-react';
 
 const ServicesSection = () => {
+  const [tiltedCards, setTiltedCards] = useState<{ [key: number]: { x: number; y: number } }>({});
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  const handleMouseMove = (index: number, e: React.MouseEvent<HTMLDivElement>) => {
+    const card = cardRefs.current[index];
+    if (!card) return;
+
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    const rotateX = (y - centerY) / 20;
+    const rotateY = (centerX - x) / 20;
+    
+    setTiltedCards(prev => ({
+      ...prev,
+      [index]: { x: rotateX, y: rotateY }
+    }));
+  };
+
+  const handleMouseLeave = (index: number) => {
+    setTiltedCards(prev => ({
+      ...prev,
+      [index]: { x: 0, y: 0 }
+    }));
+  };
+
   const services = [
     {
       icon: Heart,
       title: 'Health Insurance',
       description: 'Comprehensive health coverage for you and your family with access to top healthcare providers across Canada and USA.',
       features: ['24/7 Medical Support', 'Prescription Coverage', 'Dental & Vision', 'Mental Health Services'],
-      color: 'from-red-500 to-pink-500',
-      bgColor: 'from-red-50 to-pink-50',
-      buttonColor: 'from-red-500 to-pink-500'
+      color: 'from-blue-500 to-cyan-500',
+      bgColor: 'from-blue-50 to-cyan-50',
+      buttonColor: 'from-blue-500 to-cyan-500'
     },
     {
       icon: Plane,
@@ -27,18 +57,18 @@ const ServicesSection = () => {
       title: 'Visitor Visa Insurance',
       description: 'Specialized coverage for visitors to Canada and USA, meeting all visa requirements and providing comprehensive peace of mind.',
       features: ['Visa Compliance', 'Medical Coverage', 'Emergency Evacuation', 'Family Plans'],
-      color: 'from-green-500 to-emerald-500',
-      bgColor: 'from-green-50 to-emerald-50',
-      buttonColor: 'from-green-500 to-emerald-500'
+      color: 'from-blue-500 to-cyan-500',
+      bgColor: 'from-blue-50 to-cyan-50',
+      buttonColor: 'from-blue-500 to-cyan-500'
     },
     {
       icon: Shield,
       title: 'Life Insurance',
       description: 'Secure your family\'s future with flexible life insurance plans tailored to your specific needs and long-term financial security goals.',
       features: ['Flexible Coverage', 'Cash Value Options', 'Family Protection', 'Tax Benefits'],
-      color: 'from-purple-500 to-indigo-500',
-      bgColor: 'from-purple-50 to-indigo-50',
-      buttonColor: 'from-purple-500 to-indigo-500'
+      color: 'from-blue-500 to-cyan-500',
+      bgColor: 'from-blue-50 to-cyan-50',
+      buttonColor: 'from-blue-500 to-cyan-500'
     }
   ];
 
@@ -62,10 +92,22 @@ const ServicesSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {services.map((service, index) => (
-            <div key={index} className="group relative">
-              <div className={`bg-gradient-to-br ${service.bgColor} rounded-2xl p-6 h-full border-2 border-gray-200 hover:border-gray-300 transition-all duration-500 hover:shadow-xl hover:-translate-y-1`}>
+            <div 
+              key={index} 
+              className="group relative perspective-1000"
+              ref={el => cardRefs.current[index] = el}
+              onMouseMove={(e) => handleMouseMove(index, e)}
+              onMouseLeave={() => handleMouseLeave(index)}
+            >
+              <div 
+                className={`bg-gradient-to-br ${service.bgColor} rounded-2xl p-6 h-full border-2 border-gray-200 transition-all duration-300 ease-out transform-gpu hover:shadow-2xl hover:scale-105`}
+                style={{
+                  transform: `perspective(1000px) rotateX(${tiltedCards[index]?.x || 0}deg) rotateY(${tiltedCards[index]?.y || 0}deg)`,
+                  transformStyle: 'preserve-3d'
+                }}
+              >
                 {/* Icon */}
-                <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-xl flex items-center justify-center mb-4 shadow-lg`}>
                   <service.icon className="w-8 h-8 text-white" />
                 </div>
                 
@@ -84,9 +126,9 @@ const ServicesSection = () => {
                 </div>
                 
                 {/* Button */}
-                <button className={`group/btn w-full bg-gradient-to-r ${service.buttonColor} text-white font-semibold py-3 px-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 flex items-center justify-center text-sm`}>
+                <button className={`group/btn w-full bg-gradient-to-r ${service.buttonColor} text-white font-semibold py-3 px-4 rounded-lg shadow-lg flex items-center justify-center text-sm transition-all duration-300 hover:shadow-xl`}>
                   <span className="mr-2">Learn More</span>
-                  <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
                 </button>
               </div>
             </div>
