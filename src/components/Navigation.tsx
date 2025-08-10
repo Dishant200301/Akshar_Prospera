@@ -143,7 +143,7 @@ const Navigation = () => {
                               onClick={() => setIsServicesOpen(false)}
                             >
                               <Shield className="w-4 h-4 mr-3 text-insurance-blue" />
-                              <span className="font-medium text-sm">{service.name}</span>
+                              <span className="font-medium text-[15px] md:text-base">{service.name}</span>
                             </a>
                           </div>
                         ))}
@@ -280,7 +280,7 @@ const Navigation = () => {
                       <a
                         key={index}
                         href={service.href}
-                        className="group flex items-center py-2.5 px-3 text-sm text-gray-600 hover:text-insurance-blue hover:bg-white rounded-lg transition-all duration-200"
+                        className="group flex items-center py-2.5 px-3 text-base text-gray-600 hover:text-insurance-blue hover:bg-white rounded-lg transition-all duration-200"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         <span className="font-medium">{service.name}</span>
