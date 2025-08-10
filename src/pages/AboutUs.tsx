@@ -232,36 +232,36 @@ const AboutUs: React.FC = () => {
                 </div>
 
                 {/* Additional Information */}
-                <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr_1.5fr] gap-x-5 gap-y-4">
-                  <div className="space-y-4">
-                    <h5 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
+                  <div className="space-y-4 text-center">
+                    <h5 className="text-lg font-semibold text-gray-900 flex items-center justify-center gap-2">
                       <Users className="w-5 h-5 text-insurance-blue" />
                       Languages
                     </h5>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 justify-center">
                       <span className="inline-flex items-center px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-insurance-blue hover:text-insurance-blue transition-colors">English</span>
                       <span className="inline-flex items-center px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-insurance-blue hover:text-insurance-blue transition-colors">Gujarati</span>
                       <span className="inline-flex items-center px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-insurance-blue hover:text-insurance-blue transition-colors">Hindi</span>
                     </div>
                   </div>
                   
-                  <div className="space-y-4">
-                    <h5 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+                  <div className="space-y-4 text-center">
+                    <h5 className="text-lg font-semibold text-gray-900 flex items-center justify-center gap-2">
                       <Target className="w-5 h-5 text-insurance-blue" />
                       Serving
                     </h5>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 justify-center">
                       <span className="inline-flex items-center px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-insurance-blue hover:text-insurance-blue transition-colors">Canada</span>
                       <span className="inline-flex items-center px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-insurance-blue hover:text-insurance-blue transition-colors">United States</span>
                     </div>
                   </div>
                   
-                  <div className="space-y-4">
-                    <h5 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+                  <div className="space-y-4 text-center">
+                    <h5 className="text-lg font-semibold text-gray-900 flex items-center justify-center gap-2">
                       <CheckCircle className="w-5 h-5 text-insurance-blue" />
                       Availability
                     </h5>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-2 justify-center">
                       <span className="inline-flex items-center px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-insurance-blue hover:text-insurance-blue transition-colors">Virtual Meetings</span>
                       <span className="inline-flex items-center px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-insurance-blue hover:text-insurance-blue transition-colors">In‑Person</span>
                     </div>
