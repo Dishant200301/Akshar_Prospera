@@ -57,8 +57,8 @@ export default {
 					blue: 'hsl(var(--insurance-blue))',
 					'blue-light': 'hsl(var(--insurance-blue-light))',
 					'blue-dark': 'hsl(var(--insurance-blue-dark))',
-					gold: 'hsl(var(--insurance-gold))',
-					'gold-light': 'hsl(var(--insurance-gold-light))',
+					'blue-accent': 'hsl(var(--insurance-blue-accent))',
+					'blue-hover': 'hsl(var(--insurance-blue-hover))',
 				}
 			},
 			fontFamily: {
@@ -68,7 +68,6 @@ export default {
 			backgroundImage: {
 				'gradient-hero': 'linear-gradient(135deg, hsl(var(--insurance-blue)) 0%, hsl(var(--insurance-blue-light)) 100%)',
 				'gradient-card': 'linear-gradient(145deg, white 0%, hsl(var(--insurance-blue-light) / 0.05) 100%)',
-				'gradient-cta': 'linear-gradient(135deg, hsl(var(--insurance-gold)) 0%, hsl(var(--insurance-gold-light)) 100%)',
 			},
 			boxShadow: {
 				'card': '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
