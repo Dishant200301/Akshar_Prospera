@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -52,16 +53,27 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
+				insurance: {
+					blue: 'hsl(var(--insurance-blue))',
+					'blue-light': 'hsl(var(--insurance-blue-light))',
+					'blue-dark': 'hsl(var(--insurance-blue-dark))',
+					gold: 'hsl(var(--insurance-gold))',
+					'gold-light': 'hsl(var(--insurance-gold-light))',
 				}
+			},
+			fontFamily: {
+				sans: ['Inter', 'system-ui', 'sans-serif'],
+				heading: ['Inter', 'system-ui', 'sans-serif']
+			},
+			backgroundImage: {
+				'gradient-hero': 'linear-gradient(135deg, hsl(var(--insurance-blue)) 0%, hsl(var(--insurance-blue-light)) 100%)',
+				'gradient-card': 'linear-gradient(145deg, white 0%, hsl(var(--insurance-blue-light) / 0.05) 100%)',
+				'gradient-cta': 'linear-gradient(135deg, hsl(var(--insurance-gold)) 0%, hsl(var(--insurance-gold-light)) 100%)',
+			},
+			boxShadow: {
+				'card': '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
+				'card-hover': '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)',
+				'premium': '0 25px 50px -12px rgba(0, 86, 179, 0.25)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -69,26 +81,28 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			keyframes: {
-				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+				'fade-in': {
+					'0%': { opacity: '0', transform: 'translateY(10px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
 				},
-				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
+				'slide-in-right': {
+					'0%': { opacity: '0', transform: 'translateX(20px)' },
+					'100%': { opacity: '1', transform: 'translateX(0)' }
+				},
+				'scale-in': {
+					'0%': { opacity: '0', transform: 'scale(0.95)' },
+					'100%': { opacity: '1', transform: 'scale(1)' }
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-10px)' }
 				}
 			},
 			animation: {
-				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'fade-in': 'fade-in 0.5s ease-out',
+				'slide-in-right': 'slide-in-right 0.5s ease-out',
+				'scale-in': 'scale-in 0.3s ease-out',
+				'float': 'float 3s ease-in-out infinite',
 			}
 		}
 	},
