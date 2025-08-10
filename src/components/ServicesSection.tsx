@@ -38,41 +38,41 @@ const ServicesSection = () => {
     {
       icon: Heart,
       title: 'Health Insurance',
-      description: 'Comprehensive health coverage for you and your family with access to top healthcare providers across Canada and USA.',
+      description: 'Comprehensive health coverage for you and your family.',
       features: ['24/7 Medical Support', 'Prescription Coverage', 'Dental & Vision', 'Mental Health Services'],
-      color: 'from-blue-500 to-cyan-500',
-      bgColor: 'from-blue-50 to-cyan-50',
-      buttonColor: 'from-blue-500 to-cyan-500',
+      color: 'from-insurance-blue to-insurance-blue-accent',
+      bgColor: 'from-slate-50 to-gray-50',
+      buttonColor: 'from-insurance-blue to-insurance-blue-accent',
       href: '/health-insurance'
     },
     {
       icon: Plane,
       title: 'Travel Insurance',
-      description: 'Worldwide travel protection with emergency medical coverage, trip cancellation, and baggage protection for peace of mind.',
+      description: 'Worldwide travel protection with emergency medical coverage.',
       features: ['Emergency Medical', 'Trip Cancellation', 'Baggage Protection', '24/7 Travel Support'],
-      color: 'from-blue-500 to-cyan-500',
-      bgColor: 'from-blue-50 to-cyan-50',
-      buttonColor: 'from-blue-500 to-cyan-500',
+      color: 'from-insurance-blue to-insurance-blue-accent',
+      bgColor: 'from-slate-50 to-gray-50',
+      buttonColor: 'from-insurance-blue to-insurance-blue-accent',
       href: '/travel-insurance'
     },
     {
       icon: Users,
       title: 'Visitor Visa Insurance',
-      description: 'Specialized coverage for visitors to Canada and USA, meeting all visa requirements and providing comprehensive peace of mind.',
+      description: 'Specialized coverage for visitors to Canada and USA.',
       features: ['Visa Compliance', 'Medical Coverage', 'Emergency Evacuation', 'Family Plans'],
-      color: 'from-blue-500 to-cyan-500',
-      bgColor: 'from-blue-50 to-cyan-50',
-      buttonColor: 'from-blue-500 to-cyan-500',
+      color: 'from-insurance-blue to-insurance-blue-accent',
+      bgColor: 'from-slate-50 to-gray-50',
+      buttonColor: 'from-insurance-blue to-insurance-blue-accent',
       href: '/visitor-visa-insurance'
     },
     {
       icon: Shield,
       title: 'Life Insurance',
-      description: 'Secure your family\'s future with flexible life insurance plans tailored to your specific needs and long-term financial security goals.',
+      description: 'Secure your family\'s future with flexible life insurance plans.',
       features: ['Flexible Coverage', 'Cash Value Options', 'Family Protection', 'Tax Benefits'],
-      color: 'from-blue-500 to-cyan-500',
-      bgColor: 'from-blue-50 to-cyan-50',
-      buttonColor: 'from-blue-500 to-cyan-500',
+      color: 'from-insurance-blue to-insurance-blue-accent',
+      bgColor: 'from-slate-50 to-gray-50',
+      buttonColor: 'from-insurance-blue to-insurance-blue-accent',
       href: '/life-insurance'
     }
   ];
@@ -132,7 +132,7 @@ const ServicesSection = () => {
                   
                   {/* Button */}
                   <div 
-                    className={`group/btn w-full bg-gradient-to-r ${service.buttonColor} text-white font-semibold py-3 px-4 rounded-lg shadow-lg flex items-center justify-center text-sm transition-all duration-300 group-hover:shadow-xl`}
+                    className="group/btn w-full bg-white border-2 border-gray-200 text-slate-700 font-semibold py-3 px-4 rounded-lg shadow-lg flex items-center justify-center text-sm transition-all duration-300 group-hover:shadow-xl hover:bg-gray-50 hover:text-slate-900 hover:border-blue-300"
                   >
                     <span className="mr-2">Learn More</span>
                     <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />

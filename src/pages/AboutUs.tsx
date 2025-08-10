@@ -100,7 +100,7 @@ const AboutUs: React.FC = () => {
                 ))}
               </ul>
             </div>
-            <div className="rounded-2xl border-2 border-gray-200 p-8 bg-gradient-to-br from-blue-50 to-cyan-50">
+            <div className="rounded-2xl border-2 border-gray-200 p-8 bg-gradient-to-br from-slate-50 to-gray-50">
               <div className="flex items-center space-x-4">
                 <div className="w-14 h-14 rounded-xl bg-insurance-blue text-white flex items-center justify-center">
                   <Shield className="w-7 h-7" />
@@ -118,6 +118,114 @@ const AboutUs: React.FC = () => {
                 <div className="p-4 rounded-xl bg-white border border-gray-200 text-center">
                   <div className="text-2xl font-bold text-insurance-blue">98%</div>
                   <div className="text-xs text-gray-600">Claim Guidance Success</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Meet Your Expert Advisor */}
+      <section className="py-24 bg-gradient-to-br from-slate-50 to-gray-50 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-20 w-64 h-64 bg-insurance-blue/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-20 w-80 h-80 bg-insurance-blue-accent/5 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-200/5 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center px-4 py-2 bg-insurance-blue/10 text-insurance-blue rounded-full text-sm font-medium mb-6">
+                <Users className="w-4 h-4 mr-2" />
+                Meet Your Expert Advisor
+              </div>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+                Your Trusted
+                <span className="bg-gradient-to-r from-insurance-blue to-insurance-blue-accent bg-clip-text text-transparent"> Insurance</span>
+                <br />
+                <span className="text-gray-900">Advisor</span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Meet the dedicated professional who will guide you through every step of your insurance journey
+              </p>
+            </div>
+            
+            <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 p-8 md:p-12 relative overflow-hidden">
+              {/* Background Pattern */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-insurance-blue/5 to-insurance-blue-accent/5 rounded-full -translate-y-32 translate-x-32"></div>
+              
+              <div className="grid lg:grid-cols-2 gap-12 items-center relative z-10">
+                <div className="text-center lg:text-left">
+                  <div className="w-40 h-40 mx-auto lg:mx-0 mb-8 bg-gradient-to-br from-insurance-blue to-insurance-blue-accent rounded-full flex items-center justify-center shadow-2xl hover:shadow-insurance-blue/25 transition-all duration-300 hover:scale-105">
+                    <span className="text-white text-5xl font-bold">AI</span>
+                  </div>
+                  <h3 className="text-3xl font-bold text-gray-900 mb-3">
+                    Arun Isamaliya
+                  </h3>
+                  <p className="text-xl text-insurance-blue font-semibold mb-6">
+                    Your Dedicated Insurance Advisor
+                  </p>
+                  <p className="text-lg text-gray-600 leading-relaxed mb-8">
+                    Welcome to Akshar Prospera, where securing your future and protecting your loved ones is my top priority. 
+                    I am committed to helping you navigate the complexities of insurance planning and ensure peace of mind 
+                    for you and your family across Canada and the United States.
+                  </p>
+                  
+                  {/* Quick Stats */}
+                  <div className="grid grid-cols-2 gap-4 mb-8">
+                    <div className="text-center p-4 bg-gradient-to-br from-slate-50 to-gray-50 border-2 border-gray-200 rounded-2xl">
+                      <div className="text-2xl font-bold text-insurance-blue">15+</div>
+                      <div className="text-sm text-gray-600">Years Experience</div>
+                    </div>
+                    <div className="text-center p-4 bg-gradient-to-br from-slate-50 to-gray-50 border-2 border-gray-200 rounded-2xl">
+                      <div className="text-2xl font-bold text-insurance-blue">10,000+</div>
+                      <div className="text-sm text-gray-600">Families Protected</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="space-y-6">
+                  <div className="flex items-start space-x-6 p-6 bg-gradient-to-br from-slate-50 to-gray-50 border-2 border-gray-200 rounded-2xl hover:shadow-lg transition-all duration-300">
+                    <div className="w-16 h-16 bg-gradient-to-br from-insurance-blue to-insurance-blue-accent rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                      <Shield className="w-8 h-8 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-900 mb-2">Expert Guidance</h4>
+                      <p className="text-gray-600 leading-relaxed">Professional advice tailored to your unique situation with personalized insurance solutions</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-6 p-6 bg-gradient-to-br from-slate-50 to-gray-50 border-2 border-gray-200 rounded-2xl hover:shadow-lg transition-all duration-300">
+                    <div className="w-16 h-16 bg-gradient-to-br from-insurance-blue to-insurance-blue-accent rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                      <Heart className="w-8 h-8 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-900 mb-2">Family Protection</h4>
+                      <p className="text-gray-600 leading-relaxed">Comprehensive coverage ensuring your loved ones are financially secure for life</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start space-x-6 p-6 bg-gradient-to-br from-slate-50 to-gray-50 border-2 border-gray-200 rounded-2xl hover:shadow-lg transition-all duration-300">
+                    <div className="w-16 h-16 bg-gradient-to-br from-insurance-blue to-insurance-blue-accent rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                      <Target className="w-8 h-8 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-900 mb-2">Future Planning</h4>
+                      <p className="text-gray-600 leading-relaxed">Strategic insurance planning for long-term security and wealth building</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="mt-12 pt-8 border-t border-gray-200 text-center relative z-10">
+                <div className="bg-gradient-to-r from-slate-50 to-gray-50 rounded-2xl p-8 border-2 border-gray-200">
+                  <p className="text-xl text-gray-700 font-medium mb-4 italic">
+                    "Your financial security is my mission. Let's work together to build a protected future for you and your family."
+                  </p>
+                  <p className="text-insurance-blue font-bold text-lg">- Arun Isamaliya</p>
+                  <p className="text-gray-500 text-sm mt-2">Founder & Lead Advisor, Akshar Prospera</p>
                 </div>
               </div>
             </div>
