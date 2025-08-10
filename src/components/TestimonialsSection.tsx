@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { Star, MessageCircle, Quote } from 'lucide-react';
 
 type Testimonial = {
@@ -65,6 +65,35 @@ function Stars({ count }: { count: number }) {
 }
 
 const TestimonialsSection: React.FC = () => {
+  const [tiltedCards, setTiltedCards] = useState<{ [key: number]: { x: number; y: number } }>({});
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  const handleMouseMove = (index: number, e: React.MouseEvent<HTMLDivElement>) => {
+    const card = cardRefs.current[index];
+    if (!card) return;
+
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = (y - centerY) / 15;
+    const rotateY = (centerX - x) / 15;
+
+    setTiltedCards(prev => ({
+      ...prev,
+      [index]: { x: rotateX, y: rotateY },
+    }));
+  };
+
+  const handleMouseLeave = (index: number) => {
+    setTiltedCards(prev => ({
+      ...prev,
+      [index]: { x: 0, y: 0 },
+    }));
+  };
   return (
     <section className="section-padding bg-gray-50">
       <div className="container-custom">
@@ -79,39 +108,45 @@ const TestimonialsSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Static, stunning grid – no transitions */}
+        {/* Static grid with interactive hover tilt like ServicesSection */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {testimonials.map((t, idx) => (
-            <article
-              key={`${t.name}-${idx}`}
-              className="relative group rounded-2xl border-2 border-gray-200 bg-gradient-to-br from-white to-slate-50 p-6 shadow-card hover:shadow-xl transition-shadow"
-            >
-              {/* Accent ring */}
-              <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-black/5 group-hover:ring-insurance-blue/30"></div>
+            <div key={`${t.name}-${idx}`} className="group block perspective-1000">
+              <div
+                ref={el => (cardRefs.current[idx] = el)}
+                onMouseMove={e => handleMouseMove(idx, e)}
+                onMouseLeave={() => handleMouseLeave(idx)}
+                className="h-full"
+              >
+                <article
+                  className="relative rounded-2xl border-2 border-gray-200 bg-gradient-to-br from-white to-slate-50 p-6 shadow-card transition-all duration-300 ease-out transform-gpu group-hover:shadow-2xl group-hover:scale-105 h-full"
+                  style={{
+                    transform: `perspective(1000px) rotateX(${tiltedCards[idx]?.x || 0}deg) rotateY(${tiltedCards[idx]?.y || 0}deg)`,
+                    transformStyle: 'preserve-3d',
+                  }}
+                >
+                  {/* Accent ring */}
+                  <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-black/5 group-hover:ring-insurance-blue/30"></div>
 
-              {/* Quote icon */}
-              <div className="absolute -top-3 -left-3 h-12 w-12 rounded-xl bg-blue-600/10 text-blue-700 flex items-center justify-center shadow-sm">
-                <Quote className="w-6 h-6" />
+                  {/* Quote icon */}
+                  <div className="absolute -top-3 -left-3 h-12 w-12 rounded-xl bg-blue-600/10 text-blue-700 flex items-center justify-center shadow-sm">
+                    <Quote className="w-6 h-6" />
+                  </div>
+
+                  {/* Header */}
+                  <div className="flex items-start justify-between gap-4 mb-4">
+                    <div>
+                      <h3 className="font-semibold text-gray-900 leading-tight">{t.name}</h3>
+                      {t.role && <p className="text-sm text-gray-500 mt-0.5">{t.role}</p>}
+                    </div>
+                    <Stars count={t.rating} />
+                  </div>
+
+                  {/* Body */}
+                  <p className="text-gray-700 leading-relaxed">"{t.text}"</p>
+                </article>
               </div>
-
-              {/* Header */}
-              <div className="flex items-start justify-between gap-4 mb-4">
-                <div>
-                  <h3 className="font-semibold text-gray-900 leading-tight">
-                    {t.name}
-                  </h3>
-                  {t.role && (
-                    <p className="text-sm text-gray-500 mt-0.5">{t.role}</p>
-                  )}
-                </div>
-                <Stars count={t.rating} />
-              </div>
-
-              {/* Body */}
-              <p className="text-gray-700 leading-relaxed">
-                "{t.text}"
-              </p>
-            </article>
+            </div>
           ))}
         </div>
 

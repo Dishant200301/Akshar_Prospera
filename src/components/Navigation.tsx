@@ -64,7 +64,7 @@ const Navigation = () => {
         ? 'bg-white/80 backdrop-blur-md shadow-lg' 
         : 'bg-transparent'
     }`}>
-      <div className="container-custom">
+              <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <a href="/" className="flex items-center space-x-3">
@@ -81,7 +81,7 @@ const Navigation = () => {
                 <Star className="w-1.5 h-1.5 text-white" />
               </div>
             </div>
-            <span className={`text-xl font-bold transition-colors duration-300 ${
+            <span className={`text-2xl font-bold transition-colors duration-300 ${
               isScrolled ? 'text-gray-900' : 'text-slate-800'
             }`}>Akshar Prospera</span>
           </a>
