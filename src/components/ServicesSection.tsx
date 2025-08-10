@@ -133,10 +133,10 @@ const ServicesSection = () => {
                   {/* Button - Only this is clickable now */}
                   <Link 
                     to={service.href}
-                    className="group/btn w-full bg-white border-2 border-gray-200 text-slate-700 font-semibold py-3 px-4 rounded-lg shadow-lg flex items-center justify-center text-sm transition-all duration-300 group-hover:shadow-xl hover:bg-gray-50 hover:text-slate-900 hover:border-blue-300"
+                    className="w-full bg-white text-insurance-blue border-2 border-insurance-blue py-3 px-4 rounded-lg font-semibold hover:bg-insurance-blue hover:text-white transition-all duration-200 inline-flex items-center justify-center text-sm shadow-sm"
                   >
                     <span className="mr-2">Learn More</span>
-                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                    <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
               </div>

@@ -55,19 +55,12 @@ const HeroSection = () => {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
-                <button className="group relative px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold text-base rounded-xl shadow-lg hover:shadow-xl hover:shadow-blue-500/30 transition-all duration-300 hover:scale-105 hover:from-blue-500 hover:to-cyan-500 overflow-hidden">
-                  <span className="relative z-10 flex items-center">
-                    Talk to an Advisor
-                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <button className="bg-insurance-blue text-white px-6 py-3 rounded-xl font-semibold hover:bg-insurance-blue/90 transition-all duration-200 inline-flex items-center justify-center shadow-sm">
+                  <ArrowRight className="w-5 h-5 mr-2" /> Talk to an Advisor
                 </button>
                 
-                <button className="group px-6 py-3 bg-white border-2 border-gray-200 text-slate-700 font-bold text-base rounded-xl hover:bg-gray-50 hover:text-slate-900 hover:border-blue-400 hover:shadow-lg transition-all duration-300 hover:scale-105">
-                  <span className="flex items-center">
-                    Get Free Quote
-                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                  </span>
+                <button className="bg-white text-insurance-blue border-2 border-insurance-blue px-6 py-3 rounded-xl font-semibold hover:bg-insurance-blue hover:text-white transition-all duration-200 inline-flex items-center justify-center shadow-sm">
+                  <ArrowRight className="w-5 h-5 mr-2" /> Get Free Quote
                 </button>
               </div>
             </div>

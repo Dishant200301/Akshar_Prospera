@@ -55,16 +55,16 @@ const FinalCTASection = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12">
-            <button className="group px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-bold text-base rounded-xl shadow-xl hover:shadow-blue-500/25 transition-all duration-300 hover:scale-105 hover:from-blue-400 hover:to-cyan-400 flex items-center">
+            <button className="bg-insurance-blue text-white px-8 py-4 rounded-xl font-semibold hover:bg-insurance-blue/90 transition-all duration-200 inline-flex items-center justify-center shadow-sm">
               <Shield className="w-5 h-5 mr-2" />
               Talk to an Advisor
-              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 ml-2" />
             </button>
             
-            <button className="group px-8 py-4 bg-white border-2 border-gray-200 text-slate-700 font-bold text-base rounded-xl hover:bg-gray-50 hover:text-slate-900 transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center">
+            <button className="bg-white text-insurance-blue border-2 border-insurance-blue px-8 py-4 rounded-xl font-semibold hover:bg-insurance-blue hover:text-white transition-all duration-200 inline-flex items-center justify-center shadow-sm">
               <ArrowRight className="w-5 h-5 mr-2" />
               Get Free Quote
-              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 ml-2" />
             </button>
           </div>
 

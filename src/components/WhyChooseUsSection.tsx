@@ -108,9 +108,9 @@ const WhyChooseUsSection = () => {
         </div>
 
         <div className="text-center">
-          <button className="group px-6 py-3 bg-white border-2 border-gray-200 text-slate-700 font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:bg-gray-50 hover:text-slate-900 hover:border-blue-300 flex items-center mx-auto">
+          <button className="px-6 py-3 bg-white text-insurance-blue border-2 border-insurance-blue rounded-lg font-semibold hover:bg-insurance-blue hover:text-white transition-all duration-200 inline-flex items-center mx-auto shadow-sm">
             Learn More About Us
-            <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-4 h-4 ml-2" />
           </button>
         </div>
       </div>

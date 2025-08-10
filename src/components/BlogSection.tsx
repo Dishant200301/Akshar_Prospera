@@ -70,8 +70,9 @@ const BlogSection = () => {
         </div>
 
         <div className="text-center mt-12">
-          <a href="/blogs" className="btn-outline inline-block">
+          <a href="/blogs" className="inline-flex items-center px-6 py-3 bg-white text-insurance-blue border-2 border-insurance-blue rounded-lg font-semibold hover:bg-insurance-blue hover:text-white transition-all duration-200 shadow-sm">
             View All Blogs
+            <ArrowRight className="w-4 h-4 ml-2" />
           </a>
         </div>
       </div>

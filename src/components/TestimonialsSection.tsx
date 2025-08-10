@@ -154,7 +154,7 @@ const TestimonialsSection: React.FC = () => {
         <div className="mt-12 text-center">
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 rounded-full bg-insurance-blue text-white px-6 py-3 text-sm font-medium shadow-md hover:shadow-lg transition-shadow"
+            className="inline-flex items-center gap-2 rounded-full bg-insurance-blue text-white px-6 py-3 text-sm font-medium shadow-sm hover:bg-insurance-blue/90 transition-all duration-200"
           >
             Get a free consultation
           </a>
