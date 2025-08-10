@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Clock, Shield, Award, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Shield, Award, Send, MessageSquare } from 'lucide-react';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -26,9 +26,13 @@ const ContactSection = () => {
   };
 
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding bg-gray-50">
       <div className="container-custom">
         <div className="text-center mb-16">
+          <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
+            <MessageSquare className="w-4 h-4 mr-2" />
+            Get In Touch
+          </div>
           <h2 className="text-section-title">Get Your Free Quote Today</h2>
           <p className="text-section-subtitle max-w-3xl mx-auto">
             Ready to protect what matters most? Contact our licensed advisors for a 

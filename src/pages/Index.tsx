@@ -5,7 +5,7 @@ import HeroSection from '../components/HeroSection';
 import ServicesSection from '../components/ServicesSection';
 import WhyChooseUsSection from '../components/WhyChooseUsSection';
 import TestimonialsSection from '../components/TestimonialsSection';
-import EducationalResourceSection from '../components/EducationalResourceSection';
+import BlogSection from '../components/BlogSection';
 import FinalCTASection from '../components/FinalCTASection';
 import ContactSection from '../components/ContactSection';
 import AdvisorSection from '../components/AdvisorSection';
@@ -42,7 +42,7 @@ const Index = () => {
       <ServicesSection />
       <WhyChooseUsSection />
       <TestimonialsSection />
-      <EducationalResourceSection />
+      <BlogSection />
       <FinalCTASection />
       <ContactSection />
       <AdvisorSection />

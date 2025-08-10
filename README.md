@@ -6,7 +6,7 @@ A modern, premium, and trustworthy website for Akshar Prospera, a professional i
 
 ### Navigation/Header
 - **Sticky top navigation** with multi-level hover-triggered mega menu
-- **Top-level menu items**: Home, Services, About Us, Resources, Contact
+- **Top-level menu items**: Home, Services, About Us, Blogs, Contact
 - **Services mega dropdown** with two-column layout:
   - Left column: Insurance types (Health, Travel, Visitor Visa, Other Plans)
   - Right column: Dynamic panel with descriptions and features

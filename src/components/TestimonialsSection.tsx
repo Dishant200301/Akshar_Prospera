@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Star, ChevronLeft, ChevronRight, MessageCircle } from 'lucide-react';
 
 const TestimonialsSection = () => {
   const testimonials = [
@@ -30,6 +30,10 @@ const TestimonialsSection = () => {
     <section className="section-padding bg-gray-50">
       <div className="container-custom">
         <div className="text-center mb-16">
+          <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
+            <MessageCircle className="w-4 h-4 mr-2" />
+            Client Testimonials
+          </div>
           <h2 className="text-section-title">What Our Clients Say</h2>
           <p className="text-section-subtitle max-w-3xl mx-auto">
             Don't just take our word for it. Here's what our satisfied customers have to say about their experience.
@@ -38,7 +42,7 @@ const TestimonialsSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-white rounded-xl p-6 shadow-card hover:shadow-card-hover transition-shadow duration-300">
+            <div key={index} className="bg-gradient-to-br from-blue-50 to-cyan-50 border-2 border-gray-200 rounded-xl p-6 shadow-card hover:shadow-card-hover transition-shadow duration-300">
               <div className="flex mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star key={i} className="w-5 h-5 text-insurance-gold fill-current" />
