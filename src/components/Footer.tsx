@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Shield, Phone, Mail, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
 
@@ -17,7 +16,7 @@ const Footer = () => {
                   <div className="w-1 h-1 bg-white rounded-full"></div>
                 </div>
               </div>
-              <span className="text-xl font-bold">NorthGuard Insurance</span>
+              <span className="text-xl font-bold">Akshar Prospera</span>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
               Protecting your health, travel, and future across North America with 
@@ -72,16 +71,16 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <Phone className="w-5 h-5 text-insurance-blue mt-1 flex-shrink-0" />
                 <div>
-                  <div className="text-white font-medium">1-800-NORTHGUARD</div>
-                  <div className="text-gray-300 text-sm">(1-800-667-8442)</div>
+                  <div className="text-white font-medium">1-800-AKSHAR-PRO</div>
+                  <div className="text-gray-300 text-sm">(1-800-257-4277)</div>
                 </div>
               </div>
               
               <div className="flex items-start space-x-3">
                 <Mail className="w-5 h-5 text-insurance-blue mt-1 flex-shrink-0" />
                 <div>
-                  <div className="text-white font-medium">quotes@northguard.com</div>
-                  <div className="text-gray-300 text-sm">support@northguard.com</div>
+                  <div className="text-white font-medium">quotes@aksharprospera.com</div>
+                  <div className="text-gray-300 text-sm">support@aksharprospera.com</div>
                 </div>
               </div>
 
@@ -140,7 +139,7 @@ const Footer = () => {
         <div className="py-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
             <div className="text-gray-300 text-sm">
-              © 2024 NorthGuard Insurance. All rights reserved.
+              © 2024 Akshar Prospera. All rights reserved.
             </div>
             <div className="flex items-center space-x-6 text-sm">
               <a href="/privacy" className="text-gray-300 hover:text-white transition-colors">Privacy Policy</a>

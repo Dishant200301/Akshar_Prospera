@@ -46,7 +46,7 @@ const Navigation = () => {
                 <div className="w-1 h-1 bg-white rounded-full"></div>
               </div>
             </div>
-            <span className="text-xl font-bold text-gray-900">NorthGuard Insurance</span>
+            <span className="text-xl font-bold text-gray-900">Akshar Prospera</span>
           </div>
 
           {/* Desktop Menu */}
