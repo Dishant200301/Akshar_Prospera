@@ -102,7 +102,7 @@ const TestimonialsSection: React.FC = () => {
             <MessageCircle className="w-4 h-4 mr-2" />
             Client Testimonials
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Trusted by Customers Who Value Clarity</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">What Our Customers Say</h2>
           <p className="text-section-subtitle max-w-3xl mx-auto">
             Real stories from people who simplified insurance with the right guidance.
           </p>
@@ -154,7 +154,7 @@ const TestimonialsSection: React.FC = () => {
         <div className="mt-12 text-center">
           <a
             href="#contact"
-            className="bg-white text-insurance-blue border-2 border-insurance-blue px-6 py-3 rounded-xl font-semibold hover:bg-insurance-blue hover:text-white transition-all duration-200 inline-flex items-center justify-center shadow-sm"
+            className="bg-white text-blue-600 border-2 border-blue-600 px-6 py-3 rounded-xl font-semibold hover:from-blue-600 hover:to-indigo-600 hover:text-white hover:bg-gradient-to-r transition-all duration-200 inline-flex items-center justify-center shadow-sm"
           >
             Get a free consultation
           </a>

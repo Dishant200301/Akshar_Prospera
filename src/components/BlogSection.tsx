@@ -31,7 +31,7 @@ const BlogSection = () => {
             <Lightbulb className="w-4 h-4 mr-2" />
             Blogs
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Insurance Insights & Tips</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Insurance Insights & Tips</h2>
           <p className="text-section-subtitle max-w-3xl mx-auto">
             Stay informed with our latest articles and guides to help you make the best insurance decisions.
           </p>
@@ -70,7 +70,7 @@ const BlogSection = () => {
         </div>
 
         <div className="text-center mt-12">
-          <a href="/blogs" className="bg-white text-insurance-blue border-2 border-insurance-blue px-6 py-3 rounded-xl font-semibold hover:bg-insurance-blue hover:text-white transition-all duration-200 inline-flex items-center justify-center shadow-sm">
+          <a href="/blogs" className="bg-white text-blue-600 border-2 border-blue-600 px-6 py-3 rounded-xl font-semibold hover:from-blue-600 hover:to-indigo-600 hover:text-white hover:bg-gradient-to-r transition-all duration-200 inline-flex items-center justify-center shadow-sm">
             View All Blogs
           </a>
         </div>

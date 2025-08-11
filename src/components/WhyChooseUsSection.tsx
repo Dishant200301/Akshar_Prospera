@@ -68,9 +68,9 @@ const WhyChooseUsSection = () => {
             <Star className="w-4 h-4 mr-2" />
             Why Choose Us
           </div>
-                      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              The Trusted Choice for
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> Insurance Excellence</span>
+                      <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Why Choose
+              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> Akshar Prospera</span>
             </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             We're committed to providing you with the best insurance experience through personalized service and comprehensive coverage.
@@ -94,7 +94,7 @@ const WhyChooseUsSection = () => {
                   }}
                 >
                   {/* Icon */}
-                  <div className={`w-16 h-16 bg-gradient-to-br ${benefit.color} rounded-xl flex items-center justify-center mb-4 shadow-lg`}>
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center mb-4 shadow-lg">
                     <benefit.icon className="w-8 h-8 text-white" />
                   </div>
                   
@@ -108,7 +108,7 @@ const WhyChooseUsSection = () => {
         </div>
 
         <div className="text-center">
-          <button className="bg-white text-insurance-blue border-2 border-insurance-blue px-6 py-3 rounded-xl font-semibold hover:bg-insurance-blue hover:text-white transition-all duration-200 inline-flex items-center justify-center shadow-sm mx-auto">
+          <button className="bg-white text-blue-600 border-2 border-blue-600 px-6 py-3 rounded-xl font-semibold hover:from-blue-600 hover:to-indigo-600 hover:text-white hover:bg-gradient-to-r transition-all duration-200 inline-flex items-center justify-center shadow-sm mx-auto">
             Learn More About Us
             <ArrowRight className="w-4 h-4 ml-2" />
           </button>

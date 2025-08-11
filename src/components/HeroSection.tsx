@@ -38,7 +38,7 @@ const HeroSection = () => {
 
               {/* Main Headline */}
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-slate-800 mb-8 leading-tight">
-                <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
                   Secure Your
                 </span>
                 <br />
@@ -48,18 +48,18 @@ const HeroSection = () => {
               {/* Subheadline */}
               <p className="text-xl md:text-2xl text-slate-600 mb-12 leading-relaxed font-light">
                 Comprehensive insurance solutions that protect your family's future, 
-                <span className="text-blue-600 font-semibold"> health, and dreams</span> across 
-                <span className="text-blue-600 font-semibold"> Canada & USA</span>. 
+                <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent font-semibold"> health, and dreams</span> across 
+                <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent font-semibold"> Canada & USA</span>. 
                 Your trusted partner in life's uncertainties.
               </p>
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
-                <button className="bg-insurance-blue text-white px-6 py-3 rounded-xl font-semibold hover:bg-insurance-blue/90 transition-all duration-200 inline-flex items-center justify-center shadow-sm">
+                <button className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-blue-500 hover:to-indigo-500 transition-all duration-200 inline-flex items-center justify-center shadow-sm">
                   <ArrowRight className="w-5 h-5 mr-2" /> Talk to an Advisor
                 </button>
                 
-                <button className="bg-white text-insurance-blue border-2 border-insurance-blue px-6 py-3 rounded-xl font-semibold hover:bg-insurance-blue hover:text-white transition-all duration-200 inline-flex items-center justify-center shadow-sm">
+                <button className="bg-white text-blue-600 border-2 border-blue-600 px-6 py-3 rounded-xl font-semibold hover:from-blue-600 hover:to-indigo-600 hover:text-white hover:bg-gradient-to-r transition-all duration-200 inline-flex items-center justify-center shadow-sm">
                   <ArrowRight className="w-5 h-5 mr-2" /> Get Free Quote
                 </button>
               </div>

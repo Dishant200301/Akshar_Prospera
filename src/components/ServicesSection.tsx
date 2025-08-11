@@ -85,9 +85,9 @@ const ServicesSection = () => {
             <Star className="w-4 h-4 mr-2" />
             Our Premium Services
           </div>
-                      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Insurance Solutions That
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> Protect Everything</span>
+                      <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Comprehensive Insurance
+              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> Solutions</span>
             </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Comprehensive coverage designed to protect what matters most to you and your family, 
@@ -112,7 +112,7 @@ const ServicesSection = () => {
                   }}
                 >
                   {/* Icon */}
-                  <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-xl flex items-center justify-center mb-4 shadow-lg`}>
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center mb-4 shadow-lg">
                     <service.icon className="w-8 h-8 text-white" />
                   </div>
                   
@@ -132,7 +132,7 @@ const ServicesSection = () => {
                   {/* Button - Only this is clickable now */}
                   <Link 
                     to={service.href}
-                    className="w-full bg-white text-insurance-blue border-2 border-insurance-blue py-3 px-4 rounded-lg font-semibold hover:bg-insurance-blue hover:text-white transition-all duration-200 inline-flex items-center justify-center text-sm shadow-sm"
+                    className="w-full bg-white text-blue-600 border-2 border-blue-600 py-3 px-4 rounded-lg font-semibold hover:from-blue-600 hover:to-indigo-600 hover:text-white hover:bg-gradient-to-r transition-all duration-200 inline-flex items-center justify-center text-sm shadow-sm"
                   >
                     <span className="mr-2">Learn More</span>
                     <ArrowRight className="w-4 h-4" />
