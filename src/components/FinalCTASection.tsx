@@ -5,7 +5,7 @@ const FinalCTASection = () => {
   return (
     <section className="py-24 bg-gray-50 relative overflow-hidden">
       {/* Clean, minimal background - removed busy animated elements */}
-      <div className="container mx-auto px-4 relative z-10">
+              <div className="container mx-auto px-10 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
           {/* Badge */}
           <div className="inline-flex items-center px-6 py-3 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-8">

@@ -25,13 +25,13 @@ const BlogSection = () => {
 
   return (
     <section className="section-padding bg-gray-50">
-      <div className="container-custom">
+              <div className="container mx-auto px-10">
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
             <Lightbulb className="w-4 h-4 mr-2" />
             Blogs
           </div>
-          <h2 className="text-section-title">Insurance Insights & Tips</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Insurance Insights & Tips</h2>
           <p className="text-section-subtitle max-w-3xl mx-auto">
             Stay informed with our latest articles and guides to help you make the best insurance decisions.
           </p>

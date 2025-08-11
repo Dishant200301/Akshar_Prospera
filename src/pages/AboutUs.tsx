@@ -46,7 +46,7 @@ const AboutUs: React.FC = () => {
               Our Values
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900">What We Stand For</h2>
-            <p className="text-gray-600 mt-3 max-w-2xl mx-auto">Principles that guide how we serve you.</p>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">Principles that guide how we serve you.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {values.map((v, i) => (
@@ -72,7 +72,7 @@ const AboutUs: React.FC = () => {
                 <Award className="w-4 h-4 mr-2" /> Trusted Advisors
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Families Choose Akshar Prospera</h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 We blend expert guidance with a warm, personal approach—so you get clear advice, flexible options,
                 and support at every step for health, travel, visitor, and life insurance.
               </p>
@@ -125,11 +125,10 @@ const AboutUs: React.FC = () => {
                 <Users className="w-4 h-4 mr-2" />
                 Meet Your Expert Advisor
               </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                 Your Trusted
                 <span className="bg-gradient-to-r from-insurance-blue to-insurance-blue-accent bg-clip-text text-transparent"> Insurance</span>
-                <br />
-                <span className="text-gray-900">Advisor</span>
+                <span className="text-gray-900"> Advisor</span>
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 Meet the dedicated professional who will guide you through every step of your insurance journey

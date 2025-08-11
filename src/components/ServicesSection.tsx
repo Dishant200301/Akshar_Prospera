@@ -79,16 +79,16 @@ const ServicesSection = () => {
 
   return (
     <section className="py-24 bg-gray-50">
-      <div className="container mx-auto px-4">
+              <div className="container mx-auto px-10">
         <div className="text-center mb-20">
           <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
             <Star className="w-4 h-4 mr-2" />
             Our Premium Services
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-            Insurance Solutions That
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> Protect Everything</span>
-          </h2>
+                      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Insurance Solutions That
+              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> Protect Everything</span>
+            </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Comprehensive coverage designed to protect what matters most to you and your family, 
             with personalized solutions for every stage of life.
@@ -117,8 +117,7 @@ const ServicesSection = () => {
                   </div>
                   
                   {/* Content */}
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed text-base">{service.description}</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">{service.title}</h3>
                   
                   {/* Features */}
                   <div className="space-y-2 mb-6">
