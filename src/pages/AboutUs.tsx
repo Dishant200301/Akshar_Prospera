@@ -75,6 +75,17 @@ const AboutUs: React.FC = () => {
               </div>
             ))}
           </div>
+          
+          {/* Additional descriptive text */}
+          <div className="mt-12 text-center max-w-4xl mx-auto">
+            <p className="text-lg text-gray-700 leading-relaxed">
+              These core values aren't just words on paper—they're the foundation of every interaction we have with our clients. 
+              When you choose Akshar Prospera, you're choosing a partner who puts your family's security above everything else. 
+              We believe that exceptional service isn't about selling policies; it's about building lasting relationships based on 
+              trust, understanding, and genuine care for your future. Every decision we make, every recommendation we provide, 
+              and every policy we help you choose is guided by these principles.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -116,6 +127,18 @@ const AboutUs: React.FC = () => {
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">End‑to‑End Support</h3>
                 <p className="text-gray-600">From quotes to claims, we handle details so you stay confident.</p>
               </div>
+            </div>
+            
+            {/* Additional descriptive text */}
+            <div className="mt-12 text-center max-w-4xl mx-auto">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Choosing the right insurance partner is one of the most important decisions your family will make. 
+                At Akshar Prospera, we understand that every family is unique, with different needs, goals, and 
+                circumstances. That's why we don't offer one-size-fits-all solutions—we take the time to truly 
+                understand your situation and craft protection strategies that fit your life perfectly. Our approach 
+                goes beyond simply comparing policies and premiums, becoming your trusted advisor who educates you 
+                about options and ensures confident decision-making for your family's protection.
+              </p>
             </div>
 
 
