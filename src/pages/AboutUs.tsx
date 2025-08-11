@@ -255,6 +255,9 @@ const AboutUs: React.FC = () => {
                       <span className="inline-flex items-center px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-insurance-blue hover:text-insurance-blue transition-colors">Canada</span>
                       <span className="inline-flex items-center px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-insurance-blue hover:text-insurance-blue transition-colors">United States</span>
                     </div>
+                  
+                  
+                  
                   </div>
                   
                   <div className="space-y-4 text-center">
