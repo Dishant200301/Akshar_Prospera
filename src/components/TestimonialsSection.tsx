@@ -102,7 +102,11 @@ const TestimonialsSection: React.FC = () => {
             <MessageCircle className="w-4 h-4 mr-2" />
             Client Testimonials
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">What Our Customers Say</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            What Our
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> Customers</span>
+            <span className="text-gray-900"> Say</span>
+          </h2>
           <p className="text-section-subtitle max-w-3xl mx-auto">
             Real stories from people who simplified insurance with the right guidance.
           </p>

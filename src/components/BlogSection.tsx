@@ -31,7 +31,11 @@ const BlogSection = () => {
             <Lightbulb className="w-4 h-4 mr-2" />
             Blogs
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Insurance Insights & Tips</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Insurance
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> Insights</span>
+            <span className="text-gray-900"> & Tips</span>
+          </h2>
           <p className="text-section-subtitle max-w-3xl mx-auto">
             Stay informed with our latest articles and guides to help you make the best insurance decisions.
           </p>

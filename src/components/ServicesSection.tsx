@@ -86,8 +86,9 @@ const ServicesSection = () => {
             Our Premium Services
           </div>
                       <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Comprehensive Insurance
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> Solutions</span>
+              Comprehensive
+              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> Insurance</span>
+              <span className="text-gray-900"> Solutions</span>
             </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Comprehensive coverage designed to protect what matters most to you and your family, 

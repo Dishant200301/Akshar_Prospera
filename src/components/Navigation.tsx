@@ -69,7 +69,7 @@ const Navigation = () => {
           {/* Logo */}
           <a href="/" className="flex items-center space-x-3">
             <div className="relative">
-              <div className="w-8 h-8 bg-gradient-to-br from-insurance-blue to-insurance-blue-accent rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
                 <Shield className="w-5 h-5 text-white" />
               </div>
               {/* Maple Leaf (Canada) */}
@@ -232,7 +232,7 @@ const Navigation = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <button className="btn-primary bg-gradient-to-r from-insurance-blue to-insurance-blue-accent hover:from-insurance-blue-dark hover:to-insurance-blue-hover">
+            <button className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-2 rounded-lg font-medium hover:from-blue-500 hover:to-indigo-500 transition-all duration-200">
               Talk to an Advisor
             </button>
           </div>
@@ -325,7 +325,7 @@ const Navigation = () => {
               }`}>
                 Contact
               </a>
-              <button className="btn-primary w-full mt-4">
+              <button className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-2 rounded-lg font-medium hover:from-blue-500 hover:to-indigo-500 transition-all duration-200 w-full mt-4">
                 Talk to an Advisor
               </button>
             </div>
