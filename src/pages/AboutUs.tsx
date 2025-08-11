@@ -37,6 +37,22 @@ const AboutUs: React.FC = () => {
           </div>
         </div>
       </section>
+      {/* Statistics */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+              {highlights.map((item, i) => (
+                <div key={i} className="text-center p-6 rounded-xl border-2 border-gray-100 shadow-sm bg-white hover:shadow-md transition-shadow">
+                  <div className="text-3xl font-extrabold text-insurance-blue">{item.value}</div>
+                  <div className="text-sm text-gray-600 mt-1">{item.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Our Values */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
@@ -102,15 +118,7 @@ const AboutUs: React.FC = () => {
               </div>
             </div>
 
-            {/* Key metrics (moved highlights here) */}
-            <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
-              {highlights.map((item, i) => (
-                <div key={i} className="text-center p-6 rounded-xl border-2 border-gray-100 shadow-sm bg-gradient-to-br from-white to-slate-50">
-                  <div className="text-3xl font-extrabold text-insurance-blue">{item.value}</div>
-                  <div className="text-sm text-gray-600 mt-1">{item.label}</div>
-                </div>
-              ))}
-            </div>
+
           </div>
         </div>
       </section>
@@ -125,9 +133,7 @@ const AboutUs: React.FC = () => {
                 Meet Your Expert Advisor
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-                Your Trusted
-                <span className="bg-gradient-to-r from-insurance-blue to-insurance-blue-accent bg-clip-text text-transparent"> Insurance</span>
-                <span className="text-gray-900"> Advisor</span>
+                Your Trusted <span className="bg-gradient-to-r from-insurance-blue to-insurance-blue-accent bg-clip-text text-transparent">Insurance</span> Advisor
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 Meet the dedicated professional who will guide you through every step of your insurance journey
@@ -137,43 +143,40 @@ const AboutUs: React.FC = () => {
             {/* Profile Card */}
             <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden max-w-5xl mx-auto">
               {/* Header Section */}
-              <div className="relative">
-                {/* Profile Info */}
-                <div className="px-6 md:px-10 pt-8 pb-6">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-                    {/* Profile Avatar and Name */}
-                    <div className="flex items-center gap-6">
-                      <div className="w-28 h-28 bg-gradient-to-br from-insurance-blue to-insurance-blue-accent rounded-full p-2 shadow-xl ring-4 ring-gray-100">
-                        <div className="w-full h-full rounded-full bg-gradient-to-br from-insurance-blue to-insurance-blue-accent flex items-center justify-center text-white text-4xl font-bold">AI</div>
-                      </div>
-                      <div>
-                        <h3 className="text-4xl font-bold text-gray-900 mb-2">Arun Isamaliya</h3>
-                        <div className="text-xl text-insurance-blue font-semibold">Founder & Lead Advisor</div>
-                      </div>
+              <div className="px-6 py-4">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                  {/* Profile Avatar and Name */}
+                  <div className="flex items-center gap-6">
+                    <div className="w-28 h-28 bg-gradient-to-br from-insurance-blue to-insurance-blue-accent rounded-full p-2 shadow-xl ring-4 ring-gray-100">
+                      <div className="w-full h-full rounded-full bg-gradient-to-br from-insurance-blue to-insurance-blue-accent flex items-center justify-center text-white text-4xl font-bold">AI</div>
                     </div>
-                    
-                    {/* Action Buttons */}
-                    <div className="flex flex-col sm:flex-row gap-3 md:justify-end">
-                      <button className="bg-white text-insurance-blue border-2 border-insurance-blue px-6 py-3 rounded-xl font-semibold hover:bg-insurance-blue hover:text-white transition-all duration-200 inline-flex items-center justify-center shadow-sm">
-                        <Phone className="w-5 h-5 mr-2" /> Call Arun
-                      </button>
-                      <button className="bg-insurance-blue text-white px-6 py-3 rounded-xl font-semibold hover:bg-insurance-blue/90 transition-all duration-200 inline-flex items-center justify-center shadow-sm">
-                        <Mail className="w-5 h-5 mr-2" /> Email Arun
-                      </button>
+                    <div>
+                      <h3 className="text-4xl font-bold text-gray-900 mb-2">Arun Isamaliya</h3>
+                      <div className="text-xl text-insurance-blue font-semibold">Founder & Lead Advisor</div>
                     </div>
+                  </div>
+                  
+                  {/* Action Buttons */}
+                  <div className="flex flex-col sm:flex-row gap-3 md:justify-end">
+                    <button className="bg-white text-insurance-blue border-2 border-insurance-blue px-6 py-3 rounded-xl font-semibold hover:bg-insurance-blue hover:text-white transition-all duration-200 inline-flex items-center justify-center shadow-sm">
+                      <Phone className="w-5 h-5 mr-2" /> Call Arun
+                    </button>
+                    <button className="bg-insurance-blue text-white px-6 py-3 rounded-xl font-semibold hover:bg-insurance-blue/90 transition-all duration-200 inline-flex items-center justify-center shadow-sm">
+                      <Mail className="w-5 h-5 mr-2" /> Email Arun
+                    </button>
                   </div>
                 </div>
               </div>
 
               {/* Content Section */}
-              <div className="px-6 md:px-10 pt-8 pb-10">
+              <div className="px-6 py-4">
                 {/* Description */}
-                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                <p className="text-lg text-gray-600 mb-4 leading-relaxed">
                   Trusted advisor helping families across Canada and the U.S. choose clear, right‑fit coverage.
                 </p>
 
                 {/* Statistics Row */}
-                <div className="grid grid-cols-3 gap-6 mb-10">
+                <div className="grid grid-cols-3 gap-6 mb-6">
                   <div className="bg-gradient-to-br from-slate-50 to-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
                     <div className="text-3xl font-bold text-insurance-blue mb-1">15+</div>
                     <div className="text-sm text-gray-600 font-medium">Years</div>
@@ -189,8 +192,8 @@ const AboutUs: React.FC = () => {
                 </div>
 
                 {/* Specialties and Credentials */}
-                <div className="grid md:grid-cols-2 gap-8 mb-10">
-                  <div className="bg-white rounded-2xl border-2 border-gray-100 p-8 shadow-sm hover:shadow-md transition-shadow">
+                <div className="grid md:grid-cols-2 gap-6 mb-6">
+                  <div className="bg-white rounded-2xl border-2 border-gray-100 p-6 shadow-sm hover:shadow-md transition-shadow">
                     <h4 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
                       <CheckCircle className="w-5 h-5 text-green-500" />
                       Specialties
@@ -211,7 +214,7 @@ const AboutUs: React.FC = () => {
                     </ul>
                   </div>
                   
-                  <div className="bg-white rounded-2xl border-2 border-gray-100 p-8 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="bg-white rounded-2xl border-2 border-gray-100 p-6 shadow-sm hover:shadow-md transition-shadow">
                     <h4 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
                       <Shield className="w-5 h-5 text-insurance-blue" />
                       Licenses & Credentials
@@ -230,7 +233,7 @@ const AboutUs: React.FC = () => {
                 </div>
 
                 {/* Additional Information */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center">
                   <div className="space-y-4 text-center">
                     <h5 className="text-lg font-semibold text-gray-900 flex items-center justify-center gap-2">
                       <Users className="w-5 h-5 text-insurance-blue" />
@@ -266,24 +269,6 @@ const AboutUs: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Signature Quote */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto relative">
-            <div className="absolute -top-6 -left-6 w-32 h-32 bg-insurance-blue/10 rounded-full blur-2xl"></div>
-            <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-insurance-blue-accent/10 rounded-full blur-2xl"></div>
-            <div className="relative rounded-3xl border-2 border-gray-100 bg-white p-10 text-center shadow-xl">
-              <div className="text-4xl text-insurance-blue mb-4">“</div>
-              <p className="text-2xl md:text-3xl font-semibold text-gray-900 leading-snug">
-                Your financial security is my mission. Let's build a protected future for you and your family.
-              </p>
-              <div className="mt-5 text-insurance-blue font-bold">- Arun Isamaliya</div>
-              <div className="text-gray-500 text-sm">Founder & Lead Advisor</div>
             </div>
           </div>
         </div>
