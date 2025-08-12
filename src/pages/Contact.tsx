@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
-import { Mail, Phone, MapPin, Clock, MessageSquare, Send, CheckCircle, Users, Target, Shield } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, MessageSquare, Send, CheckCircle } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -82,33 +82,6 @@ const Contact = () => {
     'Other'
   ];
 
-  const contactMethods = [
-    {
-      icon: Phone,
-      title: 'Call Us Directly',
-      desc: 'Speak with an insurance expert immediately for urgent matters.',
-      action: 'Call Now',
-      href: 'tel:+14165550123',
-      color: 'from-blue-600 to-indigo-600'
-    },
-    {
-      icon: Mail,
-      title: 'Email Support',
-      desc: 'Send us a detailed message and we\'ll respond within 24 hours.',
-      action: 'Send Email',
-      href: 'mailto:info@aksharprospera.com',
-      color: 'from-blue-600 to-indigo-600'
-    },
-    {
-      icon: MapPin,
-      title: 'Visit Our Office',
-      desc: 'Schedule an in-person consultation at our Toronto location.',
-      action: 'Get Directions',
-      href: '#',
-      color: 'from-blue-600 to-indigo-600'
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
@@ -125,37 +98,6 @@ const Contact = () => {
             <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto">
               Ready to protect what matters most? Our insurance experts are here to help you find the perfect coverage for your needs.
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Methods Overview */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-10">
-            <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
-              <Users className="w-4 h-4 mr-2" />
-              Multiple Ways to Connect
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Choose Your <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Preferred Method</span></h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">We offer multiple channels to ensure you can reach us in the way that's most convenient for you.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {contactMethods.map((method, i) => (
-              <div key={i} className="p-8 rounded-2xl border-2 border-gray-200 bg-white shadow-card hover:shadow-lg transition-all">
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center mb-4">
-                  <method.icon className="w-7 h-7" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{method.title}</h3>
-                <p className="text-gray-600 mb-4">{method.desc}</p>
-                <a
-                  href={method.href}
-                  className="inline-flex items-center bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-blue-500 hover:to-indigo-500 transition-all duration-200 shadow-sm"
-                >
-                  {method.action}
-                </a>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -357,48 +299,6 @@ const Contact = () => {
                   <p className="text-gray-500 text-lg">Interactive Map Coming Soon</p>
                   <p className="text-gray-400 text-sm">123 Financial District, Toronto, ON M5X 1A1</p>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Response Time Promise */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-10">
-              <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
-                <Shield className="w-4 h-4 mr-2" />
-                Our Commitment
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">We Promise <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Quick Response</span></h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Your time is valuable. We commit to responding to all inquiries within 24 hours, with urgent matters addressed immediately.
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="p-8 rounded-2xl border-2 border-gray-200 bg-white shadow-card text-center">
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center mb-4 mx-auto">
-                  <Clock className="w-7 h-7" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">24-Hour Response</h3>
-                <p className="text-gray-600">All inquiries answered within one business day</p>
-              </div>
-              <div className="p-8 rounded-2xl border-2 border-gray-200 bg-white shadow-card text-center">
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center mb-4 mx-auto">
-                  <Phone className="w-7 h-7" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Immediate Support</h3>
-                <p className="text-gray-600">Urgent matters handled right away</p>
-              </div>
-              <div className="p-8 rounded-2xl border-2 border-gray-200 bg-white shadow-card text-center">
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center mb-4 mx-auto">
-                  <Target className="w-7 h-7" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Personal Touch</h3>
-                <p className="text-gray-600">Direct access to your dedicated advisor</p>
               </div>
             </div>
           </div>
