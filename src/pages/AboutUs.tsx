@@ -192,105 +192,61 @@ const AboutUs: React.FC = () => {
               </div>
 
               {/* Content Section */}
-              <div className="px-6 py-4">
+              <div className="px-6 py-6">
                 {/* Description */}
-                <p className="text-lg text-gray-600 mb-4 leading-relaxed">
+                <p className="text-lg text-gray-600 mb-8 leading-relaxed text-center">
                   Trusted advisor helping families across Canada and the U.S. choose clear, right‑fit coverage.
                 </p>
 
                 {/* Statistics Row */}
-                <div className="grid grid-cols-3 gap-6 mb-6">
-                  <div className="bg-gradient-to-br from-slate-50 to-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-                    <div className="text-3xl font-bold text-insurance-blue mb-1">15+</div>
+                <div className="grid grid-cols-3 gap-4 mb-8">
+                  <div className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-4 text-center border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div className="text-2xl font-bold text-insurance-blue mb-1">15+</div>
                     <div className="text-sm text-gray-600 font-medium">Years</div>
                   </div>
-                  <div className="bg-gradient-to-br from-slate-50 to-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-                    <div className="text-3xl font-bold text-insurance-blue mb-1">10k+</div>
+                  <div className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-4 text-center border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div className="text-2xl font-bold text-insurance-blue mb-1">10k+</div>
                     <div className="text-sm text-gray-600 font-medium">Families</div>
                   </div>
-                  <div className="bg-gradient-to-br from-slate-50 to-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-                    <div className="text-3xl font-bold text-insurance-blue mb-1">4.9★</div>
+                  <div className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-4 text-center border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div className="text-2xl font-bold text-insurance-blue mb-1">4.9★</div>
                     <div className="text-sm text-gray-600 font-medium">Rating</div>
                   </div>
                 </div>
 
-                {/* Specialties and Credentials */}
-                <div className="grid md:grid-cols-2 gap-6 mb-6">
-                  <div className="bg-white rounded-2xl border-2 border-gray-100 p-6 shadow-sm hover:shadow-md transition-shadow">
-                    <h4 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                      <CheckCircle className="w-5 h-5 text-green-500" />
-                      Specialties
-                    </h4>
-                    <ul className="space-y-3 text-gray-700">
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span>Health Insurance Planning</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span>Travel & Visitor Coverage</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span>Family Life Insurance</span>
-                      </li>
-                    </ul>
-                  </div>
-                  
-                  <div className="bg-white rounded-2xl border-2 border-gray-100 p-6 shadow-sm hover:shadow-md transition-shadow">
-                    <h4 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                      <Shield className="w-5 h-5 text-insurance-blue" />
-                      Licenses & Credentials
-                    </h4>
-                    <ul className="space-y-3 text-gray-700">
-                      <li className="flex items-start gap-3">
-                        <Shield className="w-4 h-4 text-insurance-blue mt-0.5 flex-shrink-0" />
-                        <span>Licensed Advisor: Canada & USA</span>
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <Award className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" />
-                        <span>15+ Years Experience</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
                 {/* Additional Information */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center">
-                  <div className="space-y-4 text-center">
-                    <h5 className="text-lg font-semibold text-gray-900 flex items-center justify-center gap-2">
-                      <Users className="w-5 h-5 text-insurance-blue" />
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="space-y-3 text-center">
+                    <h5 className="text-base font-semibold text-gray-900 flex items-center justify-center gap-2">
+                      <Users className="w-4 h-4 text-insurance-blue" />
                       Languages
                     </h5>
                     <div className="flex flex-wrap gap-2 justify-center">
-                      <span className="inline-flex items-center px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-insurance-blue hover:text-insurance-blue transition-colors">English</span>
-                      <span className="inline-flex items-center px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-insurance-blue hover:text-insurance-blue transition-colors">Gujarati</span>
-                      <span className="inline-flex items-center px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-insurance-blue hover:text-insurance-blue transition-colors">Hindi</span>
+                      <span className="inline-flex items-center px-3 py-1.5 rounded-full border border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-insurance-blue hover:text-insurance-blue transition-colors">English</span>
+                      <span className="inline-flex items-center px-3 py-1.5 rounded-full border border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-insurance-blue hover:text-insurance-blue transition-colors">Gujarati</span>
+                      <span className="inline-flex items-center px-3 py-1.5 rounded-full border border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-insurance-blue hover:text-insurance-blue transition-colors">Hindi</span>
                     </div>
                   </div>
                   
-                  <div className="space-y-4 text-center">
-                    <h5 className="text-lg font-semibold text-gray-900 flex items-center justify-center gap-2">
-                      <Target className="w-5 h-5 text-insurance-blue" />
+                  <div className="space-y-3 text-center">
+                    <h5 className="text-base font-semibold text-gray-900 flex items-center justify-center gap-2">
+                      <Target className="w-4 h-4 text-insurance-blue" />
                       Serving
                     </h5>
                     <div className="flex flex-wrap gap-2 justify-center">
-                      <span className="inline-flex items-center px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-insurance-blue hover:text-insurance-blue transition-colors">Canada</span>
-                      <span className="inline-flex items-center px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-insurance-blue hover:text-insurance-blue transition-colors">United States</span>
+                      <span className="inline-flex items-center px-3 py-1.5 rounded-full border border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-insurance-blue hover:text-insurance-blue transition-colors">Canada</span>
+                      <span className="inline-flex items-center px-3 py-1.5 rounded-full border border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-insurance-blue hover:text-insurance-blue transition-colors">United States</span>
                     </div>
-                  
-                  
-                  
                   </div>
                   
-                  <div className="space-y-4 text-center">
-                    <h5 className="text-lg font-semibold text-gray-900 flex items-center justify-center gap-2">
-                      <CheckCircle className="w-5 h-5 text-insurance-blue" />
+                  <div className="space-y-3 text-center">
+                    <h5 className="text-base font-semibold text-gray-900 flex items-center justify-center gap-2">
+                      <CheckCircle className="w-4 h-4 text-insurance-blue" />
                       Availability
                     </h5>
                     <div className="flex flex-wrap gap-2 justify-center">
-                      <span className="inline-flex items-center px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-insurance-blue hover:text-insurance-blue transition-colors">Virtual Meetings</span>
-                      <span className="inline-flex items-center px-4 py-2 rounded-full border-2 border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-insurance-blue hover:text-insurance-blue transition-colors">In‑Person</span>
+                      <span className="inline-flex items-center px-3 py-1.5 rounded-full border border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-insurance-blue hover:text-insurance-blue transition-colors">Virtual Meetings</span>
+                      <span className="inline-flex items-center px-3 py-1.5 rounded-full border border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-insurance-blue hover:text-insurance-blue transition-colors">In‑Person</span>
                     </div>
                   </div>
                 </div>
