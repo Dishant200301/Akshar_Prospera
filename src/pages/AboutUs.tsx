@@ -209,8 +209,8 @@ const AboutUs: React.FC = () => {
                     <div className="text-sm text-gray-600 font-medium">Families</div>
                   </div>
                   <div className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-4 text-center border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-                    <div className="text-2xl font-bold text-insurance-blue mb-1">4.9★</div>
-                    <div className="text-sm text-gray-600 font-medium">Rating</div>
+                    <div className="text-2xl font-bold text-insurance-blue mb-1">25+</div>
+                    <div className="text-sm text-gray-600 font-medium">Team Members</div>
                   </div>
                 </div>
 
