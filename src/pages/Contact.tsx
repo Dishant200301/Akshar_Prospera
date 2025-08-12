@@ -234,43 +234,41 @@ const Contact = () => {
             </div>
 
             {/* Contact Information */}
-            <div className="space-y-6">
-              <div className="p-8 rounded-2xl border-2 border-gray-200 bg-white shadow-card">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Contact Information</h3>
-                <p className="text-gray-600 mb-6">
-                  Reach out to us through any of these channels. We're here to help you navigate your insurance journey.
-                </p>
+            <div className="p-8 rounded-2xl border-2 border-gray-200 bg-white shadow-card">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Contact Information</h3>
+              <p className="text-gray-600 mb-6">
+                Reach out to us through any of these channels. We're here to help you navigate your insurance journey.
+              </p>
 
-                <div className="space-y-6">
-                  {contactInfo.map((info, index) => (
-                    <div key={index} className="flex items-start space-x-4">
-                      <div className={`w-12 h-12 bg-gradient-to-br ${info.color} rounded-xl flex items-center justify-center flex-shrink-0`}>
-                        <info.icon className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <h4 className="text-lg font-semibold text-gray-900 mb-2">{info.title}</h4>
-                        {info.details.map((detail, detailIndex) => (
-                          <p key={detailIndex} className="text-gray-600 mb-1 last:mb-0">
-                            {detail}
-                          </p>
-                        ))}
-                      </div>
+              <div className="space-y-6 mb-8">
+                {contactInfo.map((info, index) => (
+                  <div key={index} className="flex items-start space-x-4">
+                    <div className={`w-12 h-12 bg-gradient-to-br ${info.color} rounded-xl flex items-center justify-center flex-shrink-0`}>
+                      <info.icon className="w-6 h-6 text-white" />
                     </div>
-                  ))}
-                </div>
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-2">{info.title}</h4>
+                      {info.details.map((detail, detailIndex) => (
+                        <p key={detailIndex} className="text-gray-600 mb-1 last:mb-0">
+                          {detail}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </div>
 
-              {/* Quick Contact CTA */}
-              <div className="bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl p-8 text-white shadow-card">
-                <h3 className="text-2xl font-bold mb-4">Need Immediate Assistance?</h3>
-                <p className="text-blue-100 mb-6">
+              {/* Quick Contact CTA - Now integrated into the same card */}
+              <div className="bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl p-6 text-white">
+                <h3 className="text-xl font-bold mb-3">Need Immediate Assistance?</h3>
+                <p className="text-blue-100 mb-4 text-sm">
                   For urgent insurance matters or immediate support, call our dedicated hotline.
                 </p>
                 <a
                   href="tel:+14165550123"
-                  className="inline-flex items-center bg-white text-blue-600 font-semibold px-6 py-3 rounded-xl hover:bg-gray-50 transition-colors duration-200 shadow-sm"
+                  className="inline-flex items-center bg-white text-blue-600 font-semibold px-5 py-2.5 rounded-lg hover:bg-gray-50 transition-colors duration-200 text-sm"
                 >
-                  <Phone className="w-5 h-5 mr-2" />
+                  <Phone className="w-4 h-4 mr-2" />
                   Call Now: +1 (416) 555-0123
                 </a>
               </div>
