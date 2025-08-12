@@ -257,33 +257,36 @@ const Contact = () => {
       </section>
 
       {/* Immediate Assistance Section */}
-      <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <div className="bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl p-8 md:p-12 text-white text-center shadow-card">
-              <h3 className="text-3xl md:text-4xl font-bold mb-4">Need Immediate Assistance?</h3>
-              <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-                For urgent insurance matters or immediate support, call our dedicated hotline. Our team is ready to help you 24/7.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a
-                  href="tel:+14165550123"
-                  className="inline-flex items-center bg-white text-blue-600 font-semibold px-8 py-4 rounded-xl hover:bg-gray-50 transition-colors duration-200 text-lg shadow-lg hover:shadow-xl"
-                >
-                  <Phone className="w-5 h-5 mr-3" />
-                  Call Now: +1 (416) 555-0123
-                </a>
-                <a
-                  href="tel:+16475550124"
-                  className="inline-flex items-center bg-blue-700 text-white font-semibold px-8 py-4 rounded-xl hover:bg-blue-800 transition-colors duration-200 text-lg shadow-lg hover:shadow-xl"
-                >
-                  <Phone className="w-5 h-5 mr-3" />
-                  Alternative: +1 (647) 555-0124
-                </a>
+            <div className="bg-white rounded-2xl border-2 border-gray-200 shadow-lg p-8 md:p-12">
+              <div className="text-center">
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Need Immediate Assistance?</h3>
+                <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                  For urgent insurance matters or immediate support, call our dedicated hotline.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
+                  <a
+                    href="tel:+14165550123"
+                    className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-blue-500 hover:to-indigo-500 transition-all duration-200 inline-flex items-center justify-center shadow-sm"
+                  >
+                    <Phone className="w-5 h-5 mr-2" />
+                    Call Now
+                  </a>
+                  <a
+                    href="tel:+16475550124"
+                    className="bg-white text-blue-600 border-2 border-blue-600 px-6 py-3 rounded-xl font-semibold hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-white transition-all duration-200 inline-flex items-center justify-center shadow-sm"
+                  >
+                    <Phone className="w-5 h-5 mr-2" />
+                    Alternative Line
+                  </a>
+                </div>
+                <div className="inline-flex items-center px-3 py-2 bg-gray-100 text-gray-600 rounded-lg text-sm">
+                  <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                  Available 24/7
+                </div>
               </div>
-              <p className="text-blue-200 text-sm mt-6">
-                Available 24/7 for emergency claims and urgent support
-              </p>
             </div>
           </div>
         </div>
