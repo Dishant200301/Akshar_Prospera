@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
-import { Mail, Phone, MapPin, Clock, MessageSquare, Send, CheckCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, MessageSquare, Send, CheckCircle } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -62,12 +62,6 @@ const Contact = () => {
       title: 'Office',
       details: ['123 Financial District', 'Toronto, ON M5X 1A1', 'Canada'],
       color: 'from-blue-600 to-indigo-600'
-    },
-    {
-      icon: Clock,
-      title: 'Business Hours',
-      details: ['Mon-Fri: 9:00 AM - 6:00 PM', 'Sat: 10:00 AM - 4:00 PM', 'Sun: Closed'],
-      color: 'from-blue-600 to-indigo-600'
     }
   ];
 
@@ -117,7 +111,7 @@ const Contact = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-7xl mx-auto">
             
             {/* Contact Form */}
-            <div className="space-y-6">
+            <div className="space-y-6 min-h-[400px]">
               <div className="p-8 rounded-2xl border-2 border-gray-200 bg-white shadow-card">
                 {isSubmitted ? (
                   <div className="bg-green-50 border border-green-200 rounded-xl p-8 text-center">
@@ -234,13 +228,13 @@ const Contact = () => {
             </div>
 
             {/* Contact Information */}
-            <div className="p-8 rounded-2xl border-2 border-gray-200 bg-white shadow-card">
+            <div className="p-8 rounded-2xl border-2 border-gray-200 bg-white shadow-card min-h-[400px]">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Contact Information</h3>
               <p className="text-gray-600 mb-6">
-                Reach out to us through any of these channels. We're here to help you navigate your insurance journey.
+                Get in touch with us through any of these channels.
               </p>
 
-              <div className="space-y-6 mb-8">
+              <div className="space-y-6">
                 {contactInfo.map((info, index) => (
                   <div key={index} className="flex items-start space-x-4">
                     <div className={`w-12 h-12 bg-gradient-to-br ${info.color} rounded-xl flex items-center justify-center flex-shrink-0`}>
@@ -257,21 +251,39 @@ const Contact = () => {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-              {/* Quick Contact CTA - Now integrated into the same card */}
-              <div className="bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl p-6 text-white">
-                <h3 className="text-xl font-bold mb-3">Need Immediate Assistance?</h3>
-                <p className="text-blue-100 mb-4 text-sm">
-                  For urgent insurance matters or immediate support, call our dedicated hotline.
-                </p>
+      {/* Immediate Assistance Section */}
+      <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl p-8 md:p-12 text-white text-center shadow-card">
+              <h3 className="text-3xl md:text-4xl font-bold mb-4">Need Immediate Assistance?</h3>
+              <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                For urgent insurance matters or immediate support, call our dedicated hotline. Our team is ready to help you 24/7.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a
                   href="tel:+14165550123"
-                  className="inline-flex items-center bg-white text-blue-600 font-semibold px-5 py-2.5 rounded-lg hover:bg-gray-50 transition-colors duration-200 text-sm"
+                  className="inline-flex items-center bg-white text-blue-600 font-semibold px-8 py-4 rounded-xl hover:bg-gray-50 transition-colors duration-200 text-lg shadow-lg hover:shadow-xl"
                 >
-                  <Phone className="w-4 h-4 mr-2" />
+                  <Phone className="w-5 h-5 mr-3" />
                   Call Now: +1 (416) 555-0123
                 </a>
+                <a
+                  href="tel:+16475550124"
+                  className="inline-flex items-center bg-blue-700 text-white font-semibold px-8 py-4 rounded-xl hover:bg-blue-800 transition-colors duration-200 text-lg shadow-lg hover:shadow-xl"
+                >
+                  <Phone className="w-5 h-5 mr-3" />
+                  Alternative: +1 (647) 555-0124
+                </a>
               </div>
+              <p className="text-blue-200 text-sm mt-6">
+                Available 24/7 for emergency claims and urgent support
+              </p>
             </div>
           </div>
         </div>
