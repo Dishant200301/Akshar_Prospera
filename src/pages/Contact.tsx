@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
-import { Mail, Phone, MapPin, Clock, MessageSquare, Send, CheckCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, MessageSquare, Send, CheckCircle, Users, Target, Shield } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -49,25 +49,25 @@ const Contact = () => {
       icon: Phone,
       title: 'Phone',
       details: ['+1 (416) 555-0123', '+1 (647) 555-0124'],
-      color: 'from-blue-500 to-blue-600'
+      color: 'from-blue-600 to-indigo-600'
     },
     {
       icon: Mail,
       title: 'Email',
       details: ['info@aksharprospera.com', 'support@aksharprospera.com'],
-      color: 'from-green-500 to-green-600'
+      color: 'from-blue-600 to-indigo-600'
     },
     {
       icon: MapPin,
       title: 'Office',
       details: ['123 Financial District', 'Toronto, ON M5X 1A1', 'Canada'],
-      color: 'from-purple-500 to-purple-600'
+      color: 'from-blue-600 to-indigo-600'
     },
     {
       icon: Clock,
       title: 'Business Hours',
       details: ['Mon-Fri: 9:00 AM - 6:00 PM', 'Sat: 10:00 AM - 4:00 PM', 'Sun: Closed'],
-      color: 'from-orange-500 to-orange-600'
+      color: 'from-blue-600 to-indigo-600'
     }
   ];
 
@@ -82,11 +82,38 @@ const Contact = () => {
     'Other'
   ];
 
+  const contactMethods = [
+    {
+      icon: Phone,
+      title: 'Call Us Directly',
+      desc: 'Speak with an insurance expert immediately for urgent matters.',
+      action: 'Call Now',
+      href: 'tel:+14165550123',
+      color: 'from-blue-600 to-indigo-600'
+    },
+    {
+      icon: Mail,
+      title: 'Email Support',
+      desc: 'Send us a detailed message and we\'ll respond within 24 hours.',
+      action: 'Send Email',
+      href: 'mailto:info@aksharprospera.com',
+      color: 'from-blue-600 to-indigo-600'
+    },
+    {
+      icon: MapPin,
+      title: 'Visit Our Office',
+      desc: 'Schedule an in-person consultation at our Toronto location.',
+      action: 'Get Directions',
+      href: '#',
+      color: 'from-blue-600 to-indigo-600'
+    }
+  ];
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
       <Navigation />
 
-      {/* Hero Section */}
+      {/* Hero */}
       <section className="pt-24 pb-16 bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 min-h-[50vh] flex items-center">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto">
@@ -94,7 +121,7 @@ const Contact = () => {
               <MessageSquare className="w-4 h-4 mr-2" />
               Get in Touch
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Let's Start a Conversation</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Let's Start a <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Conversation</span></h1>
             <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto">
               Ready to protect what matters most? Our insurance experts are here to help you find the perfect coverage for your needs.
             </p>
@@ -102,20 +129,53 @@ const Contact = () => {
         </div>
       </section>
 
+      {/* Contact Methods Overview */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
+              <Users className="w-4 h-4 mr-2" />
+              Multiple Ways to Connect
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Choose Your <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Preferred Method</span></h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">We offer multiple channels to ensure you can reach us in the way that's most convenient for you.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {contactMethods.map((method, i) => (
+              <div key={i} className="p-8 rounded-2xl border-2 border-gray-200 bg-white shadow-card hover:shadow-lg transition-all">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center mb-4">
+                  <method.icon className="w-7 h-7" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">{method.title}</h3>
+                <p className="text-gray-600 mb-4">{method.desc}</p>
+                <a
+                  href={method.href}
+                  className="inline-flex items-center bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-blue-500 hover:to-indigo-500 transition-all duration-200 shadow-sm"
+                >
+                  {method.action}
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Contact Form & Info Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
+              <MessageSquare className="w-4 h-4 mr-2" />
+              Send Us a Message
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Get in <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Touch</span></h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">Fill out the form below and we'll get back to you within 24 hours. For urgent matters, please call us directly.</p>
+          </div>
+          
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-7xl mx-auto">
             
             {/* Contact Form */}
-            <div className="space-y-8">
-              <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Send us a Message</h2>
-                <p className="text-gray-600">
-                  Fill out the form below and we'll get back to you within 24 hours. For urgent matters, please call us directly.
-                </p>
-              </div>
-
+            <div className="p-8 rounded-2xl border-2 border-gray-200 bg-white shadow-card">
               {isSubmitted ? (
                 <div className="bg-green-50 border border-green-200 rounded-xl p-8 text-center">
                   <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
@@ -136,7 +196,7 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-insurance-blue focus:border-transparent transition-all duration-200"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-200"
                         placeholder="Enter your full name"
                       />
                     </div>
@@ -151,7 +211,7 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-insurance-blue focus:border-transparent transition-all duration-200"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-200"
                         placeholder="Enter your email"
                       />
                     </div>
@@ -168,7 +228,7 @@ const Contact = () => {
                         name="phone"
                         value={formData.phone}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-insurance-blue focus:border-transparent transition-all duration-200"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-200"
                         placeholder="Enter your phone number"
                       />
                     </div>
@@ -182,7 +242,7 @@ const Contact = () => {
                         value={formData.subject}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-insurance-blue focus:border-transparent transition-all duration-200"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-200"
                       >
                         <option value="">Select a subject</option>
                         {subjects.map((subject, index) => (
@@ -203,7 +263,7 @@ const Contact = () => {
                       onChange={handleInputChange}
                       required
                       rows={5}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-insurance-blue focus:border-transparent transition-all duration-200 resize-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-200 resize-none"
                       placeholder="Tell us about your insurance needs..."
                     />
                   </div>
@@ -211,7 +271,7 @@ const Contact = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-insurance-blue to-insurance-blue-accent hover:from-insurance-blue-dark hover:to-insurance-blue-hover text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                    className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                   >
                     {isSubmitting ? (
                       <>
@@ -230,41 +290,41 @@ const Contact = () => {
             </div>
 
             {/* Contact Information */}
-            <div className="space-y-8">
-              <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">Contact Information</h2>
-                <p className="text-gray-600">
+            <div className="space-y-6">
+              <div className="p-8 rounded-2xl border-2 border-gray-200 bg-white shadow-card">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Contact Information</h3>
+                <p className="text-gray-600 mb-6">
                   Reach out to us through any of these channels. We're here to help you navigate your insurance journey.
                 </p>
-              </div>
 
-              <div className="space-y-6">
-                {contactInfo.map((info, index) => (
-                  <div key={index} className="flex items-start space-x-4">
-                    <div className={`w-12 h-12 bg-gradient-to-br ${info.color} rounded-xl flex items-center justify-center flex-shrink-0`}>
-                      <info.icon className="w-6 h-6 text-white" />
+                <div className="space-y-6">
+                  {contactInfo.map((info, index) => (
+                    <div key={index} className="flex items-start space-x-4">
+                      <div className={`w-12 h-12 bg-gradient-to-br ${info.color} rounded-xl flex items-center justify-center flex-shrink-0`}>
+                        <info.icon className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="text-lg font-semibold text-gray-900 mb-2">{info.title}</h4>
+                        {info.details.map((detail, detailIndex) => (
+                          <p key={detailIndex} className="text-gray-600 mb-1 last:mb-0">
+                            {detail}
+                          </p>
+                        ))}
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">{info.title}</h3>
-                      {info.details.map((detail, detailIndex) => (
-                        <p key={detailIndex} className="text-gray-600 mb-1 last:mb-0">
-                          {detail}
-                        </p>
-                      ))}
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
 
               {/* Quick Contact CTA */}
-              <div className="bg-gradient-to-br from-insurance-blue to-insurance-blue-accent rounded-2xl p-8 text-white">
+              <div className="bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl p-8 text-white shadow-card">
                 <h3 className="text-2xl font-bold mb-4">Need Immediate Assistance?</h3>
                 <p className="text-blue-100 mb-6">
                   For urgent insurance matters or immediate support, call our dedicated hotline.
                 </p>
                 <a
                   href="tel:+14165550123"
-                  className="inline-flex items-center bg-white text-insurance-blue font-semibold px-6 py-3 rounded-xl hover:bg-gray-50 transition-colors duration-200"
+                  className="inline-flex items-center bg-white text-blue-600 font-semibold px-6 py-3 rounded-xl hover:bg-gray-50 transition-colors duration-200 shadow-sm"
                 >
                   <Phone className="w-5 h-5 mr-2" />
                   Call Now: +1 (416) 555-0123
@@ -275,24 +335,70 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Map Section */}
-      <section className="py-16 bg-gray-50">
+      {/* Office Location Section */}
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Visit Our Office</h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-10">
+              <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
+                <MapPin className="w-4 h-4 mr-2" />
+                Visit Our Office
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Located in <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Toronto's Heart</span></h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 Located in the heart of Toronto's Financial District, our office is easily accessible by public transit and offers convenient parking options.
               </p>
             </div>
             
-            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
+            <div className="bg-white rounded-2xl border-2 border-gray-200 shadow-card overflow-hidden">
               <div className="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
                 <div className="text-center">
                   <MapPin className="w-16 h-16 text-gray-400 mx-auto mb-4" />
                   <p className="text-gray-500 text-lg">Interactive Map Coming Soon</p>
                   <p className="text-gray-400 text-sm">123 Financial District, Toronto, ON M5X 1A1</p>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Response Time Promise */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-10">
+              <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
+                <Shield className="w-4 h-4 mr-2" />
+                Our Commitment
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">We Promise <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Quick Response</span></h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Your time is valuable. We commit to responding to all inquiries within 24 hours, with urgent matters addressed immediately.
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="p-8 rounded-2xl border-2 border-gray-200 bg-white shadow-card text-center">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center mb-4 mx-auto">
+                  <Clock className="w-7 h-7" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">24-Hour Response</h3>
+                <p className="text-gray-600">All inquiries answered within one business day</p>
+              </div>
+              <div className="p-8 rounded-2xl border-2 border-gray-200 bg-white shadow-card text-center">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center mb-4 mx-auto">
+                  <Phone className="w-7 h-7" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Immediate Support</h3>
+                <p className="text-gray-600">Urgent matters handled right away</p>
+              </div>
+              <div className="p-8 rounded-2xl border-2 border-gray-200 bg-white shadow-card text-center">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center mb-4 mx-auto">
+                  <Target className="w-7 h-7" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Personal Touch</h3>
+                <p className="text-gray-600">Direct access to your dedicated advisor</p>
               </div>
             </div>
           </div>
