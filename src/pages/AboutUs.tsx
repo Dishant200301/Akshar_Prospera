@@ -37,21 +37,7 @@ const AboutUs: React.FC = () => {
           </div>
         </div>
       </section>
-      {/* Statistics */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
-              {highlights.map((item, i) => (
-                <div key={i} className="text-center p-6 rounded-xl border-2 border-gray-100 shadow-sm bg-white hover:shadow-md transition-shadow">
-                  <div className="text-3xl font-extrabold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{item.value}</div>
-                  <div className="text-sm text-gray-600 mt-1">{item.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       {/* Our Values */}
       <section className="py-16 bg-white">
@@ -131,19 +117,19 @@ const AboutUs: React.FC = () => {
               </div>
             </div>
             
-            {/* Additional descriptive text */}
+            {/* Statistics */}
             <div className="mt-12 max-w-6xl mx-auto">
-              <div className="p-8 rounded-2xl border-2 border-gray-200 bg-white shadow-card">
-                <p className="text-lg text-gray-700 leading-relaxed text-center">
-                  Choosing the right insurance partner is one of the most important decisions your family will make. 
-                  At Akshar Prospera, we understand that every family is unique, with different needs, goals, and 
-                  circumstances. That's why we don't offer one-size-fits-all solutions—we take the time to truly 
-                  understand your situation and craft protection strategies that fit your life perfectly. Our approach 
-                  goes beyond simply comparing policies and premiums, becoming your trusted advisor who educates you 
-                  about options and ensures confident decision-making for your family's protection.
-                </p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                {highlights.map((item, i) => (
+                  <div key={i} className="text-center p-6 rounded-xl border-2 border-gray-100 shadow-sm bg-white hover:shadow-md transition-shadow">
+                    <div className="text-3xl font-extrabold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{item.value}</div>
+                    <div className="text-sm text-gray-600 mt-1">{item.label}</div>
+                  </div>
+                ))}
               </div>
             </div>
+            
+
 
 
           </div>
