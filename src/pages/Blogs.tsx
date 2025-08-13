@@ -100,7 +100,7 @@ const Blogs: React.FC = () => {
                 <Link
                   to={`/blogs/${slug}`}
                   key={slug}
-                  className="group block rounded-xl border border-gray-200 bg-white overflow-hidden hover:border-insurance-blue/60 hover:shadow-md transition-all duration-300 max-w-sm"
+                  className="group block rounded-xl border border-gray-200 bg-white overflow-hidden hover:border-blue-600/60 hover:shadow-md transition-all duration-300 max-w-sm"
                 >
                   <div className="aspect-video bg-gray-100 overflow-hidden">
                     <img 
@@ -116,11 +116,11 @@ const Blogs: React.FC = () => {
                         <Calendar className="w-3 h-3" /> {post.readTime}
                       </span>
                     </div>
-                    <h3 className="text-base font-semibold text-gray-900 group-hover:text-insurance-blue transition-colors line-clamp-2 mb-2">
+                    <h3 className="text-base font-semibold text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2 mb-2">
                       {post.title}
                     </h3>
                     <div className="text-xs text-gray-500 mb-3">{post.date}</div>
-                    <div className="inline-flex items-center text-sm text-insurance-blue">
+                    <div className="inline-flex items-center text-sm bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent font-medium">
                       Read More <ArrowRight className="w-4 h-4 ml-1" />
                     </div>
                   </div>

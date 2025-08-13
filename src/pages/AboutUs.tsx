@@ -1,9 +1,39 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import { Shield, Users, Target, Heart, Award, CheckCircle, Phone, Mail } from 'lucide-react';
 
 const AboutUs: React.FC = () => {
+  const [tiltedCards, setTiltedCards] = useState<{ [key: number]: { x: number; y: number } }>({});
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  const handleMouseMove = (index: number, e: React.MouseEvent<HTMLDivElement>) => {
+    const card = cardRefs.current[index];
+    if (!card) return;
+
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    const rotateX = (y - centerY) / 15;
+    const rotateY = (centerX - x) / 15;
+    
+    setTiltedCards(prev => ({
+      ...prev,
+      [index]: { x: rotateX, y: rotateY }
+    }));
+  };
+
+  const handleMouseLeave = (index: number) => {
+    setTiltedCards(prev => ({
+      ...prev,
+      [index]: { x: 0, y: 0 }
+    }));
+  };
+
   const chipClass = "inline-flex items-center px-3 py-1.5 rounded-full border border-gray-200 bg-white text-sm text-gray-700 whitespace-nowrap";
   const values = [
     { icon: Heart, title: 'Customer First', desc: 'We design every policy and interaction around your needs.' },
@@ -55,26 +85,71 @@ const AboutUs: React.FC = () => {
 
             {/* Feature cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="p-8 rounded-2xl border-2 border-gray-200 bg-white hover:shadow-lg transition-all">
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center mb-4">
-                  <Heart className="w-7 h-7" />
+              <div className="group block perspective-1000">
+                <div 
+                  ref={el => cardRefs.current[0] = el}
+                  onMouseMove={(e) => handleMouseMove(0, e)}
+                  onMouseLeave={() => handleMouseLeave(0)}
+                  className="h-full"
+                >
+                  <div 
+                    className="p-8 rounded-2xl border-2 border-gray-200 bg-white transition-all duration-300 ease-out transform-gpu group-hover:shadow-2xl group-hover:scale-105 h-full"
+                    style={{
+                      transform: `perspective(1000px) rotateX(${tiltedCards[0]?.x || 0}deg) rotateY(${tiltedCards[0]?.y || 0}deg)`,
+                      transformStyle: 'preserve-3d'
+                    }}
+                  >
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center mb-4">
+                      <Heart className="w-7 h-7" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Personalized Guidance</h3>
+                    <p className="text-gray-600">Recommendations tailored to your family, budget, and goals.</p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Personalized Guidance</h3>
-                <p className="text-gray-600">Recommendations tailored to your family, budget, and goals.</p>
               </div>
-              <div className="p-8 rounded-2xl border-2 border-gray-200 bg-white hover:shadow-lg transition-all">
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center mb-4">
-                  <Shield className="w-7 h-7" />
+              <div className="group block perspective-1000">
+                <div 
+                  ref={el => cardRefs.current[1] = el}
+                  onMouseMove={(e) => handleMouseMove(1, e)}
+                  onMouseLeave={() => handleMouseLeave(1)}
+                  className="h-full"
+                >
+                  <div 
+                    className="p-8 rounded-2xl border-2 border-gray-200 bg-white transition-all duration-300 ease-out transform-gpu group-hover:shadow-2xl group-hover:scale-105 h-full"
+                    style={{
+                      transform: `perspective(1000px) rotateX(${tiltedCards[1]?.x || 0}deg) rotateY(${tiltedCards[1]?.y || 0}deg)`,
+                      transformStyle: 'preserve-3d'
+                    }}
+                  >
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center mb-4">
+                      <Shield className="w-7 h-7" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Top Carrier Access</h3>
+                    <p className="text-gray-600">Choice from leading Canadian and U.S. insurers with transparent terms.</p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Top Carrier Access</h3>
-                <p className="text-gray-600">Choice from leading Canadian and U.S. insurers with transparent terms.</p>
               </div>
-              <div className="p-8 rounded-2xl border-2 border-gray-200 bg-white hover:shadow-lg transition-all">
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center mb-4">
-                  <Target className="w-7 h-7" />
+              <div className="group block perspective-1000">
+                <div 
+                  ref={el => cardRefs.current[2] = el}
+                  onMouseMove={(e) => handleMouseMove(2, e)}
+                  onMouseLeave={() => handleMouseLeave(2)}
+                  className="h-full"
+                >
+                  <div 
+                    className="p-8 rounded-2xl border-2 border-gray-200 bg-white transition-all duration-300 ease-out transform-gpu group-hover:scale-105 h-full"
+                    style={{
+                      transform: `perspective(1000px) rotateX(${tiltedCards[2]?.x || 0}deg) rotateY(${tiltedCards[2]?.y || 0}deg)`,
+                      transformStyle: 'preserve-3d'
+                    }}
+                  >
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center mb-4">
+                      <Target className="w-7 h-7" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">End‑to‑End Support</h3>
+                    <p className="text-gray-600">From quotes to claims, we handle details so you stay confident.</p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">End‑to‑End Support</h3>
-                <p className="text-gray-600">From quotes to claims, we handle details so you stay confident.</p>
               </div>
             </div>
             
@@ -106,12 +181,27 @@ const AboutUs: React.FC = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {values.map((v, i) => (
-              <div key={i} className="p-8 rounded-2xl border-2 border-gray-200 bg-white shadow-card">
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center mb-4">
-                  <v.icon className="w-7 h-7" />
+              <div key={i} className="group block perspective-1000">
+                <div 
+                  ref={el => cardRefs.current[i + 3] = el}
+                  onMouseMove={(e) => handleMouseMove(i + 3, e)}
+                  onMouseLeave={() => handleMouseLeave(i + 3)}
+                  className="h-full"
+                >
+                  <div 
+                    className="p-8 rounded-2xl border-2 border-gray-200 bg-white transition-all duration-300 ease-out transform-gpu group-hover:shadow-2xl group-hover:scale-105 h-full"
+                    style={{
+                      transform: `perspective(1000px) rotateX(${tiltedCards[i + 3]?.x || 0}deg) rotateY(${tiltedCards[i + 3]?.y || 0}deg)`,
+                      transformStyle: 'preserve-3d'
+                    }}
+                  >
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center mb-4">
+                      <v.icon className="w-7 h-7" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{v.title}</h3>
+                    <p className="text-gray-600">{v.desc}</p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{v.title}</h3>
-                <p className="text-gray-600">{v.desc}</p>
               </div>
             ))}
           </div>
