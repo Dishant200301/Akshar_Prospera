@@ -79,15 +79,15 @@ const VisitorVisaInsurance = () => {
       {/* Features Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <div className="text-center max-w-3xl mx-auto mb-10">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
               <Users className="w-4 h-4 mr-2" />
               Why Choose Us
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Why Choose Our Visitor Visa Insurance?
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+              Why Choose Our <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Visitor Visa Insurance</span>?
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Specialized coverage designed for visa compliance and visitor protection
             </p>
           </div>
