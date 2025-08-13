@@ -68,10 +68,10 @@ const HeroSection = () => {
           </div>
 
           {/* Right Section - Image Carousel */}
-          <div className="flex-1 flex justify-center lg:justify-end mt-8 lg:mt-0">
-            <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg">
+          <div className="flex-1 flex justify-center lg:justify-end mt-12 sm:mt-8 lg:mt-0">
+            <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
               {/* Main Image */}
-              <div className="relative w-full h-64 sm:h-80 md:h-96 lg:h-[500px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
+              <div className="relative w-full h-80 sm:h-80 md:h-96 lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
                 <img 
                   src={heroImages[currentImageIndex]} 
                   alt="Insurance Protection"
@@ -82,12 +82,12 @@ const HeroSection = () => {
               </div>
               
               {/* Image Indicators */}
-              <div className="flex justify-center space-x-2 mt-4 sm:mt-6">
+              <div className="flex justify-center space-x-3 mt-6 sm:mt-6">
                 {heroImages.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentImageIndex(index)}
-                    className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
+                    className={`w-3 h-3 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
                       index === currentImageIndex 
                         ? 'bg-blue-600 scale-125' 
                         : 'bg-gray-300 hover:bg-gray-400'
