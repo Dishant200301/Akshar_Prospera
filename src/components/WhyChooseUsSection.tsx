@@ -61,23 +61,23 @@ const WhyChooseUsSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-gray-50">
-              <div className="container mx-auto px-10">
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
-            <Star className="w-4 h-4 mr-2" />
+    <section className="py-16 sm:py-20 lg:py-24 bg-gray-50">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-10">
+        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+          <div className="inline-flex items-center px-3 sm:px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-xs sm:text-sm font-medium mb-4 sm:mb-6">
+            <Star className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
             Why Choose Us
           </div>
-                      <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Why Choose
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> Akshar Prospera</span>
-            </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+            Why Choose
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> Akshar Prospera</span>
+          </h2>
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
             We're committed to providing you with the best insurance experience through personalized service and comprehensive coverage.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
           {benefits.map((benefit, index) => (
             <div key={index} className="group block perspective-1000">
               <div 
@@ -87,20 +87,20 @@ const WhyChooseUsSection = () => {
                 className="h-full"
               >
                 <div 
-                  className={`bg-gradient-to-br from-slate-50 to-gray-50 rounded-2xl p-6 h-full border-2 border-gray-200 transition-all duration-300 ease-out transform-gpu group-hover:shadow-2xl group-hover:scale-105`}
+                  className={`bg-gradient-to-br from-slate-50 to-gray-50 rounded-2xl p-4 sm:p-6 h-full border-2 border-gray-200 transition-all duration-300 ease-out transform-gpu group-hover:shadow-2xl group-hover:scale-105`}
                   style={{
                     transform: `perspective(1000px) rotateX(${tiltedCards[index]?.x || 0}deg) rotateY(${tiltedCards[index]?.y || 0}deg)`,
                     transformStyle: 'preserve-3d'
                   }}
                 >
                   {/* Icon */}
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center mb-4 shadow-lg">
-                    <benefit.icon className="w-8 h-8 text-white" />
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center mb-3 sm:mb-4 shadow-lg">
+                    <benefit.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </div>
                   
                   {/* Content */}
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed text-base">{benefit.description}</p>
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">{benefit.title}</h3>
+                  <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4 leading-relaxed">{benefit.description}</p>
                 </div>
               </div>
             </div>
@@ -108,7 +108,7 @@ const WhyChooseUsSection = () => {
         </div>
 
         <div className="text-center">
-          <button className="bg-white text-blue-600 border-2 border-blue-600 px-6 py-3 rounded-xl font-semibold hover:from-blue-600 hover:to-indigo-600 hover:text-white hover:bg-gradient-to-r transition-all duration-200 inline-flex items-center justify-center shadow-sm mx-auto">
+          <button className="bg-white text-blue-600 border-2 border-blue-600 px-4 sm:px-6 py-3 rounded-xl font-semibold hover:from-blue-600 hover:to-indigo-600 hover:text-white hover:bg-gradient-to-r transition-all duration-200 inline-flex items-center justify-center shadow-sm mx-auto">
             Learn More About Us
             <ArrowRight className="w-4 h-4 ml-2" />
           </button>
