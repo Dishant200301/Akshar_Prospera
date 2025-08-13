@@ -30,9 +30,9 @@ const AboutUs: React.FC = () => {
               <Users className="w-4 h-4 mr-2" />
               About Us
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">We Protect What Matters Most</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Trusted <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Excellence</span></h1>
             <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto">
-              Your trusted, client-focused insurance advisory. We help families and travelers across North America make confident protection decisions.
+              Your trusted insurance partner helping families across North America make confident protection decisions.
             </p>
           </div>
         </div>

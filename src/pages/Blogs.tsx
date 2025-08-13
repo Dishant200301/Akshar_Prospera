@@ -69,9 +69,9 @@ const Blogs: React.FC = () => {
               <BookOpen className="w-4 h-4 mr-2" />
               Blogs
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Insurance Insights & Tips</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Expert <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Insights</span></h1>
             <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto">
-              Explore our latest articles and expert tips. Stay informed and make smarter, more confident decisions about your insurance needs.
+              Explore our latest articles and expert tips to make smarter decisions about your insurance needs.
             </p>
           </div>
         </div>
