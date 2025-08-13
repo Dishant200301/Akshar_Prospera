@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Shield, ChevronDown, Menu, X, MapPin, Star } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
 
 const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -8,6 +9,50 @@ const Navigation = () => {
   const [hoveredService, setHoveredService] = useState<typeof serviceTypes[0] | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDropdownHovered, setIsDropdownHovered] = useState(false);
+  const location = useLocation();
+
+  // Function to check if a link is active
+  const isActiveLink = (path: string) => {
+    if (path === '/') {
+      return location.pathname === '/';
+    }
+    return location.pathname.startsWith(path);
+  };
+
+  // Function to get link classes based on active state
+  const getLinkClasses = (path: string, isScrolled: boolean) => {
+    const baseClasses = 'font-medium transition-all duration-300';
+    
+    if (isActiveLink(path)) {
+      // Active link - always show gradient blue
+      return `${baseClasses} bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent`;
+    } else {
+      // Inactive link - normal colors with blue hover
+      return `${baseClasses} ${
+        isScrolled 
+          ? 'text-gray-700 hover:text-blue-600' 
+          : 'text-slate-600 hover:text-blue-600'
+      }`;
+    }
+  };
+
+  // Function to get Services button classes
+  const getServicesButtonClasses = (isScrolled: boolean) => {
+    const baseClasses = 'flex items-center space-x-1 font-medium transition-all duration-300';
+    
+    if (isActiveLink('/health-insurance') || isActiveLink('/travel-insurance') || 
+        isActiveLink('/visitor-visa-insurance') || isActiveLink('/life-insurance')) {
+      // Active services page - always show gradient blue
+      return `${baseClasses} bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent`;
+    } else {
+      // Inactive services - normal colors with blue hover
+      return `${baseClasses} ${
+        isScrolled 
+          ? 'text-gray-700 hover:text-blue-600 hover:bg-gray-50' 
+          : 'text-slate-600 hover:text-blue-600 hover:bg-white/20'
+      } ${isServicesOpen ? 'text-blue-600 bg-gray-50' : ''}`;
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -88,18 +133,14 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="/" className={`font-medium transition-colors duration-300 ${
-              isScrolled ? 'text-gray-700 hover:text-insurance-blue' : 'text-slate-600 hover:text-slate-800'
-            }`}>
+            <a href="/" className={getLinkClasses('/', isScrolled)}>
               Home
             </a>
             
             {/* Services Dropdown */}
             <div className="relative services-dropdown">
               <button
-                className={`flex items-center space-x-1 font-medium transition-colors duration-300 ${
-                  isScrolled ? 'text-gray-700 hover:text-insurance-blue hover:bg-gray-50' : 'text-slate-600 hover:text-slate-800 hover:bg-white/20'
-                } ${isServicesOpen ? 'bg-gray-50 text-insurance-blue' : ''}`}
+                className={getServicesButtonClasses(isScrolled)}
                 onClick={() => setIsServicesOpen(!isServicesOpen)}
                 onMouseEnter={() => setIsServicesOpen(true)}
               >
@@ -127,7 +168,7 @@ const Navigation = () => {
                           <div key={index} className="relative group">
                             <a
                               href={service.href}
-                              className="flex items-center px-3 py-2.5 text-gray-700 hover:bg-gradient-to-r hover:from-insurance-blue/5 hover:to-insurance-blue-accent/5 hover:text-insurance-blue rounded-lg transition-all duration-200 group-hover:scale-[1.02]"
+                              className="flex items-center px-3 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 group-hover:scale-[1.02]"
                               onMouseEnter={() => {
                                 setHoveredService(service);
                                 setIsDropdownHovered(true);
@@ -142,7 +183,7 @@ const Navigation = () => {
                               }}
                               onClick={() => setIsServicesOpen(false)}
                             >
-                              <Shield className="w-4 h-4 mr-3 text-insurance-blue" />
+                              <Shield className="w-4 h-4 mr-3 text-blue-600" />
                               <span className="font-medium text-[15px] md:text-base">{service.name}</span>
                             </a>
                           </div>
@@ -154,7 +195,7 @@ const Navigation = () => {
                         <p className="text-xs text-gray-500 mb-2 px-2">Need help choosing?</p>
                         <a 
                           href="/contact" 
-                          className="inline-flex items-center text-sm font-medium text-insurance-blue hover:text-insurance-blue-dark transition-colors duration-200 px-2"
+                          className="inline-flex items-center text-sm font-medium bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent hover:from-blue-500 hover:to-indigo-500 transition-all duration-200 px-2"
                         >
                           Talk to an expert
                           <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -169,7 +210,7 @@ const Navigation = () => {
                       <div className="flex-1 px-6 border-l border-gray-100 ml-4">
                         <div className="space-y-4">
                           <div className="flex items-center space-x-3">
-                            <div className="w-12 h-12 bg-gradient-to-br from-insurance-blue to-insurance-blue-accent rounded-xl flex items-center justify-center">
+                            <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center">
                               <Shield className="w-6 h-6 text-white" />
                             </div>
                             <div>
@@ -187,7 +228,7 @@ const Navigation = () => {
                             <ul className="space-y-2">
                               {hoveredService.benefits?.map((benefit, idx) => (
                                 <li key={idx} className="flex items-center text-sm text-gray-600">
-                                  <div className="w-2 h-2 bg-insurance-blue rounded-full mr-3"></div>
+                                  <div className="w-2 h-2 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full mr-3"></div>
                                   {benefit}
                                 </li>
                               ))}
@@ -197,7 +238,7 @@ const Navigation = () => {
                           <div className="pt-3 border-t border-gray-100">
                             <a 
                               href={hoveredService.href}
-                              className="inline-flex items-center text-sm font-medium text-insurance-blue hover:text-insurance-blue-dark transition-colors duration-200"
+                              className="inline-flex items-center text-sm font-medium bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent hover:from-blue-500 hover:to-indigo-500 transition-all duration-200"
                             >
                               Learn more about {hoveredService.name.toLowerCase()}
                               <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -213,19 +254,13 @@ const Navigation = () => {
               )}
             </div>
             
-            <a href="/about-us" className={`font-medium transition-colors duration-300 ${
-              isScrolled ? 'text-gray-700 hover:text-insurance-blue' : 'text-slate-600 hover:text-slate-800'
-            }`}>
+            <a href="/about-us" className={getLinkClasses('/about-us', isScrolled)}>
               About Us
             </a>
-            <a href="/blogs" className={`font-medium transition-colors duration-300 ${
-              isScrolled ? 'text-gray-700 hover:text-insurance-blue' : 'text-slate-600 hover:text-slate-800'
-            }`}>
+            <a href="/blogs" className={getLinkClasses('/blogs', isScrolled)}>
               Blogs
             </a>
-            <a href="/contact" className={`font-medium transition-colors duration-300 ${
-              isScrolled ? 'text-gray-700 hover:text-insurance-blue' : 'text-slate-600 hover:text-slate-800'
-            }`}>
+            <a href="/contact" className={getLinkClasses('/contact', isScrolled)}>
               Contact
             </a>
           </div>
@@ -256,18 +291,14 @@ const Navigation = () => {
               : 'border-slate-200 bg-white/90 backdrop-blur-sm'
           }`}>
             <div className="flex flex-col space-y-4">
-              <a href="/" className={`font-medium transition-colors duration-300 ${
-                isScrolled ? 'text-gray-700 hover:text-insurance-blue' : 'text-slate-600 hover:text-slate-800'
-              }`}>
+              <a href="/" className={getLinkClasses('/', isScrolled)}>
                 Home
               </a>
               
               {/* Mobile Services Dropdown */}
               <div className="services-dropdown">
                 <button 
-                  className={`flex items-center justify-between w-full font-medium transition-all duration-300 ${
-                    isScrolled ? 'text-gray-700 hover:text-insurance-blue hover:bg-gray-50' : 'text-slate-600 hover:text-slate-800 hover:bg-white/20'
-                  } ${isServicesOpen ? 'bg-gray-50 text-insurance-blue' : ''}`}
+                  className={getServicesButtonClasses(isScrolled)}
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
                 >
                   <span>Services</span>
@@ -280,12 +311,12 @@ const Navigation = () => {
                       <a
                         key={index}
                         href={service.href}
-                        className="group flex items-center py-2.5 px-3 text-base text-gray-600 hover:text-insurance-blue hover:bg-white rounded-lg transition-all duration-200"
+                        className="group flex items-center py-2.5 px-3 text-base text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         <span className="font-medium">{service.name}</span>
                         <div className="ml-auto opacity-0 group-hover:opacity-100 transition-all duration-200">
-                          <svg className="w-3 h-3 text-insurance-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-3 h-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                           </svg>
                         </div>
@@ -297,7 +328,7 @@ const Navigation = () => {
                       <div className="text-xs text-gray-500 mb-1 px-3">Need help choosing?</div>
                       <a 
                         href="/contact" 
-                        className="flex items-center text-sm font-medium text-insurance-blue hover:text-insurance-blue-dark px-3 py-2 transition-colors duration-200"
+                        className="flex items-center text-sm font-medium bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent hover:from-blue-500 hover:to-indigo-500 px-3 py-2 transition-all duration-200"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         <span>Talk to an expert</span>
@@ -310,19 +341,13 @@ const Navigation = () => {
                 )}
               </div>
               
-              <a href="/about-us" className={`font-medium transition-colors duration-300 ${
-                isScrolled ? 'text-gray-700 hover:text-insurance-blue' : 'text-slate-600 hover:text-slate-800'
-              }`}>
+              <a href="/about-us" className={getLinkClasses('/about-us', isScrolled)}>
                 About Us
               </a>
-              <a href="/blogs" className={`font-medium transition-colors duration-300 ${
-                isScrolled ? 'text-gray-700 hover:text-insurance-blue' : 'text-slate-600 hover:text-slate-800'
-              }`}>
+              <a href="/blogs" className={getLinkClasses('/blogs', isScrolled)}>
                 Blogs
               </a>
-              <a href="/contact" className={`font-medium transition-colors duration-300 ${
-                isScrolled ? 'text-gray-700 hover:text-insurance-blue' : 'text-slate-600 hover:text-slate-800'
-              }`}>
+              <a href="/contact" className={getLinkClasses('/contact', isScrolled)}>
                 Contact
               </a>
               <button className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-2 rounded-lg font-medium hover:from-blue-500 hover:to-indigo-500 transition-all duration-200 w-full mt-4">
