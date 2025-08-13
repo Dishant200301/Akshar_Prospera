@@ -79,7 +79,7 @@ const TravelInsurance = () => {
               Why Choose Our <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Travel Insurance</span>?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Comprehensive protection for every type of traveler and destination
+              We provide comprehensive travel protection for every type of adventurer and destination worldwide
             </p>
           </div>
           

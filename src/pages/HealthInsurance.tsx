@@ -70,7 +70,7 @@ const HealthInsurance = () => {
               Why Choose Our <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Health Insurance</span>?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              We provide comprehensive coverage with exceptional service and support
+              We deliver comprehensive health coverage with exceptional service and dedicated support for your family
             </p>
           </div>
           

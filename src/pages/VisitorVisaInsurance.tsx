@@ -88,7 +88,7 @@ const VisitorVisaInsurance = () => {
               Why Choose Our <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Visitor Visa Insurance</span>?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Specialized coverage designed for visa compliance and visitor protection
+              We deliver specialized visitor coverage designed for visa compliance and comprehensive protection needs
             </p>
           </div>
           

@@ -88,7 +88,7 @@ const LifeInsurance = () => {
               Why Choose Our <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Life Insurance</span>?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Comprehensive protection with flexible options for every stage of life
+              We offer comprehensive life protection with flexible options designed for every stage of your journey
             </p>
           </div>
           
