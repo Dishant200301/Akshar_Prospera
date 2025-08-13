@@ -52,8 +52,7 @@ const HealthInsurance = () => {
               <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Health</span> Insurance
             </h1>
             <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto">
-              Protect your health and your family's well-being with our comprehensive health insurance plans. 
-          
+              Secure your health and your family's future with complete coverage for medical care and wellness protection.
             </p>
           </div>
         </div>
