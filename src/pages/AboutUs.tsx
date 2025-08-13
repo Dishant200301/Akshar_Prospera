@@ -39,45 +39,6 @@ const AboutUs: React.FC = () => {
       </section>
       
 
-      {/* Our Values */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-10">
-            <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
-              <Users className="w-4 h-4 mr-2" />
-              Our Values
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">What We <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Stand For</span></h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">Core principles that drive our commitment to exceptional service and client satisfaction.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {values.map((v, i) => (
-              <div key={i} className="p-8 rounded-2xl border-2 border-gray-200 bg-white shadow-card">
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center mb-4">
-                  <v.icon className="w-7 h-7" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{v.title}</h3>
-                <p className="text-gray-600">{v.desc}</p>
-              </div>
-            ))}
-          </div>
-          
-          {/* Additional descriptive text */}
-          <div className="mt-12 max-w-6xl mx-auto">
-            <div className="p-8 rounded-2xl border-2 border-gray-200 bg-white shadow-card">
-              <p className="text-lg text-gray-700 leading-relaxed text-center">
-                These core values aren't just words on paper—they're the foundation of every interaction we have with our clients. 
-                When you choose Akshar Prospera, you're choosing a partner who puts your family's security above everything else. 
-                We believe that exceptional service isn't about selling policies; it's about building lasting relationships based on 
-                trust, understanding, and genuine care for your future. Every decision we make, every recommendation we provide, 
-                and every policy we help you choose is guided by these principles.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
       {/* Why Choose Us */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
@@ -128,10 +89,44 @@ const AboutUs: React.FC = () => {
                 ))}
               </div>
             </div>
-            
+          </div>
+        </div>
+      </section>
 
-
-
+      {/* Our Values */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
+              <Users className="w-4 h-4 mr-2" />
+              Our Values
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">What We <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Stand For</span></h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">Core principles that drive our commitment to exceptional service and client satisfaction.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {values.map((v, i) => (
+              <div key={i} className="p-8 rounded-2xl border-2 border-gray-200 bg-white shadow-card">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center mb-4">
+                  <v.icon className="w-7 h-7" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">{v.title}</h3>
+                <p className="text-gray-600">{v.desc}</p>
+              </div>
+            ))}
+          </div>
+          
+          {/* Additional descriptive text */}
+          <div className="mt-12 max-w-6xl mx-auto">
+            <div className="p-8 rounded-2xl border-2 border-gray-200 bg-white shadow-card">
+              <p className="text-lg text-gray-700 leading-relaxed text-center">
+                These core values aren't just words on paper—they're the foundation of every interaction we have with our clients. 
+                When you choose Akshar Prospera, you're choosing a partner who puts your family's security above everything else. 
+                We believe that exceptional service isn't about selling policies; it's about building lasting relationships based on 
+                trust, understanding, and genuine care for your future. Every decision we make, every recommendation we provide, 
+                and every policy we help you choose is guided by these principles.
+              </p>
+            </div>
           </div>
         </div>
       </section>
