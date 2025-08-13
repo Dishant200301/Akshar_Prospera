@@ -61,8 +61,7 @@ const TravelInsurance = () => {
               <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Travel</span> Insurance
             </h1>
             <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto">
-              Explore the world worry-free with comprehensive travel insurance coverage. 
-              From medical emergencies to trip cancellations, we've got you covered worldwide.
+              Travel with confidence worldwide with comprehensive coverage for medical emergencies and trip protection.
             </p>
           </div>
         </div>
@@ -121,7 +120,7 @@ const TravelInsurance = () => {
       </section>
 
       {/* Plans Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
@@ -204,7 +203,7 @@ const TravelInsurance = () => {
       </section>
 
       {/* Destinations Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
@@ -232,7 +231,7 @@ const TravelInsurance = () => {
       </section>
 
       {/* Emergency Info Section */}
-      <section className="py-16 bg-red-50">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center px-4 py-2 bg-red-100 text-red-700 rounded-full text-sm font-medium mb-6">
@@ -269,27 +268,7 @@ const TravelInsurance = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-indigo-600">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Travel with Confidence?
-          </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Get your travel insurance quote today and start planning your next adventure worry-free
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors flex items-center justify-center">
-              <Plane className="w-5 h-5 mr-2" />
-              Get Travel Quote
-            </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors flex items-center justify-center">
-              <Phone className="w-5 h-5 mr-2" />
-              Call for Assistance
-            </button>
-          </div>
-        </div>
-      </section>
+
 
       <Footer />
     </div>
