@@ -122,15 +122,15 @@ const TravelInsurance = () => {
       {/* Plans Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <div className="text-center max-w-3xl mx-auto mb-10">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
               <Plane className="w-4 h-4 mr-2" />
               Choose Your Plan
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Choose Your Travel Plan
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+              Choose Your <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Travel Plan</span>
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Flexible plans designed for different travel styles and budgets
             </p>
           </div>
@@ -178,15 +178,15 @@ const TravelInsurance = () => {
       {/* Coverage Features Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <div className="text-center max-w-3xl mx-auto mb-10">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
               <CheckCircle className="w-4 h-4 mr-2" />
               What's Covered
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              What's Covered in Your Travel Insurance
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+              What's Covered in Your <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Travel Insurance</span>
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Comprehensive protection for all your travel needs
             </p>
           </div>
@@ -205,15 +205,15 @@ const TravelInsurance = () => {
       {/* Destinations Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <div className="text-center max-w-3xl mx-auto mb-10">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
               <Globe className="w-4 h-4 mr-2" />
               Global Coverage
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Global Coverage
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Global</span> Coverage
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Travel insurance that works worldwide
             </p>
           </div>
@@ -233,15 +233,15 @@ const TravelInsurance = () => {
       {/* Emergency Info Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="text-center max-w-3xl mx-auto mb-10">
             <div className="inline-flex items-center px-4 py-2 bg-red-100 text-red-700 rounded-full text-sm font-medium mb-6">
               <AlertTriangle className="w-4 h-4 mr-2" />
               Emergency Information
             </div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              Need Help While Traveling?
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+              Need Help While <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Traveling</span>?
             </h2>
-            <p className="text-lg text-gray-600 mb-8">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
               Our 24/7 emergency assistance team is available worldwide to help you with any travel-related issues
             </p>
             <div className="bg-white rounded-2xl p-8 shadow-lg">
