@@ -113,15 +113,15 @@ const HealthInsurance = () => {
       {/* Plans Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <div className="text-center max-w-3xl mx-auto mb-10">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
               <Heart className="w-4 h-4 mr-2" />
               Choose Your Plan
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Choose Your Health Plan
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+              Choose Your <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Health Plan</span>
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Flexible plans designed to meet your specific healthcare needs and budget
             </p>
           </div>
@@ -169,15 +169,15 @@ const HealthInsurance = () => {
       {/* Features List Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <div className="text-center max-w-3xl mx-auto mb-10">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
               <CheckCircle className="w-4 h-4 mr-2" />
               What's Included
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              What's Included in Your Coverage
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+              What's Included in Your <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Coverage</span>
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Comprehensive benefits designed to keep you and your family healthy
             </p>
           </div>
