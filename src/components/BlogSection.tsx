@@ -1,5 +1,6 @@
 import React from 'react';
 import { BookOpen, Calendar, ArrowRight, Lightbulb } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const BlogSection = () => {
   const allBlogs = [
@@ -55,6 +56,13 @@ const BlogSection = () => {
 
   const blogs = getRandomBlogs();
 
+  const slugify = (title: string) =>
+    title
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, '')
+      .trim()
+      .replace(/\s+/g, '-');
+
   return (
     <section className="section-padding bg-gray-50">
               <div className="container mx-auto px-10">
@@ -74,32 +82,39 @@ const BlogSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {blogs.map((blog, index) => (
-            <div key={index} className="group block rounded-xl border border-gray-200 bg-white overflow-hidden hover:border-blue-600/60 hover:shadow-md transition-all duration-300 max-w-sm">
-              <div className="aspect-video bg-gray-100 overflow-hidden">
-                <img 
-                  src={blog.image} 
-                  alt={blog.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="p-5">
-                <div className="flex items-center gap-2 text-xs text-gray-500 mb-3">
-                  <span className="px-2 py-0.5 rounded-full bg-blue-100 text-blue-700 font-medium">{blog.category}</span>
-                  <span className="flex items-center gap-1">
-                    <Calendar className="w-3 h-3" /> {blog.readTime}
-                  </span>
+          {blogs.map((blog, index) => {
+            const slug = slugify(blog.title);
+            return (
+              <Link
+                to={`/blogs/${slug}`}
+                key={index}
+                className="group block rounded-xl border border-gray-200 bg-white overflow-hidden hover:border-blue-600/60 hover:shadow-md transition-all duration-300 max-w-sm"
+              >
+                <div className="aspect-video bg-gray-100 overflow-hidden">
+                  <img 
+                    src={blog.image} 
+                    alt={blog.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
-                <h3 className="text-base font-semibold text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2 mb-2">
-                  {blog.title}
-                </h3>
-                <div className="text-xs text-gray-500 mb-3">{blog.date}</div>
-                <div className="inline-flex items-center text-sm bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent font-medium">
-                  Read More <ArrowRight className="w-4 h-4 ml-1" />
+                <div className="p-5">
+                  <div className="flex items-center gap-2 text-xs text-gray-500 mb-3">
+                    <span className="px-2 py-0.5 rounded-full bg-blue-100 text-blue-700 font-medium">{blog.category}</span>
+                    <span className="flex items-center gap-1">
+                      <Calendar className="w-3 h-3" /> {blog.readTime}
+                    </span>
+                  </div>
+                  <h3 className="text-base font-semibold text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2 mb-2">
+                    {blog.title}
+                  </h3>
+                  <div className="text-xs text-gray-500 mb-3">{blog.date}</div>
+                  <div className="inline-flex items-center text-sm bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent font-medium">
+                    Read More <ArrowRight className="w-4 h-4 ml-1" />
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              </Link>
+            );
+          })}
         </div>
 
         <div className="text-center mt-12">
