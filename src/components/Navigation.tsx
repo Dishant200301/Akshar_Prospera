@@ -104,9 +104,9 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 pt-8">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-10">
-        <div className="bg-white rounded-full shadow-xl px-8 py-4 flex items-center justify-between">
+    <nav className="fixed top-0 left-0 right-0 z-50 pt-4">
+              <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10">
+                  <div className="bg-white/80 backdrop-blur-md rounded-3xl shadow-xl px-8 py-4 flex items-center justify-between">
           {/* Logo */}
           <a href="/" className="flex items-center space-x-3">
             <div className="relative">
@@ -277,7 +277,7 @@ const Navigation = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t rounded-b-full transition-all duration-300 bg-white/95 backdrop-blur-sm border-gray-200 mt-4 rounded-2xl">
+          <div className="md:hidden py-4 border-t rounded-b-full transition-all duration-300 bg-white/80 backdrop-blur-md border-gray-200 mt-4 rounded-2xl">
             <div className="flex flex-col space-y-4 px-6">
               <a href="/" className="font-medium text-gray-700 hover:text-blue-600 transition-all duration-300">
                 Home
