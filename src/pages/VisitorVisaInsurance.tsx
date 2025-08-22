@@ -131,7 +131,7 @@ const VisitorVisaInsurance = () => {
       {/* Plans Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-10">
+          <div className="text-center max-w-3xl mx-auto mb-12">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
               <Users className="w-4 h-4 mr-2" />
               Choose Your Plan
@@ -144,39 +144,36 @@ const VisitorVisaInsurance = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {plans.map((plan, index) => (
-              <div key={index} className={`relative bg-white rounded-2xl p-8 shadow-lg border-2 ${
-                plan.popular ? 'border-blue-500 scale-105' : 'border-gray-200'
-              }`}>
+              <div key={index} className="relative bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-blue-300">
                 {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium">
+                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                    <span className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-1.5 rounded-full text-xs font-semibold shadow-lg">
                       Most Popular
                     </span>
                   </div>
                 )}
                 
                 <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
-                  <p className="text-3xl font-bold text-blue-600 mb-4">{plan.price}</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight">{plan.name}</h3>
+                  <div className="mb-4">
+                    <p className="text-sm text-gray-500 font-medium mb-1">Starting from</p>
+                    <p className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent leading-tight">{plan.price.split('Starting from ')[1]}</p>
+                  </div>
                 </div>
                 
-                <ul className="space-y-3 mb-8">
+                <ul className="space-y-3 mb-6">
                   {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center space-x-3">
-                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                      <span className="text-gray-700">{feature}</span>
+                    <li key={featureIndex} className="flex items-start space-x-3">
+                      <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700 text-sm leading-relaxed">{feature}</span>
                     </li>
                   ))}
                 </ul>
                 
-                <button className={`w-full py-3 px-6 rounded-lg font-semibold transition-all duration-300 ${
-                  plan.popular 
-                    ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-500 hover:to-indigo-500' 
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}>
-                  Get Quote
+                <button className="w-full py-3 px-4 rounded-lg font-semibold text-base transition-all duration-300 bg-white text-blue-600 border-2 border-blue-600 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-white hover:shadow-lg">
+                  Get Started
                 </button>
               </div>
             ))}

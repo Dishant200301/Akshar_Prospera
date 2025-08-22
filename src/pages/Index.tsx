@@ -33,7 +33,12 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" style={{
+      backgroundImage: 'url(/1.png)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat'
+    }}>
       <Navigation />
       <HeroSection />
       <ServicesSection />

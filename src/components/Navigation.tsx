@@ -104,13 +104,9 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className={`sticky top-0 z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-white/80 backdrop-blur-md shadow-lg' 
-        : 'bg-transparent'
-    }`}>
-              <div className="container mx-auto px-4 sm:px-6 lg:px-10">
-        <div className="flex items-center justify-between h-16">
+    <nav className="fixed top-0 left-0 right-0 z-50 pt-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-10">
+        <div className="bg-white rounded-full shadow-xl px-8 py-4 flex items-center justify-between">
           {/* Logo */}
           <a href="/" className="flex items-center space-x-3">
             <div className="relative">
@@ -126,21 +122,19 @@ const Navigation = () => {
                 <Star className="w-1.5 h-1.5 text-white" />
               </div>
             </div>
-            <span className={`text-2xl font-bold transition-colors duration-300 ${
-              isScrolled ? 'text-gray-900' : 'text-slate-800'
-            }`}>Akshar Prospera</span>
+            <span className="text-2xl font-bold text-gray-900">Akshar Prospera</span>
           </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="/" className={getLinkClasses('/', isScrolled)}>
+            <a href="/" className="font-medium text-gray-700 hover:text-blue-600 transition-all duration-300">
               Home
             </a>
             
             {/* Services Dropdown */}
             <div className="relative services-dropdown">
               <button
-                className={getServicesButtonClasses(isScrolled)}
+                className="flex items-center space-x-1 font-medium text-gray-700 hover:text-blue-600 transition-all duration-300"
                 onClick={() => setIsServicesOpen(!isServicesOpen)}
                 onMouseEnter={() => setIsServicesOpen(true)}
               >
@@ -150,7 +144,7 @@ const Navigation = () => {
               
               {isServicesOpen && (
                 <div 
-                  className={`absolute top-full left-0 mt-0 bg-white shadow-2xl border border-gray-100 rounded-2xl py-6 animate-in slide-in-from-top-2 duration-200 services-dropdown transition-all duration-300 ${
+                  className={`absolute top-full left-0 mt-2 bg-white shadow-2xl border border-gray-100 rounded-2xl py-6 animate-in slide-in-from-top-2 duration-200 services-dropdown transition-all duration-300 ${
                     hoveredService ? 'w-[600px]' : 'w-64'
                   }`}
                   onMouseEnter={() => setIsServicesOpen(true)}
@@ -254,29 +248,27 @@ const Navigation = () => {
               )}
             </div>
             
-            <a href="/about-us" className={getLinkClasses('/about-us', isScrolled)}>
+            <a href="/about-us" className="font-medium text-gray-700 hover:text-blue-600 transition-all duration-300">
               About Us
             </a>
-            <a href="/blogs" className={getLinkClasses('/blogs', isScrolled)}>
+            <a href="/blogs" className="font-medium text-gray-700 hover:text-blue-600 transition-all duration-300">
               Blogs
             </a>
-            <a href="/contact" className={getLinkClasses('/contact', isScrolled)}>
+            <a href="/contact" className="font-medium text-gray-700 hover:text-blue-600 transition-all duration-300">
               Contact
             </a>
           </div>
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <button className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-2 rounded-lg font-medium hover:from-blue-500 hover:to-indigo-500 transition-all duration-200">
+            <button className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-2.5 rounded-full font-medium hover:from-blue-500 hover:to-indigo-500 transition-all duration-200">
               Talk to an Advisor
             </button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className={`md:hidden p-2 transition-colors duration-300 ${
-              isScrolled ? 'text-gray-700' : 'text-slate-700'
-            }`}
+            className="md:hidden p-2 text-gray-700"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -285,20 +277,16 @@ const Navigation = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className={`md:hidden py-4 border-t rounded-b-lg transition-all duration-300 ${
-            isScrolled 
-              ? 'border-gray-200 bg-white/95 backdrop-blur-sm' 
-              : 'border-slate-200 bg-white/90 backdrop-blur-sm'
-          }`}>
-            <div className="flex flex-col space-y-4">
-              <a href="/" className={getLinkClasses('/', isScrolled)}>
+          <div className="md:hidden py-4 border-t rounded-b-full transition-all duration-300 bg-white/95 backdrop-blur-sm border-gray-200 mt-4 rounded-2xl">
+            <div className="flex flex-col space-y-4 px-6">
+              <a href="/" className="font-medium text-gray-700 hover:text-blue-600 transition-all duration-300">
                 Home
               </a>
               
               {/* Mobile Services Dropdown */}
               <div className="services-dropdown">
                 <button 
-                  className={getServicesButtonClasses(isScrolled)}
+                  className="flex items-center space-x-1 font-medium text-gray-700 hover:text-blue-600 transition-all duration-300"
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
                 >
                   <span>Services</span>
@@ -341,16 +329,16 @@ const Navigation = () => {
                 )}
               </div>
               
-              <a href="/about-us" className={getLinkClasses('/about-us', isScrolled)}>
+              <a href="/about-us" className="font-medium text-gray-700 hover:text-blue-600 transition-all duration-300">
                 About Us
               </a>
-              <a href="/blogs" className={getLinkClasses('/blogs', isScrolled)}>
+              <a href="/blogs" className="font-medium text-gray-700 hover:text-blue-600 transition-all duration-300">
                 Blogs
               </a>
-              <a href="/contact" className={getLinkClasses('/contact', isScrolled)}>
+              <a href="/contact" className="font-medium text-gray-700 hover:text-blue-600 transition-all duration-300">
                 Contact
               </a>
-              <button className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-2 rounded-lg font-medium hover:from-blue-500 hover:to-indigo-500 transition-all duration-200 w-full mt-4">
+              <button className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-2 rounded-full font-medium hover:from-blue-500 hover:to-indigo-500 transition-all duration-200 w-full mt-4">
                 Talk to an Advisor
               </button>
             </div>
