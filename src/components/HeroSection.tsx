@@ -5,7 +5,7 @@ import { ArrowRight, Shield } from 'lucide-react';
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen overflow-hidden pt-16" style={{
-      backgroundImage: 'url(/1.png)',
+      backgroundImage: 'url(/3.png)',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat'
