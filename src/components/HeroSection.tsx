@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 import { ArrowRight, Shield } from 'lucide-react';
 
@@ -20,8 +21,8 @@ const HeroSection = () => {
               {/* Badge */}
               <div className="inline-flex items-center px-3 py-2 sm:px-4 sm:py-2.5 bg-blue-100 text-blue-700 rounded-full text-xs sm:text-sm font-medium mb-6 sm:mb-8 mt-8 sm:mt-0 shadow-lg">
                 <Shield className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
-                <span className="sm:hidden">Est. 2010</span>
-                <span className="hidden sm:inline">Est. 2010</span>
+                <span className="sm:hidden">Excellence Since 2010</span>
+                <span className="hidden sm:inline">Excellence Since 2010</span>
               </div>
 
               {/* Main Headline */}
