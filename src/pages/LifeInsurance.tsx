@@ -59,7 +59,7 @@ const LifeInsurance = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative min-h-screen overflow-hidden pt-16 bg-black">
+      <section className="relative h-[80vh] overflow-hidden pt-16 bg-black">
         {/* Background Image */}
         <div 
           className="absolute inset-0 transition-all duration-1000 ease-in-out opacity-100 z-10"
@@ -74,8 +74,8 @@ const LifeInsurance = () => {
           <div className="absolute inset-0 bg-black/50"></div>
         </div>
         
-        <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
-          <div className="flex flex-col justify-center min-h-screen text-left">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10 h-full">
+          <div className="flex flex-col justify-center h-full text-left">
             <div className="max-w-2xl lg:max-w-xl xl:max-w-2xl ml-8 sm:ml-16">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight">
                 <span className="text-white drop-shadow-2xl font-extrabold">
