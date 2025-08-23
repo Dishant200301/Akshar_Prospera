@@ -38,7 +38,7 @@ const HeroSection = () => {
       tagline: 'Empower Your',
       highlight: 'Dreams',
       continuation: ' Always',
-      description: 'Wellness programs that empower your dreams through comprehensive health coverage, ensuring vitality for',
+      description: 'Wellness programs that empower your dreams through health coverage, ensuring vitality',
       location: ' every aspiration',
       additionalText: '. Your trusted partner in life\'s uncertainties.',
     }
