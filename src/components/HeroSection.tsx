@@ -60,17 +60,17 @@ const HeroSection = () => {
   const getCurrentSlideData = () => slides[currentSlide];
 
   return (
-    <section className="relative min-h-screen overflow-hidden pt-16">
+    <section className="relative min-h-screen overflow-hidden pt-16 bg-black">
       {/* Background Images with Smooth Transitions */}
       {slides.map((slide, index) => (
         <div
           key={slide.id}
           className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
             index === currentSlide 
-              ? 'opacity-100 transform translate-x-0' 
+              ? 'opacity-100 transform translate-x-0 z-10' 
               : index < currentSlide 
-                ? 'opacity-0 transform -translate-x-full'
-                : 'opacity-0 transform translate-x-full'
+                ? 'opacity-0 transform -translate-x-full z-0'
+                : 'opacity-0 transform translate-x-full z-0'
           }`}
           style={{
             backgroundImage: `url(${slide.image})`,
