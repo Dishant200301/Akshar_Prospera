@@ -59,19 +59,68 @@ const VisitorVisaInsurance = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 min-h-[75vh] flex items-center">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
-              <Users className="w-4 h-4 mr-2" />
-              Visa Requirements
+      <section className="relative min-h-screen overflow-hidden pt-16 bg-black">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 transition-all duration-1000 ease-in-out opacity-100 z-10"
+          style={{
+            backgroundImage: 'url(/image/visitor.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'right center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        >
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-black/50"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
+          <div className="flex flex-col lg:flex-row justify-center items-center min-h-screen">
+            {/* Left Side - Content */}
+            <div className="lg:w-1/2 text-left mb-8 lg:mb-0 lg:pr-8">
+              <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
+                <Users className="w-4 h-4 mr-2" />
+                Visa Requirements
+              </div>
+              
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight">
+                <span className="text-white drop-shadow-2xl font-extrabold">
+                  Meet Visa
+                </span>
+                <br />
+                <span className="bg-gradient-to-r from-blue-300 via-blue-400 to-indigo-500 bg-clip-text text-transparent drop-shadow-2xl font-extrabold">
+                  Requirements
+                </span>
+                <span className="text-white drop-shadow-2xl font-extrabold">
+                  Easily
+                </span>
+              </h1>
+
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 mb-8 sm:mb-12 leading-relaxed font-semibold drop-shadow-2xl">
+                Specialized insurance coverage for international visitors to{' '}
+                <span className="bg-gradient-to-r from-blue-300 to-indigo-400 bg-clip-text text-transparent font-bold drop-shadow-lg">
+                  North America
+                </span>
+                <br />
+                Your trusted partner for visa compliance and protection.
+              </p>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+                <button className="w-full sm:w-auto bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 text-white px-4 sm:px-6 py-2.5 rounded-xl font-bold hover:from-blue-500 hover:via-blue-600 hover:to-indigo-600 transition-all duration-300 inline-flex items-center justify-center shadow-2xl text-sm sm:text-base transform hover:scale-105">
+                  <ArrowRight className="hidden sm:block w-4 h-4 mr-2" /> Get Visa Quote
+                </button>
+                
+                <button className="w-full sm:w-auto bg-transparent text-white border-2 border-white px-4 sm:px-6 py-2.5 rounded-xl font-bold hover:bg-white hover:text-blue-700 hover:border-white transition-all duration-300 inline-flex items-center justify-center shadow-2xl text-sm sm:text-base transform hover:scale-105">
+                  <ArrowRight className="hidden sm:block w-4 h-4 mr-2" /> View Plans
+                </button>
+              </div>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Visitor Visa</span> Insurance
-            </h1>
-            <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto">
-              Meet visa requirements with specialized insurance coverage for international visitors to North America.
-            </p>
+
+            {/* Right Side - Image (hidden on mobile, shown on larger screens) */}
+            <div className="lg:w-1/2 hidden lg:block">
+              {/* This space is intentionally left empty as the background image covers the right side */}
+            </div>
           </div>
         </div>
       </section>
