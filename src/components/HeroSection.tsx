@@ -34,7 +34,7 @@ const HeroSection = () => {
       continuation: ' Today',
       description: 'Comprehensive insurance solutions that protect your\nfamily\'s future and health across',
       location: ' Canada & USA',
-      additionalText: '. Your trusted partner in life\'s uncertainties.',
+      additionalText: ' Your trusted partner in life\'s uncertainties.',
     },
     {
       id: 2,
@@ -46,7 +46,7 @@ const HeroSection = () => {
       continuation: ' Ones',
       description: 'Family protection plans that shield your\nloved ones from life\'s uncertainties, providing security',
       location: ' every milestone',
-      additionalText: '. Your trusted partner in life\'s uncertainties.',
+      additionalText: ' Your trusted partner in life\'s uncertainties.',
     },
     {
       id: 3,
@@ -58,7 +58,7 @@ const HeroSection = () => {
       continuation: ' Always',
       description: 'Wellness programs that empower your\ndreams through health coverage, ensuring vitality for',
       location: ' every aspiration',
-      additionalText: '. Your trusted partner in life\'s uncertainties.',
+      additionalText: ' Your trusted partner in life\'s uncertainties.',
     }
   ];
 
@@ -149,12 +149,13 @@ const HeroSection = () => {
 
               {/* Dynamic Subheadline */}
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 mb-8 sm:mb-12 leading-relaxed font-semibold drop-shadow-2xl">
-                <AnimatedText text={getCurrentSlideData().description} />
+                <AnimatedText text={getCurrentSlideData().description.split('\\n').join(' ')} />
                 <AnimatedText 
                   text={getCurrentSlideData().location} 
                   delay={getCurrentSlideData().description.split(' ').length * 0.05}
                   className="bg-gradient-to-r from-blue-300 to-indigo-400 bg-clip-text text-transparent font-bold drop-shadow-lg"
                 />
+                <br />
                 <AnimatedText text={getCurrentSlideData().additionalText} delay={(getCurrentSlideData().description.split(' ').length + getCurrentSlideData().location.split(' ').length) * 0.05} />
               </p>
 
