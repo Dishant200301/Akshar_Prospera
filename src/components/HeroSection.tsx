@@ -116,7 +116,7 @@ const HeroSection = () => {
       </div>
 
       {/* Scroll Down Button */}
-      <div className="absolute bottom-8 sm:bottom-12 left-1/2 transform -translate-x-1/2 z-20">
+      <div className="absolute bottom-16 sm:bottom-20 left-1/2 transform -translate-x-1/2 z-20">
         <button 
           onClick={() => {
             const nextSection = document.querySelector('section:nth-of-type(2)');
