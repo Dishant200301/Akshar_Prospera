@@ -83,7 +83,7 @@ const VisitorVisaInsurance = () => {
                 </span>
                 <br />
                 <span className="bg-gradient-to-r from-blue-300 via-blue-400 to-indigo-500 bg-clip-text text-transparent drop-shadow-2xl font-extrabold">
-                  While
+                  While{' '}
                 </span>
                 <span className="text-white drop-shadow-2xl font-extrabold">
                   Traveling
