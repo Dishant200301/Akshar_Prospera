@@ -26,9 +26,9 @@ const HeroSection = () => {
       tagline: 'Protect Your',
       highlight: 'Loved',
       continuation: ' Ones',
-      description: 'Comprehensive family protection plans that shield your loved ones from life\'s uncertainties, providing financial security and emotional peace for',
+      description: 'Family protection plans that shield your loved ones from life\'s uncertainties, providing security',
       location: ' every milestone',
-      additionalText: '. Building lasting security for your family\'s future.',
+      additionalText: '. Your trusted partner in life\'s uncertainties.',
     },
     {
       id: 3,
@@ -38,9 +38,9 @@ const HeroSection = () => {
       tagline: 'Empower Your',
       highlight: 'Dreams',
       continuation: ' Always',
-      description: 'Innovative wellness programs that empower your dreams through comprehensive health coverage, ensuring vitality and mental clarity for',
+      description: 'Wellness programs that empower your dreams through comprehensive health coverage, ensuring vitality for',
       location: ' every aspiration',
-      additionalText: '. Supporting your journey toward optimal well-being.',
+      additionalText: '. Your trusted partner in life\'s uncertainties.',
     }
   ];
 
