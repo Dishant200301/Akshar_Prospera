@@ -2,6 +2,22 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Shield, Heart, Users, TrendingUp } from 'lucide-react';
 
+const AnimatedText = ({ text, delay = 0, className = '' }) => {
+  return (
+    <span className={className}>
+      {text.split(' ').map((word, index) => (
+        <span
+          key={index}
+          className="animate-word"
+          style={{ animationDelay: `${delay + index * 0.05}s` }}
+        >
+          {word}{' '}
+        </span>
+      ))}
+    </span>
+  );
+};
+
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -103,7 +119,7 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
         <div className={`flex flex-col justify-center min-h-screen ${currentSlide === 1 ? 'text-right' : currentSlide === 2 ? 'text-center' : 'text-left'}`}>
           <div className={`max-w-2xl lg:max-w-xl xl:max-w-2xl ${currentSlide === 1 ? 'ml-auto mr-8 sm:mr-16' : currentSlide === 2 ? 'mx-auto' : 'ml-8 sm:ml-16'}`}>
-            <div className="animate-fade-in">
+            <div className="animate-fade-in" key={currentSlide}>
               {/* Dynamic Badge */}
               <div className="inline-flex items-center px-3 py-2 sm:px-4 sm:py-2.5 bg-white/90 backdrop-blur-sm text-blue-800 rounded-full text-xs sm:text-sm font-semibold mb-6 sm:mb-8 mt-8 sm:mt-0 shadow-xl border border-white/20 transition-all duration-500">
                 {React.createElement(getCurrentSlideData().icon, {
@@ -115,21 +131,17 @@ const HeroSection = () => {
 
               {/* Dynamic Main Headline */}
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight">
-                <span className="text-white drop-shadow-2xl font-extrabold">
-                  {getCurrentSlideData().tagline}
-                </span>
+                <AnimatedText text={getCurrentSlideData().tagline} className="text-white drop-shadow-2xl font-extrabold" />
                 <br />
-                <span className="bg-gradient-to-r from-blue-300 via-blue-400 to-indigo-500 bg-clip-text text-transparent drop-shadow-2xl font-extrabold">
-                  {getCurrentSlideData().highlight}
-                </span>
-                <span className="text-white drop-shadow-2xl font-extrabold">{getCurrentSlideData().continuation}</span>
+                <AnimatedText text={getCurrentSlideData().highlight} delay={getCurrentSlideData().tagline.split(' ').length * 0.05} className="bg-gradient-to-r from-blue-300 via-blue-400 to-indigo-500 bg-clip-text text-transparent drop-shadow-2xl font-extrabold" />
+                <AnimatedText text={getCurrentSlideData().continuation} delay={(getCurrentSlideData().tagline.split(' ').length + getCurrentSlideData().highlight.split(' ').length) * 0.05} className="text-white drop-shadow-2xl font-extrabold" />
               </h1>
 
               {/* Dynamic Subheadline */}
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 mb-8 sm:mb-12 leading-relaxed font-semibold drop-shadow-2xl">
-                {getCurrentSlideData().description}
-                <span className="bg-gradient-to-r from-blue-300 to-indigo-400 bg-clip-text text-transparent font-bold drop-shadow-lg">{getCurrentSlideData().location}</span>
-                {getCurrentSlideData().additionalText}
+                <AnimatedText text={getCurrentSlideData().description} />
+                <AnimatedText text={getCurrentSlideData().location} delay={getCurrentSlideData().description.split(' ').length * 0.05} className="bg-gradient-to-r from-blue-300 to-indigo-400 bg-clip-text text-transparent font-bold drop-shadow-lg" />
+                <AnimatedText text={getCurrentSlideData().additionalText} delay={(getCurrentSlideData().description.split(' ').length + getCurrentSlideData().location.split(' ').length) * 0.05} />
               </p>
 
               {/* CTA Buttons */}

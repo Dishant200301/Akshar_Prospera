@@ -231,3 +231,21 @@
     backdrop-filter: blur(64px);
   }
 }
+
+.animate-word {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: reveal 0.5s forwards;
+  display: inline-block;
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
