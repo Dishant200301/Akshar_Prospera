@@ -267,8 +267,6 @@ const TravelInsurance = () => {
         </div>
       </section>
 
-
-
       <Footer />
     </div>
   );
