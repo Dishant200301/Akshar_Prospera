@@ -75,9 +75,8 @@ const VisitorVisaInsurance = () => {
         </div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
-          <div className="flex flex-col lg:flex-row justify-center items-center min-h-screen">
-            {/* Left Side - Content */}
-            <div className="max-w-2xl lg:max-w-xl xl:max-w-2xl ml-8 sm:ml-16 text-left mb-8 lg:mb-0">
+          <div className="flex flex-col justify-center min-h-screen text-left">
+            <div className="max-w-2xl lg:max-w-xl xl:max-w-2xl ml-8 sm:ml-16">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight">
                 <span className="text-white drop-shadow-2xl font-extrabold">
                   Visitor Safety
@@ -90,11 +89,6 @@ const VisitorVisaInsurance = () => {
                   Traveling
                 </span>
               </h1>
-            </div>
-
-            {/* Right Side - Image (hidden on mobile, shown on larger screens) */}
-            <div className="lg:w-1/2 hidden lg:block">
-              {/* This space is intentionally left empty as the background image covers the right side */}
             </div>
           </div>
         </div>
