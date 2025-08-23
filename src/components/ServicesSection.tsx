@@ -36,7 +36,6 @@ const ServicesSection = () => {
 
   const services = [
     {
-      icon: Heart,
       title: 'Health Insurance',
       description: 'Comprehensive health coverage for you and your family with complete protection.',
       features: ['24/7 Medical Support', 'Prescription Coverage', 'Dental & Vision', 'Mental Health Services'],
@@ -46,7 +45,6 @@ const ServicesSection = () => {
       href: '/health-insurance'
     },
     {
-      icon: Plane,
       title: 'Travel Insurance',
       description: 'Worldwide travel protection with emergency medical coverage and full support.',
       features: ['Emergency Medical', 'Trip Cancellation', 'Baggage Protection', '24/7 Travel Support'],
@@ -56,7 +54,6 @@ const ServicesSection = () => {
       href: '/travel-insurance'
     },
     {
-      icon: Users,
       title: 'Visitor Visa Insurance',
       description: 'Specialized coverage for visitors to Canada and USA with complete protection.',
       features: ['Visa Compliance', 'Medical Coverage', 'Emergency Evacuation', 'Family Plans'],
@@ -66,7 +63,6 @@ const ServicesSection = () => {
       href: '/visitor-visa-insurance'
     },
     {
-      icon: Shield,
       title: 'Life Insurance',
       description: 'Secure your family\'s future with flexible life insurance plans and protection.',
       features: ['Flexible Coverage', 'Cash Value Options', 'Family Protection', 'Tax Benefits'],
