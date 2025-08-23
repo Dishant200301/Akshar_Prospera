@@ -1,6 +1,6 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { Heart, Plane, Users, Shield, ArrowRight, CheckCircle, Star } from 'lucide-react';
+import { ArrowRight, CheckCircle, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const ServicesSection = () => {
@@ -112,10 +112,7 @@ const ServicesSection = () => {
                     transformStyle: 'preserve-3d'
                   }}
                 >
-                  {/* Icon */}
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center mb-3 sm:mb-4 shadow-lg">
-                    <service.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-                  </div>
+
                   
                   {/* Content */}
                   <h3 className="text-xl sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">{service.title}</h3>
