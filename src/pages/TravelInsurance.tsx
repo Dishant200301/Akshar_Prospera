@@ -71,36 +71,16 @@ const TravelInsurance = () => {
             <div className="lg:w-1/2 text-left mb-8 lg:mb-0 lg:pr-8">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight">
                 <span className="text-white drop-shadow-2xl font-extrabold">
-                  Travel with
+                  Travel Safe
                 </span>
                 <br />
                 <span className="bg-gradient-to-r from-blue-300 via-blue-400 to-indigo-500 bg-clip-text text-transparent drop-shadow-2xl font-extrabold">
-                  Confidence
+                  Stay
                 </span>
                 <span className="text-white drop-shadow-2xl font-extrabold">
-                  Worldwide
+                  Protected
                 </span>
               </h1>
-
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 mb-8 sm:mb-12 leading-relaxed font-semibold drop-shadow-2xl">
-                Comprehensive travel insurance coverage for medical emergencies and trip protection in{' '}
-                <span className="bg-gradient-to-r from-blue-300 to-indigo-400 bg-clip-text text-transparent font-bold drop-shadow-lg">
-                  every destination
-                </span>
-                <br />
-                Your trusted partner for worry-free adventures.
-              </p>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
-                <button className="w-full sm:w-auto bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 text-white px-4 sm:px-6 py-2.5 rounded-xl font-bold hover:from-blue-500 hover:via-blue-600 hover:to-indigo-600 transition-all duration-300 inline-flex items-center justify-center shadow-2xl text-sm sm:text-base transform hover:scale-105">
-                  <ArrowRight className="hidden sm:block w-4 h-4 mr-2" /> Get Travel Quote
-                </button>
-                
-                <button className="w-full sm:w-auto bg-transparent text-white border-2 border-white px-4 sm:px-6 py-2.5 rounded-xl font-bold hover:bg-white hover:text-blue-700 hover:border-white transition-all duration-300 inline-flex items-center justify-center shadow-2xl text-sm sm:text-base transform hover:scale-105">
-                  <ArrowRight className="hidden sm:block w-4 h-4 mr-2" /> View Plans
-                </button>
-              </div>
             </div>
 
             {/* Right Side - Image (hidden on mobile, shown on larger screens) */}
