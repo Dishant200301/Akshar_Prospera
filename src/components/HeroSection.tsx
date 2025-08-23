@@ -33,10 +33,10 @@ const HeroSection = () => {
     {
       id: 3,
       image: '/3.png',
-      badge: 'Health & Wellness',
+      badge: 'Future Planning',
       icon: Users,
       tagline: 'Secure Your',
-      highlight: 'Health',
+      highlight: 'Future',
       continuation: ' Today',
       description: 'Premium health insurance coverage that protects your family\'s future, health, and dreams across',
       location: ' Canada & USA',
