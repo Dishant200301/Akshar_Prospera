@@ -3,6 +3,24 @@ import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import { Plane, CheckCircle, Shield, Globe, Clock, Star, ArrowRight, Phone, Mail, MapPin, AlertTriangle } from 'lucide-react';
 
+const AnimatedText = ({ text, delay = 0, className = '' }) => {
+  const isGradient = className.includes('bg-gradient');
+  
+  return (
+    <span className={isGradient ? '' : className}>
+      {text.split(' ').map((word, index) => (
+        <span
+          key={index}
+          className={`animate-word ${isGradient ? className : ''}`}
+          style={{ animationDelay: `${delay + index * 0.05}s` }}
+        >
+          {word}{' '}
+        </span>
+      ))}
+    </span>
+  );
+};
+
 const TravelInsurance = () => {
   const features = [
     'Emergency Medical Coverage Worldwide',
@@ -82,10 +100,12 @@ const TravelInsurance = () => {
               </h1>
 
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 mb-8 sm:mb-12 leading-relaxed font-semibold drop-shadow-2xl animate-fade-in">
-                Worldwide travel protection with comprehensive coverage for all your adventures and{' '}
-                <span className="bg-gradient-to-r from-blue-300 to-indigo-400 bg-clip-text text-transparent font-bold drop-shadow-lg">
-                  destinations
-                </span>
+                <AnimatedText text="Worldwide travel protection with comprehensive coverage for all your adventures and" />
+                <AnimatedText 
+                  text="destinations" 
+                  delay={0.6}
+                  className="bg-gradient-to-r from-blue-300 to-indigo-400 bg-clip-text text-transparent font-bold drop-shadow-lg"
+                />
               </p>
             </div>
           </div>
