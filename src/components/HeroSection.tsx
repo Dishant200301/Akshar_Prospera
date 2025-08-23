@@ -100,7 +100,7 @@ const HeroSection = () => {
       ))}
 
       {/* Navigation Dots */}
-      <div className="absolute left-4 sm:left-8 top-1/2 transform -translate-y-1/2 z-20 flex flex-col space-y-4">
+      <div className="absolute left-4 sm:left-8 top-1/2 transform -translate-y-1/2 z-20 flex flex-col space-y-2">
         {slides.map((_, index) => (
           <button
             key={index}
