@@ -32,7 +32,7 @@ const HeroSection = () => {
       tagline: 'Secure Your',
       highlight: 'Health',
       continuation: ' Today',
-      description: 'Comprehensive insurance solutions that protect your\nfamily\'s future, health, and dreams across',
+      description: 'Comprehensive insurance solutions that protect your\nfamily\'s future and health across',
       location: ' Canada & USA',
       additionalText: '. Your trusted partner in life\'s uncertainties.',
     },
