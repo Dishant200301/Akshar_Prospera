@@ -81,7 +81,7 @@ const Contact = () => {
       <Navigation />
 
       {/* Hero */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 min-h-[50vh] flex items-center">
+      <section className="pt-24 pb-16 bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 min-h-[75vh] flex items-center">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
@@ -100,10 +100,6 @@ const Contact = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-10">
-            <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
-              <MessageSquare className="w-4 h-4 mr-2" />
-              Send Us a Message
-            </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Get in <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Touch</span></h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">Fill out the form below and we'll get back to you within 24 hours. For urgent matters, please call us directly.</p>
           </div>
@@ -297,10 +293,6 @@ const Contact = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-10">
-              <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
-                <MapPin className="w-4 h-4 mr-2" />
-                Visit Our Office
-              </div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Located in <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Toronto's Heart</span></h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                 Located in the heart of Toronto's Financial District, our office is easily accessible by public transit and offers convenient parking options.

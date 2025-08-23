@@ -59,7 +59,7 @@ const LifeInsurance = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 min-h-[50vh] flex items-center">
+      <section className="pt-24 pb-16 bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 min-h-[75vh] flex items-center">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
@@ -80,10 +80,6 @@ const LifeInsurance = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-10">
-            <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
-              <Shield className="w-4 h-4 mr-2" />
-              Why Choose Us
-            </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
               Why Choose Our <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Life Insurance</span>?
             </h2>
@@ -132,10 +128,6 @@ const LifeInsurance = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
-              <Shield className="w-4 h-4 mr-2" />
-              Choose Your Plan
-            </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
               Choose Your <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Life Insurance Plan</span>
             </h2>
@@ -185,10 +177,6 @@ const LifeInsurance = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-10">
-            <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
-              <Heart className="w-4 h-4 mr-2" />
-              Life Insurance Benefits
-            </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
               Life Insurance <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Benefits</span>
             </h2>
@@ -213,10 +201,6 @@ const LifeInsurance = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-10">
-            <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
-              <Shield className="w-4 h-4 mr-2" />
-              Additional Coverage
-            </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
               Additional <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Coverage Options</span>
             </h2>
@@ -245,10 +229,6 @@ const LifeInsurance = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-10">
-            <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
-              <CheckCircle className="w-4 h-4 mr-2" />
-              What's Included
-            </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
               What's Included in Your <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Life Insurance</span>
             </h2>
@@ -272,10 +252,6 @@ const LifeInsurance = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-10">
-            <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
-              <Clock className="w-4 h-4 mr-2" />
-              Simple Process
-            </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
               Simple <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Application Process</span>
             </h2>

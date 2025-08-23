@@ -53,7 +53,7 @@ const AboutUs: React.FC = () => {
       <Navigation />
 
       {/* Hero */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 min-h-[50vh] flex items-center">
+      <section className="pt-24 pb-16 bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 min-h-[75vh] flex items-center">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
@@ -74,9 +74,6 @@ const AboutUs: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-10">
-              <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
-                <Award className="w-4 h-4 mr-2" /> Trusted Advisors
-              </div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Why Families Choose <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Akshar Prospera</span></h2>
                 <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                   We blend expert guidance with a warm, personal approach to deliver exceptional insurance solutions.
@@ -172,10 +169,6 @@ const AboutUs: React.FC = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-10">
-            <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
-              <Users className="w-4 h-4 mr-2" />
-              Our Values
-            </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">What We <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Stand For</span></h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">Core principles that drive our commitment to exceptional service and client satisfaction.</p>
           </div>
@@ -226,10 +219,6 @@ const AboutUs: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
-                <Users className="w-4 h-4 mr-2" />
-                Meet Your Expert Advisor
-              </div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
                 Your Trusted <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Insurance Advisor</span>
               </h2>

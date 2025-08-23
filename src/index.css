@@ -235,7 +235,10 @@
 .animate-word {
   opacity: 0;
   transform: translateY(20px);
-  animation: reveal 0.5s forwards;
+  animation: reveal 0.6s ease-out forwards;
+  animation-fill-mode: both;
+  display: inline;
+  will-change: opacity, transform;
 }
 
 @keyframes reveal {
