@@ -80,14 +80,14 @@ const VisitorVisaInsurance = () => {
             <div className="max-w-2xl lg:max-w-xl xl:max-w-2xl ml-8 sm:ml-16 text-left mb-8 lg:mb-0">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight">
                 <span className="text-white drop-shadow-2xl font-extrabold">
-                  Travel Secure
+                  Visitor Safety
                 </span>
                 <br />
                 <span className="bg-gradient-to-r from-blue-300 via-blue-400 to-indigo-500 bg-clip-text text-transparent drop-shadow-2xl font-extrabold">
-                  Visitor{' '}
+                  While{' '}
                 </span>
                 <span className="text-white drop-shadow-2xl font-extrabold">
-                  Insurance
+                  Traveling
                 </span>
               </h1>
             </div>
