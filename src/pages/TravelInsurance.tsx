@@ -69,11 +69,6 @@ const TravelInsurance = () => {
           <div className="flex flex-col lg:flex-row justify-center items-center min-h-screen">
             {/* Left Side - Content */}
             <div className="lg:w-1/2 text-left mb-8 lg:mb-0 lg:pr-8">
-              <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
-                <Plane className="w-4 h-4 mr-2" />
-                Travel Protection
-              </div>
-              
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight">
                 <span className="text-white drop-shadow-2xl font-extrabold">
                   Travel with
