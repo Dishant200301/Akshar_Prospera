@@ -144,7 +144,7 @@ const Navigation = () => {
               
               {isServicesOpen && (
                 <div 
-                  className={`absolute top-full left-0 mt-2 bg-white shadow-2xl border border-gray-100 rounded-2xl py-6 animate-in slide-in-from-top-2 duration-200 services-dropdown transition-all duration-300 ${
+                  className={`absolute top-full left-0 mt-2 bg-white/95 backdrop-blur-md shadow-2xl border border-gray-100 rounded-2xl py-6 animate-in slide-in-from-top-2 duration-200 services-dropdown transition-all duration-300 ${
                     hoveredService ? 'w-[600px]' : 'w-64'
                   }`}
                   onMouseEnter={() => setIsServicesOpen(true)}
@@ -162,7 +162,7 @@ const Navigation = () => {
                           <div key={index} className="relative group">
                             <a
                               href={service.href}
-                              className="flex items-center px-3 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 group-hover:scale-[1.02]"
+                              className="flex items-center px-3 py-2.5 text-gray-700 hover:text-blue-600 hover:bg-blue-100 hover:shadow-sm rounded-lg transition-all duration-200 border border-transparent hover:border-blue-200"
                               onMouseEnter={() => {
                                 setHoveredService(service);
                                 setIsDropdownHovered(true);
