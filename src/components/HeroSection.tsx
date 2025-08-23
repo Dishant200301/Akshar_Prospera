@@ -26,9 +26,9 @@ const HeroSection = () => {
       tagline: 'Protect Your',
       highlight: 'Loved',
       continuation: ' Ones',
-      description: 'Life insurance policies designed to protect your family\'s financial security, health, and dreams across',
-      location: ' Canada & USA',
-      additionalText: '. Your trusted partner in life\'s uncertainties.',
+      description: 'Comprehensive life insurance solutions that safeguard your family\'s financial stability, prosperity, and legacy across',
+      location: ' North America',
+      additionalText: '. Building a secure foundation for generations to come.',
     },
     {
       id: 3,
@@ -38,9 +38,9 @@ const HeroSection = () => {
       tagline: 'Empower Your',
       highlight: 'Dreams',
       continuation: ' Always',
-      description: 'Premium health insurance coverage that protects your family\'s future, health, and dreams across',
-      location: ' Canada & USA',
-      additionalText: '. Your trusted partner in life\'s uncertainties.',
+      description: 'Advanced health insurance solutions that ensure your family\'s wellness, vitality, and peace of mind across',
+      location: ' the continent',
+      additionalText: '. Providing comprehensive protection for life\'s journey.',
     }
   ];
 
