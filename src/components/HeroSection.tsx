@@ -44,7 +44,7 @@ const HeroSection = () => {
       tagline: 'Protect Your',
       highlight: 'Loved',
       continuation: ' Ones',
-      description: 'Family protection plans that shield your\nloved ones from life\'s uncertainties, providing security',
+      description: 'Family protection plans that shield your\nloved ones from life\'s uncertainties, providing security for',
       location: ' every milestone',
       additionalText: ' Your trusted partner in life\'s uncertainties.',
     },
