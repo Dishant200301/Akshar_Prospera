@@ -20,7 +20,7 @@ const HeroSection = () => {
     },
     {
       id: 2,
-      image: '/3.png',
+      image: '/2.jpg',
       badge: 'Family Protection',
       icon: Heart,
       tagline: 'Protect Your',
@@ -32,7 +32,7 @@ const HeroSection = () => {
     },
     {
       id: 3,
-      image: '/1.jpg',
+      image: '/3.png',
       badge: 'Health & Wellness',
       icon: Users,
       tagline: 'Invest in Your',
