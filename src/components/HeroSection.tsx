@@ -2,9 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Shield, Heart, Users, TrendingUp } from 'lucide-react';
 
-const AnimatedText = ({ text, delay = 0, className = '' }) => {
+const AnimatedText = ({ text, delay = 0 }) => {
   return (
-    <span className={className}>
+    <>
       {text.split(' ').map((word, index) => (
         <span
           key={index}
@@ -14,7 +14,7 @@ const AnimatedText = ({ text, delay = 0, className = '' }) => {
           {word}{' '}
         </span>
       ))}
-    </span>
+    </>
   );
 };
 
@@ -131,16 +131,24 @@ const HeroSection = () => {
 
               {/* Dynamic Main Headline */}
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight">
-                <AnimatedText text={getCurrentSlideData().tagline} className="text-white drop-shadow-2xl font-extrabold" />
+                <span className="text-white drop-shadow-2xl font-extrabold">
+                  <AnimatedText text={getCurrentSlideData().tagline} />
+                </span>
                 <br />
-                <AnimatedText text={getCurrentSlideData().highlight} delay={getCurrentSlideData().tagline.split(' ').length * 0.05} className="bg-gradient-to-r from-blue-300 via-blue-400 to-indigo-500 bg-clip-text text-transparent drop-shadow-2xl font-extrabold" />
-                <AnimatedText text={getCurrentSlideData().continuation} delay={(getCurrentSlideData().tagline.split(' ').length + getCurrentSlideData().highlight.split(' ').length) * 0.05} className="text-white drop-shadow-2xl font-extrabold" />
+                <span className="bg-gradient-to-r from-blue-300 via-blue-400 to-indigo-500 bg-clip-text text-transparent drop-shadow-2xl font-extrabold">
+                  <AnimatedText text={getCurrentSlideData().highlight} delay={getCurrentSlideData().tagline.split(' ').length * 0.05} />
+                </span>
+                <span className="text-white drop-shadow-2xl font-extrabold">
+                  <AnimatedText text={getCurrentSlideData().continuation} delay={(getCurrentSlideData().tagline.split(' ').length + getCurrentSlideData().highlight.split(' ').length) * 0.05} />
+                </span>
               </h1>
 
               {/* Dynamic Subheadline */}
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 mb-8 sm:mb-12 leading-relaxed font-semibold drop-shadow-2xl">
                 <AnimatedText text={getCurrentSlideData().description} />
-                <AnimatedText text={getCurrentSlideData().location} delay={getCurrentSlideData().description.split(' ').length * 0.05} className="bg-gradient-to-r from-blue-300 to-indigo-400 bg-clip-text text-transparent font-bold drop-shadow-lg" />
+                <span className="bg-gradient-to-r from-blue-300 to-indigo-400 bg-clip-text text-transparent font-bold drop-shadow-lg">
+                  <AnimatedText text={getCurrentSlideData().location} delay={getCurrentSlideData().description.split(' ').length * 0.05} />
+                </span>
                 <AnimatedText text={getCurrentSlideData().additionalText} delay={(getCurrentSlideData().description.split(' ').length + getCurrentSlideData().location.split(' ').length) * 0.05} />
               </p>
 
