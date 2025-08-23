@@ -151,12 +151,12 @@ const HeroSection = () => {
 
               {/* CTA Buttons */}
               <div className={`flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 ${currentSlide === 1 ? 'items-end sm:justify-end' : currentSlide === 2 ? 'justify-center' : 'items-start'}`}>
-                <button className="w-full sm:w-auto bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 text-white px-6 sm:px-8 py-4 rounded-xl font-bold hover:from-blue-500 hover:via-blue-600 hover:to-indigo-600 transition-all duration-300 inline-flex items-center justify-center shadow-2xl text-sm sm:text-base transform hover:scale-105">
-                  <ArrowRight className="hidden sm:block w-5 h-5 mr-2" /> Talk to an Advisor
+                <button className="w-full sm:w-auto bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 text-white px-4 sm:px-6 py-2.5 rounded-xl font-bold hover:from-blue-500 hover:via-blue-600 hover:to-indigo-600 transition-all duration-300 inline-flex items-center justify-center shadow-2xl text-sm sm:text-base">
+                  <ArrowRight className="hidden sm:block w-4 h-4 mr-2" /> Talk to an Advisor
                 </button>
                 
-                <button className="w-full sm:w-auto bg-transparent text-white border-2 border-white px-6 sm:px-8 py-4 rounded-xl font-bold hover:bg-white hover:text-blue-700 hover:border-white transition-all duration-300 inline-flex items-center justify-center shadow-2xl text-sm sm:text-base transform hover:scale-105">
-                  <ArrowRight className="hidden sm:block w-5 h-5 mr-2" /> Get Free Quote
+                <button className="w-full sm:w-auto bg-transparent text-white border-2 border-white px-4 sm:px-6 py-2.5 rounded-xl font-bold hover:bg-white hover:text-blue-700 hover:border-white transition-all duration-300 inline-flex items-center justify-center shadow-2xl text-sm sm:text-base transform hover:scale-105">
+                  <ArrowRight className="hidden sm:block w-4 h-4 mr-2" /> Get Free Quote
                 </button>
               </div>
             </div>
