@@ -80,14 +80,14 @@ const VisitorVisaInsurance = () => {
             <div className="lg:w-1/2 text-left mb-8 lg:mb-0 lg:pr-8">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight">
                 <span className="text-white drop-shadow-2xl font-extrabold">
-                  Visa Ready
+                  Travel Secure
                 </span>
                 <br />
                 <span className="bg-gradient-to-r from-blue-300 via-blue-400 to-indigo-500 bg-clip-text text-transparent drop-shadow-2xl font-extrabold">
-                  Travel
+                  Visitor{' '}
                 </span>
                 <span className="text-white drop-shadow-2xl font-extrabold">
-                  Confident
+                  Insurance
                 </span>
               </h1>
             </div>
