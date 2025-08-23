@@ -48,7 +48,7 @@ const HealthInsurance = () => {
           style={{
             backgroundImage: 'url(/image/health.jpg)',
             backgroundSize: 'cover',
-            backgroundPosition: 'right center',
+            backgroundPosition: 'right top',
             backgroundRepeat: 'no-repeat'
           }}
         >
@@ -57,9 +57,9 @@ const HealthInsurance = () => {
         </div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10 h-full">
-          <div className="flex flex-col justify-center h-full text-left">
-            <div className="max-w-2xl lg:max-w-xl xl:max-w-2xl ml-8 sm:ml-16">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight">
+          <div className="flex flex-col justify-end h-full text-left pb-20">
+            <div className="max-w-2xl lg:max-w-xl xl:max-w-2xl ml-16 sm:ml-24 lg:ml-32">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight">
                 <span className="text-white drop-shadow-2xl font-extrabold">
                   Your Health
                 </span>
