@@ -2,19 +2,21 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Shield, Heart, Users, TrendingUp } from 'lucide-react';
 
-const AnimatedText = ({ text, delay = 0 }) => {
+const AnimatedText = ({ text, delay = 0, className = '' }) => {
+  const isGradient = className.includes('bg-gradient');
+  
   return (
-    <>
+    <span className={isGradient ? '' : className}>
       {text.split(' ').map((word, index) => (
         <span
           key={index}
-          className="animate-word"
+          className={`animate-word ${isGradient ? className : ''}`}
           style={{ animationDelay: `${delay + index * 0.05}s` }}
         >
           {word}{' '}
         </span>
       ))}
-    </>
+    </span>
   );
 };
 
@@ -135,9 +137,11 @@ const HeroSection = () => {
                   <AnimatedText text={getCurrentSlideData().tagline} />
                 </span>
                 <br />
-                <span className="bg-gradient-to-r from-blue-300 via-blue-400 to-indigo-500 bg-clip-text text-transparent drop-shadow-2xl font-extrabold">
-                  <AnimatedText text={getCurrentSlideData().highlight} delay={getCurrentSlideData().tagline.split(' ').length * 0.05} />
-                </span>
+                <AnimatedText 
+                  text={getCurrentSlideData().highlight} 
+                  delay={getCurrentSlideData().tagline.split(' ').length * 0.05}
+                  className="bg-gradient-to-r from-blue-300 via-blue-400 to-indigo-500 bg-clip-text text-transparent drop-shadow-2xl font-extrabold"
+                />
                 <span className="text-white drop-shadow-2xl font-extrabold">
                   <AnimatedText text={getCurrentSlideData().continuation} delay={(getCurrentSlideData().tagline.split(' ').length + getCurrentSlideData().highlight.split(' ').length) * 0.05} />
                 </span>
@@ -146,9 +150,11 @@ const HeroSection = () => {
               {/* Dynamic Subheadline */}
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 mb-8 sm:mb-12 leading-relaxed font-semibold drop-shadow-2xl">
                 <AnimatedText text={getCurrentSlideData().description} />
-                <span className="bg-gradient-to-r from-blue-300 to-indigo-400 bg-clip-text text-transparent font-bold drop-shadow-lg">
-                  <AnimatedText text={getCurrentSlideData().location} delay={getCurrentSlideData().description.split(' ').length * 0.05} />
-                </span>
+                <AnimatedText 
+                  text={getCurrentSlideData().location} 
+                  delay={getCurrentSlideData().description.split(' ').length * 0.05}
+                  className="bg-gradient-to-r from-blue-300 to-indigo-400 bg-clip-text text-transparent font-bold drop-shadow-lg"
+                />
                 <AnimatedText text={getCurrentSlideData().additionalText} delay={(getCurrentSlideData().description.split(' ').length + getCurrentSlideData().location.split(' ').length) * 0.05} />
               </p>
 
