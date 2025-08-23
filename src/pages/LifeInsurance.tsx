@@ -77,14 +77,14 @@ const LifeInsurance = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
           <div className="flex flex-col lg:flex-row justify-center items-center min-h-screen">
             {/* Left Side - Content */}
-            <div className="lg:w-1/2 text-left mb-8 lg:mb-0 lg:pr-8">
+            <div className="max-w-2xl lg:max-w-xl xl:max-w-2xl ml-8 sm:ml-16 text-left mb-8 lg:mb-0">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight">
                 <span className="text-white drop-shadow-2xl font-extrabold">
                   Secure Your
                 </span>
                 <br />
                 <span className="bg-gradient-to-r from-blue-300 via-blue-400 to-indigo-500 bg-clip-text text-transparent drop-shadow-2xl font-extrabold">
-                  Family
+                  Family{' '}
                 </span>
                 <span className="text-white drop-shadow-2xl font-extrabold">
                   Future
