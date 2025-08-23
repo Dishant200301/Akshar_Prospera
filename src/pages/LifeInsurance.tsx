@@ -91,9 +91,9 @@ const LifeInsurance = () => {
               </h1>
 
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 mb-8 sm:mb-12 leading-relaxed font-semibold drop-shadow-2xl">
-                Reliable life insurance coverage for your family's{' '}
+                Reliable life insurance coverage for your family's financial security and{' '}
                 <span className="bg-gradient-to-r from-blue-300 to-indigo-400 bg-clip-text text-transparent font-bold drop-shadow-lg">
-                  financial security and future protection
+                  future protection
                 </span>
               </p>
             </div>
