@@ -88,7 +88,7 @@ const ServicesSection = () => {
                 {/* Button */}
                 <Link 
                   to={service.href}
-                  className="w-full bg-white text-blue-600 border-2 border-blue-600 py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg font-semibold inline-flex items-center justify-center text-xs sm:text-sm shadow-sm"
+                  className="w-full bg-white text-blue-600 border-2 border-blue-600 py-2.5 sm:py-3 px-3 sm:px-4 rounded-xl font-semibold hover:from-blue-600 hover:to-indigo-600 hover:text-white hover:bg-gradient-to-r transition-all duration-200 inline-flex items-center justify-center text-xs sm:text-sm shadow-sm"
                 >
                   <span className="mr-2">Learn More</span>
                   <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
