@@ -47,7 +47,7 @@ const BlogDetail: React.FC = () => {
                 {blog.title}
               </h1>
               <p className="text-lg sm:text-xl md:text-2xl text-gray-700 font-medium">
-                By {blog.author}
+                Author: {blog.author}
               </p>
             </div>
           </div>
