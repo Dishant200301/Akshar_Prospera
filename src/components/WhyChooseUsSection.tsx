@@ -1,38 +1,8 @@
 
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import { Shield, DollarSign, Target, Clock, CheckCircle, Star, ArrowRight } from 'lucide-react';
 
-const WhyChooseUsSection = () => {
-  const [tiltedCards, setTiltedCards] = useState<{ [key: number]: { x: number; y: number } }>({});
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  const handleMouseMove = (index: number, e: React.MouseEvent<HTMLDivElement>) => {
-    const card = cardRefs.current[index];
-    if (!card) return;
-
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    
-    const rotateX = (y - centerY) / 15;
-    const rotateY = (centerX - x) / 15;
-    
-    setTiltedCards(prev => ({
-      ...prev,
-      [index]: { x: rotateX, y: rotateY }
-    }));
-  };
-
-  const handleMouseLeave = (index: number) => {
-    setTiltedCards(prev => ({
-      ...prev,
-      [index]: { x: 0, y: 0 }
-    }));
-  };
-
+const WhyChooseUsSection: React.FC = () => {
   const benefits = [
     {
       icon: Shield,
@@ -75,20 +45,9 @@ const WhyChooseUsSection = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
           {benefits.map((benefit, index) => (
-            <div key={index} className="group block perspective-1000">
-              <div 
-                ref={el => cardRefs.current[index] = el}
-                onMouseMove={(e) => handleMouseMove(index, e)}
-                onMouseLeave={() => handleMouseLeave(index)}
-                className="h-full"
-              >
-                <div 
-                  className={`bg-gradient-to-br from-slate-50 to-gray-50 rounded-2xl p-4 sm:p-6 h-full border-2 border-gray-200 transition-all duration-300 ease-out transform-gpu group-hover:shadow-2xl group-hover:scale-105`}
-                  style={{
-                    transform: `perspective(1000px) rotateX(${tiltedCards[index]?.x || 0}deg) rotateY(${tiltedCards[index]?.y || 0}deg)`,
-                    transformStyle: 'preserve-3d'
-                  }}
-                >
+            <div key={index} className="group block">
+              <div className="h-full">
+                <div className="bg-gradient-to-br from-slate-50 to-gray-50 rounded-2xl p-4 sm:p-6 h-full border-2 border-gray-200 hover:border-blue-600/60 hover:shadow-md transition-all duration-300">
                   {/* Content */}
                   <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">{benefit.title}</h3>
                   <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4 leading-relaxed">{benefit.description}</p>
