@@ -82,14 +82,14 @@ const Contact = () => {
 
       {/* Hero */}
       <section className="pt-24 pb-16 bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 min-h-[75vh] flex items-center">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="text-left max-w-2xl lg:max-w-xl xl:max-w-2xl ml-16 sm:ml-24 lg:ml-32">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-3xl mx-auto">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
               <MessageSquare className="w-4 h-4 mr-2" />
               Get in Touch
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Let's Start a <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Conversation</span></h1>
-            <p className="text-lg md:text-xl text-gray-700 max-w-2xl lg:max-w-xl xl:max-w-2xl">
+            <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto">
               Ready to protect what matters most? Our insurance experts are here to help you find the perfect coverage for your needs.
             </p>
           </div>
