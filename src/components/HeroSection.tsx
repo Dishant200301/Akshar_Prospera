@@ -139,8 +139,8 @@ const HeroSection = () => {
       </div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
-        <div className={`flex flex-col justify-center min-h-screen ${currentSlide === 1 ? 'text-right' : currentSlide === 2 ? 'text-center' : 'text-left'}`}>
-          <div className={`max-w-2xl lg:max-w-xl xl:max-w-2xl ${currentSlide === 1 ? 'ml-auto mr-8 sm:mr-16' : currentSlide === 2 ? 'mx-auto' : 'ml-8 sm:ml-16'}`}>
+        <div className={`flex flex-col justify-center min-h-screen text-center sm:${currentSlide === 1 ? 'text-right' : currentSlide === 2 ? 'text-center' : 'text-left'}`}>
+          <div className={`max-w-2xl lg:max-w-xl xl:max-w-2xl mx-auto sm:${currentSlide === 1 ? 'ml-auto mr-8 sm:mr-16' : currentSlide === 2 ? 'mx-auto' : 'ml-8 sm:ml-16'}`}>
             <div className="animate-fade-in" key={currentSlide}>
 
 
@@ -173,7 +173,7 @@ const HeroSection = () => {
               </p>
 
               {/* CTA Buttons */}
-              <div className={`flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 ${currentSlide === 1 ? 'items-end sm:justify-end' : currentSlide === 2 ? 'justify-center' : 'items-start'}`}>
+              <div className={`flex flex-col sm:flex-row gap-3 sm:gap-6 justify-center sm:${currentSlide === 1 ? 'items-end sm:justify-end' : currentSlide === 2 ? 'justify-center' : 'items-start'}`}>
                 <button className="w-full sm:w-auto bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 text-white px-4 sm:px-6 py-2.5 rounded-xl font-bold hover:from-blue-500 hover:via-blue-600 hover:to-indigo-600 transition-all duration-300 inline-flex items-center justify-center shadow-2xl text-sm sm:text-base transform hover:scale-105">
                   <ArrowRight className="hidden sm:block w-4 h-4 mr-2" /> Talk to an Advisor
                 </button>
