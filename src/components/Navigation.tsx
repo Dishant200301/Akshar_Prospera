@@ -307,7 +307,7 @@ const Navigation = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-gray-100 rounded-2xl shadow-lg z-40 mx-4">
+          <div className="md:hidden absolute top-full left-0 right-0 bg-gray-100 rounded-2xl shadow-lg z-40 mx-4 mt-4">
             <div className="flex flex-col space-y-4 px-6 py-6">
               <a 
                 href="/" 
