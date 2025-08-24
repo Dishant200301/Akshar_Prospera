@@ -81,7 +81,7 @@ const Contact = () => {
       <Navigation />
 
       {/* Hero */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 min-h-[75vh] flex items-center">
+      <section className="pt-24 pb-16 bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 h-[80vh] flex items-center">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
