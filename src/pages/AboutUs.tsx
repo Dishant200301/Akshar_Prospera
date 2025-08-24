@@ -68,12 +68,22 @@ const AboutUs: React.FC = () => {
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
         
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-2xl">Trusted <span className="bg-gradient-to-r from-blue-300 to-indigo-400 bg-clip-text text-transparent">Excellence</span></h1>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 mb-8 sm:mb-12 leading-relaxed font-semibold drop-shadow-2xl">
-              Your trusted insurance partner helping families across North America make confident protection decisions.
-            </p>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10 h-full">
+          <div className="flex flex-col justify-end h-full text-left pb-20">
+            <div className="max-w-2xl lg:max-w-xl xl:max-w-2xl ml-16 sm:ml-24 lg:ml-32">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight">
+                <span className="text-white drop-shadow-2xl font-extrabold">
+                  Trusted
+                </span>
+                <br />
+                <span className="bg-gradient-to-r from-blue-300 via-blue-400 to-indigo-500 bg-clip-text text-transparent drop-shadow-2xl font-extrabold">
+                  Excellence
+                </span>
+              </h1>
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 mb-8 sm:mb-12 leading-relaxed font-semibold drop-shadow-2xl">
+                Your trusted insurance partner helping families across North America make confident protection decisions.
+              </p>
+            </div>
           </div>
         </div>
       </section>
