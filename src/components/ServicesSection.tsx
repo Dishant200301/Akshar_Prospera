@@ -93,9 +93,6 @@ const ServicesSection = () => {
                   <span className="mr-2">Learn More</span>
                   <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
                 </Link>
-
-                {/* Subtle decorative accent */}
-                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-blue-600 to-indigo-600 opacity-5 rounded-full -translate-y-12 translate-x-12"></div>
               </div>
             </SpotlightCard>
           ))}
