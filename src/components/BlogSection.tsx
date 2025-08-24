@@ -67,10 +67,6 @@ const BlogSection = () => {
     <section className="py-16 sm:py-20 lg:py-24 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-10">
         <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center px-3 sm:px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-xs sm:text-sm font-medium mb-4 sm:mb-6">
-            <Lightbulb className="w-3 h-3 sm:w-4 sm:h-4 mr-2" />
-            Blogs
-          </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
             Insurance
             <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> Insights</span>
