@@ -42,8 +42,8 @@ const BlogDetail: React.FC = () => {
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10 h-full">
           <div className="flex flex-col justify-center h-full text-center">
-            <div className="max-w-4xl mx-auto">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight text-gray-900">
+            <div className="max-w-6xl mx-auto">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight text-gray-900">
                 {blog.title}
               </h1>
               <p className="text-lg sm:text-xl md:text-2xl text-gray-700 font-medium">
