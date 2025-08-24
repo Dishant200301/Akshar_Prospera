@@ -3,6 +3,24 @@ import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import { Shield, Users, Target, Heart, Award, CheckCircle, Phone, Mail } from 'lucide-react';
 
+const AnimatedText = ({ text, delay = 0, className = '' }) => {
+  const isGradient = className.includes('bg-gradient');
+  
+  return (
+    <span className={isGradient ? '' : className}>
+      {text.split(' ').map((word, index) => (
+        <span
+          key={index}
+          className={`animate-word ${isGradient ? className : ''}`}
+          style={{ animationDelay: `${delay + index * 0.05}s` }}
+        >
+          {word}{' '}
+        </span>
+      ))}
+    </span>
+  );
+};
+
 const AboutUs: React.FC = () => {
   const [tiltedCards, setTiltedCards] = useState<{ [key: number]: { x: number; y: number } }>({});
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -57,9 +75,17 @@ const AboutUs: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-10">
           <div className="flex items-center justify-between">
             <div className="text-left max-w-2xl lg:max-w-xl xl:max-w-2xl ml-16 sm:ml-24 lg:ml-32">
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Your Trusted<br /><span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Insurance Advisor</span></h1>
+              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                <AnimatedText text="Your Trusted" />
+                <br />
+                <AnimatedText 
+                  text="Insurance Advisor" 
+                  delay={0.6}
+                  className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"
+                />
+              </h1>
               <p className="text-lg md:text-xl text-gray-700 max-w-2xl lg:max-w-xl xl:max-w-2xl">
-                With over 15 years of experience, Arun Isamaliya brings warmth, expertise, and genuine care to every client relationship.
+                <AnimatedText text="With over 15 years of experience, Arun Isamaliya brings warmth, expertise, and genuine care to every client relationship." delay={1.2} />
               </p>
             </div>
             
