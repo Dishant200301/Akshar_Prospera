@@ -89,11 +89,6 @@ const WhyChooseUsSection = () => {
                     transformStyle: 'preserve-3d'
                   }}
                 >
-                  {/* Icon */}
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center mb-3 sm:mb-4 shadow-lg">
-                    <benefit.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-                  </div>
-                  
                   {/* Content */}
                   <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">{benefit.title}</h3>
                   <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4 leading-relaxed">{benefit.description}</p>

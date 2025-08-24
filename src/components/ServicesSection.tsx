@@ -60,7 +60,7 @@ const ServicesSection = () => {
             <SpotlightCard 
               key={index} 
               className="overflow-hidden rounded-2xl"
-              spotlightGradient="rgba(59, 130, 246, 0.15), rgba(99, 102, 241, 0.15)"
+              spotlightColor="rgba(59, 130, 246, 0.3)"
             >
               <div className="relative bg-white rounded-2xl p-6 h-full border border-gray-200 overflow-hidden">
                 {/* Title */}
