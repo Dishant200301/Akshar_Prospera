@@ -22,14 +22,14 @@ const ServicesSection = () => {
     },
     {
       title: 'Visitor Visa Insurance',
-      description: 'Specialized coverage for visitors to Canada and USA. Ensure compliance and peace of mind during your stay.',
+              description: 'Specialized coverage for visitors to Canada and USA ensuring compliance and peace of mind.',
       features: ['Visa Compliance', 'Medical Coverage', 'Emergency Evacuation', 'Family Plans'],
       href: '/visitor-visa-insurance',
       highlight: 'Visa Compliant'
     },
     {
       title: 'Life Insurance',
-      description: 'Secure your family\'s future with flexible life insurance plans. Build wealth while protecting your loved ones.',
+              description: 'Secure your family\'s future with flexible life insurance plans that build wealth and protection.',
       features: ['Flexible Coverage', 'Cash Value Options', 'Family Protection', 'Tax Benefits'],
       href: '/life-insurance',
       highlight: 'Family Protection'
