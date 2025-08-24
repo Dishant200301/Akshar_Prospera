@@ -1,7 +1,25 @@
 import React, { useState } from 'react';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
-import { Mail, Phone, MapPin, MessageSquare, Send, CheckCircle } from 'lucide-react';
+import { MessageSquare, Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
+
+const AnimatedText = ({ text, delay = 0, className = '' }) => {
+  const isGradient = className.includes('bg-gradient');
+  
+  return (
+    <span className={isGradient ? '' : className}>
+      {text.split(' ').map((word, index) => (
+        <span
+          key={index}
+          className={`animate-word ${isGradient ? className : ''}`}
+          style={{ animationDelay: `${delay + index * 0.05}s` }}
+        >
+          {word}{' '}
+        </span>
+      ))}
+    </span>
+  );
+};
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -81,17 +99,37 @@ const Contact = () => {
       <Navigation />
 
       {/* Hero */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 h-[80vh] flex items-center">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
-              <MessageSquare className="w-4 h-4 mr-2" />
-              Get in Touch
+      <section className="relative h-[80vh] overflow-hidden pt-16 bg-black">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 transition-all duration-1000 ease-in-out opacity-100 z-10"
+          style={{
+            backgroundImage: 'url(/image/contact.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center top',
+            backgroundRepeat: 'no-repeat'
+          }}
+        >
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-black/50"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10 h-full">
+          <div className="flex flex-col justify-end h-full text-right pb-20">
+            <div className="max-w-2xl lg:max-w-xl xl:max-w-2xl ml-auto mr-16 sm:mr-24 lg:mr-32">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight">
+                <span className="text-white drop-shadow-2xl font-extrabold">
+                  Get In
+                </span>
+                <br />
+                <span className="bg-gradient-to-r from-blue-300 via-blue-400 to-indigo-500 bg-clip-text text-transparent drop-shadow-2xl font-extrabold">
+                  Touch
+                </span>
+              </h1>
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 mb-8 sm:mb-12 leading-relaxed font-semibold drop-shadow-2xl animate-fade-in">
+                <AnimatedText text="Ready to discuss your insurance needs? Let's connect and find the perfect coverage for you" />
+              </p>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Let's Start a <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Conversation</span></h1>
-            <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto">
-              Ready to protect what matters most? Our insurance experts are here to help you find the perfect coverage for your needs.
-            </p>
           </div>
         </div>
       </section>
