@@ -60,7 +60,7 @@ const AboutUs: React.FC = () => {
           style={{
             backgroundImage: 'url(/image/about.jpg)',
             backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            backgroundPosition: 'center bottom',
             backgroundRepeat: 'no-repeat'
           }}
         >
