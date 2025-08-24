@@ -37,7 +37,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-gray-50 via-white to-gray-50">
+    <section className="py-16 sm:py-20 lg:py-24 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-10">
         <div className="text-center mb-12 sm:mb-16 lg:mb-20">
           <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full text-sm font-semibold mb-6 shadow-lg">
@@ -101,19 +101,6 @@ const ServicesSection = () => {
           ))}
         </div>
 
-        {/* Bottom CTA */}
-        <div className="text-center">
-          <div className="inline-flex items-center space-x-2 text-gray-600 mb-4">
-            <Clock className="w-5 h-5" />
-            <span className="text-sm font-medium">24/7 Customer Support</span>
-            <span className="text-gray-300">•</span>
-            <Award className="w-5 h-5" />
-            <span className="text-sm font-medium">Trusted by 50,000+ Customers</span>
-            <span className="text-gray-300">•</span>
-            <Lock className="w-5 h-5" />
-            <span className="text-sm font-medium">100% Secure & Confidential</span>
-          </div>
-        </div>
       </div>
     </section>
   );
