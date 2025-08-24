@@ -273,16 +273,20 @@ const Navigation = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t rounded-b-full transition-all duration-300 bg-white/80 backdrop-blur-md border-gray-200 mt-4 rounded-2xl">
-            <div className="flex flex-col space-y-4 px-6">
-              <a href="/" className="font-medium text-gray-700 hover:text-blue-600 transition-all duration-300">
+          <div className="md:hidden absolute top-full left-0 right-0 bg-gray-100 border-t border-gray-200 rounded-b-2xl shadow-lg z-40 mx-4">
+            <div className="flex flex-col space-y-4 px-6 py-6">
+              <a 
+                href="/" 
+                className="text-gray-900 text-lg font-medium hover:text-blue-600 transition-all duration-300"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
                 Home
               </a>
               
               {/* Mobile Services Dropdown */}
               <div className="services-dropdown">
                 <button 
-                  className="flex items-center space-x-1 font-medium text-gray-700 hover:text-blue-600 transition-all duration-300"
+                  className="flex items-center space-x-2 text-gray-900 text-lg font-medium hover:text-blue-600 transition-all duration-300"
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
                 >
                   <span>Services</span>
@@ -290,53 +294,52 @@ const Navigation = () => {
                 </button>
                 
                 {isServicesOpen && (
-                  <div className="mt-3 ml-4 space-y-2 bg-gray-50 rounded-xl p-3 border border-gray-100">
+                  <div className="mt-3 ml-4 space-y-2">
                     {serviceTypes.map((service, index) => (
                       <a
                         key={index}
                         href={service.href}
-                        className="group flex items-center py-2.5 px-3 text-base text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200"
+                        className="block text-base text-gray-600 hover:text-blue-600 transition-all duration-200 py-2"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
-                        <span className="font-medium">{service.name}</span>
-                        <div className="ml-auto opacity-0 group-hover:opacity-100 transition-all duration-200">
-                          <svg className="w-3 h-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </div>
+                        {service.name}
                       </a>
                     ))}
-                    
-                    {/* Mobile quick contact */}
-                    <div className="pt-2 border-t border-gray-200">
-                      <div className="text-xs text-gray-500 mb-1 px-3">Need help choosing?</div>
-                      <a 
-                        href="/contact" 
-                        className="flex items-center text-sm font-medium bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent hover:from-blue-500 hover:to-indigo-500 px-3 py-2 transition-all duration-200"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        <span>Talk to an expert</span>
-                        <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </a>
-                    </div>
                   </div>
                 )}
               </div>
               
-              <a href="/about-us" className="font-medium text-gray-700 hover:text-blue-600 transition-all duration-300">
+              <a 
+                href="/about-us" 
+                className="text-gray-900 text-lg font-medium hover:text-blue-600 transition-all duration-300"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
                 About Us
               </a>
-              <a href="/blogs" className="font-medium text-gray-700 hover:text-blue-600 transition-all duration-300">
+              <a 
+                href="/blogs" 
+                className="text-gray-900 text-lg font-medium hover:text-blue-600 transition-all duration-300"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
                 Blogs
               </a>
-              <a href="/contact" className="font-medium text-gray-700 hover:text-blue-600 transition-all duration-300">
+              <a 
+                href="/contact" 
+                className="text-gray-900 text-lg font-medium hover:text-blue-600 transition-all duration-300"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
                 Contact
               </a>
-              <button className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-2 rounded-full font-medium hover:from-blue-500 hover:to-indigo-500 transition-all duration-200 w-full mt-4">
-                Talk to an Advisor
-              </button>
+              
+              {/* Buttons */}
+              <div className="space-y-3 pt-2">
+                <button className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-2.5 rounded-xl font-semibold hover:from-blue-500 hover:to-indigo-500 transition-all duration-200 w-full">
+                  Talk to an Advisor
+                </button>
+                <button className="bg-transparent text-gray-900 border-2 border-gray-300 px-4 py-2.5 rounded-xl font-semibold hover:border-blue-600 hover:text-blue-600 transition-all duration-200 w-full">
+                  Get Free Quote
+                </button>
+              </div>
             </div>
           </div>
         )}
