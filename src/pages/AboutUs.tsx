@@ -91,11 +91,11 @@ const AboutUs: React.FC = () => {
             <div className="max-w-2xl lg:max-w-xl xl:max-w-2xl ml-auto mr-16 sm:mr-24 lg:mr-32">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight">
                 <span className="text-white drop-shadow-2xl font-extrabold">
-                  Trusted
+                  Your Trusted
                 </span>
                 <br />
                 <span className="bg-gradient-to-r from-blue-300 via-blue-400 to-indigo-500 bg-clip-text text-transparent drop-shadow-2xl font-extrabold">
-                  Excellence
+                  Partner
                 </span>
               </h1>
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 mb-8 sm:mb-12 leading-relaxed font-semibold drop-shadow-2xl animate-fade-in">
