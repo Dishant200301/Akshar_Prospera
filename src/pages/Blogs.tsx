@@ -87,7 +87,7 @@ const Blogs: React.FC = () => {
           style={{
             backgroundImage: 'url(/image/blogs.png)',
             backgroundSize: 'cover',
-            backgroundPosition: 'center bottom',
+            backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat'
           }}
         >
