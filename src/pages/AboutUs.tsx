@@ -57,11 +57,7 @@ const AboutUs: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-10">
           <div className="flex items-center justify-between">
             <div className="text-left max-w-2xl lg:max-w-xl xl:max-w-2xl ml-16 sm:ml-24 lg:ml-32">
-              <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
-                <Users className="w-4 h-4 mr-2" />
-                About Us
-              </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Trusted <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Excellence</span></h1>
+              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Your Trusted <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Insurance Advisor</span></h1>
               <p className="text-lg md:text-xl text-gray-700 max-w-2xl lg:max-w-xl xl:max-w-2xl">
                 Your trusted insurance partner helping families across North America make confident protection decisions.
               </p>
