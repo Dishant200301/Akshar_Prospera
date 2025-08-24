@@ -53,10 +53,10 @@ const AboutUs: React.FC = () => {
       <Navigation />
 
       {/* Hero */}
-      <section className="relative pt-24 pb-16 bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 h-[80vh] flex items-center overflow-hidden">
+      <section className="relative h-[80vh] overflow-hidden pt-16 bg-black">
         {/* Background Image */}
         <div 
-          className="absolute inset-0 transition-all duration-1000 ease-in-out opacity-100 z-0"
+          className="absolute inset-0 transition-all duration-1000 ease-in-out opacity-100 z-10"
           style={{
             backgroundImage: 'url(/image/about.jpg)',
             backgroundSize: 'cover',
@@ -65,7 +65,7 @@ const AboutUs: React.FC = () => {
           }}
         >
           {/* Dark overlay */}
-          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="absolute inset-0 bg-black/50"></div>
         </div>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10 h-full">
