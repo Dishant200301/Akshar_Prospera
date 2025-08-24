@@ -68,7 +68,7 @@ const AboutUs: React.FC = () => {
             </div>
             
             {/* Agent Photo */}
-            <div className="flex-shrink-0 mr-16 sm:mr-24 lg:mr-32">
+            <div className="flex-shrink-0 mr-16 sm:mr-24 lg:mr-32 mt-20 sm:mt-24 lg:mt-32">
               <div className="w-48 h-56 sm:w-56 sm:h-64 lg:w-64 lg:h-72 rounded-2xl overflow-hidden shadow-lg border-4 border-white">
                 <img 
                   src="/image/arun.png" 
