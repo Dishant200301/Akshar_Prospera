@@ -136,9 +136,11 @@ const Contact = () => {
       {/* Contact Form & Info Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Get in <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Touch</span></h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">Fill out the form below and we'll get back to you within 24 hours. For urgent matters, please call us directly.</p>
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Ready to <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Connect</span>?</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Let's discuss your insurance needs and find the perfect coverage for you and your family.
+            </p>
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-7xl mx-auto">
