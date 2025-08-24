@@ -100,13 +100,8 @@ const ServicesSection = () => {
                     transformStyle: 'preserve-3d'
                   }}
                 >
-                  {/* Highlight Badge */}
-                  <div className="absolute top-4 right-4 px-3 py-1 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full text-xs font-semibold shadow-md">
-                    {service.highlight}
-                  </div>
-
                   {/* Title */}
-                  <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300 pr-20">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">
                     {service.title}
                   </h3>
                   
