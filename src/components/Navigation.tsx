@@ -332,12 +332,9 @@ const Navigation = () => {
               </a>
               
               {/* Buttons */}
-              <div className="space-y-3 pt-2">
+              <div className="pt-2">
                 <button className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-2.5 rounded-xl font-semibold hover:from-blue-500 hover:to-indigo-500 transition-all duration-200 w-full">
                   Talk to an Advisor
-                </button>
-                <button className="bg-transparent text-gray-900 border-2 border-gray-300 px-4 py-2.5 rounded-xl font-semibold hover:border-blue-600 hover:text-blue-600 transition-all duration-200 w-full">
-                  Get Free Quote
                 </button>
               </div>
             </div>
