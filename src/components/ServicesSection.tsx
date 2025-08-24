@@ -59,7 +59,8 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <SpotlightCard 
               key={index} 
-              spotlightGradient="rgba(59, 130, 246, 0.4), rgba(99, 102, 241, 0.4)"
+              className="overflow-hidden rounded-2xl"
+              spotlightGradient="rgba(59, 130, 246, 0.2), rgba(99, 102, 241, 0.2)"
             >
               <div className="relative bg-white rounded-2xl p-6 h-full border border-gray-200 overflow-hidden">
                 {/* Title */}
