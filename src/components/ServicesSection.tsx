@@ -15,7 +15,7 @@ const ServicesSection = () => {
     },
     {
       title: 'Travel Insurance',
-      description: 'Explore the world with confidence through comprehensive travel protection covering medical emergencies and trip disruptions.',
+              description: 'Comprehensive travel protection for medical emergencies and trip disruptions worldwide.',
       features: ['Emergency Medical', 'Trip Cancellation', 'Baggage Protection', '24/7 Travel Support'],
       href: '/travel-insurance',
       highlight: 'Worldwide Coverage'
