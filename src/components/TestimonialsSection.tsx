@@ -1,6 +1,7 @@
 
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import { Star, MessageCircle, Quote } from 'lucide-react';
+import SpotlightCard from './SpotlightCard';
 
 type Testimonial = {
   name: string;
@@ -65,35 +66,6 @@ function Stars({ count }: { count: number }) {
 }
 
 const TestimonialsSection: React.FC = () => {
-  const [tiltedCards, setTiltedCards] = useState<{ [key: number]: { x: number; y: number } }>({});
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  const handleMouseMove = (index: number, e: React.MouseEvent<HTMLDivElement>) => {
-    const card = cardRefs.current[index];
-    if (!card) return;
-
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-
-    const rotateX = (y - centerY) / 15;
-    const rotateY = (centerX - x) / 15;
-
-    setTiltedCards(prev => ({
-      ...prev,
-      [index]: { x: rotateX, y: rotateY },
-    }));
-  };
-
-  const handleMouseLeave = (index: number) => {
-    setTiltedCards(prev => ({
-      ...prev,
-      [index]: { x: 0, y: 0 },
-    }));
-  };
   return (
     <section className="py-16 sm:py-20 lg:py-24 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-10">
@@ -112,45 +84,36 @@ const TestimonialsSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Static grid with interactive hover tilt like ServicesSection */}
+        {/* Grid with spotlight hover effect */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {testimonials.map((t, idx) => (
-            <div key={`${t.name}-${idx}`} className="group block perspective-1000">
-              <div
-                ref={el => (cardRefs.current[idx] = el)}
-                onMouseMove={e => handleMouseMove(idx, e)}
-                onMouseLeave={() => handleMouseLeave(idx)}
-                className="h-full"
-              >
-                <article
-                  className="relative rounded-2xl border-2 border-gray-200 bg-gradient-to-br from-white to-slate-50 p-4 sm:p-6 shadow-card transition-all duration-300 ease-out transform-gpu group-hover:shadow-2xl group-hover:scale-105 h-full"
-                  style={{
-                    transform: `perspective(1000px) rotateX(${tiltedCards[idx]?.x || 0}deg) rotateY(${tiltedCards[idx]?.y || 0}deg)`,
-                    transformStyle: 'preserve-3d',
-                  }}
-                >
-                  {/* Accent ring */}
-                  <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-black/5 group-hover:ring-insurance-blue/30"></div>
+            <SpotlightCard 
+              key={`${t.name}-${idx}`} 
+              className="overflow-hidden rounded-2xl"
+              spotlightColor="rgba(59, 130, 246, 0.3)"
+            >
+              <article className="relative rounded-2xl border-2 border-gray-200 bg-gradient-to-br from-white to-slate-50 p-4 sm:p-6 shadow-card h-full">
+                {/* Accent ring */}
+                <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-black/5"></div>
 
-                  {/* Quote icon */}
-                  <div className="absolute -top-2 sm:-top-3 -left-2 sm:-left-3 h-10 w-10 sm:h-12 sm:w-12 rounded-xl bg-blue-600/10 text-blue-700 flex items-center justify-center shadow-sm">
-                    <Quote className="w-5 h-5 sm:w-6 sm:h-6" />
+                {/* Quote icon */}
+                <div className="absolute -top-2 sm:-top-3 -left-2 sm:-left-3 h-10 w-10 sm:h-12 sm:w-12 rounded-xl bg-blue-600/10 text-blue-700 flex items-center justify-center shadow-sm">
+                  <Quote className="w-5 h-5 sm:w-6 sm:h-6" />
+                </div>
+
+                {/* Header */}
+                <div className="flex items-start justify-between gap-3 sm:gap-4 mb-3 sm:mb-4">
+                  <div>
+                    <h3 className="font-semibold text-gray-900 leading-tight text-sm sm:text-base">{t.name}</h3>
+                    {t.role && <p className="text-xs sm:text-sm text-gray-500 mt-0.5">{t.role}</p>}
                   </div>
+                  <Stars count={t.rating} />
+                </div>
 
-                  {/* Header */}
-                  <div className="flex items-start justify-between gap-3 sm:gap-4 mb-3 sm:mb-4">
-                    <div>
-                      <h3 className="font-semibold text-gray-900 leading-tight text-sm sm:text-base">{t.name}</h3>
-                      {t.role && <p className="text-xs sm:text-sm text-gray-500 mt-0.5">{t.role}</p>}
-                    </div>
-                    <Stars count={t.rating} />
-                  </div>
-
-                  {/* Body */}
-                  <p className="text-sm sm:text-base text-gray-700 leading-relaxed">"{t.text}"</p>
-                </article>
-              </div>
-            </div>
+                {/* Body */}
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed">"{t.text}"</p>
+              </article>
+            </SpotlightCard>
           ))}
         </div>
 
