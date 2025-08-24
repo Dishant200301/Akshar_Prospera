@@ -71,7 +71,7 @@ const AboutUs: React.FC = () => {
             <div className="flex-shrink-0 mr-16 sm:mr-24 lg:mr-32">
               <div className="w-40 h-48 sm:w-48 sm:h-56 lg:w-56 lg:h-64 rounded-2xl overflow-hidden shadow-lg border-4 border-white">
                 <img 
-                  src="/image/arun.jpeg" 
+                  src="/image/arun.png" 
                   alt="Arun Isamaliya - Insurance Agent"
                   className="w-full h-full object-cover"
                 />
