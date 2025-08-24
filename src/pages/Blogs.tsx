@@ -98,7 +98,7 @@ const Blogs: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10 h-full">
           <div className="flex flex-col justify-end h-full text-center pb-20">
             <div className="max-w-2xl lg:max-w-xl xl:max-w-2xl mx-auto">
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8 leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight">
                 <span className="text-white drop-shadow-2xl font-extrabold">
                   Expert Insurance{' '}
                 </span>
