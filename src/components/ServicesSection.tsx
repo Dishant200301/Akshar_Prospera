@@ -1,39 +1,9 @@
 
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import { ArrowRight, CheckCircle, Star, Clock, Award, Lock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const ServicesSection = () => {
-  const [tiltedCards, setTiltedCards] = useState<{ [key: number]: { x: number; y: number } }>({});
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  const handleMouseMove = (index: number, e: React.MouseEvent<HTMLDivElement>) => {
-    const card = cardRefs.current[index];
-    if (!card) return;
-
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    
-    const rotateX = (y - centerY) / 25;
-    const rotateY = (centerX - x) / 25;
-    
-    setTiltedCards(prev => ({
-      ...prev,
-      [index]: { x: rotateX, y: rotateY }
-    }));
-  };
-
-  const handleMouseLeave = (index: number) => {
-    setTiltedCards(prev => ({
-      ...prev,
-      [index]: { x: 0, y: 0 }
-    }));
-  };
-
   const services = [
     {
       title: 'Health Insurance',
@@ -86,22 +56,11 @@ const ServicesSection = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-16">
           {services.map((service, index) => (
-            <div key={index} className="group block perspective-1000">
-              <div 
-                ref={el => cardRefs.current[index] = el}
-                onMouseMove={(e) => handleMouseMove(index, e)}
-                onMouseLeave={() => handleMouseLeave(index)}
-                className="h-full"
-              >
-                <div 
-                  className="relative bg-white rounded-2xl p-6 h-full border border-gray-200 transition-all duration-500 ease-out transform-gpu group-hover:shadow-xl group-hover:scale-[1.02] group-hover:border-blue-200 overflow-hidden"
-                  style={{
-                    transform: `perspective(1000px) rotateX(${tiltedCards[index]?.x || 0}deg) rotateY(${tiltedCards[index]?.y || 0}deg)`,
-                    transformStyle: 'preserve-3d'
-                  }}
-                >
+            <div key={index} className="block">
+              <div className="h-full">
+                <div className="relative bg-white rounded-2xl p-6 h-full border border-gray-200 overflow-hidden">
                   {/* Title */}
-                  <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">
                     {service.title}
                   </h3>
                   
@@ -125,7 +84,7 @@ const ServicesSection = () => {
                   {/* Button */}
                   <Link 
                     to={service.href}
-                    className="w-full bg-white text-blue-600 border-2 border-blue-600 py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg font-semibold hover:from-blue-600 hover:to-indigo-600 hover:text-white hover:bg-gradient-to-r transition-all duration-200 inline-flex items-center justify-center text-xs sm:text-sm shadow-sm"
+                    className="w-full bg-white text-blue-600 border-2 border-blue-600 py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg font-semibold inline-flex items-center justify-center text-xs sm:text-sm shadow-sm"
                   >
                     <span className="mr-2">Learn More</span>
                     <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
