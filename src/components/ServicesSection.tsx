@@ -8,7 +8,7 @@ const ServicesSection = () => {
   const services = [
     {
       title: 'Health Insurance',
-      description: 'Comprehensive health coverage that puts your well-being first. Get access to top-tier medical facilities and 24/7 support.',
+      description: 'Comprehensive health coverage that puts your well-being first. Get access to top-tier medical facilities.',
       features: ['24/7 Medical Support', 'Prescription Coverage', 'Dental & Vision', 'Mental Health Services'],
       href: '/health-insurance',
       highlight: 'Most Popular'
@@ -60,7 +60,7 @@ const ServicesSection = () => {
             <SpotlightCard 
               key={index} 
               className="overflow-hidden rounded-2xl"
-              spotlightGradient="rgba(59, 130, 246, 0.2), rgba(99, 102, 241, 0.2)"
+              spotlightGradient="rgba(59, 130, 246, 0.15), rgba(99, 102, 241, 0.15)"
             >
               <div className="relative bg-white rounded-2xl p-6 h-full border border-gray-200 overflow-hidden">
                 {/* Title */}
