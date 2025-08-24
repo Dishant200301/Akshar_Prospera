@@ -59,7 +59,7 @@ const AboutUs: React.FC = () => {
             <div className="text-left max-w-2xl lg:max-w-xl xl:max-w-2xl ml-16 sm:ml-24 lg:ml-32">
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Your Trusted<br /><span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Insurance Advisor</span></h1>
               <p className="text-lg md:text-xl text-gray-700 max-w-2xl lg:max-w-xl xl:max-w-2xl">
-                Your trusted insurance partner helping families across North America make confident protection decisions.
+                With over 15 years of experience and a passion for personalized service, Arun Isamaliya brings warmth, expertise, and genuine care to every client relationship. He believes in building lasting partnerships based on trust, transparency, and understanding your unique needs.
               </p>
             </div>
             
