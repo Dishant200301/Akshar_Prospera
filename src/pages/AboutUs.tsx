@@ -53,7 +53,7 @@ const AboutUs: React.FC = () => {
       <Navigation />
 
       {/* Hero */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 min-h-[75vh] flex items-center">
+      <section className="pt-24 pb-16 bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 h-[80vh] flex items-center">
         <div className="container mx-auto px-4 sm:px-6 lg:px-10">
           <div className="flex items-center justify-between">
             <div className="text-left max-w-2xl lg:max-w-xl xl:max-w-2xl ml-16 sm:ml-24 lg:ml-32">
