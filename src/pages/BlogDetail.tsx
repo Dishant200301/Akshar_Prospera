@@ -46,9 +46,14 @@ const BlogDetail: React.FC = () => {
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight text-gray-900">
                 {blog.title}
               </h1>
-              <p className="text-lg sm:text-xl md:text-2xl text-gray-700 font-medium">
-                Author: {blog.author}
-              </p>
+              <div className="flex items-center justify-center gap-8">
+                <Link to="/blogs" className="inline-flex items-center text-blue-600 font-medium hover:text-blue-800 transition-colors">
+                  <ArrowLeft className="w-4 h-4 mr-2" /> Back
+                </Link>
+                <p className="text-lg sm:text-xl md:text-2xl text-gray-700 font-medium">
+                  Author: {blog.author}
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -58,12 +63,6 @@ const BlogDetail: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto prose prose-slate">
             <p>{blog.content}</p>
-            <p>
-              You can navigate back to the blogs list to read more articles about insurance insights and tips.
-            </p>
-            <Link to="/blogs" className="inline-flex items-center text-blue-600 font-medium">
-              <ArrowLeft className="w-4 h-4 mr-2" /> Back to Blogs
-            </Link>
           </div>
         </div>
       </section>
