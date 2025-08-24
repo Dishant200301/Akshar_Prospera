@@ -107,7 +107,12 @@ const Blogs: React.FC = () => {
                 </span>
               </h1>
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 mb-8 sm:mb-12 leading-relaxed font-semibold drop-shadow-2xl animate-fade-in">
-                <AnimatedText text="Stay informed with our latest articles and guides to help you make the best insurance decisions" />
+                <AnimatedText text="Stay informed with our latest articles and guides to help you make the best" />
+                <AnimatedText 
+                  text="insurance decisions" 
+                  delay={0.6}
+                  className="bg-gradient-to-r from-blue-300 to-indigo-400 bg-clip-text text-transparent font-bold drop-shadow-lg"
+                />
               </p>
             </div>
           </div>
