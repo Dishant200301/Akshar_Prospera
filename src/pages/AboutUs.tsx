@@ -53,15 +53,29 @@ const AboutUs: React.FC = () => {
       <Navigation />
 
       {/* Hero */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 h-[80vh] flex items-center">
-        <div className="container mx-auto px-4">
+      <section className="relative pt-24 pb-16 bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 h-[80vh] flex items-center overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 transition-all duration-1000 ease-in-out opacity-100 z-0"
+          style={{
+            backgroundImage: 'url(/image/about.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        >
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-black/40"></div>
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-3xl mx-auto">
             <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
               <Users className="w-4 h-4 mr-2" />
               About Us
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Trusted <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Excellence</span></h1>
-            <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-2xl">Trusted <span className="bg-gradient-to-r from-blue-300 to-indigo-400 bg-clip-text text-transparent">Excellence</span></h1>
+            <p className="text-lg md:text-xl text-gray-100 max-w-2xl mx-auto drop-shadow-2xl">
               Your trusted insurance partner helping families across North America make confident protection decisions.
             </p>
           </div>
