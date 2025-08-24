@@ -177,7 +177,6 @@ const Navigation = () => {
                               }}
                               onClick={() => setIsServicesOpen(false)}
                             >
-                              <Shield className="w-4 h-4 mr-3 text-blue-600" />
                               <span className="font-medium text-[15px] md:text-base">{service.name}</span>
                             </a>
                           </div>
@@ -204,9 +203,6 @@ const Navigation = () => {
                       <div className="flex-1 px-6 border-l border-gray-100 ml-4">
                         <div className="space-y-4">
                           <div className="flex items-center space-x-3">
-                            <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center">
-                              <Shield className="w-6 h-6 text-white" />
-                            </div>
                             <div>
                               <h4 className="font-bold text-gray-900 text-lg">{hoveredService.name}</h4>
                               <p className="text-sm text-gray-500">Comprehensive Coverage</p>
