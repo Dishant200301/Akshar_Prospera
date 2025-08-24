@@ -2,6 +2,7 @@
 import React from 'react';
 import { ArrowRight, CheckCircle, Star, Clock, Award, Lock } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SpotlightCard from './SpotlightCard';
 
 const ServicesSection = () => {
   const services = [
@@ -56,45 +57,46 @@ const ServicesSection = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-16">
           {services.map((service, index) => (
-            <div key={index} className="block">
-              <div className="h-full">
-                <div className="relative bg-white rounded-2xl p-6 h-full border border-gray-200 overflow-hidden">
-                  {/* Title */}
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">
-                    {service.title}
-                  </h3>
-                  
-                  {/* Description */}
-                  <p className="text-gray-600 mb-6 leading-relaxed text-sm">
-                    {service.description}
-                  </p>
-                  
-                  {/* Features */}
-                  <div className="space-y-3 mb-8">
-                    {service.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-start space-x-3">
-                        <div className="w-5 h-5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 p-0.5 flex-shrink-0 mt-0.5">
-                          <CheckCircle className="w-full h-full text-white" />
-                        </div>
-                        <span className="text-sm text-gray-700 font-medium leading-relaxed">{feature}</span>
+            <SpotlightCard 
+              key={index} 
+              spotlightGradient="rgba(59, 130, 246, 0.4), rgba(99, 102, 241, 0.4)"
+            >
+              <div className="relative bg-white rounded-2xl p-6 h-full border border-gray-200 overflow-hidden">
+                {/* Title */}
+                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  {service.title}
+                </h3>
+                
+                {/* Description */}
+                <p className="text-gray-600 mb-6 leading-relaxed text-sm">
+                  {service.description}
+                </p>
+                
+                {/* Features */}
+                <div className="space-y-3 mb-8">
+                  {service.features.map((feature, featureIndex) => (
+                    <div key={featureIndex} className="flex items-start space-x-3">
+                      <div className="w-5 h-5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 p-0.5 flex-shrink-0 mt-0.5">
+                        <CheckCircle className="w-full h-full text-white" />
                       </div>
-                    ))}
-                  </div>
-                  
-                  {/* Button */}
-                  <Link 
-                    to={service.href}
-                    className="w-full bg-white text-blue-600 border-2 border-blue-600 py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg font-semibold inline-flex items-center justify-center text-xs sm:text-sm shadow-sm"
-                  >
-                    <span className="mr-2">Learn More</span>
-                    <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
-                  </Link>
-
-                  {/* Subtle decorative accent */}
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-blue-600 to-indigo-600 opacity-5 rounded-full -translate-y-12 translate-x-12"></div>
+                      <span className="text-sm text-gray-700 font-medium leading-relaxed">{feature}</span>
+                    </div>
+                  ))}
                 </div>
+                
+                {/* Button */}
+                <Link 
+                  to={service.href}
+                  className="w-full bg-white text-blue-600 border-2 border-blue-600 py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg font-semibold inline-flex items-center justify-center text-xs sm:text-sm shadow-sm"
+                >
+                  <span className="mr-2">Learn More</span>
+                  <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
+                </Link>
+
+                {/* Subtle decorative accent */}
+                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-blue-600 to-indigo-600 opacity-5 rounded-full -translate-y-12 translate-x-12"></div>
               </div>
-            </div>
+            </SpotlightCard>
           ))}
         </div>
 
