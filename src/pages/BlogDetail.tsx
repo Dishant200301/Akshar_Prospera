@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
-import { BookOpen, ArrowLeft } from 'lucide-react';
+import { BookOpen } from 'lucide-react';
 
 const BlogDetail: React.FC = () => {
   const { slug } = useParams();
@@ -46,14 +46,9 @@ const BlogDetail: React.FC = () => {
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight text-gray-900">
                 {blog.title}
               </h1>
-              <div className="flex items-center justify-center gap-8">
-                <Link to="/blogs" className="inline-flex items-center text-blue-600 font-medium hover:text-blue-800 transition-colors">
-                  <ArrowLeft className="w-4 h-4 mr-2" /> Back
-                </Link>
-                <p className="text-lg sm:text-xl md:text-2xl text-gray-700 font-medium">
-                  Author: {blog.author}
-                </p>
-              </div>
+              <p className="text-lg sm:text-xl md:text-2xl text-gray-700 font-medium">
+                Author: {blog.author}
+              </p>
             </div>
           </div>
         </div>

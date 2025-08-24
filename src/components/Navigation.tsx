@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
-import { Shield, ChevronDown, Menu, X, MapPin, Star } from 'lucide-react';
-import { useLocation } from 'react-router-dom';
+import { Shield, ChevronDown, Menu, X, MapPin, Star, ChevronRight } from 'lucide-react';
+import { useLocation, Link } from 'react-router-dom';
 
 const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -17,6 +17,23 @@ const Navigation = () => {
       return location.pathname === '/';
     }
     return location.pathname.startsWith(path);
+  };
+
+  // Function to check if we're on a blog detail page
+  const isBlogDetailPage = () => {
+    return location.pathname.startsWith('/blogs/') && location.pathname !== '/blogs';
+  };
+
+  // Function to get blog title from URL
+  const getBlogTitle = () => {
+    if (isBlogDetailPage()) {
+      const slug = location.pathname.split('/blogs/')[1];
+      return slug
+        .split('-')
+        .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
+        .join(' ');
+    }
+    return '';
   };
 
   // Function to get link classes based on active state
@@ -105,8 +122,8 @@ const Navigation = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 pt-4">
-              <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10">
-                  <div className="bg-white/80 backdrop-blur-md rounded-3xl shadow-xl px-8 py-4 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10">
+        <div className="bg-white/80 backdrop-blur-md rounded-3xl shadow-xl px-8 py-4 flex items-center justify-between">
           {/* Logo */}
           <a href="/" className="flex items-center space-x-3">
             <div className="relative">
@@ -270,6 +287,23 @@ const Navigation = () => {
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
+
+        {/* Breadcrumb Navigation - Only show on blog detail pages */}
+        {isBlogDetailPage() && (
+          <div className="mt-3 bg-white/80 backdrop-blur-md rounded-2xl shadow-lg px-6 py-3">
+            <nav className="flex items-center space-x-2 text-sm">
+              <Link to="/" className="text-blue-600 hover:text-blue-800 transition-colors">
+                Home
+              </Link>
+              <ChevronRight className="w-4 h-4 text-gray-400" />
+              <Link to="/blogs" className="text-blue-600 hover:text-blue-800 transition-colors">
+                Blog
+              </Link>
+              <ChevronRight className="w-4 h-4 text-gray-400" />
+              <span className="text-gray-600">{getBlogTitle()}</span>
+            </nav>
+          </div>
+        )}
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
