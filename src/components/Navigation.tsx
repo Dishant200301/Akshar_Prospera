@@ -272,12 +272,6 @@ const Navigation = () => {
             </a>
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
-            <button className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-2.5 rounded-full font-medium hover:from-blue-500 hover:to-indigo-500 transition-all duration-200">
-              Talk to an Advisor
-            </button>
-          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -365,12 +359,6 @@ const Navigation = () => {
                 Contact
               </a>
               
-              {/* Buttons */}
-              <div className="pt-2">
-                <button className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-2.5 rounded-xl font-semibold hover:from-blue-500 hover:to-indigo-500 transition-all duration-200 w-full">
-                  Talk to an Advisor
-                </button>
-              </div>
             </div>
           </div>
         )}
