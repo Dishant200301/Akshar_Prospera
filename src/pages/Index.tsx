@@ -7,6 +7,9 @@ import WhyChooseUsSection from '../components/WhyChooseUsSection';
 import TestimonialsSection from '../components/TestimonialsSection';
 import BlogSection from '../components/BlogSection';
 import Footer from '../components/Footer';
+import FAQSection from '@/components/FAQSection';
+import ProfileCard from '@/components/ProfileCard';
+import AdvisorCard from '@/components/AdvisorCard';
 
 const Index = () => {
   useEffect(() => {
@@ -40,11 +43,16 @@ const Index = () => {
       backgroundRepeat: 'no-repeat'
     }}>
       <Navigation />
-      <HeroSection />
-      <ServicesSection />
-      <WhyChooseUsSection />
-      <TestimonialsSection />
-      <BlogSection />
+      <main className='overflow-hidden'>
+        <HeroSection />
+        <ServicesSection />
+        <WhyChooseUsSection />
+        <TestimonialsSection />
+        <BlogSection />
+      <FAQSection />
+      <AdvisorCard/>  
+      {/* <ProfileCard/> */}
+      </main>
       <Footer />
     </div>
   );

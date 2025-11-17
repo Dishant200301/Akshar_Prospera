@@ -1,130 +1,206 @@
+import { useState } from "react";
+import { Star, ArrowRight, Quote } from "lucide-react";
+import { motion, AnimatePresence  } from "framer-motion";
 
-import React from 'react';
-import { Star, MessageCircle, Quote } from 'lucide-react';
-import SpotlightCard from './SpotlightCard';
+const Testimonials = () => {
+  const testimonials = [
+    {
+      id: 1,
+      name: "Sarah Williams",
+      position: "Director, Global Enterprises",
+      rating: 5,
+      text: "Incredible support during our most challenging time. The team went above and beyond to ensure we had the coverage we needed.",
+      avatar: "https://i.pravatar.cc/150?img=1",
+    },
+    {
+      id: 2,
+      name: "David Rodriguez",
+      position: "Founder, Small Business Network",
+      rating: 5,
+      text: "Comprehensive coverage that gives me real peace of mind. Best decision I made for my business.",
+      avatar: "https://i.pravatar.cc/150?img=3",
+    },
+    {
+      id: 3,
+      name: "Emily Chen",
+      position: "CEO, Tech Innovations",
+      rating: 5,
+      text: "Professional service with a personal touch. They truly understand the needs of modern businesses and deliver exceptional value.",
+      avatar: "https://i.pravatar.cc/150?img=5",
+    },
+    {
+      id: 4,
+      name: "Michael Thompson",
+      position: "Operations Manager, Retail Corp",
+      rating: 5,
+      text: "Fast claims processing and excellent customer support. They made a stressful situation so much easier to handle.",
+      avatar: "https://i.pravatar.cc/150?img=7",
+    },
+    {
+      id: 5,
+      name: "Jessica Martinez",
+      position: "Director, Healthcare Solutions",
+      rating: 5,
+      text: "Outstanding service and attention to detail. Highly recommend to anyone looking for reliable insurance coverage.",
+      avatar: "https://i.pravatar.cc/150?img=9",
+    },
+    {
+      id: 6,
+      name: "Robert Johnson",
+      position: "Founder, Creative Agency",
+      rating: 5,
+      text: "The transparency and clarity in their policies is refreshing. Finally, an insurance company that speaks plain English!",
+      avatar: "https://i.pravatar.cc/150?img=12",
+    },
+  ];
 
-type Testimonial = {
-  name: string;
-  role?: string;
-  rating: number;
-  text: string;
-};
+  const column1 = [testimonials[0], testimonials[1], testimonials[2]];
+  const column2 = [testimonials[3], testimonials[4], testimonials[5]];
 
-const testimonials: Testimonial[] = [
-  {
-    name: 'Jane Roberts',
-    role: 'Travel Enthusiast',
-    rating: 5,
-    text:
-      'Akshar Prospera took the confusion out of insurance. They listened to what I needed and matched me with a plan that made total sense. I felt informed and protected the whole time.',
-  },
-  {
-    name: 'Mark Lewis',
-    role: 'Young Parent',
-    rating: 5,
-    text:
-      'Exceptionally professional. They explained every detail in simple language and helped us get the right coverage for our family without overselling anything.',
-  },
-  {
-    name: 'Sarah Miller',
-    role: 'Remote Professional',
-    rating: 5,
-    text:
-      'Seamless, stress-free and fast. I compared multiple options in one place and actually understood the differences. Could not have asked for a smoother experience.',
-  },
-  {
-    name: 'David Kim',
-    role: 'Frequent Flyer',
-    rating: 5,
-    text:
-      'I ended up with stronger coverage and a lower premium. The team guided me through each choice like a trusted advisor, not a salesperson. Highly recommended.',
-  },
-  {
-    name: 'Emily Turner',
-    role: 'New Homeowner',
-    rating: 5,
-    text:
-      'Courteous, quick and knowledgeable. They helped me understand what truly mattered for my situation and optimized my plan accordingly. Real peace of mind.',
-  },
-  {
-    name: 'Robert Patel',
-    role: 'Small Business Owner',
-    rating: 5,
-    text:
-      'Responsive and reliable from day one. Claims guidance was clear and prompt, and renewals have been effortless. It feels like having an expert on my side.',
-  },
-];
+  const column1Data = [...column1, ...column1, ...column1];
+  const column2Data = [...column2, ...column2, ...column2];
 
-function Stars({ count }: { count: number }) {
-  return (
-    <div className="flex items-center gap-1">
-      {Array.from({ length: count }).map((_, i) => (
-        <Star key={i} className="w-5 h-5 text-insurance-gold fill-current" />
+  const renderStars = (rating) => (
+    <div className="flex gap-0.5">
+      {[...Array(rating)].map((_, index) => (
+        <Star
+          key={index}
+          size={18}
+          className="fill-primary text-primary"
+        />
       ))}
     </div>
   );
-}
 
-const TestimonialsSection: React.FC = () => {
+  const TestimonialCard = ({ testimonial }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5 }}
+    className="bg-background rounded-2xl p-6 mb-4 shadow-sm hover:shadow-xl transition-all duration-300 border border-border hover:border-primary/20 group"
+  >
+    {/* Rest of your card content remains the same */}
+    <div className="flex justify-between items-start mb-4">
+      {renderStars(testimonial.rating)}
+      <Quote size={24} className="text-primary/20 group-hover:text-primary/40 transition-colors" />
+    </div>
+    <p className="text-text-secondary mb-6 leading-relaxed text-sm">
+      "{testimonial.text}"
+    </p>
+    <div className="flex items-center gap-3 pt-4 border-t border-border">
+      <div className="relative">
+        <img
+          src={testimonial.avatar}
+          alt={testimonial.name}
+          className="w-12 h-12 rounded-full object-cover ring-2 ring-primary/20"
+        />
+      </div>
+      <div>
+        <h4 className="font-bold text-text-primary text-sm">{testimonial.name}</h4>
+        <p className="text-xs text-text-muted">{testimonial.position}</p>
+      </div>
+    </div>
+  </motion.div>
+);
+
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-gray-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-10">
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-            What Our
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> Customers</span>
-            <span className="text-gray-900"> Say</span>
-          </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
-            Real stories from people who simplified insurance with the right guidance.
-          </p>
-        </div>
+    <section className="py-8 md:py-10 lg:py-12 relative overflow-hidden bg-gray-50">
+      
 
-        {/* Grid with spotlight hover effect */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-          {testimonials.map((t, idx) => (
-            <SpotlightCard 
-              key={`${t.name}-${idx}`} 
-              className="overflow-hidden rounded-2xl"
-              spotlightColor="rgba(59, 130, 246, 0.3)"
-            >
-              <article className="relative rounded-2xl border-2 border-gray-200 bg-gradient-to-br from-white to-slate-50 p-4 sm:p-6 shadow-card h-full">
-                {/* Accent ring */}
-                <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-black/5"></div>
 
-                {/* Quote icon */}
-                <div className="absolute -top-2 sm:-top-3 -left-2 sm:-left-3 h-10 w-10 sm:h-12 sm:w-12 rounded-xl bg-blue-600/10 text-blue-700 flex items-center justify-center shadow-sm">
-                  <Quote className="w-5 h-5 sm:w-6 sm:h-6" />
-                </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-0 xl:px-0 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 items-center">
+          {/* Left Section */}
+          <div className="flex flex-col justify-center lg:order-1">
+            <div className="inline-flex items-center gap-2 bg-background px-4 py-2 rounded-full shadow-sm border border-border mb-6 w-fit">
+              <div className="flex -space-x-2">
+                {[1, 3, 5].map((img) => (
+                  <img
+                    key={img}
+                    src={`https://i.pravatar.cc/40?img=${img}`}
+                    alt="Client"
+                    className="w-7 h-7 rounded-full border-2 border-background"
+                  />
+                ))}
+              </div>
+              <span className="text-sm font-semibold text-text-secondary">
+                500+ Happy Clients
+              </span>
+            </div>
 
-                {/* Header */}
-                <div className="flex items-start justify-between gap-3 sm:gap-4 mb-3 sm:mb-4">
-                  <div>
-                    <h3 className="font-semibold text-gray-900 leading-tight text-sm sm:text-base">{t.name}</h3>
-                    {t.role && <p className="text-xs sm:text-sm text-gray-500 mt-0.5">{t.role}</p>}
-                  </div>
-                  <Stars count={t.rating} />
-                </div>
+            <h2 className="text-4xl sm:text-5xl lg:text-5xl font-bold text-text-primary mb-6 leading-tight">
+              What our {""}
+              <span className="text-gradient bg-clip-text text-transparent">
+                clients say
+              </span>
+            </h2>
 
-                {/* Body */}
-                <p className="text-sm sm:text-base text-gray-700 leading-relaxed">"{t.text}"</p>
-              </article>
-            </SpotlightCard>
-          ))}
-        </div>
+            <p className="text-text-secondary text-base md:text-lg mb-8 max-w-md">
+              Real stories from people who trust us with their most important assets and financial security
+            </p>
 
-        {/* Bottom CTA */}
-        <div className="mt-8 sm:mt-12 text-center">
-          <a
-            href="#contact"
-            className="bg-white text-blue-600 border-2 border-blue-600 px-4 sm:px-6 py-3 rounded-xl font-semibold hover:from-blue-600 hover:to-indigo-600 hover:text-white hover:bg-gradient-to-r transition-all duration-200 inline-flex items-center justify-center shadow-sm"
-          >
-            Get a free consultation
-          </a>
+            {/* <div className="flex flex-col sm:flex-row gap-4">
+              <button className="px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+                View all 
+                <ArrowRight size={18} />
+              </button>
+              <button className="px-6 py-3 bg-white text-gray-900 rounded-xl font-semibold border-2 border-gray-200 hover:border-orange-300 hover:bg-orange-50 transition-all duration-300 flex items-center justify-center gap-2">
+                Share your story
+              </button>
+            </div> */}
+
+            
+          </div>
+
+          {/* Right Section - Infinite Scroll Columns */}
+          <div className="relative h-[500px] md:h-[600px] overflow-hidden order-1 lg:order-2">
+  <div className="flex gap-4 h-full">
+    {/* Column 1 (scrolls up) */}
+    <div className="flex-1 overflow-hidden">
+      <motion.div
+        className="space-y-4"
+        animate={{ y: ["0%", "-50%"] }}
+        transition={{ 
+          duration: 40,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+      >
+        {[...column1, ...column1].map((testimonial, index) => (
+          <TestimonialCard
+            key={`col1-${index}`}
+            testimonial={testimonial}
+          />
+        ))}
+      </motion.div>
+    </div>
+
+    {/* Column 2 (scrolls down) - Hidden on mobile */}
+    <div className="flex-1 overflow-hidden hidden sm:block">
+      <motion.div
+        className="space-y-4"
+        animate={{ y: ["-50%", "0%"] }}
+        transition={{ 
+          duration: 40,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+      >
+        {[...column2, ...column2].map((testimonial, index) => (
+          <TestimonialCard
+            key={`col2-${index}`}
+            testimonial={testimonial}
+          />
+        ))}
+      </motion.div>
+    </div>
+  </div>
+</div>
         </div>
       </div>
     </section>
   );
 };
 
-export default TestimonialsSection;
+export default Testimonials;

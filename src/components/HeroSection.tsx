@@ -26,7 +26,7 @@ const HeroSection = () => {
   const slides = [
     {
       id: 1,
-      image: '/1.jpg',
+      image: 'https://plus.unsplash.com/premium_photo-1726736437312-61096a0df6e8?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWVkaWNhbCUyMGluc3VyYW5jZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600',
       icon: Shield,
       tagline: 'Secure Your',
       highlight: 'Health',
@@ -37,7 +37,7 @@ const HeroSection = () => {
     },
     {
       id: 2,
-      image: '/2.jpg',
+      image: 'https://images.unsplash.com/photo-1517554558809-9b4971b38f39?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGxpZmUlMjBpbnN1cmFuY2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600',
       icon: Heart,
       tagline: 'Protect Your',
       highlight: 'Loved',
@@ -100,7 +100,7 @@ const HeroSection = () => {
       ))}
 
       {/* Navigation Dots */}
-      <div className="hidden sm:flex absolute left-4 sm:left-8 top-1/2 transform -translate-y-1/2 z-20 flex-col space-y-2">
+      <div className="hidden sm:flex absolute left-4 sm:left-8 top-1/2 transform -translate-y-1/2 z-20 flex-col mt-12 space-y-2">
         {slides.map((_, index) => (
           <button
             key={index}
@@ -128,7 +128,7 @@ const HeroSection = () => {
           aria-label="Scroll down to next section"
         >
           <svg 
-            className="w-6 h-6 sm:w-8 sm:h-8 text-white transform group-hover:translate-y-1 transition-transform duration-300" 
+            className="w-6 h-6 sm:w-8 sm:h-8 mt-32 text-white transform group-hover:translate-y-1 transition-transform duration-300" 
             fill="none" 
             stroke="currentColor" 
             viewBox="0 0 24 24"
@@ -138,54 +138,59 @@ const HeroSection = () => {
         </button>
       </div>
       
-      <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
-        <div className={`flex flex-col justify-center min-h-screen text-center sm:${currentSlide === 1 ? 'text-right' : currentSlide === 2 ? 'text-center' : 'text-left'}`}>
-          <div className={`max-w-2xl lg:max-w-xl xl:max-w-2xl mx-auto sm:${currentSlide === 1 ? 'ml-auto mr-8 sm:mr-16' : currentSlide === 2 ? 'mx-auto' : 'ml-8 sm:ml-16'}`}>
-            <div className="animate-fade-in" key={currentSlide}>
+     {/* Update the main container and content alignment */}
+<div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10 h-full flex items-center justify-center">
+  <div className="w-full max-w-4xl mx-auto text-center">
+    <div className="animate-fade-in mt-40" key={currentSlide}>
+      {/* Dynamic Main Headline - Centered */}
+      <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight text-center">
+        <span className="text-white drop-shadow-2xl font-extrabold">
+          <AnimatedText text={getCurrentSlideData().tagline} />
+        </span>
+        <br className="hidden sm:block" />
+        <AnimatedText 
+          text={getCurrentSlideData().highlight} 
+          delay={getCurrentSlideData().tagline.split(' ').length * 0.05}
+          className="bg-gradient-to-r from-blue-300 via-blue-400 to-indigo-500 bg-clip-text text-transparent drop-shadow-2xl font-extrabold"
+        />
+        <span className="text-white drop-shadow-2xl font-extrabold">
+          <AnimatedText 
+            text={getCurrentSlideData().continuation} 
+            delay={(getCurrentSlideData().tagline.split(' ').length + getCurrentSlideData().highlight.split(' ').length) * 0.05} 
+          />
+        </span>
+      </h1>
 
+      {/* Dynamic Subheadline - Centered */}
+      <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 mb-8 sm:mb-12 leading-relaxed font-semibold drop-shadow-2xl max-w-3xl mx-auto">
+        <AnimatedText text={getCurrentSlideData().description.split('\\n').join(' ')} />
+        <AnimatedText 
+          text={getCurrentSlideData().location} 
+          delay={getCurrentSlideData().description.split(' ').length * 0.05}
+          className="bg-gradient-to-r from-blue-300 to-indigo-400 bg-clip-text text-transparent font-bold drop-shadow-lg"
+        />
+        <br className="hidden sm:block" />
+        <AnimatedText 
+          text={getCurrentSlideData().additionalText} 
+          delay={(getCurrentSlideData().description.split(' ').length + getCurrentSlideData().location.split(' ').length) * 0.05} 
+        />
+      </p>
 
-              {/* Dynamic Main Headline */}
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight">
-                <span className="text-white drop-shadow-2xl font-extrabold">
-                  <AnimatedText text={getCurrentSlideData().tagline} />
-                </span>
-                <br />
-                <AnimatedText 
-                  text={getCurrentSlideData().highlight} 
-                  delay={getCurrentSlideData().tagline.split(' ').length * 0.05}
-                  className="bg-gradient-to-r from-blue-300 via-blue-400 to-indigo-500 bg-clip-text text-transparent drop-shadow-2xl font-extrabold"
-                />
-                <span className="text-white drop-shadow-2xl font-extrabold">
-                  <AnimatedText text={getCurrentSlideData().continuation} delay={(getCurrentSlideData().tagline.split(' ').length + getCurrentSlideData().highlight.split(' ').length) * 0.05} />
-                </span>
-              </h1>
-
-              {/* Dynamic Subheadline */}
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 mb-8 sm:mb-12 leading-relaxed font-semibold drop-shadow-2xl">
-                <AnimatedText text={getCurrentSlideData().description.split('\\n').join(' ')} />
-                <AnimatedText 
-                  text={getCurrentSlideData().location} 
-                  delay={getCurrentSlideData().description.split(' ').length * 0.05}
-                  className="bg-gradient-to-r from-blue-300 to-indigo-400 bg-clip-text text-transparent font-bold drop-shadow-lg"
-                />
-                <br />
-                <AnimatedText text={getCurrentSlideData().additionalText} delay={(getCurrentSlideData().description.split(' ').length + getCurrentSlideData().location.split(' ').length) * 0.05} />
-              </p>
-
-              {/* CTA Buttons */}
-              <div className={`flex flex-col sm:flex-row gap-3 sm:gap-6 justify-center sm:${currentSlide === 1 ? 'items-end sm:justify-end' : currentSlide === 2 ? 'justify-center' : 'items-start'}`}>
-                <button className="w-full sm:w-auto bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 text-white px-4 sm:px-6 py-2.5 rounded-xl font-bold hover:from-blue-500 hover:via-blue-600 hover:to-indigo-600 transition-all duration-300 inline-flex items-center justify-center shadow-2xl text-sm sm:text-base transform hover:scale-105">
-                  <ArrowRight className="hidden sm:block w-4 h-4 mr-2" /> Talk to an Advisor
-                </button>
-                
-                <button className="w-full sm:w-auto bg-transparent text-white border-2 border-white px-4 sm:px-6 py-2.5 rounded-xl font-bold hover:bg-white hover:text-blue-700 hover:border-white transition-all duration-300 inline-flex items-center justify-center shadow-2xl text-sm sm:text-base transform hover:scale-105">
-                  <ArrowRight className="hidden sm:block w-4 h-4 mr-2" /> Get Free Quote
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+      {/* CTA Buttons - Centered */}
+      <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
+        <button className="w-full sm:w-auto bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 text-white px-6 sm:px-8 py-3 rounded-xl font-bold hover:from-blue-500 hover:via-blue-600 hover:to-indigo-600 transition-all duration-300 inline-flex items-center justify-center shadow-2xl text-base sm:text-lg transform hover:scale-105">
+          <ArrowRight className="w-5 h-5 mr-2" /> 
+          Talk to an Advisor
+        </button>
+        
+        <button className="w-full sm:w-auto bg-transparent text-white border-2 border-white px-6 sm:px-8 py-3 rounded-xl font-bold hover:bg-white hover:text-blue-700 hover:border-white transition-all duration-300 inline-flex items-center justify-center shadow-2xl text-base sm:text-lg transform hover:scale-105">
+          <ArrowRight className="w-5 h-5 mr-2" /> 
+          Get Free Quote
+        </button>
       </div>
+    </div>
+  </div>
+</div>
 
 
     </section>

@@ -1,106 +1,187 @@
-import React from 'react';
-import { Shield, MapPin, Phone, Mail, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import React from "react";
+import {
+  Shield,
+  MapPin,
+  Phone,
+  Mail,
+  Facebook,
+  Instagram,
+  Linkedin,
+  Youtube,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
+  const linkItemClasses =
+    "text-gray-300 hover:text-blue-400 transition-all duration-300 block font-sans hover:translate-x-1";
+
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="container mx-auto px-10 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Company Info */}
-          <div className="lg:col-span-2">
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="relative">
-                <div className="w-8 h-8 bg-gradient-to-br from-insurance-blue to-insurance-blue-accent rounded-lg flex items-center justify-center">
-                  <Shield className="w-5 h-5 text-white" />
-                </div>
-                {/* Maple Leaf (Canada) */}
-                <div className="absolute -top-1 -left-1 w-3 h-3 bg-red-500 rounded-full flex items-center justify-center">
-                  <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-                </div>
-                {/* Star (USA) */}
-                <div className="absolute -top-1 -right-1 w-3 h-3 bg-insurance-gold rounded-full flex items-center justify-center">
-                  <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-                </div>
+    <footer className="bg-gradient-to-b from-gray-950 to-gray-900 text-white font-sans">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-10 lg:px-6 py-16 md:pt-14 md:pb-8">
+        {/* ===== Top Section ===== */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12 lg:gap-12 xl:gap-16">
+          {/* === Brand Column === */}
+          <div className="flex flex-col space-y-6">
+            <Link to="/" className="flex items-center space-x-3 group">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center shadow-lg group-hover:from-blue-500 group-hover:to-blue-700 transition-colors duration-300">
+                <Shield className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xl font-bold">Akshar Prospera</span>
-            </div>
-            <p className="text-gray-300 mb-6 max-w-md">
-              Your trusted partner for comprehensive insurance solutions across Canada and the United States. 
-              Protecting what matters most to you and your family.
+              <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-200 bg-clip-text text-transparent group-hover:from-blue-300 group-hover:to-blue-100 transition-colors duration-300">
+                Akshar Prospera
+              </span>
+            </Link>
+
+            <p className="text-gray-300 leading-relaxed text-sm md:text-base">
+              Your trusted partner for comprehensive insurance solutions across
+              Canada and the United States. Protecting what matters most with
+              reliability and care.
             </p>
-            <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-insurance-blue transition-colors">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-insurance-blue transition-colors">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-insurance-blue transition-colors">
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-insurance-blue transition-colors">
-                <Linkedin className="w-5 h-5" />
-              </a>
+
+            {/* === Social Icons === */}
+            <div className="flex space-x-3 pt-2">
+              {[
+                { Icon: Linkedin, href: "https://linkedin.com" },
+                { Icon: Instagram, href: "https://instagram.com" },
+                { Icon: Facebook, href: "https://facebook.com" },
+                { Icon: Youtube, href: "https://youtube.com" },
+              ].map(({ Icon, href }, i) => (
+                <a
+                  key={i}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${Icon.displayName || "social"} profile`}
+                  className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 rounded-full flex items-center justify-center text-white hover:scale-105 transition-all duration-300 shadow-md"
+                >
+                  <Icon className="w-4 h-4" />
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Home</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Services</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Blogs</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Contact</a></li>
-            </ul>
+          {/* === Quick Links & Services === */}
+          <div className="col-span-1 md:col-span-1 lg:col-span-2">
+            <div className="grid grid-cols-2 gap-8 lg:ml-16">
+              {/* Quick Links */}
+              <div>
+                <h3 className="text-xl font-bold mb-6 pb-2 border-b border-blue-700 inline-block">
+                  Quick Links
+                </h3>
+                <ul className="space-y-3">
+                  {[
+                    { label: "About Us", to: "/about" },
+                    { label: "Our Services", to: "/services" },
+                    { label: "Testimonials", to: "/testimonials" },
+                    { label: "Blog", to: "/blogs" },
+                    { label: "Contact Us", to: "/contact" },
+                  ].map(({ label, to }) => (
+                    <li key={label}>
+                      <Link to={to} className={linkItemClasses}>
+                        {label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Our Services */}
+              <div>
+                <h3 className="text-xl font-bold mb-6 pb-2 border-b border-blue-700 inline-block">
+                  Our Services
+                </h3>
+                <ul className="space-y-3">
+                  {[
+                    { label: "Auto Insurance", to: "/auto-insurance" },
+                    { label: "Home Insurance", to: "/home-insurance" },
+                    { label: "Life Insurance", to: "/life-insurance" },
+                    { label: "Business Insurance", to: "/business-insurance" },
+                    { label: "Travel Insurance", to: "/travel-insurance" },
+                    { label: "Health Insurance", to: "/health-insurance" },
+                  ].map(({ label, to }) => (
+                    <li key={label}>
+                      <Link to={to} className={linkItemClasses}>
+                        {label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
 
-          {/* Contact Info */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
-            <div className="space-y-3">
-              <div className="flex items-start space-x-3">
-                <Phone className="w-5 h-5 text-insurance-blue mt-1" />
-                <div>
-                  <div className="font-medium text-gray-300">Phone</div>
-                  <div className="text-gray-400">1-800-AKSHAR-PRO</div>
-                  <div className="text-gray-400">(1-800-257-4277)</div>
-                </div>
-              </div>
+          {/* === Contact Info === */}
+          <div className="flex flex-col space-y-6">
+            <h3 className="text-xl font-bold pb-2 border-b border-blue-700 inline-block">
+              Get In Touch
+            </h3>
 
-              <div className="flex items-start space-x-3">
-                <Mail className="w-5 h-5 text-insurance-blue mt-1" />
-                <div>
-                  <div className="font-medium text-gray-300">Email</div>
-                  <div className="text-gray-400">quotes@aksharprospera.com</div>
-                  <div className="text-gray-400">support@aksharprospera.com</div>
-                </div>
+            {/* Email */}
+            <div className="flex items-start space-x-4 group">
+              <div className="bg-blue-900/50 p-2 rounded-lg group-hover:bg-blue-800/70 transition-colors duration-300 shadow-md">
+                <Mail className="w-5 h-5 text-blue-300" />
               </div>
+              <div>
+                <div className="font-semibold text-white">Email Us</div>
+                <a
+                  href="mailto:quotes@aksharprospera.com"
+                  className="text-gray-300 hover:text-blue-400 transition-colors duration-300 block text-sm md:text-base"
+                >
+                  quotes@aksharprospera.com
+                </a>
+              </div>
+            </div>
 
-              <div className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-insurance-blue mt-1" />
-                <div>
-                  <div className="font-medium text-gray-300">Address</div>
-                  <div className="text-gray-400">123 Insurance Ave, Suite 100</div>
-                  <div className="text-gray-400">Toronto, ON M5V 2H1</div>
-                </div>
+            {/* Phone */}
+            <div className="flex items-start space-x-4 group">
+              <div className="bg-blue-900/50 p-2 rounded-lg group-hover:bg-blue-800/70 transition-colors duration-300 shadow-md">
+                <Phone className="w-5 h-5 text-blue-300" />
+              </div>
+              <div>
+                <div className="font-semibold text-white">Call Us</div>
+                <a
+                  href="tel:+18002574277"
+                  className="text-gray-300 hover:text-blue-400 transition-colors duration-300 block text-sm md:text-base"
+                >
+                  (1) 800-AKSHAR-PRO
+                </a>
+                <p className="text-gray-400 text-xs">(1-800-257-4277)</p>
+              </div>
+            </div>
+
+            {/* Address */}
+            <div className="flex items-start space-x-4 group">
+              <div className="bg-blue-900/50 p-2 rounded-lg group-hover:bg-blue-800/70 transition-colors duration-300 shadow-md">
+                <MapPin className="w-5 h-5 text-blue-300" />
+              </div>
+              <div>
+                <div className="font-semibold text-white">Our Office</div>
+                <p className="text-gray-300 text-sm">
+                  123 Insurance Ave, Suite 100
+                </p>
+                <p className="text-gray-400 text-sm">Toronto, ON M5V 2H1</p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="text-gray-400 text-sm">
-              © 2024 Akshar Prospera. All rights reserved.
-            </div>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
-            </div>
-          </div>
+        {/* ===== Bottom Bar ===== */}
+        <div className="border-t border-gray-800 mt-8 pt-8 text-center">
+          <p className="text-gray-400 text-sm">
+            &copy; {currentYear} Akshar Prospera. All rights reserved.
+          </p>
+          <p className="text-gray-500 text-sm mt-1">
+            Developed by{" "}
+            <a
+              href="https://tryzeniq.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-300 hover:text-blue-200 font-medium transition-colors duration-200"
+            >
+              TryzenIQ
+            </a>
+          </p>
         </div>
       </div>
     </footer>

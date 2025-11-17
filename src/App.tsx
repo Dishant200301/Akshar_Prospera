@@ -2,28 +2,39 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import Index from "./pages/Index";
 import AboutUs from "./pages/AboutUs";
-import HealthInsurance from "./pages/HealthInsurance";
-import TravelInsurance from "./pages/TravelInsurance";
-import VisitorVisaInsurance from "./pages/VisitorVisaInsurance";
-import LifeInsurance from "./pages/LifeInsurance";
 import Blogs from "./pages/Blogs";
 import BlogDetail from "./pages/BlogDetail";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
-
+import Services from "./pages/Services";
+import ServiceDetail from "./pages/ServiceDetail";
+import { allServiceDetails } from "./data/serviceDetailData";
 // ScrollToTop component to automatically scroll to top on route changes
 const ScrollToTop = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // Scroll to top immediately on route change
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant' // Use instant to avoid smooth scrolling delay
+    });
   }, [pathname]);
 
   return null;
+};
+
+// Wrapper component to load service data based on URL slug
+const ServiceDetailWrapper = () => {
+  const { slug } = useParams<{ slug: string }>();
+  const service = allServiceDetails.find(s => s.href === `/services/${slug}`);
+  
+  return <ServiceDetail service={service} />;
 };
 
 const queryClient = new QueryClient();
@@ -38,10 +49,12 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/health-insurance" element={<HealthInsurance />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/services/:slug" element={<ServiceDetailWrapper />} />
+          {/* <Route path="/health-insurance" element={<HealthInsurance />} />
           <Route path="/travel-insurance" element={<TravelInsurance />} />
           <Route path="/visitor-visa-insurance" element={<VisitorVisaInsurance />} />
-          <Route path="/life-insurance" element={<LifeInsurance />} />
+          <Route path="/life-insurance" element={<LifeInsurance />} /> */}
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/blogs/:slug" element={<BlogDetail />} />
           <Route path="/contact" element={<Contact />} />

@@ -1,33 +1,45 @@
-
-import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Clock, Shield, Award, Send, MessageSquare } from 'lucide-react';
+import React, { useState } from "react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Clock,
+  Shield,
+  Award,
+  Send,
+  MessageSquare,
+} from "lucide-react";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    insuranceType: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    insuranceType: "",
+    message: "",
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
     // Handle form submission here
   };
 
   return (
     <section className="section-padding bg-gray-50">
-              <div className="container mx-auto px-10">
+      <div className="container mx-auto px-10">
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
             <MessageSquare className="w-4 h-4 mr-2" />
@@ -35,8 +47,8 @@ const ContactSection = () => {
           </div>
           <h2 className="text-section-title">Get Your Free Quote Today</h2>
           <p className="text-section-subtitle max-w-3xl mx-auto">
-            Ready to protect what matters most? Contact our licensed advisors for a 
-            personalized insurance quote with no obligation.
+            Ready to protect what matters most? Contact our licensed advisors
+            for a personalized insurance quote with no obligation.
           </p>
         </div>
 
@@ -46,7 +58,10 @@ const ContactSection = () => {
             <form onSubmit={handleSubmit} className="card-premium">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Full Name *
                   </label>
                   <input
@@ -60,7 +75,10 @@ const ContactSection = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Email Address *
                   </label>
                   <input
@@ -77,7 +95,10 @@ const ContactSection = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="phone"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Phone Number
                   </label>
                   <input
@@ -90,7 +111,10 @@ const ContactSection = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="insuranceType" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="insuranceType"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Insurance Type *
                   </label>
                   <select
@@ -111,7 +135,10 @@ const ContactSection = () => {
               </div>
 
               <div className="mb-6">
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Tell us about your needs
                 </label>
                 <textarea
@@ -152,8 +179,10 @@ const ContactSection = () => {
           <div className="space-y-8">
             {/* Contact Details */}
             <div className="card-premium">
-              <h3 className="text-xl font-bold text-gray-900 mb-6">Get in Touch</h3>
-              
+              <h3 className="text-xl font-bold text-gray-900 mb-6">
+                Get in Touch
+              </h3>
+
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <Phone className="w-5 h-5 text-insurance-blue mt-1" />
@@ -168,15 +197,21 @@ const ContactSection = () => {
                   <Mail className="w-5 h-5 text-insurance-blue mt-1" />
                   <div>
                     <div className="font-medium text-gray-900">Email</div>
-                    <div className="text-gray-600">quotes@aksharprospera.com</div>
-                    <div className="text-gray-600">support@aksharprospera.com</div>
+                    <div className="text-gray-600">
+                      quotes@aksharprospera.com
+                    </div>
+                    <div className="text-gray-600">
+                      support@aksharprospera.com
+                    </div>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-3">
                   <Clock className="w-5 h-5 text-insurance-blue mt-1" />
                   <div>
-                    <div className="font-medium text-gray-900">Business Hours</div>
+                    <div className="font-medium text-gray-900">
+                      Business Hours
+                    </div>
                     <div className="text-gray-600">Mon-Fri: 8AM-8PM EST</div>
                     <div className="text-gray-600">Sat-Sun: 9AM-5PM EST</div>
                   </div>
@@ -186,15 +221,18 @@ const ContactSection = () => {
 
             {/* Office Locations */}
             <div className="card-premium">
-              <h3 className="text-xl font-bold text-gray-900 mb-6">Office Locations</h3>
-              
+              <h3 className="text-xl font-bold text-gray-900 mb-6">
+                Office Locations
+              </h3>
+
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <MapPin className="w-5 h-5 text-insurance-blue mt-1" />
                   <div>
                     <div className="font-medium text-gray-900">Toronto, ON</div>
                     <div className="text-sm text-gray-600">
-                      123 Bay Street, Suite 1000<br />
+                      123 Bay Street, Suite 1000
+                      <br />
                       Toronto, ON M5K 1A1
                     </div>
                   </div>
@@ -203,9 +241,12 @@ const ContactSection = () => {
                 <div className="flex items-start space-x-3">
                   <MapPin className="w-5 h-5 text-insurance-blue mt-1" />
                   <div>
-                    <div className="font-medium text-gray-900">Vancouver, BC</div>
+                    <div className="font-medium text-gray-900">
+                      Vancouver, BC
+                    </div>
                     <div className="text-sm text-gray-600">
-                      456 Robson Street, Suite 800<br />
+                      456 Robson Street, Suite 800
+                      <br />
                       Vancouver, BC V6B 6L5
                     </div>
                   </div>
@@ -214,9 +255,12 @@ const ContactSection = () => {
                 <div className="flex items-start space-x-3">
                   <MapPin className="w-5 h-5 text-insurance-blue mt-1" />
                   <div>
-                    <div className="font-medium text-gray-900">New York, NY</div>
+                    <div className="font-medium text-gray-900">
+                      New York, NY
+                    </div>
                     <div className="text-sm text-gray-600">
-                      789 Broadway, Suite 1200<br />
+                      789 Broadway, Suite 1200
+                      <br />
                       New York, NY 10003
                     </div>
                   </div>
@@ -227,10 +271,12 @@ const ContactSection = () => {
             {/* Quick Response Promise */}
             <div className="bg-gradient-hero rounded-xl p-6 text-white text-center">
               <Clock className="w-12 h-12 mx-auto mb-4 text-insurance-gold" />
-              <h4 className="text-lg font-semibold mb-2">Quick Response Guarantee</h4>
+              <h4 className="text-lg font-semibold mb-2">
+                Quick Response Guarantee
+              </h4>
               <p className="text-sm text-white/90">
-                We respond to all quote requests within 24 hours, 
-                often much sooner during business hours.
+                We respond to all quote requests within 24 hours, often much
+                sooner during business hours.
               </p>
             </div>
           </div>

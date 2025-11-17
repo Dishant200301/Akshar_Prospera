@@ -1,99 +1,139 @@
+import React from "react";
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import DotLottieAnimation from "./DotLottieAnimation";
 
-import React from 'react';
-import { ArrowRight, CheckCircle, Star, Clock, Award, Lock } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import SpotlightCard from './SpotlightCard';
+// --- Lottie URL Mapping ---
+const LOTTIE_URLS = {
+  HEALTH: "https://lottie.host/f14039bd-802f-45cf-a854-b8f1c7733eb3/L7b5jKyXDd.lottie",
+  TRAVEL: "https://lottie.host/0339e2dc-5552-460e-b5ed-f58851703937/QWxxEwAuHq.lottie",
+  LIFE: "https://lottie.host/a2c6fde9-2023-4908-bdc7-5d87bf952ce6/y0BV7NfJhS.lottie",
+  HOME: "https://lottie.host/7bf0c4a9-bf4a-4e1e-bed6-e725f3d87e48/sNMZn4XTRn.lottie",
+  AUTO: "https://lottie.host/cf1ea106-5ed9-4a36-845e-d7875344ffaa/ISTlLr9wQN.lottie",
+};
 
 const ServicesSection = () => {
   const services = [
     {
-      title: 'Health Insurance',
-      description: 'Comprehensive health coverage that puts your well-being first. Get access to top-tier medical facilities.',
-      features: ['24/7 Medical Support', 'Prescription Coverage', 'Dental & Vision', 'Mental Health Services'],
-      href: '/health-insurance',
-      highlight: 'Most Popular'
+      title: "Health Insurance",
+      description:
+        "Safeguard medical expenses with comprehensive health coverage tailored for individuals & families.",
+      lottieSrc: LOTTIE_URLS.HEALTH,
+      link: "/health-insurance",
     },
     {
-      title: 'Travel Insurance',
-              description: 'Comprehensive travel protection for medical emergencies and trip disruptions worldwide.',
-      features: ['Emergency Medical', 'Trip Cancellation', 'Baggage Protection', '24/7 Travel Support'],
-      href: '/travel-insurance',
-      highlight: 'Worldwide Coverage'
+      title: "Travel Insurance",
+      description:
+        "Enjoy global travel protection from trip cancellations to emergency medical support.",
+      lottieSrc: LOTTIE_URLS.TRAVEL,
+      link: "/travel-insurance",
     },
     {
-      title: 'Visitor Visa Insurance',
-              description: 'Specialized coverage for visitors to Canada and USA ensuring compliance and peace of mind.',
-      features: ['Visa Compliance', 'Medical Coverage', 'Emergency Evacuation', 'Family Plans'],
-      href: '/visitor-visa-insurance',
-      highlight: 'Visa Compliant'
+      title: "Life Insurance",
+      description:
+        "Provide long-term financial protection to your loved ones through flexible plans.",
+      lottieSrc: LOTTIE_URLS.LIFE,
+      link: "/life-insurance",
     },
     {
-      title: 'Life Insurance',
-              description: 'Secure your family\'s future with flexible life insurance plans that build wealth and protection.',
-      features: ['Flexible Coverage', 'Cash Value Options', 'Family Protection', 'Tax Benefits'],
-      href: '/life-insurance',
-      highlight: 'Family Protection'
-    }
+      title: "Home Insurance",
+      description:
+        "Protect your home and belongings with reliable damage & loss protection.",
+      lottieSrc: LOTTIE_URLS.HOME,
+      link: "/home-insurance",
+    },
+    {
+      title: "Auto Insurance",
+      description:
+        "Secure your vehicle with coverage for accidents, theft, and damages.",
+      lottieSrc: LOTTIE_URLS.AUTO,
+      link: "/auto-insurance",
+    },
   ];
 
   return (
     <section className="py-16 sm:py-20 lg:py-24 bg-gray-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-5">
+        
+        {/* Heading */}
         <div className="text-center mb-12 sm:mb-16 lg:mb-20">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Comprehensive
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> Insurance</span>
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              {" "}Insurance
+            </span>
             <span className="text-gray-900"> Solutions</span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Comprehensive coverage designed to protect what matters most to you and your family, 
-            with personalized solutions for every stage of life.
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-16">
+        {/* Card Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-4">
           {services.map((service, index) => (
-            <SpotlightCard 
-              key={index} 
-              className="overflow-hidden rounded-2xl"
-              spotlightColor="rgba(59, 130, 246, 0.3)"
-            >
-              <div className="relative bg-white rounded-2xl p-6 h-full border border-gray-200 overflow-hidden">
-                {/* Title */}
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
-                  {service.title}
-                </h3>
-                
-                {/* Description */}
-                <p className="text-gray-600 mb-6 leading-relaxed text-sm">
-                  {service.description}
-                </p>
-                
-                {/* Features */}
-                <div className="space-y-3 mb-8">
-                  {service.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-start space-x-3">
-                      <div className="w-5 h-5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 p-0.5 flex-shrink-0 mt-0.5">
-                        <CheckCircle className="w-full h-full text-white" />
-                      </div>
-                      <span className="text-sm text-gray-700 font-medium leading-relaxed">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-                
-                {/* Button */}
-                <Link 
-                  to={service.href}
-                  className="w-full bg-white text-blue-600 border-2 border-blue-600 py-2.5 sm:py-3 px-3 sm:px-4 rounded-xl font-semibold hover:from-blue-600 hover:to-indigo-600 hover:text-white hover:bg-gradient-to-r transition-all duration-200 inline-flex items-center justify-center text-xs sm:text-sm shadow-sm"
-                >
-                  <span className="mr-2">Learn More</span>
-                  <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
-                </Link>
-              </div>
-            </SpotlightCard>
+            <div
+  key={index}
+  className="
+    group relative bg-white rounded-2xl p-6 sm:p-8 md:p-6 lg:p-8 xl:p-4 
+    h-full border border-gray-200 flex flex-col items-center text-center 
+    transition-all duration-500
+    hover:scale-[1.06] hover:-translate-y-2 hover:shadow-2xl
+     hover:shadow-blue-200
+  "
+>
+  {/* Glow ring */}
+  <div
+    className="
+      absolute inset-0 rounded-2xl border-2 border-blue-500 opacity-0 scale-105
+      group-hover:opacity-40 group-hover:scale-100 transition-all duration-500
+    "
+  />
+
+  {/* Animation */}
+  <div className="flex justify-center items-center mb-6 w-full">
+    <div
+      className="
+        relative w-40 h-40 transition-all duration-500
+        group-hover:-translate-y-2
+      "
+    >
+      <DotLottieAnimation
+        src={service.lottieSrc}
+        className="w-full h-full object-contain"
+      />
+
+    </div>
+  </div>
+
+  {/* Heading */}
+  <h3
+    className="
+      text-lg sm:text-xl md:text-2xl font-extrabold text-gray-900 mb-4 
+      transition-all duration-500 group-hover:-translate-y-2
+    "
+  >
+    {service.title}
+  </h3>
+
+  <div className="flex-grow" />
+
+  {/* Button */}
+  <Link
+    to={service.link}
+    className="
+       
+      group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto
+      w-full bg-white text-blue-600 border-2 border-blue-600 
+      py-2.5 sm:py-3 px-3 sm:px-4 rounded-xl font-semibold 
+      hover:bg-blue-600 hover:text-white transition-all duration-300 
+      inline-flex items-center justify-center text-sm shadow-md
+    "
+  >
+    <span className="mr-2">View Details</span>
+    <ArrowRight className="w-4 h-4" />
+  </Link>
+</div>
+
           ))}
         </div>
-
       </div>
     </section>
   );

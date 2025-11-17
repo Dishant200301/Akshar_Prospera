@@ -1,20 +1,54 @@
-import React, { useState, useRef } from 'react';
-import Navigation from '../components/Navigation';
-import Footer from '../components/Footer';
-import { Shield, Users, Target, Heart, Award, CheckCircle, Phone, Mail } from 'lucide-react';
+import React from "react";
+import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
+import {
+  ArrowRight,
+  CheckCircle,
+  MapPin,
+  Briefcase,
+  Award,
+  Globe,
+  Home,
+  Shield,
+  Layers,
+  Target,
+  Users,
+  Calendar,
+  Mail,
+} from "lucide-react";
+import AdvisorCard from "../components/AdvisorCard";
+import { Link } from "react-router-dom";
 
-const AnimatedText = ({ text, delay = 0, className = '' }) => {
-  const isGradient = className.includes('bg-gradient');
-  
+/* ------------------ Fallback Images ------------------ */
+const fallbackImages: string[] = [
+  "https://images.unsplash.com/photo-1579154467008-01584288b39c?q=80&w=2000&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1527613488883-bee0904d6428?q=80&w=2000&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1511632765486-a019805ad52c?q=80&w=2000&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1519389950473-47ba0c7a5d17?q=80&w=2000&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1542740334-a167096d2a8b?q=80&w=2000&auto=format&fit=crop",
+];
+
+const getRandomFallbackImage = () =>
+  fallbackImages[Math.floor(Math.random() * fallbackImages.length)];
+
+const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+  const img = e.currentTarget;
+  if (!fallbackImages.includes(img.src)) img.src = getRandomFallbackImage();
+  else img.style.display = "none";
+};
+
+/* ------------------ Small AnimatedText helper ------------------ */
+const AnimatedText = ({ text, delay = 0, className = "" }) => {
+  const isGradient = className.includes("bg-gradient");
   return (
-    <span className={isGradient ? '' : className}>
-      {text.split(' ').map((word, index) => (
+    <span className={isGradient ? "" : className}>
+      {text.split(" ").map((w: string, i: number) => (
         <span
-          key={index}
-          className={`animate-word ${isGradient ? className : ''}`}
-          style={{ animationDelay: `${delay + index * 0.05}s` }}
+          key={i}
+          className={`animate-word ${isGradient ? className : ""}`}
+          style={{ animationDelay: `${delay + i * 0.05}s` }}
         >
-          {word}{' '}
+          {w}{" "}
         </span>
       ))}
     </span>
@@ -22,58 +56,123 @@ const AnimatedText = ({ text, delay = 0, className = '' }) => {
 };
 
 const AboutUs: React.FC = () => {
-  const [tiltedCards, setTiltedCards] = useState<{ [key: number]: { x: number; y: number } }>({});
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  const handleMouseMove = (index: number, e: React.MouseEvent<HTMLDivElement>) => {
-    const card = cardRefs.current[index];
-    if (!card) return;
-
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    
-    const rotateX = (y - centerY) / 15;
-    const rotateY = (centerX - x) / 15;
-    
-    setTiltedCards(prev => ({
-      ...prev,
-      [index]: { x: rotateX, y: rotateY }
-    }));
-  };
-
-  const handleMouseLeave = (index: number) => {
-    setTiltedCards(prev => ({
-      ...prev,
-      [index]: { x: 0, y: 0 }
-    }));
-  };
-
-  const chipClass = "inline-flex items-center px-3 py-1.5 rounded-full border border-gray-200 bg-white text-sm text-gray-700 whitespace-nowrap";
-  const values = [
-    { icon: Heart, title: 'Customer First', desc: 'We design every policy and interaction around your needs.' },
-    { icon: Shield, title: 'Trust & Transparency', desc: 'Clear terms, honest guidance, and dependable coverage.' },
-    { icon: Target, title: 'Results Driven', desc: 'We focus on outcomes that protect what matters most.' },
+  /* -------- Stats -------- */
+  const firmStats = [
+    { value: "98%", label: "Client Trust & Satisfaction" },
+    { value: "20+", label: "Years of Industry Experience" },
+    { value: "10K+", label: "Families Protected Annually" },
   ];
 
-  const highlights = [
-    { label: 'Happy Clients', value: '10,000+' },
-    { label: 'Claims Assisted', value: '5,000+' },
-    { label: 'Carriers Partnered', value: '25+' },
-    { label: 'Years Experience', value: '15+' },
+  /* -------- Why Choose Us Features -------- */
+  const whyChooseUsFeatures = [
+    {
+      icon: Users,
+      title: "Expert Guidance",
+      description:
+        "Learn from top industry professionals providing tailored policies, techniques & real-world experience.",
+      isHighlighted: false,
+    },
+    {
+      icon: Layers,
+      title: "Comprehensive Coverage",
+      description:
+        "Access a wide range of industry-leading policies to protect every aspect of your life.",
+      isHighlighted: false,
+    },
+    {
+      icon: CheckCircle,
+      title: "Seamless Claims Support",
+      description:
+        "Receive end-to-end assistance for quick, fair claims resolution & peace of mind.",
+      isHighlighted: false,
+    },
+    {
+      icon: Target,
+      title: "Personalized Solutions",
+      description:
+        "Tailored protection plans that evolve with your life, goals, and budget.",
+      isHighlighted: true,
+    },
+  ];
+
+  /* -------- Team Members -------- */
+  const teamMembers = [
+    {
+      name: "Sarah Mitchell",
+      role: "SENIOR INSURANCE ADVISOR",
+      email: "sarah.mitchell@aksharprospera.com",
+      image: "https://images.unsplash.com/photo-1573496359142-b8d877340b58?q=80&w=800&auto=format&fit=crop",
+      shapeColor: "from-purple-400 to-pink-400",
+    },
+    {
+      name: "Michael Chen",
+      role: "LIFE INSURANCE SPECIALIST",
+      email: "michael.chen@aksharprospera.com",
+      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop",
+      shapeColor: "from-indigo-400 to-purple-400",
+    },
+    {
+      name: "Jessica Parker",
+      role: "CLAIMS COORDINATOR",
+      email: "jessica.parker@aksharprospera.com",
+      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=800&auto=format&fit=crop",
+      shapeColor: "from-purple-500 to-indigo-500",
+    },
+    {
+      name: "David Rodriguez",
+      role: "FINANCIAL PLANNING ADVISOR",
+      email: "david.rodriguez@aksharprospera.com",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop",
+      shapeColor: "from-pink-400 to-purple-500",
+    },
+  ];
+
+  /* -------- Milestones -------- */
+  const milestones = [
+    {
+      icon: MapPin,
+      title: "Founded with a Vision",
+      description:
+        "Established to provide transparent and client-focused insurance solutions.",
+      isPrimary: true,
+    },
+    {
+      icon: Briefcase,
+      title: "Expanded Service Portfolio",
+      description:
+        "Introduced comprehensive life and health insurance offerings.",
+      isPrimary: false,
+    },
+    {
+      icon: Home,
+      title: "Specialized Home & Auto",
+      description:
+        "Launched dedicated services for property and vehicle protection.",
+      isPrimary: false,
+    },
+    {
+      icon: Globe,
+      title: "Digital Transformation",
+      description:
+        "Implemented digital tools for quotes, e-sign and policy tracking.",
+      isPrimary: false,
+    },
+    {
+      icon: Award,
+      title: "Awarded Top Brokerage",
+      description:
+        "Recognized for outstanding client service and innovation.",
+      isPrimary: false,
+    },
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white font-sans text-gray-900">
       <Navigation />
 
-      {/* Hero */}
-      <section className="relative h-[80vh] overflow-hidden pt-16 bg-black">
-        {/* Background Image */}
-        <div 
+      {/* ------------------ HERO ------------------ */}
+      <section className="relative h-[65vh] md:h-[70vh] overflow-hidden pt-16 bg-black flex items-center justify-center">
+        <div
           className="absolute inset-0 transition-all duration-1000 ease-in-out opacity-100 z-10"
           style={{
             backgroundImage: 'url(/image/about.jpg)',
@@ -82,292 +181,250 @@ const AboutUs: React.FC = () => {
             backgroundRepeat: 'no-repeat'
           }}
         >
-          {/* Dark overlay */}
           <div className="absolute inset-0 bg-black/50"></div>
         </div>
-        
-        <div className="container mx-auto px-4 sm:px-6 lg:px-10 relative z-10 h-full">
-          <div className="flex flex-col justify-end h-full text-right pb-20">
-            <div className="max-w-2xl lg:max-w-xl xl:max-w-2xl ml-auto mr-16 sm:mr-24 lg:mr-32">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight">
-                <span className="text-white drop-shadow-2xl font-extrabold">
-                  Your Reliable{' '}
-                </span>
-                <span className="bg-gradient-to-r from-blue-300 via-blue-400 to-indigo-500 bg-clip-text text-transparent drop-shadow-2xl font-extrabold">
-                  Partner
-                </span>
-              </h1>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 mb-8 sm:mb-12 leading-relaxed font-semibold drop-shadow-2xl animate-fade-in">
-                <AnimatedText text="Your trusted insurance partner helping families across North America make confident" />
-                <AnimatedText 
-                  text="protection decisions" 
-                  delay={0.6}
-                  className="bg-gradient-to-r from-blue-300 to-indigo-400 bg-clip-text text-transparent font-bold drop-shadow-lg"
-                />
-              </p>
-            </div>
+
+        <div className="container mx-auto px-6 lg:px-12 relative z-20 text-center">
+          <div className="max-w-3xl mx-auto">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-4 sm:mb-6 leading-tight">
+              <span className="text-white drop-shadow-2xl font-extrabold">
+                Your Reliable{" "}
+              </span>
+              <span className="bg-gradient-to-r from-blue-300 via-blue-400 to-indigo-500 bg-clip-text text-transparent drop-shadow-2xl font-extrabold">
+                Partner
+              </span>
+            </h1>
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 mb-8 sm:mb-12 leading-relaxed font-semibold drop-shadow-2xl animate-fade-in">
+              <AnimatedText text="Your trusted insurance partner helping families across North America make confident" />
+              <AnimatedText
+                text="protection decisions"
+                delay={0.6}
+                className="bg-gradient-to-r from-blue-300 to-indigo-400 bg-clip-text text-transparent font-bold drop-shadow-lg"
+              />
+            </p>
           </div>
         </div>
       </section>
-      
 
-      {/* Why Choose Us */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center max-w-3xl mx-auto mb-10">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Why Families Choose <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Akshar Prospera</span></h2>
-                <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                  We blend expert guidance with a warm, personal approach to deliver exceptional insurance solutions.
-                </p>
-            </div>
+      {/* ------------------ ABOUT OUR FIRM ------------------ */}
+      <section className="py-16 sm:py-20 lg:py-24 relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10 max-w-7xl relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="text-center lg:text-left">
+              <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-2">
+                About Our{" "}
+                <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                  Firm
+                </span>
+              </h2>
+              <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                At Akshar Prospera, we pride ourselves on delivering tailored
+                insurance solutions that genuinely protect what matters most.
+                With over two decades of dedicated experience, our expert team
+                is committed to guiding individuals and families through every
+                stage of their insurance journey.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center px-6 py-3 bg-blue-600 text-white text-base font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:bg-blue-700"
+                >
+                  Get a Quote <ArrowRight className="w-5 h-5 ml-2" />
+                </Link>
+                <Link
+                  to="/services"
+                  className="inline-flex items-center px-6 py-3 border-2 border-blue-600 text-blue-600 text-base font-semibold rounded-xl transition-all duration-300 hover:bg-blue-50 hover:text-blue-700"
+                >
+                  Explore Services
+                </Link>
+              </div>
 
-            {/* Feature cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="group block perspective-1000">
-                <div 
-                  ref={el => cardRefs.current[0] = el}
-                  onMouseMove={(e) => handleMouseMove(0, e)}
-                  onMouseLeave={() => handleMouseLeave(0)}
-                  className="h-full"
-                >
-                  <div 
-                    className="p-8 rounded-2xl border-2 border-gray-200 bg-white transition-all duration-300 ease-out transform-gpu group-hover:shadow-2xl group-hover:scale-105 h-full"
-                    style={{
-                      transform: `perspective(1000px) rotateX(${tiltedCards[0]?.x || 0}deg) rotateY(${tiltedCards[0]?.y || 0}deg)`,
-                      transformStyle: 'preserve-3d'
-                    }}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-left mt-8 max-w-lg mx-auto lg:mx-0">
+                {firmStats.map((s, i) => (
+                  <div
+                    key={i}
+                    className="group hover:scale-105 transition-transform duration-300"
                   >
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center mb-4">
-                      <Heart className="w-7 h-7" />
+                    <div className="text-4xl font-extrabold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                      {s.value}
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Personalized Guidance</h3>
-                    <p className="text-gray-600">Recommendations tailored to your family, budget, and goals.</p>
-                  </div>
-                </div>
-              </div>
-              <div className="group block perspective-1000">
-                <div 
-                  ref={el => cardRefs.current[1] = el}
-                  onMouseMove={(e) => handleMouseMove(1, e)}
-                  onMouseLeave={() => handleMouseLeave(1)}
-                  className="h-full"
-                >
-                  <div 
-                    className="p-8 rounded-2xl border-2 border-gray-200 bg-white transition-all duration-300 ease-out transform-gpu group-hover:shadow-2xl group-hover:scale-105 h-full"
-                    style={{
-                      transform: `perspective(1000px) rotateX(${tiltedCards[1]?.x || 0}deg) rotateY(${tiltedCards[1]?.y || 0}deg)`,
-                      transformStyle: 'preserve-3d'
-                    }}
-                  >
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center mb-4">
-                      <Shield className="w-7 h-7" />
+                    <div className="text-sm text-gray-600 mt-1 group-hover:text-gray-900 transition-colors">
+                      {s.label}
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Top Carrier Access</h3>
-                    <p className="text-gray-600">Choice from leading Canadian and U.S. insurers with transparent terms.</p>
-                  </div>
-                </div>
-              </div>
-              <div className="group block perspective-1000">
-                <div 
-                  ref={el => cardRefs.current[2] = el}
-                  onMouseMove={(e) => handleMouseMove(2, e)}
-                  onMouseLeave={() => handleMouseLeave(2)}
-                  className="h-full"
-                >
-                  <div 
-                    className="p-8 rounded-2xl border-2 border-gray-200 bg-white transition-all duration-300 ease-out transform-gpu group-hover:scale-105 h-full"
-                    style={{
-                      transform: `perspective(1000px) rotateX(${tiltedCards[2]?.x || 0}deg) rotateY(${tiltedCards[2]?.y || 0}deg)`,
-                      transformStyle: 'preserve-3d'
-                    }}
-                  >
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center mb-4">
-                      <Target className="w-7 h-7" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">End‑to‑End Support</h3>
-                    <p className="text-gray-600">From quotes to claims, we handle details so you stay confident.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Statistics */}
-            <div className="mt-12 max-w-6xl mx-auto">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                {highlights.map((item, i) => (
-                  <div key={i} className="text-center p-6 rounded-xl border-2 border-gray-100 shadow-sm bg-white hover:shadow-md transition-shadow">
-                    <div className="text-3xl font-extrabold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{item.value}</div>
-                    <div className="text-sm text-gray-600 mt-1">{item.label}</div>
                   </div>
                 ))}
               </div>
             </div>
+
+            <div className="order-first lg:order-last">
+              <div className="relative w-full max-w-md lg:max-w-lg h-96 sm:h-[440px] md:h-[520px] lg:h-[560px] rounded-3xl overflow-hidden shadow-2xl border border-gray-200 mx-auto group">
+                <img
+                  src="https://images.unsplash.com/photo-1543693087-639a38025487?auto=format&fit=crop&q=60&w=1400"
+                  alt="Our insurance team"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  onError={handleImageError}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-600/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Our Values */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">What We <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Stand For</span></h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">Core principles that drive our commitment to exceptional service and client satisfaction.</p>
+      {/* ------------------ MEET OUR TEAM ------------------ */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10 max-w-7xl relative z-10">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <h3 className="text-3xl md:text-4xl font-bold text-gray-900">
+              Meet Our{" "}
+<span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">                Team
+              </span>
+            </h3>
+            
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {values.map((v, i) => (
-              <div key={i} className="group block perspective-1000">
-                <div 
-                  ref={el => cardRefs.current[i + 3] = el}
-                  onMouseMove={(e) => handleMouseMove(i + 3, e)}
-                  onMouseLeave={() => handleMouseLeave(i + 3)}
-                  className="h-full"
-                >
-                  <div 
-                    className="p-8 rounded-2xl border-2 border-gray-200 bg-white transition-all duration-300 ease-out transform-gpu group-hover:shadow-2xl group-hover:scale-105 h-full"
-                    style={{
-                      transform: `perspective(1000px) rotateX(${tiltedCards[i + 3]?.x || 0}deg) rotateY(${tiltedCards[i + 3]?.y || 0}deg)`,
-                      transformStyle: 'preserve-3d'
-                    }}
-                  >
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white flex items-center justify-center mb-4">
-                      <v.icon className="w-7 h-7" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{v.title}</h3>
-                    <p className="text-gray-600">{v.desc}</p>
+
+          {/* Team Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+            {teamMembers.map((member, index) => (
+              <div
+                key={index}
+                className="group flex flex-col items-center text-center"
+              >
+                {/* Abstract Shape Background + Photo */}
+                <div className="relative mb-6 w-full max-w-[280px]">
+                  {/* Abstract curved shape */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${member.shapeColor} rounded-[40%_60%_70%_30%/40%_50%_60%_50%] opacity-30 group-hover:opacity-50 transition-opacity duration-500 transform group-hover:scale-110 group-hover:rotate-6`}></div>
+                  
+                  {/* Circular mask for photo */}
+                  <div className="relative w-full aspect-square rounded-full overflow-hidden border-4 border-white shadow-2xl z-10">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
+                      onError={handleImageError}
+                    />
                   </div>
+                </div>
+
+                {/* Member Info */}
+                <div className="space-y-2">
+                  <p className="text-xs font-semibold tracking-wider text-gray-500 uppercase">
+                    {member.role}
+                  </p>
+                  <h4 className="text-xl font-bold text-gray-900">
+                    {member.name}
+                  </h4>
+                  <a
+                    href={`mailto:${member.email}`}
+                    className="inline-flex items-center gap-2 text-sm font-medium bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent hover:from-purple-700 hover:to-pink-700 transition-all duration-300"
+                  >
+                    <Mail className="w-4 h-4 text-purple-600" />
+                    {member.email}
+                  </a>
                 </div>
               </div>
             ))}
           </div>
-          
-          {/* Additional descriptive text */}
-          <div className="mt-12 max-w-6xl mx-auto">
-            <div className="p-8 rounded-2xl border-2 border-gray-200 bg-white shadow-card">
-              <p className="text-lg text-gray-700 leading-relaxed text-center">
-                These core values aren't just words on paper—they're the foundation of every interaction we have with our clients. 
-                When you choose Akshar Prospera, you're choosing a partner who puts your family's security above everything else. 
-                We believe that exceptional service isn't about selling policies; it's about building lasting relationships based on 
-                trust, understanding, and genuine care for your future. Every decision we make, every recommendation we provide, 
-                and every policy we help you choose is guided by these principles.
-              </p>
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* Meet Your Expert Advisor */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-                Your Trusted <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Insurance Advisor</span>
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Meet the dedicated professional who will guide you through every step of your insurance journey
-              </p>
-            </div>
-            
-            {/* Profile Card */}
-            <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden max-w-5xl mx-auto">
-              {/* Header Section */}
-              <div className="px-6 py-4">
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                  {/* Profile Avatar and Name */}
-                  <div className="flex items-center gap-6">
-                    <div className="w-28 h-28 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full p-2 shadow-xl ring-4 ring-gray-100">
-                      <div className="w-full h-full rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 flex items-center justify-center text-white text-4xl font-bold">AI</div>
-                    </div>
-                    <div>
-                      <h3 className="text-4xl font-bold text-gray-900 mb-2">Arun Isamaliya</h3>
-                      <div className="text-xl bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent font-semibold">Founder & Lead Advisor</div>
-                    </div>
-                  </div>
-                  
-                  {/* Action Buttons */}
-                  <div className="flex flex-col sm:flex-row gap-3 md:justify-end">
-                    <button className="bg-white text-blue-600 border-2 border-blue-600 px-6 py-3 rounded-xl font-semibold hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-white transition-all duration-200 inline-flex items-center justify-center shadow-sm">
-                      <Phone className="w-5 h-5 mr-2" /> Call Arun
-                    </button>
-                    <button className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-blue-500 hover:to-indigo-500 transition-all duration-200 inline-flex items-center justify-center shadow-sm">
-                      <Mail className="w-5 h-5 mr-2" /> Email Arun
-                    </button>
-                  </div>
-                </div>
-              </div>
+      {/* ------------------ WHY CHOOSE US ------------------ */}
+      <section className="py-16 sm:py-20 lg:py-24 relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10 max-w-7xl relative z-10">
+          <div className="text-center mb-12 sm:mb-16">
+            <h3 className="text-3xl md:text-4xl font-bold text-gray-900">
+              Why <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Akshar Prospera</span> is the Right Choice for You
+            </h3>
+          </div>
 
-              {/* Content Section */}
-              <div className="px-6 py-6">
-                {/* Description */}
-                <p className="text-lg text-gray-600 mb-8 leading-relaxed text-center">
-                  Trusted advisor helping families across Canada and the U.S. choose clear, right‑fit coverage.
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-6xl mx-auto">
+            {whyChooseUsFeatures.map((feature, index) => (
+              <div
+                key={index}
+                className="p-8 rounded-3xl shadow-lg border-2 border-gray-200 bg-white transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl hover:border-blue-300 group"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-5 bg-blue-100 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                  <feature.icon className="w-7 h-7" />
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-gray-900 group-hover:text-blue-600 transition-colors">
+                  {feature.title}
+                </h3>
+                <p className="text-base leading-relaxed text-gray-600">
+                  {feature.description}
                 </p>
-
-                {/* Statistics Row */}
-                <div className="grid grid-cols-3 gap-4 mb-8">
-                  <div className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-4 text-center border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-                    <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-1">15+</div>
-                    <div className="text-sm text-gray-600 font-medium">Years</div>
-                  </div>
-                  <div className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-4 text-center border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-                    <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-1">10k+</div>
-                    <div className="text-sm text-gray-600 font-medium">Families</div>
-                  </div>
-                  <div className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-4 text-center border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
-                    <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-1">25+</div>
-                    <div className="text-sm text-gray-600 font-medium">Team Members</div>
-                  </div>
-                </div>
-
-                {/* Additional Information */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="space-y-3 text-center">
-                    <h5 className="text-base font-semibold text-gray-900 flex items-center justify-center gap-2">
-                      <Users className="w-4 h-4 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent" />
-                      Languages
-                    </h5>
-                    <div className="flex flex-wrap gap-2 justify-center">
-                      <span className="inline-flex items-center px-3 py-1.5 rounded-full border border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-blue-600 hover:text-blue-600 transition-colors">English</span>
-                      <span className="inline-flex items-center px-3 py-1.5 rounded-full border border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-blue-600 hover:text-blue-600 transition-colors">Gujarati</span>
-                      <span className="inline-flex items-center px-3 py-1.5 rounded-full border border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-blue-600 hover:text-blue-600 transition-colors">Hindi</span>
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-3 text-center">
-                    <h5 className="text-base font-semibold text-gray-900 flex items-center justify-center gap-2">
-                      <Target className="w-4 h-4 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent" />
-                      Serving
-                    </h5>
-                    <div className="flex flex-wrap gap-2 justify-center">
-                      <span className="inline-flex items-center px-3 py-1.5 rounded-full border border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-blue-600 hover:text-blue-600 transition-colors">Canada</span>
-                      <span className="inline-flex items-center px-3 py-1.5 rounded-full border border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-blue-600 hover:text-blue-600 transition-colors">United States</span>
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-3 text-center">
-                    <h5 className="text-base font-semibold text-gray-900 flex items-center justify-center gap-2">
-                      <CheckCircle className="w-4 h-4 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent" />
-                      Availability
-                    </h5>
-                    <div className="flex flex-wrap gap-2 justify-center">
-                      <span className="inline-flex items-center px-3 py-1.5 rounded-full border border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-blue-600 hover:text-blue-600 transition-colors">Virtual Meetings</span>
-                      <span className="inline-flex items-center px-3 py-1.5 rounded-full border border-gray-200 bg-white text-sm text-gray-700 font-medium hover:border-blue-600 hover:text-blue-600 transition-colors">In‑Person</span>
-                    </div>
-                  </div>
-                </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ------------------ MILESTONES ------------------ */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-10 max-w-7xl">
+          <div className="text-center mb-14">
+           
+
+            <h3 className="text-3xl md:text-4xl font-bold text-gray-900">
+              Key{" "}
+              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                Milestones
+              </span>
+            </h3>
+
+            
+          </div>
+
+          <div className="flex flex-col gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {milestones.slice(0, 3).map((m, i) => (
+                <div
+                  key={i}
+                  className="p-8 rounded-3xl bg-white border border-gray-200 shadow-sm hover:shadow-xl hover:border-blue-300 transition-all duration-300 group"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-600 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:text-white transition-all duration-300">
+                    <m.icon className="w-6 h-6" />
+                  </div>
+
+                  <h4 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                    {m.title}
+                  </h4>
+
+                  <p className="text-gray-600 leading-relaxed">
+                    {m.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:w-2/3 mx-auto">
+              {milestones.slice(3, 5).map((m, i) => (
+                <div
+                  key={i}
+                  className="p-8 rounded-3xl bg-white border border-gray-200 shadow-sm hover:shadow-xl hover:border-blue-300 transition-all duration-300 group"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-600 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:text-white transition-all duration-300">
+                    <m.icon className="w-6 h-6" />
+                  </div>
+
+                  <h4 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                    {m.title}
+                  </h4>
+
+                  <p className="text-gray-600 leading-relaxed">
+                    {m.description}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
+      <AdvisorCard />
       <Footer />
     </div>
   );
 };
 
 export default AboutUs;
-
-
-
