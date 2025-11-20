@@ -177,17 +177,20 @@ const HeroSection = () => {
       </p>
 
       {/* CTA Buttons - Centered */}
-      <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
-  <button className="w-full sm:w-auto bg-gradient-to-r from-insurance-blue to-insurance-blue-accent text-white px-6 sm:px-8 py-3 rounded-xl font-bold transition-all duration-300 inline-flex items-center justify-center shadow-2xl text-base sm:text-lg transform hover:scale-105">
-          <ArrowRight className="w-5 h-5 mr-2" /> 
-          Talk to an Advisor
-        </button>
-        
-        <button className="w-full sm:w-auto bg-transparent text-white border-2 border-white px-6 sm:px-8 py-3 rounded-xl font-bold hover:bg-white hover:text-blue-700 hover:border-white transition-all duration-300 inline-flex items-center justify-center shadow-2xl text-base sm:text-lg transform hover:scale-105">
-          <ArrowRight className="w-5 h-5 mr-2" /> 
-          Get Free Quote
-        </button>
-      </div>
+<div className="flex flex-row sm:flex-row gap-4 sm:gap-6 justify-between sm:justify-center">
+
+  <button className="w-[48%] sm:w-auto bg-gradient-to-r from-insurance-blue to-insurance-blue-accent text-white px-4 sm:px-8 py-3 rounded-xl font-bold transition-all duration-300 inline-flex items-center justify-center shadow-2xl text-base sm:text-lg hover:scale-105">
+    <span>Talk Advisor</span>
+    <ArrowRight className="w-5 h-5 ml-2" />
+  </button>
+
+  <button className="w-[48%] sm:w-auto bg-transparent text-white border-2 border-white px-4 sm:px-8 py-3 rounded-xl font-bold hover:bg-white hover:text-blue-700 hover:border-white transition-all duration-300 inline-flex items-center justify-center shadow-2xl text-base sm:text-lg hover:scale-105">
+    <span>Free Quote</span>
+    <ArrowRight className="w-5 h-5 ml-2" />
+  </button>
+
+</div>
+
     </div>
   </div>
 </div>

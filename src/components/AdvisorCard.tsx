@@ -24,11 +24,11 @@ const AdvisorCard = () => {
     <section className=" py-16 bg-gray-50 sm:py-20 lg:py-24 relative overflow-hidden">
       
       {/* Heading */}
-      <div className="text-center mb-8">
+      <div className="text-center mb-8 px-6 ">
         
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
           
-          Your Trusted {" "}
+          Your {" "}
           <span className="bg-gradient-to-r from-insurance-blue to-insurance-blue-accent bg-clip-text text-transparent">
             
             Insurance Advisor
@@ -38,7 +38,7 @@ const AdvisorCard = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-5xl mx-auto  rounded-3xl  overflow-hidden flex flex-col lg:flex-row">
           {/* LEFT SIDE - CONTENT */}
-          <div className=" p-8 sm:p-12 lg:pt-16 lg:pl-12 lg:pr-0 ">
+          <div className=" p-4 sm:p-6 lg:pt-16 lg:pl-12 lg:pr-0 ">
             <div>
               
 
@@ -50,7 +50,7 @@ const AdvisorCard = () => {
                 Founder & Lead Advisor
               </h2>
 
-              <p className="mt-5 text-gray-600 text-lg max-w-xl leading-relaxed">
+              <p className="mt-5 text-gray-600 text-md max-w-lg leading-relaxed">
                 As a trusted advisor, I help families across North America
                 choose clear, right-fit coverage with confidence. Let's secure
                 your future together.
@@ -58,16 +58,59 @@ const AdvisorCard = () => {
             </div>
 
             {/* STATS */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-6 pt-6 border-t border-gray-200">
+            <div className="grid grid-cols-3 sm:grid-cols-3 gap-2 mt-8 pt-8 border-t border-gray-200">
               {stats.map((stat, index) => (
-                <div key={index} className="flex items-start gap-4">
-                  <div className="text-gradient">{stat.icon}</div>
-                  <div>
-                    <p className="text-2xl font-bold text-gray-900">
+                <div 
+                  key={index} 
+                  className="
+                    group relative overflow-hidden
+                    bg-gradient-to-br from-white to-blue-50/30
+                    border border-blue-100
+                    rounded-lg p-2
+                    transition-all duration-500 ease-out
+                    hover:shadow-xl hover:shadow-blue-500/10
+                    hover:border-blue-300
+                    hover:-translate-y-1
+                    hover:scale-105
+                  "
+                >
+                  {/* Gradient overlay on hover */}
+                  <div className="
+                    absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 
+                    opacity-0 group-hover:opacity-100 transition-opacity duration-500
+                  " />
+                  
+                 
+                  
+                  {/* Stats content */}
+                  <div className="relative">
+                    <p className="
+                      text-2xl sm:text-2xl md:text-3xl font-extrabold 
+                      bg-gradient-to-r from-gray-900 to-gray-700
+                      bg-clip-text text-transparent
+                      mb-1
+                      group-hover:from-insurance-blue group-hover:to-insurance-blue-accent
+                      transition-all duration-500
+                    ">
                       {stat.value}
                     </p>
-                    <p className="text-sm text-gray-500">{stat.label}</p>
+                    <p className="
+                      text-xs sm:text-sm font-medium text-gray-600
+                      group-hover:text-gray-900
+                      transition-colors duration-300
+                    ">
+                      {stat.label}
+                    </p>
                   </div>
+
+                  {/* Decorative corner accent */}
+                  <div className="
+                    absolute top-0 right-0 w-20 h-20
+                    bg-gradient-to-br from-blue-400/10 to-transparent
+                    rounded-bl-full
+                    opacity-0 group-hover:opacity-100
+                    transition-opacity duration-500
+                  " />
                 </div>
               ))}
             </div>

@@ -159,35 +159,45 @@ const AboutUs: React.FC = () => {
                   Firm
                 </span>
               </h2>
-              <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+              <p className="text-sm text-gray-600 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
                 At Akshar Prospera, we pride ourselves on delivering tailored
                 insurance solutions that genuinely protect what matters most.
                 With over two decades of dedicated experience, our expert team
                 is committed to guiding individuals and families through every
                 stage of their insurance journey.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center px-6 py-3 bg-blue-600 text-white text-base font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:bg-blue-700"
-                >
-                  Get a Quote <ArrowRight className="w-5 h-5 ml-2" />
-                </Link>
-                <Link
-                  to="/services"
-                  className="inline-flex items-center px-6 py-3 border-2 border-blue-600 text-blue-600 hover:bg-gradient-to-r from-insurance-blue to-insurance-blue-accent hover:textwhite text-base font-semibold rounded-xl transition-all duration-300 hover:bg-blue-50 hover:text-white"
-                >
-                  Explore Services
-                </Link>
-              </div>
+              <div className="flex flex-row sm:flex-col gap-4 justify-center lg:justify-start mb-12">
+  <Link
+    to="/contact"
+    className="inline-flex items-center px-4 py-3 bg-blue-600 text-white text-base font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:bg-blue-700"
+  >
+    Get a Quote <ArrowRight className="w-5 h-5 ml-2" />
+  </Link>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-left mt-8 max-w-lg mx-auto lg:mx-0">
+  <Link
+    to="/services"
+    className="inline-flex items-center px-4 py-3 border-2 border-blue-600 text-blue-600 hover:bg-gradient-to-r from-insurance-blue to-insurance-blue-accent hover:textwhite text-base font-semibold rounded-xl transition-all duration-300 hover:bg-blue-50 hover:text-white"
+  >
+    Explore Services
+  </Link>
+</div>
+
+
+              <div className="grid grid-cols-3 sm:grid-cols-3 gap-2 text-left mt-8 max-w-lg mx-auto lg:mx-0">
                 {firmStats.map((s, i) => (
                   <div
                     key={i}
-                    className="group hover:scale-105 transition-transform duration-300"
+                    className="group hover:scale-105 transition-transform duration-300   group relative overflow-hidden
+                    bg-gradient-to-br from-white to-blue-50/30
+                    border border-blue-100
+                    rounded-lg p-2 
+                    transition-all duration-500 ease-out
+                    hover:shadow-xl hover:shadow-blue-500/10
+                    hover:border-blue-300
+                    hover:-translate-y-1
+                    hover:scale-105"
                   >
-                        <div className="text-4xl font-extrabold bg-gradient-to-r from-insurance-blue to-insurance-blue-accent bg-clip-text text-transparent">
+                        <div className="text-3xl font-extrabold bg-gradient-to-r from-insurance-blue to-insurance-blue-accent bg-clip-text text-transparent">
                       {s.value}
                     </div>
                     <div className="text-sm text-gray-600 mt-1 group-hover:text-gray-900 transition-colors">
@@ -218,7 +228,7 @@ const AboutUs: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-10 max-w-7xl relative z-10">
           <div className="text-center mb-12 sm:mb-16">
             <h3 className="text-3xl md:text-4xl font-bold text-gray-900">
-              Why <span className="bg-gradient-to-r from-insurance-blue to-insurance-blue-accent bg-clip-text text-transparent">Akshar Prospera</span> is the Right Choice for You
+              Why Choice {" "}<span className="bg-gradient-to-r from-insurance-blue to-insurance-blue-accent bg-clip-text text-transparent">Akshar Prospera</span> 
             </h3>
           </div>
 

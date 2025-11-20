@@ -18,7 +18,7 @@ const AnimatedText = ({ text, delay = 0, className = '' }) => {
         <span
           key={index}
           className={`animate-word inline-block ${isGradient ? className : ''}`}
-          style={{ animationDelay: `${delay + index * 0.05}s` }}
+          style={{ animationDelay: `${delay + index * 0}s` }}
         >
           {word}{' '}
         </span>
@@ -86,7 +86,7 @@ const Blogs: React.FC = () => {
   });
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50 overflow-hidden">
+    <div className="min-h-screen flex flex-col bg-gray-50 overflow-x-hidden">
       <Navigation />
 
       {/* Hero Section - Kept as is */}
@@ -94,7 +94,7 @@ const Blogs: React.FC = () => {
         <div 
           className="absolute inset-0 transition-all duration-1000 ease-in-out opacity-100 z-10"
           style={{
-            backgroundImage: 'url(/image/blogs.jpg)',
+            backgroundImage: 'url(/images/blogs.jpg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center', 
             backgroundRepeat: 'no-repeat'
@@ -161,8 +161,8 @@ const Blogs: React.FC = () => {
       </section>
 
       {/* Blog Posts Section - UPDATED with OurWorkSection design */}
-      <section className="py-12 md:py-16 bg-gray-50 flex-1">
-        <div className="container mx-auto px-6 lg:px-12">
+      <section className="pb-12 md:py-16 bg-gray-50 flex-1">
+        <div className="container mx-auto px-2 lg:px-12">
           {filteredPosts.length === 0 ? (
             <div className="text-center text-gray-600 text-lg py-10">
               No blog posts found matching your criteria.
@@ -172,7 +172,7 @@ const Blogs: React.FC = () => {
               initial="hidden"
               whileInView="visible"
               variants={containerVariants}
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true, amount: 0 }}
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
             >
               {filteredPosts.map((post, index) => {

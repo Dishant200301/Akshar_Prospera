@@ -53,10 +53,10 @@ const WhyChooseUsSection: React.FC = () => {
 
   return (
     <section className="py-16 sm:py-20 lg:py-24 bg-gray-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:-mx-0">
+      <div className="container mx-auto px-4 sm:px-6 ">
         {/* Header */}
         <div className="text-center ">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 lg:ml-12">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 ">
             Why Choose{" "}
             <span className="bg-gradient-to-r from-insurance-blue to-insurance-blue-accent bg-clip-text text-transparent">
               Akshar Prospera
@@ -77,7 +77,7 @@ const WhyChooseUsSection: React.FC = () => {
           >
            <DotLottieAnimation
   src="https://lottie.host/f74c0153-6dd0-4d25-b93f-6f253719bee9/uB5GQsbAnW.lottie"
-  className="w-full sm:w-[500px] md:w-[650px] lg:w-[1250px] xl:w-[850px] h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px] -mx-60"
+  className="w-[350px] sm:w-[500px] md:w-[650px] lg:w-[650px] xl:w-[750px] h-[300px] sm:h-[400px] md:h-[500px] lg:h-[500px] xl:h-[600px] -mx-60"
  />
 
           </motion.div>

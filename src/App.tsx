@@ -21,11 +21,7 @@ const ScrollToTop = () => {
 
   useEffect(() => {
     // Scroll to top immediately on route change
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'instant' // Use instant to avoid smooth scrolling delay
-    });
+    window.scrollTo(0, 0);
   }, [pathname]);
 
   return null;
