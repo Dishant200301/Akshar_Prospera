@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
@@ -13,7 +12,8 @@
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
+    /* Make Tailwind's `primary` color point to the insurance brand blue */
+    --primary: var(--insurance-blue);
     --primary-foreground: 210 40% 98%;
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -29,7 +29,7 @@
     --radius: 0.75rem;
 
     /* Insurance Brand Colors */
-    --insurance-blue: 213 100% 35%;
+    --insurance-blue: 215 100% 56%;
     --insurance-blue-light: 213 100% 85%;
     --insurance-blue-dark: 213 100% 25%;
     --insurance-blue-accent: 213 85% 40%;
@@ -46,19 +46,70 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-heading;
   }
 }
 
+/* Primary utility classes using brand variables */
+.primary {
+  /* Use the brand color defined in :root for consistency */
+  background-color: hsl(var(--insurance-blue));
+}
+
+/* Text color utility for the primary brand blue */
+.text-primary {
+  color: hsl(var(--insurance-blue));
+}
+
+/* Use only the brand blue for gradients/text to keep UI monochrome-blue */
+.text-gradient {
+  /* Solid brand blue used as a background for text-clip (keeps it visually blue-only) */
+  background: hsl(var(--insurance-blue));
+  -webkit-background-clip: text;
+  /* Standard property for compatibility */
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.bg-gradient-primary {
+  /* Use solid brand blue as background (no indigo) */
+  background: hsl(var(--insurance-blue));
+}
+
+.text-gradient-primary {
+  background: hsl(var(--insurance-blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+
+
 @layer components {
+
   /* Modern Button Variants */
   .btn-hero {
-    @apply bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold px-8 py-4 rounded-2xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 hover:scale-105 hover:from-blue-500 hover:to-indigo-500;
+    @apply bg-gradient-to-r from-insurance-blue to-insurance-blue-accent text-white font-bold px-8 py-4 rounded-2xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 hover:scale-105 hover:from-insurance-blue-hover hover:to-insurance-blue-accent;
+  }
+
+  .border-gradient {
+    border: 2px solid transparent;
+    border-radius: var(--radius);
+    background-image: linear-gradient(hsl(var(--background)), hsl(var(--background))), linear-gradient(90deg, hsl(var(--insurance-blue)), hsl(var(--insurance-blue-accent)));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
   }
 
   .btn-primary {
-    @apply bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:from-blue-500 hover:to-indigo-500;
+    @apply bg-gradient-to-r from-insurance-blue to-insurance-blue-accent text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:from-insurance-blue-hover hover:to-insurance-blue-accent;
   }
 
   .btn-outline {
@@ -96,8 +147,35 @@
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-insurance-blue to-insurance-blue-accent bg-clip-text text-transparent;
   }
+
+  /* Hover / focus text gradient: apply brand gradient only when hovered or focused */
+  .hover-text-gradient {
+    /* fallback using CSS gradient with brand variables so it matches Tailwind tokens */
+    background-image: linear-gradient(90deg, hsl(var(--insurance-blue)), hsl(var(--insurance-blue-accent)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    /* standard property */
+    -webkit-text-fill-color: transparent;
+    /* WebKit */
+    color: transparent;
+    /* fallback for modern browsers */
+  }
+
+  .border-gradient {
+    border: 2px solid transparent;
+    border-radius: var(--radius);
+    background-image: linear-gradient(hsl(var(--background)), hsl(var(--background))), linear-gradient(90deg, hsl(var(--insurance-blue)), hsl(var(--insurance-blue-accent)));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+  }
+
+  .border-primary {
+    border: 2px solid hsl(var(--insurance-blue));
+    border-radius: var(--radius);
+  }
+
 
   /* Layout Utilities */
   .container-custom {
@@ -133,14 +211,15 @@
     animation: fadeIn 1s ease-out forwards;
   }
 
- 
 
- 
+
+
 
   @keyframes glow {
     from {
       box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
     }
+
     to {
       box-shadow: 0 0 30px rgba(59, 130, 246, 0.8);
     }
@@ -175,6 +254,8 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
+    /* Standard property for compatibility */
+    line-clamp: 1;
   }
 
   .line-clamp-2 {
@@ -182,6 +263,8 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
+    /* Standard property for compatibility */
+    line-clamp: 2;
   }
 
   .line-clamp-3 {
@@ -189,6 +272,8 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
+    /* Standard property for compatibility */
+    line-clamp: 3;
   }
 
   .backdrop-blur-sm {
@@ -230,6 +315,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -237,13 +323,23 @@
 }
 
 @keyframes scrollUp {
-  from { transform: translateY(0); }
-  to { transform: translateY(-50%); }
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-50%);
+  }
 }
 
 @keyframes scrollDown {
-  from { transform: translateY(-50%); }
-  to { transform: translateY(0); }
+  from {
+    transform: translateY(-50%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
 }
 
 .animate-scroll-up {
@@ -261,6 +357,11 @@
 }
 
 .lottie-blue svg * {
-  fill: #2563eb !important;    /* blue-600 */
-  stroke: #2563eb !important;
+  fill: #407BFF !important;
+  stroke: #407BFF !important;
+}
+
+.text-color {
+  filter:
+    grayscale(1) brightness(0.95) sepia(1) saturate(6) hue-rotate(225deg);
 }

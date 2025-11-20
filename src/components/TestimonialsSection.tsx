@@ -66,7 +66,7 @@ const Testimonials = () => {
         <Star
           key={index}
           size={18}
-          className="fill-primary text-primary"
+          className=" "
         />
       ))}
     </div>
@@ -131,7 +131,7 @@ const Testimonials = () => {
 
             <h2 className="text-4xl sm:text-5xl lg:text-5xl font-bold text-text-primary mb-6 leading-tight">
               What our {""}
-              <span className="text-gradient bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-insurance-blue to-insurance-blue-accent bg-clip-text text-transparent">
                 clients say
               </span>
             </h2>

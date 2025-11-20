@@ -4,7 +4,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation, useParams } from "react-router-dom";
 import { useEffect } from "react";
-import Index from "./pages/Index";
 import AboutUs from "./pages/AboutUs";
 import Blogs from "./pages/Blogs";
 import BlogDetail from "./pages/BlogDetail";
@@ -12,7 +11,10 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Services from "./pages/Services";
 import ServiceDetail from "./pages/ServiceDetail";
-import { allServiceDetails } from "./data/serviceDetailData";
+import { allServicesData } from "./data/allServicesData";
+import Index from "./pages/Index";
+import { Navigate } from "react-router-dom";
+
 // ScrollToTop component to automatically scroll to top on route changes
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -32,7 +34,7 @@ const ScrollToTop = () => {
 // Wrapper component to load service data based on URL slug
 const ServiceDetailWrapper = () => {
   const { slug } = useParams<{ slug: string }>();
-  const service = allServiceDetails.find(s => s.href === `/services/${slug}`);
+  const service = allServicesData.find(s => s.slug === slug);
   
   return <ServiceDetail service={service} />;
 };
@@ -47,7 +49,8 @@ const App = () => (
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
-          <Route path="/" element={<Index />} />
+          <Route path="/" element={<Index  />} />
+          <Route path="/about" element={<Navigate to="/about-us" replace />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/:slug" element={<ServiceDetailWrapper />} />

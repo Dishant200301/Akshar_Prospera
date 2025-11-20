@@ -13,24 +13,22 @@ const OurWorkSection: React.FC = () => {
 
   const allBlogs = [
     {
-      title: "Understanding Health Insurance: A Complete Guide for Families",
-      tags: ["Health Insurance"],
-      image:
-        "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2000&auto=format&fit=crop",
+    title: 'Navigating Mortgage Options for First-Time Homebuyers',
+      tags: ["Financial Planning"],
+      image: 'https://plus.unsplash.com/premium_photo-1680721444743-2a94a309a24a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2070',
+
     },
     {
-      title:
-        "Top 5 Tips for Choosing the Right Travel Insurance Plan and Staying Safe Abroad",
-      tags: ["Travel Insurance"],
-      image:
-        "https://images.unsplash.com/photo-1578894381163-e72c17f2d45f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dHJhdmVsJTIwaW5zdXJhbmNlfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600",
-    },
-    {
-      title: "Life Insurance 101: Protecting Your Family's Future",
+      title: 'Understanding Critical Illness Insurance',
+
       tags: ["Life Insurance"],
-      image:
-        "https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=2000&auto=format&fit=crop",
-    },
+           image: 'https://plus.unsplash.com/premium_photo-1661290355102-e40f95a6b6ba?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8VW5kZXJzdGFuZGluZyUyMENyaXRpY2FsJTIwSWxsbmVzcyUyMEluc3VyYW5jZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600',
+   },
+    {
+    title: 'Your Complete Guide to Health Insurance Options',
+      tags: ["Health Insurance"],
+      image: 'https://images.unsplash.com/photo-1718128120449-74cc8535277d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8WW91ciUyMENvbXBsZXRlJTIwR3VpZGUlMjB0byUyMEhlYWx0aCUyMEluc3VyYW5jZSUyME9wdGlvbnN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600',
+   },
   ];
 
   const containerVariants = {
@@ -86,7 +84,7 @@ const OurWorkSection: React.FC = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="group rounded-3xl overflow-hidden bg-white border border-gray-500 transition-all duration-300 hover:shadow-lg"
+                className="group rounded-3xl overflow-hidden  transition-all duration-300 hover:shadow-lg"
               >
                 <Link to={`/blogs/${slug}`} className="block h-full">
                   {/* Blog Image */}

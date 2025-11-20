@@ -51,7 +51,7 @@ const faqs = [
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
             Question?{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="hover-text-gradient bg-clip-text text-transparent">
               Look Here.
             </span>
           </h2>
@@ -70,7 +70,7 @@ const faqs = [
               <div
                 className={`rounded-2xl backdrop-blur-sm transition-all duration-300 overflow-hidden ${
                   activeIndex === index
-                    ? "bg-[#2563eb] border border-blue-500/30 shadow-lg shadow-blue-500/20"
+                    ? "bg-gradient-to-r from-insurance-blue to-insurance-blue-accent border border-blue-500/30 shadow-lg shadow-blue-500/20"
                     : "bg-white border hover:border-gray-600/50"
                 }`}
               >
@@ -86,7 +86,7 @@ const faqs = [
                   
                   <div className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-all ${
                     activeIndex === index 
-                      ? "bg-gradient-to-br from-blue-500 to-indigo-500 text-white rotate-180" 
+                      ? " text-white rotate-180" 
                       : "bg-white text-gray-400"
                   }`}>
                     <FontAwesomeIcon

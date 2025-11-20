@@ -1,436 +1,502 @@
-// src/components/ServiceDetail.tsx
 import React from 'react';
-import Navigation from '../components/Navigation'; // Assuming Navigation is in the same components folder
-import Footer from '../components/Footer';     // Assuming Footer is in the same components folder
-import { CheckCircle, AlertTriangle } from 'lucide-react'; // Import common icons
+import { 
+  Shield, Heart, Plane, Home, Car, 
+  CheckCircle, XCircle, Plus, Check, X,
+  DollarSign, Clock, Award, Users, Globe,
+  FileText, TrendingUp, Zap, Lock
+} from 'lucide-react';
+import { motion } from 'framer-motion';
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
+import { ServiceDetailData } from '../data/ServiceDetail';
+import { Link } from 'react-router-dom';
 
-// Import all specific Lucide icons that might be used in the data
-// You can also pass the icon component directly in your data as done in serviceDetailData.ts
-// (Shield, Users, Clock, Star, Globe, FileText, Award, Calculator, Phone, Mail, Heart) are imported in serviceDetailData.ts
-// but if you were to use them *within* ServiceDetail.tsx directly for generic components, you'd import them here.
+// Icon mapping for services
+const serviceIcons: Record<string, React.ElementType> = {
+  'Health Insurance': Heart,
+  'Travel Insurance': Plane,
+  'Life Insurance': Shield,
+  'Home Insurance': Home,
+  'Auto Insurance': Car
+};
 
-import { ServiceDetailType } from '../types/serviceTypes'; // Adjust path as needed
+// Feature icons mapping
+const featureIconMap: Record<string, React.ReactNode> = {
+  'Cashless': <DollarSign className="w-10 h-10" />,
+  'Tax': <FileText className="w-10 h-10" />,
+  'Lifetime': <TrendingUp className="w-10 h-10" />,
+  'Claim': <Award className="w-10 h-10" />,
+  'Support': <Clock className="w-10 h-10" />,
+  'Network': <Globe className="w-10 h-10" />,
+  'Online': <Zap className="w-10 h-10" />,
+  'Protection': <Shield className="w-10 h-10" />,
+  'Security': <Lock className="w-10 h-10" />,
+  'Family': <Users className="w-10 h-10" />
+};
 
-// Helper for AnimatedText-like components (can be moved to a separate utils file if desired)
-const AnimatedText = ({ text, delay = 0, className = '' }: { text: string; delay?: number; className?: string }) => {
-  const isGradient = className.includes('bg-gradient');
+// Get icon for feature based on title keywords
+const getFeatureIcon = (title: string): React.ReactNode => {
+  const lowerTitle = title.toLowerCase();
+  for (const [key, icon] of Object.entries(featureIconMap)) {
+    if (lowerTitle.includes(key.toLowerCase())) {
+      return icon;
+    }
+  }
+  return <CheckCircle className="w-10 h-10" />;
+};
+
+
+interface ServiceDetailProps {
+  service?: ServiceDetailData;
+}
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const AnimatedText = ({ text, delay = 0, className = "" }) => {
+  const isGradient = className.includes("bg-gradient");
 
   return (
-    <span className={isGradient ? '' : className}>
-      {text.split(' ').map((word, index) => (
+    <span className={isGradient ? "" : className}>
+      {text.split(" ").map((word, index) => (
         <span
           key={index}
-          className={`animate-word ${isGradient ? className : ''}`}
+          className={`inline-block animate-word ${isGradient ? className : ""}`}
           style={{ animationDelay: `${delay + index * 0.05}s` }}
         >
-          {word}{' '}
+          {word}{" "}
         </span>
       ))}
     </span>
   );
 };
 
-interface ServiceDetailProps {
-  service: ServiceDetailType | undefined; // Service can be undefined if not found
-}
-
-const ServiceDetail: React.FC<ServiceDetailProps> = ({ service }) => {
+const ServiceDetailComponent: React.FC<ServiceDetailProps> = ({ service }) => {
   if (!service) {
-    // Handle case where service data is not found (e.g., 404 page)
     return (
-      <div className="min-h-screen flex flex-col justify-center items-center text-center">
-        <h1 className="text-4xl font-bold text-gray-800">Service Not Found</h1>
-        <p className="text-lg text-gray-600 mt-4">The service you are looking for does not exist.</p>
-        <a href="/" className="mt-8 px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">Go to Home</a>
+      <div className="min-h-screen bg-gray-50 flex flex-col">
+        <Navigation />
+        <div className="flex-grow flex items-center justify-center">
+          <div className="text-center py-20 text-xl font-medium text-gray-500">
+            Service details not found.
+          </div>
+        </div>
+        <Footer />
       </div>
     );
   }
 
-  const {
-    hero,
-    whyChoose,
-    plans,
-    whatsIncluded,
-    destinations,
-    emergencyInfo,
-    visaTypes,
-    countries,
-    process,
-    benefits,
-    riders,
-  } = service;
-
   return (
-    <div className="min-h-screen bg-white">
+    <div className="bg-gray-50 font-sans text-gray-900 overflow-x-hidden">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative h-[65vh] md:h-[70vh] overflow-hidden pt-16 bg-black flex items-center justify-center">
-        <div
-          className="absolute inset-0 transition-all duration-1000 ease-in-out opacity-100 z-10"
-          style={{
-            backgroundImage: `url(${hero.backgroundImage})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'right top',
-            backgroundRepeat: 'no-repeat'
-          }}
-        >
-          <div className="absolute inset-0 bg-black/50"></div>
-        </div>
+      {/* ------------------ HERO SECTION ------------------ */}
+     <section className="relative h-[70vh] overflow-hidden pt-16 bg-black">
+  <div
+    className="absolute inset-0 bg-cover bg-center"
+    style={{ backgroundImage: `url(${service.heroImage})` }}
+  >
+    <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80"></div>
+  </div>
 
-      <div className="container mx-auto px-6 lg:px-12 relative z-20 text-center">
-          <div className="max-w-3xl mx-auto">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-4 sm:mb-6 leading-tight">
-                <span className="text-white drop-shadow-2xl font-extrabold">
-                  {hero.titlePrimary}
-                </span>
-                <br />
-                <span className="bg-gradient-to-r from-blue-300 via-blue-400 to-indigo-500 bg-clip-text text-transparent drop-shadow-2xl font-extrabold">
-                  {hero.titleGradient}{' '}
-                </span>
-                {hero.titleSecondary && ( // Only render if titleSecondary exists
-                  <span className="text-white drop-shadow-2xl font-extrabold">
-                    {hero.titleSecondary}
-                  </span>
-                )}
-              </h1>
+  <div className="mx-auto px-3 lg:px-12 relative z-20 text-center mt-24 lg:mt-32">
+    <motion.div 
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={fadeInUp}
+      className="max-w-3xl mx-auto"
+    >
+      {/* HEADING → Styled like ABOUT */}
+      <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-extrabold text-white mb-4 sm:mb-6 leading-tight">
+        {(service.tagline || "").split(' ').slice(0, -3).join(' ')}{' '}
+        <span className="bg-gradient-to-r from-insurance-blue to-insurance-blue-accent bg-clip-text text-transparent">
+          {(service.tagline || "").split(' ').slice(-3).join(' ')}
+        </span>
+      </h1>
 
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 mb-8 sm:mb-12 leading-relaxed font-semibold drop-shadow-2xl animate-fade-in">
-              <AnimatedText text="Stay informed with our latest articles and guides to help you make the best" />
-              <AnimatedText 
-                text="insurance decisions" 
-                delay={0.6}
-                className="bg-gradient-to-r from-blue-300 to-indigo-400 bg-clip-text text-transparent font-bold drop-shadow-lg"
-              />
-            </p>
-          </div>
+      {/* PARAGRAPH → Animated like ABOUT page */}
+     <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 mb-8 sm:mb-12 leading-relaxed font-semibold drop-shadow-2xl animate-fade-in">
+        <AnimatedText text={service.shortDescription.split(" ").slice(0, 8).join(" ") + " "} />
+        <AnimatedText
+          text={service.shortDescription.split(" ").slice(8).join(" ")}
+          delay={0.6}
+          className="bg-gradient-to-r from-insurance-blue to-insurance-blue-accent bg-clip-text text-transparent font-bold drop-shadow-lg"
+        />
+      </p>
+
+
+    </motion.div>
+  </div>
+</section>
+
+
+     {/* WHAT IS + WHY NEED */}
+      <section className="py-16 md:pt-24">
+        <div className="container mx-auto px-6 max-w-6xl text-center">
+          <motion.h2 variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+            className="text-3xl md:text-5xl font-bold mb-8">
+            What is <span className="hover-text-gradient">{service.serviceName}</span>?
+          </motion.h2>
+          <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+            className="space-y-6 text-lg leading-relaxed text-gray-600">
+            <p>{service.whatIsInsurance}</p>
+            <p className="font-medium">{service.whyNeed}</p>
+          </motion.div>
         </div>
       </section>
 
-      {/* Why Choose Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-              {whyChoose.titlePrimary}{' '}
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{whyChoose.titleGradient}</span>?
+      {/* ------------------ POLICY TYPES ------------------ */}
+      <section className=" flex flex-col justify-center py-20 bg-gray-50 ">
+        <div className="container mx-auto px-6 lg:px-12">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="text-center mb-16"
+          >
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+              Types of {" "}
+              <span className="hover-text-gradient">Coverage</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              {whyChoose.description}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {whyChoose.cards.map((card, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <card.icon className="w-8 h-8 text-white" /> {/* Render icon component */}
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{card.title}</h3>
-                <p className="text-gray-600 text-sm">{card.description}</p>
-              </div>
+          </motion.div>
+          
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={staggerContainer}
+            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8"
+          >
+            {(service.policyTypes || []).map((policy, index) => (
+              <motion.div 
+                key={index} 
+                variants={fadeInUp}
+                whileHover={{ y: -10 }}
+                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-blue-600 flex flex-col h-full"
+              >
+               
+                <h3 className="text-xl font-bold text-gray-900 mb-4">{policy.name}</h3>
+                <p className="text-gray-600 leading-relaxed flex-grow">{policy.description}</p>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Plans Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-              {plans.titlePrimary}{' '}
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{plans.titleGradient}</span>
+      {/* ------------------ KEY FEATURES ------------------ */}
+      <section className="min-h-screen flex flex-col justify-center py-20">
+        <div className="container mx-auto px-6 lg:px-12">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="text-center mb-16"
+          >
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+              Key {" "}
+                  <span className="text-blue-600">Features</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              {plans.description}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {plans.cards.map((plan, index) => (
-              <div key={index} className="relative bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-blue-300">
-                {plan.popular && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-1.5 rounded-full text-xs font-semibold shadow-lg">
-                      Most Popular
-                    </span>
-                  </div>
-                )}
-
-                <div className="text-center mb-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight">{plan.name}</h3>
-                  <div className="mb-4">
-                    <p className="text-sm text-gray-500 font-medium mb-1">Starting from</p>
-                    <p className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent leading-tight">{plan.price.split('Starting from ')[1]}</p>
-                  </div>
+          </motion.div>
+          
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={staggerContainer}
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {(service.keyFeatures || []).map((feature, index) => (
+              <motion.div 
+                key={index} 
+                variants={fadeInUp}
+                whileHover={{ scale: 1.03 }}
+                className="text-center p-8 bg-gray-50 rounded-2xl hover:bg-blue-50 transition-colors duration-300 border border-gray-100 hover:border-blue-200"
+              >
+                <div className="text-blue-600 mb-6 flex justify-center">
+                  {getFeatureIcon(feature.title)}
                 </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
 
-                <ul className="space-y-3 mb-6">
-                  {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start space-x-3">
-                      <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700 text-sm leading-relaxed">{feature}</span>
-                    </li>
+      {/* ------------------ WHY NECESSARY ------------------ */}
+      <section className="flex flex-col justify-center py-20 ">
+        <div className="container mx-auto px-6 lg:px-12">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="text-center mb-16"
+          >
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+              Why It's {" "}
+              <span className="hover-text-gradient"> Necessary</span>
+            </h2>
+          </motion.div>
+          
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={staggerContainer}
+            className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto"
+          >
+            {(service.whyNecessary || []).map((item, index) => (
+              <motion.div 
+                key={index} 
+                variants={fadeInUp}
+                className="flex items-start space-x-4 bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div className="flex-shrink-0 mt-1">
+                  <CheckCircle className="w-6 h-6 text-blue-600" />
+                </div>
+                <p className="text-lg text-gray-700 leading-relaxed">{item}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ------------------ WHY CHOOSE US & COMPARISON ------------------ */}
+      <section className="flex flex-col justify-center py-20">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left Side - Content */}
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+            >
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 ml-2 mb-">
+                Why 
+                <span className="hover-text-gradient"> Choose Us</span>?
+              </h2>
+              <div className="space-y-8">
+                {(service.whyChooseProvider || []).map((item, index) => (
+                  <div key={index} className="flex items-start space-x-4">
+                    <div className="flex-shrink-0 p-3 rounded-xl">
+                      <CheckCircle className="w-6 h-6 text-blue-600" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
+                      <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Right Side - Comparison Table */}
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100"
+            >
+              <div className="p-6 bg-gray-50 border-b border-gray-200">
+                <h3 className="text-xl font-bold text-center text-gray-900">Plan Comparison</h3>
+              </div>
+              <table className="w-full">
+                <thead>
+                  <tr className="bg-white border-b border-gray-100">
+                    <th className="px-6 py-4 text-left text-sm font-bold text-gray-600 uppercase tracking-wider">Feature</th>
+                    <th className="px-6 py-4 text-center text-sm font-bold text-gray-400 uppercase tracking-wider">Others</th>
+                    <th className="px-6 py-4 text-center text-sm font-bold text-blue-600 uppercase tracking-wider bg-blue-50">Us</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  {(service.comparison || []).map((row, index) => (
+                    <tr key={index} className="hover:bg-gray-50 transition-colors">
+                      <td className="px-6 py-4 text-sm font-medium text-gray-900">{row.feature}</td>
+                      <td className="px-6 py-4 text-center">
+                        {row.basic ? (
+                          <Check className="w-5 h-5 text-blue-500 mx-auto" />
+                        ) : (
+                          <X className="w-5 h-5 text-gray-500 mx-auto" />
+                        )}
+                      </td>
+                      <td className="px-6 py-4 text-center bg-blue-50/30">
+                        {row.comprehensive ? (
+                          <Check className="w-6 h-6 text-blue-600 mx-auto" />
+                        ) : (
+                          <X className="w-6 h-6 text-red-400 mx-auto" />
+                        )}
+                      </td>
+                    </tr>
                   ))}
-                </ul>
-
-                <button className={`w-full py-3 px-4 rounded-lg font-semibold text-base transition-all duration-300 bg-white text-blue-600 border-2 border-blue-600 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-white hover:shadow-lg`}>
-                  Get Started
-                </button>
-              </div>
-            ))}
+                </tbody>
+              </table>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* What's Included / Coverage Features Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-              {whatsIncluded.titlePrimary}{' '}
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{whatsIncluded.titleGradient}</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              {whatsIncluded.description}
-            </p>
-          </div>
+      {/* ------------------ COVERAGE DETAILS ------------------ */}
+<section className="min-h-screen flex flex-col justify-center items-center bg-gray-50 py-6 sm:py-12">
+  <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+    <motion.div 
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={fadeInUp}
+      className="text-center mb-6 sm:mb-12"
+    >
+      <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 sm:mb-6">
+        <span className="hover-text-gradient">Coverage </span>Details
+      </h2>
+    </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {whatsIncluded.features.map((feature, index) => (
-              <div key={index} className="flex items-start space-x-3">
-                <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
-                <span className="text-gray-700 text-lg">{feature}</span>
-              </div>
-            ))}
-          </div>
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-center h-full">
+      
+      {/* What is Covered */}
+      <motion.div 
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="bg-white p-5 sm:p-8 rounded-3xl shadow-xl border-t-8 border-blue-600 h-full"
+      >
+        <div className="flex items-center space-x-3 sm:space-x-4 mb-4 sm:mb-6">
+          <CheckCircle className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
+          <h3 className="text-xl sm:text-2xl font-bold text-gray-900">What is Covered</h3>
         </div>
-      </section>
 
-      {/* Dynamic Sections start here based on service type */}
+        <ul className="space-y-3 sm:space-y-4">
+          {(service.whatIsCovered || []).map((item, index) => (
+            <li key={index} className="flex items-start space-x-3">
+              <Check className="w-5 h-5 text-blue-500 flex-shrink-0 mt-1" />
+              <span className="text-gray-700 text-base sm:text-lg leading-relaxed">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </motion.div>
 
-      {/* Destinations Section (Travel Insurance specific) */}
-      {destinations && (
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="text-center max-w-3xl mx-auto mb-10">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-                {destinations.titlePrimary}{' '}
-                <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{destinations.titleGradient}</span>
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                {destinations.description}
-              </p>
+      {/* What is Not Covered */}
+      <motion.div 
+        initial={{ opacity: 0, x: 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="bg-white p-5 sm:p-8 rounded-3xl shadow-xl border-t-8 border-blue-600 h-full"
+      >
+        <div className="flex items-center space-x-3 sm:space-x-4 mb-4 sm:mb-6">
+          <XCircle className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
+          <h3 className="text-xl sm:text-2xl font-bold text-gray-900">What is Not Covered</h3>
+        </div>
+
+        <ul className="space-y-3 sm:space-y-4">
+          {(service.whatIsNotCovered || []).map((item, index) => (
+            <li key={index} className="flex items-start space-x-3">
+              <X className="w-5 h-5 text-gray-500 flex-shrink-0 mt-1" />
+              <span className="text-gray-700 text-base sm:text-lg leading-relaxed">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </motion.div>
+
+    </div>
+  </div>
+</section>
+
+
+
+      {/* ------------------ ADD-ONS & BUYING ------------------ */}
+<section className="flex flex-col justify-center items-center py-24">
+  <div className="container mx-auto px-6 lg:px-12">
+
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={fadeInUp}
+      className="text-center mb-12"
+    >
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+        Enhance Your <span className="hover-text-gradient">Coverage</span>
+      </h2>
+    </motion.div>
+
+    {/* Smaller grid so everything fits in one screen */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 place-content-center">
+      {(service.addOnCovers || []).map((addon, index) => (
+        <motion.div
+          key={index}
+          whileHover={{ scale: 1.02 }}
+          className="bg-gray-50 p-6 rounded-xl border border-gray-200 hover:border-blue-300 transition-colors h-full"
+        >
+          <h3 className="text-lg font-bold text-gray-900 mb-2">{addon.name}</h3>
+          <p className="text-sm text-gray-600 leading-relaxed">{addon.description}</p>
+        </motion.div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<section className=" flex flex-col justify-center  bg-gray-50 py-12 mb-24">
+  <div className="container mx-auto px-6 lg:px-12">
+
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={fadeInUp}
+      className="text-center mb-12"
+    >
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+        How to <span className="hover-text-gradient">Buy</span> Online
+      </h2>
+    </motion.div>
+
+    <div className="relative w-full">
+      {/* line */}
+      <div className="hidden lg:block absolute top-10 left-0 right-0 h-1 bg-gray-200 -translate-y-1/2"></div>
+
+      {/* grid centered to fit screen */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 place-items-center relative z-10">
+        {(service.howToBuySteps || []).map((step, index) => (
+          <div key={index} className="text-center group max-w-xs">
+            <div className="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-md border-4 border-gray-100  transition">
+              <span className="text-2xl font-bold text-gray-400 ">
+                {index + 1}
+              </span>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-4xl mx-auto">
-              {destinations.cards.map((destination, index) => (
-                <div key={index} className="text-center bg-white p-6 rounded-xl shadow-md">
-                  <div className="text-4xl mb-3">{destination.icon}</div> {/* Emoji icon */}
-                  <h3 className="font-semibold text-gray-900 mb-1">{destination.name}</h3>
-                  <p className="text-sm text-blue-600 font-medium">{destination.coverage}</p>
-                </div>
-              ))}
-            </div>
+            <h4 className="text-lg font-bold text-gray-900 mb-2">{step.split(':')[0]}</h4>
+            <p className="text-sm text-gray-500">{step.split(':')[1]}</p>
           </div>
-        </section>
-      )}
+        ))}
+      </div>
+    </div>
 
-      {/* Emergency Info Section (Travel Insurance specific) */}
-      {emergencyInfo && (
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="text-center max-w-3xl mx-auto mb-10">
-              <div className="inline-flex items-center px-4 py-2 bg-red-100 text-red-700 rounded-full text-sm font-medium mb-6">
-                <AlertTriangle className="w-4 h-4 mr-2" />
-                Emergency Information
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-                {emergencyInfo.titlePrimary}{' '}
-                <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{emergencyInfo.titleGradient}</span>?
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
-                {emergencyInfo.description}
-              </p>
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <emergencyInfo.hotline.icon className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{emergencyInfo.hotline.title}</h3>
-                    <p className="text-2xl font-bold text-red-600">{emergencyInfo.hotline.number}</p>
-                    <p className="text-gray-600">{emergencyInfo.hotline.note}</p>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <emergencyInfo.email.icon className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{emergencyInfo.email.title}</h3>
-                    <p className="text-lg font-semibold text-blue-600">{emergencyInfo.email.address}</p>
-                    <p className="text-gray-600">{emergencyInfo.email.note}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Visa Types Section (Visitor Visa Insurance specific) */}
-      {visaTypes && (
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="text-center max-w-3xl mx-auto mb-10">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-                {visaTypes.titlePrimary}{' '}
-                <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{visaTypes.titleGradient}</span>
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                {visaTypes.description}
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-4xl mx-auto">
-              {visaTypes.cards.map((visa, index) => (
-                <div key={index} className="text-center bg-gray-50 p-6 rounded-xl">
-                  <div className="text-4xl mb-3">{visa.icon}</div> {/* Emoji icon */}
-                  <h3 className="font-semibold text-gray-900 mb-1">{visa.name}</h3>
-                  <p className="text-sm text-blue-600 font-medium">{visa.coverage}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Countries Section (Visitor Visa Insurance specific) */}
-      {countries && (
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="text-center max-w-3xl mx-auto mb-10">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-                {countries.titlePrimary}{' '}
-                <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{countries.titleGradient}</span>
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                {countries.description}
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              {countries.cards.map((country, index) => (
-                <div key={index} className="bg-white p-6 rounded-xl shadow-md">
-                  <div className="flex items-center space-x-4 mb-4">
-                    <div className="text-3xl">{country.flag}</div> {/* Emoji flag */}
-                    <div>
-                      <h3 className="text-lg font-semibold text-gray-900">{country.name}</h3>
-                      <p className="text-sm text-gray-600">{country.requirements}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <CheckCircle className="w-5 h-5 text-green-500" />
-                    <span className="text-sm text-green-600 font-medium">Full Coverage Available</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Benefits Section (Life Insurance specific) */}
-      {benefits && (
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="text-center max-w-3xl mx-auto mb-10">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-                {benefits.titlePrimary}{' '}
-                <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{benefits.titleGradient}</span>
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                {benefits.description}
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              {benefits.cards.map((benefit, index) => (
-                <div key={index} className="text-center bg-gray-50 p-6 rounded-xl">
-                  <div className="text-4xl mb-4">{benefit.icon}</div> {/* Emoji icon */}
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{benefit.name}</h3>
-                  <p className="text-gray-600">{benefit.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Riders Section (Life Insurance specific) */}
-      {riders && (
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="text-center max-w-3xl mx-auto mb-10">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-                {riders.titlePrimary}{' '}
-                <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{riders.titleGradient}</span>
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                {riders.description}
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              {riders.cards.map((rider, index) => (
-                <div key={index} className="bg-white p-6 rounded-xl shadow-md">
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-6 h-6 text-blue-500 flex-shrink-0 mt-1" />
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">{rider.name}</h3>
-                      <p className="text-gray-600 text-sm">{rider.description}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Process Section (Visitor Visa & Life Insurance specific, different content) */}
-      {process && (
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="text-center max-w-3xl mx-auto mb-10">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-                {process.titlePrimary}{' '}
-                <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{process.titleGradient}</span>
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                {process.description}
-              </p>
-            </div>
-
-            {/* Adjust grid columns based on the number of steps */}
-            <div className={`grid grid-cols-1 md:grid-cols-${process.steps.length === 4 ? 4 : 3} gap-8 max-w-5xl mx-auto`}>
-              {process.steps.map((step, index) => (
-                <div key={index} className="text-center">
-                  <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
-                    {step.stepNumber}
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{step.title}</h3>
-                  <p className="text-gray-600">{step.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+  </div>
+</section>
 
       <Footer />
     </div>
   );
 };
 
-export default ServiceDetail;
+export default ServiceDetailComponent;

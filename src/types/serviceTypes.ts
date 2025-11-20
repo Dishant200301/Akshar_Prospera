@@ -104,7 +104,7 @@ export interface ServiceDetailType {
 
   visaTypes?: TextSection & { cards: VisaTypeCard[] }; // For Visitor Visa Insurance
   countries?: TextSection & { cards: CountryDetailCard[] }; // For Visitor Visa Insurance
-  process?: TextSection & { steps: ProcessStepCard[] }; // For Visitor Visa & Life Insurance (different data)
+  process?: TextSection & { steps: ProcessStepCard[]; image?: string }; // For Visitor Visa & Life Insurance (different data)
 
   benefits?: TextSection & { cards: BenefitCard[] }; // For Life Insurance
   riders?: TextSection & { cards: RiderCard[] }; // For Life Insurance

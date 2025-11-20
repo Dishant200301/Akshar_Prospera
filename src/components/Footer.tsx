@@ -15,7 +15,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const linkItemClasses =
-    "text-gray-300 hover:text-blue-400 transition-all duration-300 block font-sans hover:translate-x-1";
+    "text-gray-300 hover:hover-text-gradient transition-all duration-300 block font-sans hover:translate-x-1";
 
   return (
     <footer className="bg-gradient-to-b from-gray-950 to-gray-900 text-white font-sans">
@@ -25,10 +25,10 @@ const Footer = () => {
           {/* === Brand Column === */}
           <div className="flex flex-col space-y-6">
             <Link to="/" className="flex items-center space-x-3 group">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center shadow-lg group-hover:from-blue-500 group-hover:to-blue-700 transition-colors duration-300">
+              <div className="w-10 h-10 bg-gradient-to-r from-insurance-blue to-insurance-blue-accent rounded-lg flex items-center justify-center shadow-lg group-hover:bg-gradient-primary transition-colors duration-300">
                 <Shield className="w-6 h-6 text-white" />
               </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-200 bg-clip-text text-transparent group-hover:from-blue-300 group-hover:to-blue-100 transition-colors duration-300">
+              <span className="text-2xl font-bold bg-gradient-to-r from-insurance-blue to-insurance-blue-accent bg-clip-text text-transparent group-hover:bg-gradient-primary transition-colors duration-300">
                 Akshar Prospera
               </span>
             </Link>
@@ -53,7 +53,8 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${Icon.displayName || "social"} profile`}
-                  className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 rounded-full flex items-center justify-center text-white hover:scale-105 transition-all duration-300 shadow-md"
+                  className="bg-blue-900/50 text-blue-300 p-3 rounded-lg group-hover:bg-gradient-to-r from-insurance-blue to-insurance-blue-accent transition-colors duration-300 shadow-md"
+
                 >
                   <Icon className="w-4 h-4" />
                 </a>
@@ -66,14 +67,13 @@ const Footer = () => {
             <div className="grid grid-cols-2 gap-8 lg:ml-16">
               {/* Quick Links */}
               <div>
-                <h3 className="text-xl font-bold mb-6 pb-2 border-b border-blue-700 inline-block">
+                <h3 className="text-xl font-bold mb-6 pb-2 border-b border-blue-900 inline-block">
                   Quick Links
                 </h3>
                 <ul className="space-y-3">
                   {[
-                    { label: "About Us", to: "/about" },
+                    { label: "About Us", to: "/about-us" },
                     { label: "Our Services", to: "/services" },
-                    { label: "Testimonials", to: "/testimonials" },
                     { label: "Blog", to: "/blogs" },
                     { label: "Contact Us", to: "/contact" },
                   ].map(({ label, to }) => (
@@ -88,17 +88,16 @@ const Footer = () => {
 
               {/* Our Services */}
               <div>
-                <h3 className="text-xl font-bold mb-6 pb-2 border-b border-blue-700 inline-block">
-                  Our Services
+                <h3 className="text-xl font-bold mb-6 pb-2 border-b border-blue-900 inline-block">
+                  Services
                 </h3>
                 <ul className="space-y-3">
                   {[
-                    { label: "Auto Insurance", to: "/auto-insurance" },
-                    { label: "Home Insurance", to: "/home-insurance" },
-                    { label: "Life Insurance", to: "/life-insurance" },
-                    { label: "Business Insurance", to: "/business-insurance" },
-                    { label: "Travel Insurance", to: "/travel-insurance" },
-                    { label: "Health Insurance", to: "/health-insurance" },
+                    { label: "Auto Insurance", to: "/services/auto-insurance" },
+                    { label: "Home Insurance", to: "/services/home-insurance" },
+                    { label: "Life Insurance", to: "/services/life-insurance" },
+                    { label: "Travel Insurance", to: "/services/travel-insurance" },
+                    { label: "Health Insurance", to: "/services/health-insurance" },
                   ].map(({ label, to }) => (
                     <li key={label}>
                       <Link to={to} className={linkItemClasses}>
@@ -113,20 +112,20 @@ const Footer = () => {
 
           {/* === Contact Info === */}
           <div className="flex flex-col space-y-6">
-            <h3 className="text-xl font-bold pb-2 border-b border-blue-700 inline-block">
+            <h3 className="text-xl font-bold pb-2 border-b border-blue-900 inline-block">
               Get In Touch
             </h3>
 
             {/* Email */}
             <div className="flex items-start space-x-4 group">
-              <div className="bg-blue-900/50 p-2 rounded-lg group-hover:bg-blue-800/70 transition-colors duration-300 shadow-md">
-                <Mail className="w-5 h-5 text-blue-300" />
+              <div className="bg-blue-900/50 p-2 rounded-lg group-hover:bg-gradient-to-r from-insurance-blue to-insurance-blue-accent transition-colors duration-300 shadow-md">
+                <Mail className="w-5 h-5 " />
               </div>
               <div>
                 <div className="font-semibold text-white">Email Us</div>
                 <a
                   href="mailto:quotes@aksharprospera.com"
-                  className="text-gray-300 hover:text-blue-400 transition-colors duration-300 block text-sm md:text-base"
+                  className="text-gray-300 hover:text-gradient transition-colors duration-300 block text-sm md:text-base"
                 >
                   quotes@aksharprospera.com
                 </a>
@@ -135,14 +134,14 @@ const Footer = () => {
 
             {/* Phone */}
             <div className="flex items-start space-x-4 group">
-              <div className="bg-blue-900/50 p-2 rounded-lg group-hover:bg-blue-800/70 transition-colors duration-300 shadow-md">
+              <div className="bg-blue-900/50 p-2 rounded-lg group-hover:bg-gradient-to-r from-insurance-blue to-insurance-blue-accent transition-colors duration-300 shadow-md">
                 <Phone className="w-5 h-5 text-blue-300" />
               </div>
               <div>
                 <div className="font-semibold text-white">Call Us</div>
                 <a
                   href="tel:+18002574277"
-                  className="text-gray-300 hover:text-blue-400 transition-colors duration-300 block text-sm md:text-base"
+                  className="text-gray-300 hover:text-gradient transition-colors duration-300 block text-sm md:text-base"
                 >
                   (1) 800-AKSHAR-PRO
                 </a>
@@ -152,7 +151,7 @@ const Footer = () => {
 
             {/* Address */}
             <div className="flex items-start space-x-4 group">
-              <div className="bg-blue-900/50 p-2 rounded-lg group-hover:bg-blue-800/70 transition-colors duration-300 shadow-md">
+              <div className="bg-blue-900/50 p-2 rounded-lg group-hover:bg-gradient-to-r from-insurance-blue to-insurance-blue-accent transition-colors duration-300 shadow-md">
                 <MapPin className="w-5 h-5 text-blue-300" />
               </div>
               <div>
@@ -177,7 +176,7 @@ const Footer = () => {
               href="https://tryzeniq.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-300 hover:text-blue-200 font-medium transition-colors duration-200"
+              className="text-gradient-to-r from-insurance-blue to-insurance-blue-accent hover-text-gradient font-medium transition-colors duration-200"
             >
               TryzenIQ
             </a>

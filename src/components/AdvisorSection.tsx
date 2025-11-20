@@ -21,20 +21,20 @@ const AdvisorSection = () => {
             </div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
               Your Trusted
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> Life Insurance</span>
+              <span className="bg-gradient-to-r from-insurance-blue to-insurance-blue-accent bg-clip-text text-transparent"> Life Insurance</span>
               <br />
               <span className="text-gray-900">Advisor</span>
             </h2>
-            <div className="w-32 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto rounded-full"></div>
+            <div className="w-32 h-1 bg-gradient-primary mx-auto rounded-full"></div>
           </div>
           
           <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 p-8 md:p-12 relative overflow-hidden">
             {/* Background Pattern */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-full -translate-y-32 translate-x-32 opacity-50"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-primary/20 rounded-full -translate-y-32 translate-x-32 opacity-50"></div>
             
             <div className="grid lg:grid-cols-2 gap-12 items-center relative z-10">
               <div className="text-center lg:text-left">
-                <div className="w-40 h-40 mx-auto lg:mx-0 mb-8 bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 rounded-full flex items-center justify-center shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 hover:scale-105">
+                <div className="w-40 h-40 mx-auto lg:mx-0 mb-8 bg-gradient-primary rounded-full flex items-center justify-center shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 hover:scale-105">
                   <span className="text-white text-5xl font-bold">AI</span>
                 </div>
                 <h3 className="text-3xl font-bold text-gray-900 mb-3">
@@ -51,11 +51,11 @@ const AdvisorSection = () => {
                 
                 {/* Quick Stats */}
                 <div className="grid grid-cols-2 gap-4 mb-8">
-                  <div className="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 border-2 border-gray-200 rounded-2xl">
+                  <div className="text-center p-4 bg-gradient-primary/20 border-2 border-gray-200 rounded-2xl">
                     <div className="text-2xl font-bold text-blue-600">15+</div>
                     <div className="text-sm text-gray-600">Years Experience</div>
                   </div>
-                  <div className="text-center p-4 bg-gradient-to-br from-blue-50 to-cyan-50 border-2 border-gray-200 rounded-2xl">
+                  <div className="text-center p-4 bg-gradient-primary/20 border-2 border-gray-200 rounded-2xl">
                     <div className="text-2xl font-bold text-blue-600">1000+</div>
                     <div className="text-sm text-gray-600">Families Protected</div>
                   </div>
@@ -63,8 +63,8 @@ const AdvisorSection = () => {
               </div>
               
               <div className="space-y-8">
-                <div className="flex items-start space-x-6 p-6 bg-gradient-to-br from-blue-50 to-cyan-50 border-2 border-gray-200 rounded-2xl hover:shadow-lg transition-all duration-300">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                <div className="flex items-start space-x-6 p-6 bg-gradient-primary/20 border-2 border-gray-200 rounded-2xl hover:shadow-lg transition-all duration-300">
+                  <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
                     <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
@@ -75,8 +75,8 @@ const AdvisorSection = () => {
                   </div>
                 </div>
                 
-                <div className="flex items-start space-x-6 p-6 bg-gradient-to-br from-blue-50 to-cyan-50 border-2 border-gray-200 rounded-2xl hover:shadow-lg transition-all duration-300">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                <div className="flex items-start space-x-6 p-6 bg-gradient-primary/20 border-2 border-gray-200 rounded-2xl hover:shadow-lg transition-all duration-300">
+                  <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
                     <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H7m10 0v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
@@ -87,8 +87,8 @@ const AdvisorSection = () => {
                   </div>
                 </div>
                 
-                <div className="flex items-start space-x-6 p-6 bg-gradient-to-br from-blue-50 to-cyan-50 border-2 border-gray-200 rounded-2xl hover:shadow-lg transition-all duration-300">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                <div className="flex items-start space-x-6 p-6 bg-gradient-primary/20 border-2 border-gray-200 rounded-2xl hover:shadow-lg transition-all duration-300">
+                  <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
                     <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
@@ -102,7 +102,7 @@ const AdvisorSection = () => {
             </div>
             
             <div className="mt-12 pt-8 border-t border-gray-200 text-center relative z-10">
-              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8">
+              <div className="bg-gradient-primary/20 rounded-2xl p-8">
                 <p className="text-xl text-gray-700 font-medium mb-4 italic">
                   "Your financial security is my mission. Let's work together to build a protected future for you and your family."
                 </p>

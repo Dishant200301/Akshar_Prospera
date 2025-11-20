@@ -100,7 +100,7 @@ const VisitorVisaInsurance = () => {
                   Visitor Safety
                 </span>
                 <br />
-                <span className="bg-gradient-to-r from-blue-300 via-blue-400 to-indigo-500 bg-clip-text text-transparent drop-shadow-2xl font-extrabold">
+                <span className="bg-gradient-primary bg-clip-text text-transparent drop-shadow-2xl font-extrabold">
                   While{' '}
                 </span>
                 <span className="text-white drop-shadow-2xl font-extrabold">
@@ -113,7 +113,7 @@ const VisitorVisaInsurance = () => {
                 <AnimatedText 
                   text="comprehensive coverage" 
                   delay={0.6}
-                  className="bg-gradient-to-r from-blue-300 to-indigo-400 bg-clip-text text-transparent font-bold drop-shadow-lg"
+                  className="bg-gradient-primary bg-clip-text text-transparent font-bold drop-shadow-lg"
                 />
               </p>
             </div>
@@ -126,7 +126,7 @@ const VisitorVisaInsurance = () => {
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-10">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-              Why Choose Our <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Visitor Visa Insurance</span>?
+              Why Choose Our <span className="bg-gradient-primary bg-clip-text text-transparent">Visitor Visa Insurance</span>?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               We deliver specialized visitor coverage designed for visa compliance and comprehensive protection needs
@@ -135,7 +135,7 @@ const VisitorVisaInsurance = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4">
                 <FileText className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Visa Compliance</h3>
@@ -143,7 +143,7 @@ const VisitorVisaInsurance = () => {
             </div>
             
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Globe className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Global Coverage</h3>
@@ -151,7 +151,7 @@ const VisitorVisaInsurance = () => {
             </div>
             
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Clock className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">24/7 Support</h3>
@@ -159,7 +159,7 @@ const VisitorVisaInsurance = () => {
             </div>
             
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Award className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Expert Guidance</h3>
@@ -174,7 +174,7 @@ const VisitorVisaInsurance = () => {
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-              Choose Your <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Visitor Insurance Plan</span>
+              Choose Your <span className="bg-gradient-primary bg-clip-text text-transparent">Visitor Insurance Plan</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Flexible plans designed for different visa types and stay durations
@@ -186,7 +186,7 @@ const VisitorVisaInsurance = () => {
               <div key={index} className="relative bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-blue-300">
                 {plan.popular && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-1.5 rounded-full text-xs font-semibold shadow-lg">
+                    <span className="bg-gradient-primary text-white px-4 py-1.5 rounded-full text-xs font-semibold shadow-lg">
                       Most Popular
                     </span>
                   </div>
@@ -196,7 +196,7 @@ const VisitorVisaInsurance = () => {
                   <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight">{plan.name}</h3>
                   <div className="mb-4">
                     <p className="text-sm text-gray-500 font-medium mb-1">Starting from</p>
-                    <p className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent leading-tight">{plan.price.split('Starting from ')[1]}</p>
+                    <p className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent leading-tight">{plan.price.split('Starting from ')[1]}</p>
                   </div>
                 </div>
                 
@@ -209,7 +209,7 @@ const VisitorVisaInsurance = () => {
                   ))}
                 </ul>
                 
-                <button className="w-full py-3 px-4 rounded-lg font-semibold text-base transition-all duration-300 bg-white text-blue-600 border-2 border-blue-600 hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-white hover:shadow-lg">
+                <button className="w-full py-3 px-4 rounded-lg font-semibold text-base transition-all duration-300 bg-white text-blue-600 border-2 border-blue-600 hover:bg-gradient-primary hover:text-white hover:shadow-lg">
                   Get Started
                 </button>
               </div>
@@ -223,7 +223,7 @@ const VisitorVisaInsurance = () => {
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-10">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-              Coverage for All <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Visa Types</span>
+              Coverage for All <span className="bg-gradient-primary bg-clip-text text-transparent">Visa Types</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Comprehensive protection regardless of your travel purpose
@@ -247,7 +247,7 @@ const VisitorVisaInsurance = () => {
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-10">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-              Popular <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Destinations</span>
+              Popular <span className="bg-gradient-primary bg-clip-text text-transparent">Destinations</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Visa insurance coverage for major international destinations
@@ -279,7 +279,7 @@ const VisitorVisaInsurance = () => {
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-10">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-              What's Included in Your <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Visitor Insurance</span>
+              What's Included in Your <span className="bg-gradient-primary bg-clip-text text-transparent">Visitor Insurance</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Comprehensive protection designed specifically for international visitors
@@ -302,7 +302,7 @@ const VisitorVisaInsurance = () => {
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-10">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-              Simple <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">3-Step Process</span>
+              Simple <span className="bg-gradient-primary bg-clip-text text-transparent">3-Step Process</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Get your visitor visa insurance in minutes

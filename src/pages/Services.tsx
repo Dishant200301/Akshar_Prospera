@@ -35,7 +35,7 @@ const Services: React.FC = () => {
         <span
           key={index}
           className={`animate-word ${isGradient ? className : ''}`}
-          style={{ animationDelay: `${delay + index * 0.05}s` }}
+          style={{ animationDelay: `${delay + index * 0}s` }}
         >
           {word}{' '}
         </span>
@@ -45,11 +45,11 @@ const Services: React.FC = () => {
 };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-gray-50 overflow-hidden">
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative h-[65vh] md:h-[70vh] overflow-hidden pt-16 bg-black flex items-center justify-center">
+      <section className="relative h-[65vh] md:h-[70vh] pt-16 bg-black flex items-center justify-center">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${SERVICES_HERO.image})` }}
@@ -59,9 +59,9 @@ const Services: React.FC = () => {
 
      <div className="container mx-auto px-6 lg:px-12 relative z-20 text-center">
           <div className="max-w-3xl mx-auto">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-4 sm:mb-6 leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-4 sm:mb-6 leading-tight text-white">
             {SERVICES_HERO.title.split(" ").slice(0, -1).join(" ")}{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-insurance-blue to-insurance-blue-accent bg-clip-text text-transparent">
               {SERVICES_HERO.title.split(" ").slice(-1)}
             </span>
           </h1>
@@ -69,8 +69,8 @@ const Services: React.FC = () => {
               <AnimatedText text="Stay informed with our latest articles and guides to help you make the best" />
               <AnimatedText 
                 text="insurance decisions" 
-                delay={0.6}
-                className="bg-gradient-to-r from-blue-300 to-indigo-400 bg-clip-text text-transparent font-bold drop-shadow-lg"
+                delay={0}
+                className="bg-gradient-to-r from-insurance-blue to-insurance-blue-accent bg-clip-text text-transparent font-bold drop-shadow-lg"
               />
             {SERVICES_HERO.subtitle}
             </p>
@@ -86,14 +86,14 @@ const Services: React.FC = () => {
             initial="hidden"
             whileInView="visible"
             variants={containerVariants}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0 }}
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto"
           >
             {SERVICES.map((service) => (
               <motion.div
                 key={service.id}
                 variants={itemVariants}
-                className="group rounded-3xl overflow-hidden bg-white border border-gray-400 transition-all duration-300 hover:shadow-lg hover:border-blue-600"
+                className="group rounded-3xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-blue-600"
               >
                 <Link to={`/services/${service.slug}`} className="block h-full">
                   <div className="p-4">
@@ -115,7 +115,7 @@ const Services: React.FC = () => {
                       {service.description}
                     </p>
 
-                    <div className="flex items-center justify-between text-blue-600 font-medium group-hover:text-indigo-700 transition-colors">
+                    <div className="flex items-center justify-between text-blue font-medium group-hover:text-gradient transition-colors">
                       <span>Learn More</span>
                       <FontAwesomeIcon
                         icon={faArrowRight}

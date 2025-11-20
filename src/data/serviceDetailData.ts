@@ -1,28 +1,151 @@
-// src/data/serviceDetailData.ts
+// File: servicesDetailData.ts
+
+import React from 'react';
 import { 
-  Hospital, Plane, Heart, 
-  Shield, Users, Clock, Star, Globe, 
-  AlertTriangle, FileText, Award, Calculator, 
-  CheckCircle, Phone, Mail 
+  Shield, Users, Clock, Star, Globe,
+  FileText, Award, Calculator,
+  Phone, Mail, Home, Car, DollarSign, Wrench, Zap, Heart
 } from 'lucide-react';
 
-import { 
-  ServiceDetailType, 
-  FeatureCard, 
-  PlanFeatureCard, 
-  DestinationCard, 
-  EmergencyInfoSection, 
-  VisaTypeCard, 
-  CountryDetailCard, 
-  ProcessStepCard, 
-  BenefitCard, 
-  RiderCard, 
-  HeroSection, 
-  TextSection 
-} from '../types/serviceTypes';
+// --- TYPE DEFINITIONS ---
 
+type CardType = {
+  icon: React.ElementType;
+  title: string;
+  description: string;
+};
 
-// --- Health Insurance Data ---
+type PlanCardType = {
+  name: string;
+  price: string;
+  features: string[];
+  popular: boolean;
+};
+
+type DestinationCardType = {
+  name: string;
+  coverage: string;
+  icon: string;
+};
+
+type VisaCardType = {
+  name: string;
+  coverage: string;
+  icon: string;
+};
+
+type CountryCardType = {
+  name: string;
+  flag: string;
+  requirements: string;
+};
+
+type BenefitCardType = {
+  name: string;
+  icon: string;
+  description: string;
+};
+
+type RiderCardType = {
+  name: string;
+  description: string;
+};
+
+type ProcessStepType = {
+  stepNumber: number;
+  title: string;
+  description: string;
+};
+
+export type ServiceDetailType = {
+  id: string;
+  name: string;
+  href: string;
+  hero: {
+    titlePrimary: string;
+    titleGradient: string;
+    titleSecondary?: string;
+    subtitlePrimary: string;
+    subtitleGradient: string;
+    backgroundImage: string;
+  };
+  whyChoose: {
+    titlePrimary: string;
+    titleGradient: string;
+    description: string;
+    cards: CardType[];
+  };
+  plans: {
+    titlePrimary: string;
+    titleGradient: string;
+    description: string;
+    cards: PlanCardType[];
+  };
+  whatsIncluded: {
+    titlePrimary: string;
+    titleGradient: string;
+    description: string;
+    features: string[];
+  };
+  process: {
+    titlePrimary: string;
+    titleGradient: string;
+    description: string;
+    image: string;
+    steps: ProcessStepType[];
+  };
+  destinations?: {
+    titlePrimary: string;
+    titleGradient: string;
+    description: string;
+    cards: DestinationCardType[];
+  };
+  emergencyInfo?: {
+    titlePrimary: string;
+    titleGradient: string;
+    description: string;
+    hotline: {
+      icon: React.ElementType;
+      title: string;
+      number: string;
+      note: string;
+    };
+    email: {
+      icon: React.ElementType;
+      title: string;
+      address: string;
+      note: string;
+    };
+  };
+  visaTypes?: {
+    titlePrimary: string;
+    titleGradient: string;
+    description: string;
+    cards: VisaCardType[];
+  };
+  countries?: {
+    titlePrimary: string;
+    titleGradient: string;
+    description: string;
+    cards: CountryCardType[];
+  };
+  benefits?: {
+    titlePrimary: string;
+    titleGradient: string;
+    description: string;
+    cards: BenefitCardType[];
+  };
+  riders?: {
+    titlePrimary: string;
+    titleGradient: string;
+    description: string;
+    cards: RiderCardType[];
+  };
+};
+
+// --- SERVICE DATA ---
+
+// Health Insurance Data
 const healthInsuranceData: ServiceDetailType = {
   id: 'health-insurance',
   name: 'Health Insurance',
@@ -31,14 +154,14 @@ const healthInsuranceData: ServiceDetailType = {
     titlePrimary: 'Your Health',
     titleGradient: 'Our',
     titleSecondary: 'Priority',
-    subtitlePrimary: "Comprehensive health insurance solutions for your family's complete protection and",
+    subtitlePrimary: "health insurance solutions for your family's complete protection and",
     subtitleGradient: 'peace of mind',
     backgroundImage: '/image/health.jpg',
   },
   whyChoose: {
     titlePrimary: 'Why Choose Our',
     titleGradient: 'Health Insurance',
-    description: 'We deliver comprehensive health coverage with exceptional service and dedicated support for your family',
+    description: 'We deliver health coverage with exceptional service and dedicated support for your family',
     cards: [
       { icon: Shield, title: 'Comprehensive Coverage', description: 'Complete protection for all your healthcare needs' },
       { icon: Users, title: 'Family Plans', description: 'Coverage for the entire family at competitive rates' },
@@ -54,7 +177,7 @@ const healthInsuranceData: ServiceDetailType = {
       {
         name: 'Basic Health Plan',
         price: 'Starting from $89/month',
-        features: ['Essential Medical Coverage', 'Prescription Benefits', '24/7 Support', 'Network Access'],
+        features: ['Essential Medical Coverage', 'Prescription Benefits', '24/7 Support', 'Network Access', 'Telemedicine Access'],
         popular: false,
       },
       {
@@ -86,9 +209,21 @@ const healthInsuranceData: ServiceDetailType = {
       'Family Coverage Options',
     ],
   },
+  process: {
+    titlePrimary: 'Simple',
+    titleGradient: 'Application Process',
+    description: 'Get your health insurance coverage in just a few easy steps',
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2000&auto=format&fit=crop',
+    steps: [
+      { stepNumber: 1, title: 'Get Quote', description: 'Receive a personalized quote.' },
+      { stepNumber: 2, title: 'Choose Plan', description: 'Select the best coverage.' },
+      { stepNumber: 3, title: 'Apply Online', description: 'Complete the application in minutes.' },
+      { stepNumber: 4, title: 'Get Covered', description: 'Receive your policy.' },
+    ],
+  },
 };
 
-// --- Travel Insurance Data ---
+// Travel Insurance Data
 const travelInsuranceData: ServiceDetailType = {
   id: 'travel-insurance',
   name: 'Travel Insurance',
@@ -120,7 +255,7 @@ const travelInsuranceData: ServiceDetailType = {
       {
         name: 'Basic Travel Plan',
         price: 'Starting from $29/trip',
-        features: ['Emergency Medical Coverage', 'Trip Cancellation', 'Baggage Protection', '24/7 Support'],
+        features: ['Emergency Medical Coverage', 'Trip Cancellation', 'Baggage Protection', '24/7 Support', 'Lost Passport Assistance'],
         popular: false,
       },
       {
@@ -182,9 +317,21 @@ const travelInsuranceData: ServiceDetailType = {
       note: 'Quick response guaranteed',
     },
   },
+  process: {
+    titlePrimary: 'Simple',
+    titleGradient: 'Application Process',
+    description: 'Get your travel insurance coverage in just a few easy steps',
+    image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2000&auto=format&fit=crop',
+    steps: [
+      { stepNumber: 1, title: 'Get Quote', description: 'Receive a personalized quote.' },
+      { stepNumber: 2, title: 'Choose Plan', description: 'Select the best coverage.' },
+      { stepNumber: 3, title: 'Apply Online', description: 'Complete the application in minutes.' },
+      { stepNumber: 4, title: 'Get Covered', description: 'Receive your policy.' },
+    ],
+  },
 };
 
-// --- Visitor Visa Insurance Data ---
+// Visitor Visa Insurance Data
 const visitorVisaInsuranceData: ServiceDetailType = {
   id: 'visitor-visa-insurance',
   name: 'Visitor Visa Insurance',
@@ -216,7 +363,7 @@ const visitorVisaInsuranceData: ServiceDetailType = {
       {
         name: 'Basic Visitor Plan',
         price: 'Starting from $39/month',
-        features: ['Visa Compliance', 'Basic Medical Coverage', 'Emergency Support', 'Documentation Help'],
+        features: ['Visa Compliance', 'Basic Medical Coverage', 'Emergency Support', 'Documentation Help', 'Urgent Care Visits'],
         popular: false,
       },
       {
@@ -269,24 +416,26 @@ const visitorVisaInsuranceData: ServiceDetailType = {
       { name: 'Canada', flag: '🇨🇦', requirements: 'Super Visa, Regular Visitor' },
       { name: 'United States', flag: '🇺🇸', requirements: 'B1/B2 Visa, ESTA' },
       { name: 'United Kingdom', flag: '🇬🇧', requirements: 'Standard Visitor Visa' },
-      { name: 'Australia', flag: '🇦🇺', requirements: 'Visitor Visa (600)' },
-      { name: 'New Zealand', flag: '🇳🇿', requirements: 'Visitor Visa' },
-      { name: 'Schengen Area', flag: '🇪🇺', requirements: 'Schengen Visa' },
+      { name: 'Schengen Area', flag: '🇪🇺', requirements: 'Schengen Visa Insurance' },
+      { name: 'Australia', flag: '🇦🇺', requirements: 'Visitor Visa (Subclass 600)' },
+      { name: 'UAE', flag: '🇦🇪', requirements: 'Tourist Visa Insurance' },
     ],
   },
   process: {
     titlePrimary: 'Simple',
-    titleGradient: '3-Step Process',
-    description: 'Get your visitor visa insurance in minutes',
+    titleGradient: 'Application Process',
+    description: 'Get your visitor visa insurance in just a few easy steps',
+    image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2000&auto=format&fit=crop',
     steps: [
-      { stepNumber: 1, title: 'Choose Your Plan', description: 'Select the coverage that best fits your visa requirements and budget' },
-      { stepNumber: 2, title: 'Get Instant Quote', description: 'Receive your personalized quote and policy details immediately' },
-      { stepNumber: 3, title: 'Download & Travel', description: 'Download your policy documents and travel with confidence' },
+      { stepNumber: 1, title: 'Get Quote', description: 'Receive a personalized quote.' },
+      { stepNumber: 2, title: 'Choose Plan', description: 'Select the best coverage.' },
+      { stepNumber: 3, title: 'Apply Online', description: 'Complete the application in minutes.' },
+      { stepNumber: 4, title: 'Get Covered', description: 'Receive your policy.' },
     ],
   },
 };
 
-// --- Life Insurance Data ---
+// Life Insurance Data
 const lifeInsuranceData: ServiceDetailType = {
   id: 'life-insurance',
   name: 'Life Insurance',
@@ -318,7 +467,7 @@ const lifeInsuranceData: ServiceDetailType = {
       {
         name: 'Term Life Insurance',
         price: 'Starting from $25/month',
-        features: ['Affordable Premiums', 'Guaranteed Death Benefit', 'Flexible Terms', 'Convertible Options'],
+        features: ['Affordable Premiums', 'Guaranteed Death Benefit', 'Flexible Terms', 'Convertible Options', 'Terminal Illness Rider'],
         popular: false,
       },
       {
@@ -380,11 +529,168 @@ const lifeInsuranceData: ServiceDetailType = {
     titlePrimary: 'Simple',
     titleGradient: 'Application Process',
     description: 'Get your life insurance coverage in just a few easy steps',
+    image: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=2000&auto=format&fit=crop',
     steps: [
-      { stepNumber: 1, title: 'Get Quote', description: 'Receive a personalized quote based on your needs' },
-      { stepNumber: 2, title: 'Choose Plan', description: 'Select the coverage that best fits your goals' },
-      { stepNumber: 3, title: 'Apply Online', description: 'Complete your application in minutes' },
-      { stepNumber: 4, title: 'Get Covered', description: 'Receive your policy and start protecting your family' },
+      { stepNumber: 1, title: 'Get Quote', description: 'Receive a personalized quote.' },
+      { stepNumber: 2, title: 'Choose Plan', description: 'Select the best coverage.' },
+      { stepNumber: 3, title: 'Apply Online', description: 'Complete the application in minutes.' },
+      { stepNumber: 4, title: 'Get Covered', description: 'Receive your policy.' },
+    ],
+  },
+};
+
+// Home Insurance Data
+const homeInsuranceData: ServiceDetailType = {
+  id: 'home-insurance',
+  name: 'Home Insurance',
+  href: '/services/home-insurance',
+  hero: {
+    titlePrimary: 'Protect Your',
+    titleGradient: 'Biggest',
+    titleSecondary: 'Investment',
+    subtitlePrimary: "Comprehensive home insurance to safeguard your property and possessions from",
+    subtitleGradient: 'unexpected events',
+    backgroundImage: '/image/home.jpg',
+  },
+  whyChoose: {
+    titlePrimary: 'Why Choose Our',
+    titleGradient: 'Home Insurance',
+    description: 'Tailored policies providing robust protection and quick claim settlements',
+    cards: [
+      { icon: Home, title: 'Dwelling Coverage', description: 'Protect the structure of your home' },
+      { icon: DollarSign, title: 'Affordable Rates', description: 'Competitive premiums with maximum coverage' },
+      { icon: Clock, title: '24/7 Claims', description: 'Fast, hassle-free claims processing' },
+      { icon: Wrench, title: 'Personal Property', description: 'Coverage for contents and valuables' },
+    ],
+  },
+  plans: {
+    titlePrimary: 'Choose Your',
+    titleGradient: 'Home Protection Plan',
+    description: 'Select the perfect coverage for your house, condo, or rental property',
+    cards: [
+      {
+        name: 'Standard Home Plan',
+        price: 'Starting from $49/month',
+        features: ['Fire & Theft Coverage', 'Liability Protection', 'Personal Property', 'Dwelling Structure', 'Guest Medical Protection'],
+        popular: false,
+      },
+      {
+        name: 'Enhanced Home Plan',
+        price: 'Starting from $79/month',
+        features: ['All Standard Features', 'Water Backup', 'Replacement Cost Coverage', 'Extended Coverage Limits', 'Identity Theft'],
+        popular: true,
+      },
+      {
+        name: 'Premium Home Plan',
+        price: 'Starting from $129/month',
+        features: ['All Enhanced Features', 'High Value Items', 'Zero Deductible Options', 'Emergency Living Expenses', 'Ordinance or Law Coverage'],
+        popular: false,
+      },
+    ],
+  },
+  whatsIncluded: {
+    titlePrimary: "Key Features of",
+    titleGradient: 'Our Home Coverage',
+    description: 'Comprehensive protection for your home and personal belongings',
+    features: [
+      'Dwelling & Other Structures Coverage',
+      'Personal Property Protection (Contents)',
+      'Loss of Use / Additional Living Expenses',
+      'Personal Liability Coverage',
+      'Medical Payments to Others',
+      'Identity Theft Protection Option',
+      'Scheduled Personal Property Endorsement',
+      'Guaranteed Replacement Cost Option',
+    ],
+  },
+  process: {
+    titlePrimary: 'Simple',
+    titleGradient: 'Application Process',
+    description: 'Get your home insurance coverage in just a few easy steps',
+    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2000&auto=format&fit=crop',
+    steps: [
+      { stepNumber: 1, title: 'Get Quote', description: 'Receive a personalized quote.' },
+      { stepNumber: 2, title: 'Choose Plan', description: 'Select the best coverage.' },
+      { stepNumber: 3, title: 'Apply Online', description: 'Complete the application in minutes.' },
+      { stepNumber: 4, title: 'Get Covered', description: 'Receive your policy.' },
+    ],
+  },
+};
+
+// Auto Insurance Data
+const autoInsuranceData: ServiceDetailType = {
+  id: 'auto-insurance',
+  name: 'Auto Insurance',
+  href: '/services/auto-insurance',
+  hero: {
+    titlePrimary: 'Drive with',
+    titleGradient: 'Confidence',
+    titleSecondary: 'Protection',
+    subtitlePrimary: "Customizable auto insurance plans for full protection on the road and",
+    subtitleGradient: 'peace of mind',
+    backgroundImage: '/image/auto.jpg',
+  },
+  whyChoose: {
+    titlePrimary: 'Why Choose Our',
+    titleGradient: 'Auto Insurance',
+    description: 'Flexible options, great rates, and reliable support when you need it most.',
+    cards: [
+      { icon: Car, title: 'Collision Coverage', description: 'Cover damage to your vehicle from an accident' },
+      { icon: DollarSign, title: 'Competitive Rates', description: 'Maximum savings with personalized discounts' },
+      { icon: Clock, title: '24/7 Roadside', description: 'Immediate assistance anytime, anywhere' },
+      { icon: Zap, title: 'Quick Claims', description: 'Fast and fair claim settlement process' },
+    ],
+  },
+  plans: {
+    titlePrimary: 'Choose Your',
+    titleGradient: 'Auto Policy',
+    description: 'Liability, Comprehensive, and Full Coverage plans to match your driving needs',
+    cards: [
+      {
+        name: 'Basic Liability Plan',
+        price: 'Starting from $35/month',
+        features: ['State Minimum Liability', 'Property Damage Coverage', 'Basic Roadside Assistance', 'Glass Coverage', 'Towing Service'],
+        popular: false,
+      },
+      {
+        name: 'Comprehensive Plan',
+        price: 'Starting from $75/month',
+        features: ['Increased Liability Limits', 'Collision Coverage', 'Comprehensive Coverage', 'Rental Reimbursement', 'Personal Injury Protection'],
+        popular: true,
+      },
+      {
+        name: 'Premium Full Coverage',
+        price: 'Starting from $130/month',
+        features: ['High Liability Limits', 'Zero Deductibles', 'New Car Replacement', 'Accident Forgiveness', 'GAP Coverage'],
+        popular: false,
+      },
+    ],
+  },
+  whatsIncluded: {
+    titlePrimary: "Core",
+    titleGradient: 'Coverages',
+    description: 'Essential components included in a typical auto insurance policy',
+    features: [
+      'Bodily Injury Liability',
+      'Property Damage Liability',
+      'Collision Coverage',
+      'Comprehensive Coverage (Theft, Vandalism)',
+      'Uninsured/Underinsured Motorist',
+      'Personal Injury Protection (PIP)',
+      'Medical Payments Coverage',
+      'Rental Car Reimbursement Option',
+    ],
+  },
+  process: {
+    titlePrimary: 'Simple',
+    titleGradient: 'Application Process',
+    description: 'Get your auto insurance coverage in just a few easy steps',
+    image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2000&auto=format&fit=crop',
+    steps: [
+      { stepNumber: 1, title: 'Get Quote', description: 'Receive a personalized quote.' },
+      { stepNumber: 2, title: 'Choose Plan', description: 'Select the best coverage.' },
+      { stepNumber: 3, title: 'Apply Online', description: 'Complete the application in minutes.' },
+      { stepNumber: 4, title: 'Get Covered', description: 'Receive your policy.' },
     ],
   },
 };
@@ -395,6 +701,8 @@ export const allServiceDetails: ServiceDetailType[] = [
   travelInsuranceData,
   visitorVisaInsuranceData,
   lifeInsuranceData,
+  homeInsuranceData,
+  autoInsuranceData,
 ];
 
 export const serviceDetailsMap: Record<string, ServiceDetailType> = allServiceDetails.reduce((acc, service) => {

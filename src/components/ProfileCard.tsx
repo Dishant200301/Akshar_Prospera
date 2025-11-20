@@ -35,7 +35,7 @@ const MetricPill: React.FC<MetricProps> = ({ metric }) => {
   const Icon = metric.icon;
   return (
     <div className="flex items-start gap-3 p-3 sm:p-4 rounded-xl border border-gray-100 bg-white shadow-sm hover:shadow-md transition-shadow duration-300 h-full">
-      <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
+      <div className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center bg-gradient-primary text-white">
         <Icon className="w-5 h-5" />
       </div>
       <div className="truncate">
@@ -100,7 +100,7 @@ const ProfileCard: React.FC = () => {
         >
           {/* Responsive gradient overlay + subtle hex pattern */}
           <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-indigo-400 sm:from-blue-600 sm:to-indigo-600 opacity-40 sm:opacity-60" />
+            <div className="absolute inset-0 bg-gradient-primary/40 opacity-40 sm:opacity-60" />
             <div
               className="absolute inset-0"
               style={{
@@ -114,16 +114,16 @@ const ProfileCard: React.FC = () => {
           <div className="absolute inset-x-0 bottom-0 z-10 p-4 sm:p-6 pb-0 flex flex-col sm:flex-row items-start sm:items-end space-y-4 sm:space-x-4 sm:space-y-0">
             
             {/* Avatar Initials - positioned to slightly overlap the section below */}
-            <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 border-4 border-white shadow-lg flex items-center justify-center 
-                          text-2xl sm:text-3xl font-extrabold text-white flex-shrink-0 z-20 
-                          -mb-10 sm:-mb-12 ml-2 sm:ml-0" 
+            <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-primary border-4 border-white shadow-lg flex items-center justify-center"
+                          // text-2xl sm:text-3xl font-extrabold text-white flex-shrink-0 z-20 
+                          // -mb-10 sm:-mb-12 ml-2 sm:ml-0" 
             >
               {profile.avatarInitials}
             </div>
 
             {/* Name, Title, and Tool Badges */}
             <div className="flex-grow min-w-0 mt-4 sm:mt-0 text-white z-10 pl-2 sm:pl-0">
-              <h1 className="text-2xl sm:text-3xl font-extrabold leading-snug truncate bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
+              <h1 className="text-2xl sm:text-3xl font-extrabold leading-snug truncate bg-clip-text text-transparent bg-gradient-primary">
                 {profile.name}
               </h1>
               <h2 className="text-md sm:text-lg font-medium opacity-90">

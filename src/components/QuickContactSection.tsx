@@ -3,7 +3,7 @@ import { Phone, ArrowRight, MessageCircle, Clock, Shield } from 'lucide-react';
 
 const QuickContactSection = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-600 via-indigo-700 to-purple-800 relative overflow-hidden">
+  <section className="py-20 bg-gradient-primary relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
@@ -22,7 +22,7 @@ const QuickContactSection = () => {
           {/* Main Content */}
           <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
             Ready to Get
-            <span className="bg-gradient-to-r from-blue-200 to-indigo-200 bg-clip-text text-transparent"> Protected?</span>
+            <span className="bg-gradient-primary bg-clip-text text-transparent"> Protected?</span>
           </h3>
           
           <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
@@ -32,7 +32,7 @@ const QuickContactSection = () => {
           {/* Contact Options */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all duration-300">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-indigo-400 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Phone className="w-8 h-8 text-white" />
               </div>
               <h4 className="text-lg font-semibold text-white mb-2">Call Us</h4>
@@ -40,7 +40,7 @@ const QuickContactSection = () => {
             </div>
             
             <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all duration-300">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-400 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <MessageCircle className="w-8 h-8 text-white" />
               </div>
               <h4 className="text-lg font-semibold text-white mb-2">Live Chat</h4>
@@ -48,7 +48,7 @@ const QuickContactSection = () => {
             </div>
             
             <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all duration-300">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-400 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <Clock className="w-8 h-8 text-white" />
               </div>
               <h4 className="text-lg font-semibold text-white mb-2">Schedule Call</h4>

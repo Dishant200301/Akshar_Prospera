@@ -139,7 +139,7 @@ const Contact = () => {
           }}
         >
           {/* Dark overlay */}
-          <div className="absolute inset-0 bg-black/50"></div>
+          <div className="absolute inset-0 bg-black/30"></div>
         </div>
 
         <div className="container mx-auto px-6 lg:px-12 relative z-20 text-center mt-24 lg:mt-32">
@@ -148,7 +148,7 @@ const Contact = () => {
                 <span className="text-white drop-shadow-2xl font-extrabold">
                   Get In{' '}
                 </span>
-                <span className="bg-gradient-to-r from-blue-300 via-blue-400 to-indigo-500 bg-clip-text text-transparent drop-shadow-2xl font-extrabold">
+                <span className="bg-gradient-to-r from-insurance-blue via-insurance-blue to-insurance-blue-accent bg-clip-text text-transparent drop-shadow-2xl font-extrabold">
                   Touch
                 </span>
               </h1>
@@ -157,7 +157,7 @@ const Contact = () => {
                 <AnimatedText
                   text="coverage for you"
                   delay={0.6}
-                  className="bg-gradient-to-r from-blue-300 to-indigo-400 bg-clip-text text-transparent font-bold drop-shadow-lg"
+                  className="bg-gradient-to-r from-insurance-blue to-insurance-blue-accent bg-clip-text text-transparent font-bold drop-shadow-lg"
                 />
               </p>
           </div>
@@ -197,7 +197,7 @@ const Contact = () => {
               </div>
 
               {/* Google Map */}
-              <div className="mt-8 bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden h-[300px] lg:h-[400px]">
+              <div className="mt-8 bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden h-[300px] lg:h-[290px]  ">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.8280290211147!2d-79.38318092346474!3d43.647526871101475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34d68bf33a9b%3A0x15edd8c4de1c7581!2sCN%20Tower!5e0!3m2!1sen!2sca!4v1699999999999!5m2!1sen!2sca"
                   width="100%"
@@ -211,154 +211,111 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Right Column: Leave a Message Form */}
-            <div className="lg:order-last"> {/* Ensures form is on the right */}
-              <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg border border-gray-100">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Leave a Message</h2>
-                {isSubmitted ? (
-                  <div className="bg-green-50 border border-green-200 rounded-xl p-8 text-center animate-pop-in">
-                    <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-                    <h3 className="text-2xl font-heading font-bold text-green-800 mb-2">
-                      Message Sent Successfully!
-                    </h3>
-                    <p className="text-green-600 font-body">
-                      Thank you for reaching out. We'll get back to you soon!
-                    </p>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-5">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                      <div>
-                        <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 sr-only">First Name</label>
-                        <input
-                          type="text"
-                          id="firstName"
-                          name="firstName"
-                          value={formData.firstName}
-                          onChange={handleInputChange}
-                          required
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
-                          placeholder="First Name"
-                        />
-                      </div>
-                      <div>
-                        <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 sr-only">Last Name</label>
-                        <input
-                          type="text"
-                          id="lastName"
-                          name="lastName"
-                          value={formData.lastName}
-                          onChange={handleInputChange}
-                          required
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
-                          placeholder="Last Name"
-                        />
-                      </div>
-                    </div>
+          {/* Right Column: Leave a Message Form */}
+<div className="lg:order-last">
+  <div className=" flex flex-col justify-center items-center px-4 sm:px-8 ">
+    <div className="w-full max-w-lg mx-auto bg-white p-4 sm:p-8 rounded-2xl shadow-lg border border-gray-100">
 
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 sr-only">Email</label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
-                        placeholder="you@example.com"
-                      />
-                    </div>
+      <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">
+        Leave a Message
+      </h2>
 
-                    <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-gray-700 sr-only">Phone Number</label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
-                        placeholder="+1 (555) 987-6543"
-                      />
-                    </div>
+      {isSubmitted ? (
+        <div className="bg-green-50 border border-green-200 rounded-xl p-6 sm:p-8 text-center animate-pop-in">
+          <CheckCircle className="w-14 h-14 text-green-500 mx-auto mb-3" />
+          <h3 className="text-xl font-bold text-green-800 mb-2">
+            Message Sent Successfully!
+          </h3>
+          <p className="text-green-600">We’ll get back to you soon!</p>
+        </div>
+      ) : (
+        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
 
-                    {/* NEW: Country Dropdown */}
-                    <div>
-                      <label htmlFor="country" className="block text-sm font-medium text-gray-700 sr-only">Country</label>
-                      <select
-                        id="country"
-                        name="country"
-                        value={formData.country}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 appearance-none bg-white pr-8"
-                      >
-                        {countries.map((option, index) => (
-                          <option key={index} value={option.value}>
-                            {option.label}
-                          </option>
-                        ))}
-                      </select>
-                      {/* Custom arrow for select if default is hidden, or use custom styling directly */}
-                      {/* You might need a wrapper div and an SVG for a custom dropdown arrow */}
-                    </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+            <input
+              type="text"
+              name="firstName"
+              placeholder="First Name"
+              className="w-full px-4 py-3 border rounded-lg"
+              onChange={handleInputChange}
+              required
+            />
+            <input
+              type="text"
+              name="lastName"
+              placeholder="Last Name"
+              className="w-full px-4 py-3 border rounded-lg"
+              onChange={handleInputChange}
+              required
+            />
+          </div>
 
-                    {/* NEW: Select Service Dropdown */}
-                    <div>
-                      <label htmlFor="serviceCategory" className="block text-sm font-medium text-gray-700 sr-only">Select Service</label>
-                      <select
-                        id="serviceCategory"
-                        name="serviceCategory"
-                        value={formData.serviceCategory}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 appearance-none bg-white pr-8"
-                      >
-                        {serviceCategories.map((option, index) => (
-                          <option key={index} value={option.value}>
-                            {option.label}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
+          <input
+            type="email"
+            name="email"
+            placeholder="you@example.com"
+            className="w-full px-4 py-3 border rounded-lg"
+            onChange={handleInputChange}
+            required
+          />
 
-                    <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 sr-only">Message</label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        required
-                        rows={4}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 resize-none"
-                        placeholder="How can we help you?"
-                      />
-                    </div>
+          <input
+            type="tel"
+            name="phone"
+            placeholder="+1 (555) 987-6543"
+            className="w-full px-4 py-3 border rounded-lg"
+            onChange={handleInputChange}
+          />
 
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="relative w-full bg-blue-600 text-white px-8 py-3 rounded-xl font-semibold shadow-md
-                                 hover:bg-blue-700 active:scale-[0.98]
-                                 transition-all duration-300 inline-flex items-center justify-center overflow-hidden group"
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                          Sending Message...
-                        </>
-                      ) : (
-                        <>
-                          <span className="relative z-10">Send Message</span>
-                        </>
-                      )}
-                    </button>
-                  </form>
-                )}
-              </div>
-            </div>
+          <select
+            name="country"
+            className="w-full px-4 py-3 border rounded-lg"
+            onChange={handleInputChange}
+            required
+          >
+            {countries.map((option, index) => (
+              <option key={index} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+
+          <select
+            name="serviceCategory"
+            className="w-full px-4 py-3 border rounded-lg"
+            onChange={handleInputChange}
+            required
+          >
+            {serviceCategories.map((option, index) => (
+              <option key={index} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+
+          <textarea
+            name="message"
+            rows={3}  // reduced
+            placeholder="How can we help you?"
+            className="w-full px-4 py-3 border rounded-lg resize-none"
+            onChange={handleInputChange}
+            required
+          />
+
+          <button
+            type="submit"
+            className="w-full bg-gradient-to-r from-insurance-blue to-insurance-blue-accent text-white py-3 rounded-xl font-semibold"
+          >
+            Send Message
+          </button>
+
+        </form>
+      )}
+
+    </div>
+  </div>
+</div>
+
           </div>
         </div>
       </section>
@@ -386,21 +343,19 @@ const Contact = () => {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
                   <a
                     href="tel:+16471234567"
-                    className="relative bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-7 py-3 rounded-xl font-semibold shadow-md
-                               hover:from-blue-500 hover:to-indigo-500 hover:scale-[1.02] active:scale-[0.98]
+                    className="relative bg-gradient-to-r from-insurance-blue to-insurance-blue-accent text-white px-7 py-3 rounded-xl font-semibold shadow-md
+                               hover:from-insurance-blue-hover hover:to-insurance-blue-accent hover:scale-[1.02] active:scale-[0.98]
                                transition-all duration-300 inline-flex items-center justify-center overflow-hidden group"
                   >
-                    <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-full group-hover:h-32 opacity-10"></span>
                     <Phone className="w-5 h-5 mr-2 relative z-10" />
                     <span className="relative z-10">Call Now</span>
                   </a>
                   <a
                     href="tel:+14169876543"
                     className="relative bg-white text-blue-600 border border-blue-600 px-7 py-3 rounded-xl font-semibold shadow-md
-                               hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-white hover:scale-[1.02] active:scale-[0.98]
+                               hover:bg-gradient-to-r hover:from-insurance-blue hover:to-insurance-blue-accent hover:text-white hover:scale-[1.02] active:scale-[0.98]
                                transition-all duration-300 inline-flex items-center justify-center overflow-hidden group"
                   >
-                    <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-full group-hover:h-32 opacity-10"></span>
                     <Phone className="w-5 h-5 mr-2 relative z-10" />
                     <span className="relative z-10">Alternative Line</span>
                   </a>

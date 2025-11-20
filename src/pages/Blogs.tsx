@@ -86,11 +86,11 @@ const Blogs: React.FC = () => {
   });
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-gray-50 overflow-hidden">
       <Navigation />
 
       {/* Hero Section - Kept as is */}
-      <section className="relative h-[65vh] md:h-[70vh] overflow-hidden pt-16 bg-black flex items-center justify-center">
+      <section className="relative h-[65vh] md:h-[70vh]  pt-16 bg-black flex items-center justify-center">
         <div 
           className="absolute inset-0 transition-all duration-1000 ease-in-out opacity-100 z-10"
           style={{
@@ -101,13 +101,14 @@ const Blogs: React.FC = () => {
           }}
         >
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/20 to-black/10"></div>
         </div>
         
         <div className="container mx-auto px-6 lg:px-12 relative z-20 text-center">
           <div className="max-w-3xl mx-auto">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-4 sm:mb-6 leading-tight">
               <span className="text-white drop-shadow-lg">Expert </span>
-              <span className="bg-gradient-to-r from-blue-300 via-blue-400 to-indigo-500 bg-clip-text text-transparent drop-shadow-lg">
+              <span className="bg-gradient-to-r from-insurance-blue to-insurance-blue-accent bg-clip-text text-transparent drop-shadow-lg">
                 Insights
               </span>
             </h1>
@@ -116,7 +117,7 @@ const Blogs: React.FC = () => {
               <AnimatedText 
                 text="insurance decisions" 
                 delay={0.6}
-                className="bg-gradient-to-r from-blue-300 to-indigo-400 bg-clip-text text-transparent font-bold drop-shadow-lg"
+                className="bg-gradient-to-r from-insurance-blue to-insurance-blue-accent bg-clip-text text-transparent font-bold drop-shadow-lg"
               />
             </p>
           </div>
@@ -180,7 +181,7 @@ const Blogs: React.FC = () => {
                   <motion.div
                     key={index}
                     variants={itemVariants}
-                    className="group block rounded-3xl bg-white border border-gray-500 overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300"
+                    className="group block rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300"
                   >
                     <Link to={`/blogs/${slug}`} className="block h-full">
                       {/* Blog Image */}
@@ -201,7 +202,7 @@ const Blogs: React.FC = () => {
                         {/* Meta Info (Category, Read Time, Date) - UPDATED STYLING */}
                         <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-gray-600 mb-3">
                           {/* Category */}
-                          <span className="inline-block px-3 py-1 rounded-xl bg-blue-100 text-blue-700 text-sm font-medium">
+                          <span className="inline-block px-3 py-1 rounded-xl bg-blue-50 text-blue-600 text-sm font-medium">
                             {post.category}
                           </span>
 
@@ -209,7 +210,7 @@ const Blogs: React.FC = () => {
                         </div>
 
                         {/* Title */}
-                        <h3 className="text-lg sm:text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2 min-h-[3.5rem] leading-snug mb-4">
+                        <h3 className="text-lg sm:text-xl font-semibold text-gray-900 group-hover:text-gradient transition-colors line-clamp-2 min-h-[3.5rem] leading-snug mb-4">
                           {post.title}
                         </h3>
 

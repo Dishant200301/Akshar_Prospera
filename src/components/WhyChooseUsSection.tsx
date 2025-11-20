@@ -8,7 +8,7 @@ import {
   faClock,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import atTheOffice from "../assets/At_the_office-amico.svg";
+import DotLottieAnimation from "./DotLottieAnimation";
 
 const WhyChooseUsSection: React.FC = () => {
   const benefits = [
@@ -53,12 +53,12 @@ const WhyChooseUsSection: React.FC = () => {
 
   return (
     <section className="py-16 sm:py-20 lg:py-24 bg-gray-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:-mx-0">
         {/* Header */}
         <div className="text-center ">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 lg:ml-12">
             Why Choose{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-insurance-blue to-insurance-blue-accent bg-clip-text text-transparent">
               Akshar Prospera
             </span>
           </h2>
@@ -75,11 +75,11 @@ const WhyChooseUsSection: React.FC = () => {
             viewport={{ once: true, amount: 0.5 }}
             className="flex items-center justify-center w-full"
           >
-            <img
-              src={atTheOffice}
-              alt="At the Office - Team Collaboration"
-              className="w-full max-w-md lg:max-w-lg object-contain"
-            />
+           <DotLottieAnimation
+  src="https://lottie.host/f74c0153-6dd0-4d25-b93f-6f253719bee9/uB5GQsbAnW.lottie"
+  className="w-full sm:w-[500px] md:w-[650px] lg:w-[1250px] xl:w-[850px] h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px] -mx-60"
+ />
+
           </motion.div>
 
           {/* Right: Feature Grid */}
@@ -96,7 +96,7 @@ const WhyChooseUsSection: React.FC = () => {
                 variants={itemVariants}
                 className="p-6 rounded-2xl bg-white border-2 border-gray-200 shadow-sm flex flex-col justify-start"
               >
-                <div className="w-12 h-12 rounded-full flex items-center justify-center mb-4 bg-gradient-to-r from-blue-600 to-indigo-600">
+                <div className="w-12 h-12 rounded-full flex items-center justify-center mb-4 bg-gradient-to-r from-insurance-blue to-insurance-blue-accent">
                   <FontAwesomeIcon icon={benefit.icon} className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-gray-900">

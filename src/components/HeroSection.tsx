@@ -151,7 +151,7 @@ const HeroSection = () => {
         <AnimatedText 
           text={getCurrentSlideData().highlight} 
           delay={getCurrentSlideData().tagline.split(' ').length * 0.05}
-          className="bg-gradient-to-r from-blue-300 via-blue-400 to-indigo-500 bg-clip-text text-transparent drop-shadow-2xl font-extrabold"
+          className="bg-gradient-to-r from-insurance-blue to-insurance-blue-accent bg-clip-text text-transparent drop-shadow-2xl font-extrabold"
         />
         <span className="text-white drop-shadow-2xl font-extrabold">
           <AnimatedText 
@@ -167,7 +167,7 @@ const HeroSection = () => {
         <AnimatedText 
           text={getCurrentSlideData().location} 
           delay={getCurrentSlideData().description.split(' ').length * 0.05}
-          className="bg-gradient-to-r from-blue-300 to-indigo-400 bg-clip-text text-transparent font-bold drop-shadow-lg"
+          className="bg-gradient-to-r from-insurance-blue to-insurance-blue-accent bg-clip-text text-transparent font-bold drop-shadow-lg"
         />
         <br className="hidden sm:block" />
         <AnimatedText 
@@ -178,7 +178,7 @@ const HeroSection = () => {
 
       {/* CTA Buttons - Centered */}
       <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
-        <button className="w-full sm:w-auto bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 text-white px-6 sm:px-8 py-3 rounded-xl font-bold hover:from-blue-500 hover:via-blue-600 hover:to-indigo-600 transition-all duration-300 inline-flex items-center justify-center shadow-2xl text-base sm:text-lg transform hover:scale-105">
+  <button className="w-full sm:w-auto bg-gradient-to-r from-insurance-blue to-insurance-blue-accent text-white px-6 sm:px-8 py-3 rounded-xl font-bold transition-all duration-300 inline-flex items-center justify-center shadow-2xl text-base sm:text-lg transform hover:scale-105">
           <ArrowRight className="w-5 h-5 mr-2" /> 
           Talk to an Advisor
         </button>

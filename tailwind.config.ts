@@ -74,6 +74,9 @@ export default {
           "linear-gradient(135deg, hsl(var(--insurance-blue)) 0%, hsl(var(--insurance-blue-light)) 100%)",
         "gradient-card":
           "linear-gradient(145deg, white 0%, hsl(var(--insurance-blue-light) / 0.05) 100%)",
+        // Primary brand gradient (left-to-right)
+        "gradient-primary":
+          "linear-gradient(90deg, hsl(var(--insurance-blue)) 0%, hsl(var(--insurance-blue-accent)) 100%)",
       },
       boxShadow: {
         card: "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",

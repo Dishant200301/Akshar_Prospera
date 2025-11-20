@@ -7,9 +7,9 @@ import DotLottieAnimation from "./DotLottieAnimation";
 const LOTTIE_URLS = {
   HEALTH: "https://lottie.host/f14039bd-802f-45cf-a854-b8f1c7733eb3/L7b5jKyXDd.lottie",
   TRAVEL: "https://lottie.host/0339e2dc-5552-460e-b5ed-f58851703937/QWxxEwAuHq.lottie",
-  LIFE: "https://lottie.host/a2c6fde9-2023-4908-bdc7-5d87bf952ce6/y0BV7NfJhS.lottie",
-  HOME: "https://lottie.host/7bf0c4a9-bf4a-4e1e-bed6-e725f3d87e48/sNMZn4XTRn.lottie",
-  AUTO: "https://lottie.host/cf1ea106-5ed9-4a36-845e-d7875344ffaa/ISTlLr9wQN.lottie",
+  LIFE: "https://lottie.host/a52da1b6-52e4-4269-80df-2bee4421f5a7/0uLwNuVPKN.lottie",
+  HOME: "https://lottie.host/af0ecafe-bebe-4dca-82e7-90d20f6a6735/AAUnV1KS7Z.lottie",
+  AUTO: "https://lottie.host/eb1b58b5-3b70-4929-a9b3-16998849c5fe/JYWTHd5lTB.lottie",
 };
 
 const ServicesSection = () => {
@@ -59,7 +59,7 @@ const ServicesSection = () => {
         <div className="text-center mb-12 sm:mb-16 lg:mb-20">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Comprehensive
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-insurance-blue to-insurance-blue-accent bg-clip-text text-transparent">
               {" "}Insurance
             </span>
             <span className="text-gray-900"> Solutions</span>
@@ -75,16 +75,14 @@ const ServicesSection = () => {
     group relative bg-white rounded-2xl p-6 sm:p-8 md:p-6 lg:p-8 xl:p-4 
     h-full border border-gray-200 flex flex-col items-center text-center 
     transition-all duration-500
-    hover:scale-[1.06] hover:-translate-y-2 hover:shadow-2xl
-     hover:shadow-blue-200
+  
   "
 >
   {/* Glow ring */}
   <div
     className="
       absolute inset-0 rounded-2xl border-2 border-blue-500 opacity-0 scale-105
-      group-hover:opacity-40 group-hover:scale-100 transition-all duration-500
-    "
+      "
   />
 
   {/* Animation */}
@@ -124,7 +122,7 @@ const ServicesSection = () => {
       w-full bg-white text-blue-600 border-2 border-blue-600 
       py-2.5 sm:py-3 px-3 sm:px-4 rounded-xl font-semibold 
       hover:bg-blue-600 hover:text-white transition-all duration-300 
-      inline-flex items-center justify-center text-sm shadow-md
+      inline-flex items-center justify-center text-sm shadow-md hover:bg-gradient-to-r from-insurance-blue to-insurance-blue-accent
     "
   >
     <span className="mr-2">View Details</span>
