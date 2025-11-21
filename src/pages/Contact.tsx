@@ -11,6 +11,7 @@ import {
   Linkedin,
 } from "lucide-react";
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -36,11 +37,11 @@ const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 font-body">
+    <div className="min-h-screen bg-white text-gray-900 font-body overflow-hidden">
       <Navigation />
 
       {/* ------------------------------------ HERO SECTION ------------------------------------ */}
-      <section className="relative h-[65vh] md:h-[75vh] overflow-hidden pt-16 bg-black">
+      <section className="relative h-[65vh] md:h-[75vh]  pt-16 bg-black">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-100"
           style={{ backgroundImage: 'url(/image/contact.jpg)' }}
@@ -63,14 +64,14 @@ const ContactPage: React.FC = () => {
       </section>
 
       {/* ------------------------------------ MAIN CONTENT ------------------------------------ */}
-      <section className="py-12 md:py-16 lg:py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-0">
+      <section className="lg:px-4 py-12 md:py-16 lg:py-20 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-2 sm:px-6 lg:px-0">
 
           {/* GRID LAYOUT - FORM FIRST ON MOBILE */}
           <div className="grid grid-cols-1 lg:grid-cols-[2fr,1fr] gap-10">
 
             {/* ------------------- FORM SECTION ------------------- */}
-            <div className="order-1 lg:order-none bg-white rounded-2xl shadow-lg border border-gray-200 p-6 sm:p-10">
+            <div className="order-1 lg:order-none bg-white rounded-2xl shadow-lg border border-gray-200 p-4 sm:p-10">
               <h2 className="text-2xl font-bold mb-6">Send a Message</h2>
 
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -124,16 +125,19 @@ const ContactPage: React.FC = () => {
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full border border-gray-300 rounded-lg px-4 py-3"
+                    className="w-full border border-gray-300 rounded-lg px-4 py-3 bg-white text-gray-900  font-medium"
                     required
                   >
-                    <option value="">Choose a category</option>
+                    <option value="" disabled className="text-gray-400">
+                      Select Insurance Category
+                    </option>
                     <option value="health">Health Insurance</option>
                     <option value="travel">Travel Insurance</option>
                     <option value="life">Life Insurance</option>
                     <option value="home">Home Insurance</option>
                     <option value="auto">Auto Insurance</option>
                   </select>
+
 
                   <input
                     type="text"
@@ -167,30 +171,30 @@ const ContactPage: React.FC = () => {
             </div>
 
             {/* ------------------- INFO CARD ------------------- */}
-            <div className="order-2 lg:order-none bg-slate-900 text-white rounded-2xl shadow-xl p-8 flex flex-col justify-between">
+            <div className="order-1 lg:order-none bg-gradient-to-br from-blue-50 to-white rounded-2xl shadow-xl p-8 flex flex-col justify-between border border-gray-200">
               <div className="space-y-8">
 
                 {/* Address */}
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-blue-600/20 rounded-xl text-blue-400">
+                <div className="flex items-start">
+                  <div className="p-3 mr-2 bg-gradient-to-br from-insurance-blue to-insurance-blue-accent rounded-xl text-white shadow-md">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-white">Office Address</h4>
-                    <p className="text-gray-300 text-sm mt-1">
+                    <h4 className="font-semibold text-gray-900">Office Address</h4>
+                    <p className="text-gray-600 text-sm mt-1">
                       456 Business Ave, Suite 210<br />New York, NY 10001
                     </p>
                   </div>
                 </div>
 
                 {/* Contact */}
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-blue-600/20 rounded-xl text-blue-400">
+                <div className="flex items-start">
+                  <div className="p-3 mr-2 bg-gradient-to-br from-insurance-blue to-insurance-blue-accent rounded-xl text-white shadow-md">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-semibold">Contact</h4>
-                    <p className="text-gray-300 text-sm mt-1">
+                    <h4 className="font-semibold text-gray-900">Contact</h4>
+                    <p className="text-gray-600 text-sm mt-1">
                       +1 (123) 456-7890<br />
                       hello@insureco.com
                     </p>
@@ -198,13 +202,13 @@ const ContactPage: React.FC = () => {
                 </div>
 
                 {/* Time */}
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-blue-600/20 rounded-xl text-blue-400">
+                <div className="flex items-start">
+                  <div className="p-3 mr-2 bg-gradient-to-br from-insurance-blue to-insurance-blue-accent rounded-xl text-white shadow-md">
                     <Clock className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-semibold">Open Hours</h4>
-                    <p className="text-gray-300 text-sm mt-1">
+                    <h4 className="font-semibold text-gray-900">Open Hours</h4>
+                    <p className="text-gray-600 text-sm mt-1">
                       Mon–Fri: 9 AM – 6 PM<br />
                       Sat: 10 AM – 2 PM
                     </p>
@@ -212,29 +216,14 @@ const ContactPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Social Icons */}
-              <div className="mt-10 border-t border-gray-700 pt-5">
-                <p className="text-xs uppercase tracking-wider text-gray-400 mb-3">
-                  Follow Us
-                </p>
-                <div className="flex gap-3">
-                  {[Facebook, Twitter, Instagram, Linkedin].map((Icon, index) => (
-                    <button
-                      key={index}
-                      className="bg-slate-800 hover:bg-blue-600 text-gray-200 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition"
-                    >
-                      <Icon className="w-4 h-4" />
-                    </button>
-                  ))}
-                </div>
-              </div>
+
             </div>
           </div>
         </div>
       </section>
 
       {/* ------------------------------------ MAP SECTION ------------------------------------ */}
-      <section className="bg-gray-100 py-12">
+      <section className="bg-gray-50 py-24">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-lg font-semibold flex items-center gap-2 text-gray-700">
             <MapPin className="w-5 h-5 text-blue-600" /> Find Us on the Map
@@ -252,6 +241,7 @@ const ContactPage: React.FC = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };

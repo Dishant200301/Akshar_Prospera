@@ -1,130 +1,191 @@
 "use client";
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 const OurWorkSection: React.FC = () => {
-  const colors = {
-    border: "#6b7280", // Tailwind gray-500
-    textDark: "#111827",
-  };
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   const allBlogs = [
     {
-    title: 'Navigating Mortgage Options for First-Time Homebuyers',
-      tags: ["Financial Planning"],
-      image: 'https://plus.unsplash.com/premium_photo-1680721444743-2a94a309a24a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2070',
-
+      title: "Navigating Mortgage Options for First-Time Homebuyers",
+      image:
+        "https://plus.unsplash.com/premium_photo-1680721444743-2a94a309a24a?auto=format&w=1200",
     },
     {
-      title: 'Understanding Critical Illness Insurance',
-
-      tags: ["Life Insurance"],
-           image: 'https://plus.unsplash.com/premium_photo-1661290355102-e40f95a6b6ba?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8VW5kZXJzdGFuZGluZyUyMENyaXRpY2FsJTIwSWxsbmVzcyUyMEluc3VyYW5jZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600',
-   },
+      title: "Understanding Critical Illness Insurance",
+      image:
+        "https://plus.unsplash.com/premium_photo-1661290355102-e40f95a6b6ba?auto=format&w=1200",
+    },
     {
-    title: 'Your Complete Guide to Health Insurance Options',
-      tags: ["Health Insurance"],
-      image: 'https://images.unsplash.com/photo-1718128120449-74cc8535277d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8WW91ciUyMENvbXBsZXRlJTIwR3VpZGUlMjB0byUyMEhlYWx0aCUyMEluc3VyYW5jZSUyME9wdGlvbnN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600',
-   },
+      title: "Your Complete Guide to Health Insurance Options",
+      image:
+        "https://images.unsplash.com/photo-1718128120449-74cc8535277d?auto=format&w=1200",
+    },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.15 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
+  // Duplicate list → infinite loop
+  const infiniteBlogs = [...allBlogs, ...allBlogs];
 
   const slugify = (title: string) =>
-    title
-      .toLowerCase()
-      .replace(/[^a-z0-9\s-]/g, "")
-      .trim()
-      .replace(/\s+/g, "-");
+    title.toLowerCase().replace(/\s+/g, "-");
+
+  // === Auto Slide Logic ===
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+    let autoplay: any;
+
+    const startAutoSlide = () => {
+      autoplay = setInterval(() => {
+        container.scrollBy({ left: container.clientWidth, behavior: "smooth" });
+
+        setTimeout(() => {
+          if (container.scrollLeft >= container.scrollWidth / 2) {
+            container.scrollTo({ left: 0, behavior: "instant" });
+          }
+        }, 500);
+      }, 3000);
+    };
+
+    startAutoSlide();
+    return () => clearInterval(autoplay);
+  }, []);
+
+  const scrollNext = () => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    container.scrollBy({ left: container.clientWidth, behavior: "smooth" });
+
+    setTimeout(() => {
+      if (container.scrollLeft >= container.scrollWidth / 2) {
+        container.scrollTo({ left: 0, behavior: "instant" });
+      }
+    }, 300);
+  };
+
+  const scrollPrev = () => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    if (container.scrollLeft === 0) {
+      container.scrollTo({
+        left: container.scrollWidth / 2,
+        behavior: "instant",
+      });
+    }
+    container.scrollBy({ left: -container.clientWidth, behavior: "smooth" });
+  };
 
   return (
-    <section className="py-14 sm:py-20 lg:py-24 bg-gray-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-10">
+     <section className="py-20 sm:py-12 lg:py-8 bg-gray-50">
+      <div className=" mx-auto px-4 sm:px-6 lg:px-12 max-w-6xl">
         {/* Section Header */}
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-            Insurance{" "}
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-              Insights
-            </span>{" "}
-            & Tips
-          </h2>
-         
-        </div>
-
-        {/* Responsive Blog Grid */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          variants={containerVariants}
-          viewport={{ once: true, amount: 0.3 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto"
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-8"
         >
-          {allBlogs.map((blog, index) => {
-            const slug = slugify(blog.title);
-            return (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="group rounded-3xl overflow-hidden  transition-all duration-300 hover:shadow-lg"
-              >
-                <Link to={`/blogs/${slug}`} className="block h-full">
-                  {/* Blog Image */}
-                  <div className="p-4">
-                    <div className="overflow-hidden rounded-sm">
+
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
+          Insurance{" "}
+          <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            Insights
+          </span>{" "}
+          & Tips
+        </h2>
+        </motion.div>
+
+        {/* MOBILE CAROUSEL */}
+        <div className="relative sm:hidden">
+          <div
+            ref={scrollRef}
+            className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide"
+            style={{ scrollPadding: "0 15px" }}
+          >
+            {infiniteBlogs.map((blog, index) => {
+              const slug = slugify(blog.title);
+              return (
+                <div
+                  key={index}
+                  className="w-full flex-shrink-0 snap-center px-4 py-4 "
+                >
+                  <div className="bg-white rounded-2xl shadow-md overflow-hidden">
+                    <Link to={`/blogs/${slug}`}>
                       <img
                         src={blog.image}
                         alt={blog.title}
-                        className="w-full h-auto object-cover rounded-sm group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
+                        className="w-full h-56 object-cover"
                       />
-                    </div>
+                      <div className="p-6">
+                        <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2">
+                          {blog.title}
+                        </h3>
+                        <div className="border-t border-gray-300 my-3"></div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm font-medium">
+                            Read More
+                          </span>
+                          <ChevronRight className="w-5 h-5" />
+                        </div>
+                      </div>
+                    </Link>
                   </div>
+                </div>
+              );
+            })}
+          </div>
 
-                  {/* Blog Info */}
-                  <div className="px-6 pb-6 flex flex-col">
-                    {/* Title (Force 2 lines) */}
-                    <h1 className="text-lg sm:text-xl font-semibold text-gray-900 mb-4 line-clamp-2 min-h-[3.5rem] leading-snug">
+          {/* ARROWS */}
+          <button
+            onClick={scrollPrev}
+            className="absolute left-2 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow-md"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+
+          <button
+            onClick={scrollNext}
+            className="absolute right-2 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow-md"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </div>
+
+        {/* DESKTOP GRID */}
+        <div className="hidden sm:grid grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+          {allBlogs.map((blog, index) => {
+            const slug = slugify(blog.title);
+            return (
+              <div
+                key={index}
+                className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition"
+              >
+                <Link to={`/blogs/${slug}`}>
+                  <img
+                    src={blog.image}
+                    alt={blog.title}
+                    className="w-full h-56 object-cover"
+                  />
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold text-gray-900 mb-3 line-clamp-2">
                       {blog.title}
-                    </h1>
-
-                    {/* Divider Line */}
-                    <div className="border-t border-gray-500 my-4"></div>
-
-                    {/* Read More */}
-                    <div className="flex items-center justify-between group-hover:text-blue-600 transition-colors">
-                      <span className="text-sm sm:text-base font-medium">
-                        Read More
-                      </span>
-                      <FontAwesomeIcon
-                        icon={faArrowRight}
-                        className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1"
-                      />
+                    </h3>
+                    <div className="border-t border-gray-300 my-4"></div>
+                    <div className="flex items-center justify-between">
+                      <span>Read More</span>
+                      <ChevronRight className="w-5 h-5" />
                     </div>
                   </div>
                 </Link>
-              </motion.div>
+              </div>
             );
           })}
-        </motion.div>
+        </div>
+
       </div>
     </section>
   );

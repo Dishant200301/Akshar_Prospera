@@ -36,7 +36,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen" style={{
+    <div className="" style={{
       backgroundImage: 'url(/1.png)',
       backgroundSize: 'cover',
       backgroundPosition: 'center',

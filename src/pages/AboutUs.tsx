@@ -159,53 +159,63 @@ const AboutUs: React.FC = () => {
                   Firm
                 </span>
               </h2>
-              <p className="text-sm text-gray-600 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+              <p className="text-md text-gray-600 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
                 At Akshar Prospera, we pride ourselves on delivering tailored
                 insurance solutions that genuinely protect what matters most.
                 With over two decades of dedicated experience, our expert team
                 is committed to guiding individuals and families through every
                 stage of their insurance journey.
               </p>
-              <div className="flex flex-row sm:flex-col gap-4 justify-center lg:justify-start mb-12">
+<div className="flex justify-between gap-1 sm:justify-between md:justify-center lg:justify-start lg:gap-2 mt-10">
+
   <Link
     to="/contact"
-    className="inline-flex items-center px-4 py-3 bg-blue-600 text-white text-base font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:bg-blue-700"
+    className="w-1/2 sm:w-auto inline-flex items-center justify-center px-4 py-3 bg-blue-600 text-white text-base font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:bg-blue-700"
   >
-    Get a Quote <ArrowRight className="w-5 h-5 ml-2" />
+    Get a Quote <ArrowRight className="w-5 h-5 ml-2 hidden sm:block" />
   </Link>
 
   <Link
     to="/services"
-    className="inline-flex items-center px-4 py-3 border-2 border-blue-600 text-blue-600 hover:bg-gradient-to-r from-insurance-blue to-insurance-blue-accent hover:textwhite text-base font-semibold rounded-xl transition-all duration-300 hover:bg-blue-50 hover:text-white"
+    className="w-1/2 sm:w-auto inline-flex items-center justify-center px-1 md:px-4 py-3 border-2 border-blue-600 text-blue-600 hover:bg-gradient-to-r from-insurance-blue to-insurance-blue-accent hover:text-white text-base font-semibold rounded-xl transition-all duration-300 hover:bg-blue-50"
   >
     Explore Services
   </Link>
+
 </div>
 
 
-              <div className="grid grid-cols-3 sm:grid-cols-3 gap-2 text-left mt-8 max-w-lg mx-auto lg:mx-0">
-                {firmStats.map((s, i) => (
-                  <div
-                    key={i}
-                    className="group hover:scale-105 transition-transform duration-300   group relative overflow-hidden
-                    bg-gradient-to-br from-white to-blue-50/30
-                    border border-blue-100
-                    rounded-lg p-2 
-                    transition-all duration-500 ease-out
-                    hover:shadow-xl hover:shadow-blue-500/10
-                    hover:border-blue-300
-                    hover:-translate-y-1
-                    hover:scale-105"
-                  >
-                        <div className="text-3xl font-extrabold bg-gradient-to-r from-insurance-blue to-insurance-blue-accent bg-clip-text text-transparent">
-                      {s.value}
-                    </div>
-                    <div className="text-sm text-gray-600 mt-1 group-hover:text-gray-900 transition-colors">
-                      {s.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
+
+           <div
+  className="
+    grid grid-cols-3 sm:grid-cols-3 gap-2
+    text-center lg:text-left
+    mt-8 max-w-lg mx-auto lg:mx-0
+  "
+>
+  {firmStats.map((s, i) => (
+    <div
+      key={i}
+      className="
+        group relative overflow-hidden
+        bg-gradient-to-br from-white to-blue-50/30
+        border border-blue-100 rounded-lg p-2
+        transition-all duration-500 ease-out
+        hover:shadow-xl hover:shadow-blue-500/10
+        hover:border-blue-300 hover:-translate-y-1 hover:scale-105
+      "
+    >
+      <div className="text-3xl font-extrabold bg-gradient-to-r from-insurance-blue to-insurance-blue-accent bg-clip-text text-transparent text-center md:text-left lg:text-left">
+        {s.value}
+      </div>
+
+      <div className="text-sm text-gray-600 mt-1 group-hover:text-gray-900 transition-colors duration-300">
+        {s.label}
+      </div>
+    </div>
+  ))}
+</div>
+
             </div>
 
             <div className="order-first lg:order-last">

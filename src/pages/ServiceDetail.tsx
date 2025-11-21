@@ -1,6 +1,6 @@
 import React from 'react';
-import { 
-  Shield, Heart, Plane, Home, Car, 
+import {
+  Shield, Heart, Plane, Home, Car,
   CheckCircle, XCircle, Plus, Check, X,
   DollarSign, Clock, Award, Users, Globe,
   FileText, TrendingUp, Zap, Lock
@@ -103,47 +103,47 @@ const ServiceDetailComponent: React.FC<ServiceDetailProps> = ({ service }) => {
       <Navigation />
 
       {/* ------------------ HERO SECTION ------------------ */}
-     <section className="relative h-[70vh] overflow-hidden pt-16 bg-black">
-  <div
-    className="absolute inset-0 bg-cover bg-center"
-    style={{ backgroundImage: `url(${service.heroImage})` }}
-  >
-    <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80"></div>
-  </div>
+      <section className="relative h-[70vh] overflow-hidden pt-16 bg-black">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${service.heroImage})` }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80"></div>
+        </div>
 
-  <div className="mx-auto px-3 lg:px-12 relative z-20 text-center mt-24 lg:mt-32">
-    <motion.div 
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={fadeInUp}
-      className="max-w-3xl mx-auto"
-    >
-      {/* HEADING → Styled like ABOUT */}
-      <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-extrabold text-white mb-4 sm:mb-6 leading-tight">
-        {(service.tagline || "").split(' ').slice(0, -3).join(' ')}{' '}
-        <span className="bg-gradient-to-r from-insurance-blue to-insurance-blue-accent bg-clip-text text-transparent">
-          {(service.tagline || "").split(' ').slice(-3).join(' ')}
-        </span>
-      </h1>
+        <div className="mx-auto px-3 lg:px-12 relative z-20 text-center mt-24 lg:mt-32">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="max-w-3xl mx-auto"
+          >
+            {/* HEADING → Styled like ABOUT */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-extrabold text-white mb-4 sm:mb-6 leading-tight">
+              {(service.tagline || "").split(' ').slice(0, -3).join(' ')}{' '}
+              <span className="bg-gradient-to-r from-insurance-blue to-insurance-blue-accent bg-clip-text text-transparent">
+                {(service.tagline || "").split(' ').slice(-3).join(' ')}
+              </span>
+            </h1>
 
-      {/* PARAGRAPH → Animated like ABOUT page */}
-     <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 mb-8 sm:mb-12 leading-relaxed font-semibold drop-shadow-2xl animate-fade-in">
-        <AnimatedText text={service.shortDescription.split(" ").slice(0, 8).join(" ") + " "} />
-        <AnimatedText
-          text={service.shortDescription.split(" ").slice(8).join(" ")}
-          delay={0.6}
-          className="bg-gradient-to-r from-insurance-blue to-insurance-blue-accent bg-clip-text text-transparent font-bold drop-shadow-lg"
-        />
-      </p>
-
-
-    </motion.div>
-  </div>
-</section>
+            {/* PARAGRAPH → Animated like ABOUT page */}
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-100 mb-8 sm:mb-12 leading-relaxed font-semibold drop-shadow-2xl animate-fade-in">
+              <AnimatedText text={service.shortDescription.split(" ").slice(0, 8).join(" ") + " "} />
+              <AnimatedText
+                text={service.shortDescription.split(" ").slice(8).join(" ")}
+                delay={0.6}
+                className="bg-gradient-to-r from-insurance-blue to-insurance-blue-accent bg-clip-text text-transparent font-bold drop-shadow-lg"
+              />
+            </p>
 
 
-     {/* WHAT IS + WHY NEED */}
+          </motion.div>
+        </div>
+      </section>
+
+
+      {/* WHAT IS + WHY NEED */}
       <section className="py-16 md:pt-24">
         <div className="container mx-auto px-6 max-w-6xl text-center">
           <motion.h2 variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
@@ -161,20 +161,20 @@ const ServiceDetailComponent: React.FC<ServiceDetailProps> = ({ service }) => {
       {/* ------------------ POLICY TYPES ------------------ */}
       <section className=" flex flex-col justify-center py-20 bg-gray-50 ">
         <div className="container mx-auto px-6 lg:px-12">
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
             className="text-center mb-16"
           >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
               Types of {" "}
               <span className="hover-text-gradient">Coverage</span>
             </h2>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
@@ -182,13 +182,13 @@ const ServiceDetailComponent: React.FC<ServiceDetailProps> = ({ service }) => {
             className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8"
           >
             {(service.policyTypes || []).map((policy, index) => (
-              <motion.div 
-                key={index} 
+              <motion.div
+                key={index}
                 variants={fadeInUp}
                 whileHover={{ y: -10 }}
                 className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-blue-600 flex flex-col h-full"
               >
-               
+
                 <h3 className="text-xl font-bold text-gray-900 mb-4">{policy.name}</h3>
                 <p className="text-gray-600 leading-relaxed flex-grow">{policy.description}</p>
               </motion.div>
@@ -200,20 +200,20 @@ const ServiceDetailComponent: React.FC<ServiceDetailProps> = ({ service }) => {
       {/* ------------------ KEY FEATURES ------------------ */}
       <section className="min-h-screen flex flex-col justify-center py-20">
         <div className="container mx-auto px-6 lg:px-12">
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
             className="text-center mb-16"
           >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
               Key {" "}
-                  <span className="text-blue-600">Features</span>
+              <span className="text-blue-600">Features</span>
             </h2>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
@@ -221,8 +221,8 @@ const ServiceDetailComponent: React.FC<ServiceDetailProps> = ({ service }) => {
             className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             {(service.keyFeatures || []).map((feature, index) => (
-              <motion.div 
-                key={index} 
+              <motion.div
+                key={index}
                 variants={fadeInUp}
                 whileHover={{ scale: 1.03 }}
                 className="text-center p-8 bg-gray-50 rounded-2xl hover:bg-blue-50 transition-colors duration-300 border border-gray-100 hover:border-blue-200"
@@ -241,20 +241,20 @@ const ServiceDetailComponent: React.FC<ServiceDetailProps> = ({ service }) => {
       {/* ------------------ WHY NECESSARY ------------------ */}
       <section className="flex flex-col justify-center py-20 ">
         <div className="container mx-auto px-6 lg:px-12">
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
             className="text-center mb-16"
           >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
               Why It's {" "}
               <span className="hover-text-gradient"> Necessary</span>
             </h2>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
@@ -262,8 +262,8 @@ const ServiceDetailComponent: React.FC<ServiceDetailProps> = ({ service }) => {
             className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto"
           >
             {(service.whyNecessary || []).map((item, index) => (
-              <motion.div 
-                key={index} 
+              <motion.div
+                key={index}
                 variants={fadeInUp}
                 className="flex items-start space-x-4 bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow"
               >
@@ -282,14 +282,14 @@ const ServiceDetailComponent: React.FC<ServiceDetailProps> = ({ service }) => {
         <div className="container mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Side - Content */}
-            <motion.div 
+            <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               variants={fadeInUp}
             >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 ml-2 mb-">
-                Why 
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 ml-2 mb-">
+                Why
                 <span className="hover-text-gradient"> Choose Us</span>?
               </h2>
               <div className="space-y-8">
@@ -308,7 +308,7 @@ const ServiceDetailComponent: React.FC<ServiceDetailProps> = ({ service }) => {
             </motion.div>
 
             {/* Right Side - Comparison Table */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -354,145 +354,150 @@ const ServiceDetailComponent: React.FC<ServiceDetailProps> = ({ service }) => {
       </section>
 
       {/* ------------------ COVERAGE DETAILS ------------------ */}
-<section className="min-h-screen flex flex-col justify-center items-center bg-gray-50 py-6 sm:py-12">
-  <div className="container mx-auto px-4 sm:px-6 lg:px-12">
-    <motion.div 
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={fadeInUp}
-      className="text-center mb-6 sm:mb-12"
-    >
-      <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 sm:mb-6">
-        <span className="hover-text-gradient">Coverage </span>Details
-      </h2>
-    </motion.div>
+      <section className="min-h-screen flex flex-col justify-center items-center bg-gray-50 py-6 sm:py-12">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="text-center mb-6 sm:mb-12"
+          >
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 sm:mb-6">
+              <span className="hover-text-gradient">Coverage </span>Details
+            </h2>
+          </motion.div>
 
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-center h-full">
-      
-      {/* What is Covered */}
-      <motion.div 
-        initial={{ opacity: 0, x: -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="bg-white p-5 sm:p-8 rounded-3xl shadow-xl border-t-8 border-blue-600 h-full"
-      >
-        <div className="flex items-center space-x-3 sm:space-x-4 mb-4 sm:mb-6">
-          <CheckCircle className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
-          <h3 className="text-xl sm:text-2xl font-bold text-gray-900">What is Covered</h3>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-center h-full">
+
+            {/* What is Covered */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-white p-5 sm:p-8 rounded-3xl shadow-xl border-t-8 border-blue-600 h-full"
+            >
+              <div className="flex items-center space-x-3 sm:space-x-4 mb-4 sm:mb-6">
+                <CheckCircle className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">What is Covered</h3>
+              </div>
+
+              <ul className="space-y-3 sm:space-y-4">
+                {(service.whatIsCovered || []).map((item, index) => (
+                  <li key={index} className="flex items-start space-x-3">
+                    <Check className="w-5 h-5 text-blue-500 flex-shrink-0 mt-1" />
+                    <span className="text-gray-700 text-base sm:text-lg leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* What is Not Covered */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-white p-5 sm:p-8 rounded-3xl shadow-xl border-t-8 border-blue-600 h-full"
+            >
+              <div className="flex items-center space-x-3 sm:space-x-4 mb-4 sm:mb-6">
+                <XCircle className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">What is Not Covered</h3>
+              </div>
+
+              <ul className="space-y-3 sm:space-y-4">
+                {(service.whatIsNotCovered || []).map((item, index) => (
+                  <li key={index} className="flex items-start space-x-3">
+                    <X className="w-5 h-5 text-gray-500 flex-shrink-0 mt-1" />
+                    <span className="text-gray-700 text-base sm:text-lg leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+          </div>
         </div>
-
-        <ul className="space-y-3 sm:space-y-4">
-          {(service.whatIsCovered || []).map((item, index) => (
-            <li key={index} className="flex items-start space-x-3">
-              <Check className="w-5 h-5 text-blue-500 flex-shrink-0 mt-1" />
-              <span className="text-gray-700 text-base sm:text-lg leading-relaxed">{item}</span>
-            </li>
-          ))}
-        </ul>
-      </motion.div>
-
-      {/* What is Not Covered */}
-      <motion.div 
-        initial={{ opacity: 0, x: 50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="bg-white p-5 sm:p-8 rounded-3xl shadow-xl border-t-8 border-blue-600 h-full"
-      >
-        <div className="flex items-center space-x-3 sm:space-x-4 mb-4 sm:mb-6">
-          <XCircle className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" />
-          <h3 className="text-xl sm:text-2xl font-bold text-gray-900">What is Not Covered</h3>
-        </div>
-
-        <ul className="space-y-3 sm:space-y-4">
-          {(service.whatIsNotCovered || []).map((item, index) => (
-            <li key={index} className="flex items-start space-x-3">
-              <X className="w-5 h-5 text-gray-500 flex-shrink-0 mt-1" />
-              <span className="text-gray-700 text-base sm:text-lg leading-relaxed">{item}</span>
-            </li>
-          ))}
-        </ul>
-      </motion.div>
-
-    </div>
-  </div>
-</section>
+      </section>
 
 
 
       {/* ------------------ ADD-ONS & BUYING ------------------ */}
-<section className="flex flex-col justify-center items-center py-24">
-  <div className="container mx-auto px-6 lg:px-12">
+      <section className="flex flex-col justify-center items-center py-24">
+        <div className="container mx-auto px-6 lg:px-12">
 
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={fadeInUp}
-      className="text-center mb-12"
-    >
-      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-        Enhance Your <span className="hover-text-gradient">Coverage</span>
-      </h2>
-    </motion.div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+              Enhance Your <span className="hover-text-gradient">Coverage</span>
+            </h2>
+          </motion.div>
 
-    {/* Smaller grid so everything fits in one screen */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 place-content-center">
-      {(service.addOnCovers || []).map((addon, index) => (
-        <motion.div
-          key={index}
-          whileHover={{ scale: 1.02 }}
-          className="bg-gray-50 p-6 rounded-xl border border-gray-200 hover:border-blue-300 transition-colors h-full"
-        >
-          <h3 className="text-lg font-bold text-gray-900 mb-2">{addon.name}</h3>
-          <p className="text-sm text-gray-600 leading-relaxed">{addon.description}</p>
-        </motion.div>
-      ))}
-    </div>
-
-  </div>
-</section>
-
-<section className=" flex flex-col justify-center  bg-gray-50 py-12 mb-24">
-  <div className="container mx-auto px-6 lg:px-12">
-
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={fadeInUp}
-      className="text-center mb-12"
-    >
-      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-        How to <span className="hover-text-gradient">Buy</span> Online
-      </h2>
-    </motion.div>
-
-    <div className="relative w-full">
-      {/* line */}
-      <div className="hidden lg:block absolute top-10 left-0 right-0 h-1 bg-gray-200 -translate-y-1/2"></div>
-
-      {/* grid centered to fit screen */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 place-items-center relative z-10">
-        {(service.howToBuySteps || []).map((step, index) => (
-          <div key={index} className="text-center group max-w-xs">
-            <div className="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-md border-4 border-gray-100  transition">
-              <span className="text-2xl font-bold text-gray-400 ">
-                {index + 1}
-              </span>
-            </div>
-
-            <h4 className="text-lg font-bold text-gray-900 mb-2">{step.split(':')[0]}</h4>
-            <p className="text-sm text-gray-500">{step.split(':')[1]}</p>
+          {/* Smaller grid so everything fits in one screen */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 place-content-center">
+            {(service.addOnCovers || []).map((addon, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ scale: 1.02 }}
+                className="bg-gray-50 p-6 rounded-xl border border-gray-200 hover:border-blue-300 transition-colors h-full"
+              >
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{addon.name}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{addon.description}</p>
+              </motion.div>
+            ))}
           </div>
-        ))}
-      </div>
-    </div>
 
-  </div>
-</section>
+        </div>
+      </section>
+
+      <section className=" flex flex-col justify-center  bg-gray-50 py-12 mb-24">
+        <div className="container mx-auto px-6 lg:px-12">
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+              How to <span className="hover-text-gradient">Buy</span> Online
+            </h2>
+          </motion.div>
+
+          <div className="relative w-full">
+            {/* line */}
+            <div className="hidden lg:block absolute top-10 left-0 right-0 h-1 bg-gray-200 -translate-y-1/2"></div>
+
+            {/* grid centered to fit screen */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 place-items-center relative z-10">
+              {(service.howToBuySteps || []).map((step, index) => (
+                <div key={index} className="text-center group max-w-xs">
+                  <div className="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-md border-4 border-gray-100  transition">
+                    <span className="text-2xl font-bold text-gray-400 ">
+                      {index + 1}
+                    </span>
+                  </div>
+
+                  <h4 className="text-lg font-bold text-gray-900 mb-2">{step.split(':')[0]}</h4>
+                  <p className="text-sm text-gray-500">{step.split(':')[1]}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="flex justify-center mt-8">
+            <button className="bg-gradient-to-r from-insurance-blue to-insurance-blue-accent text-white px-8 py-3 sm:px-10 sm:py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+              Buy Now
+            </button>
+          </div>
+
+        </div>
+      </section>
 
       <Footer />
     </div>

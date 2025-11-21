@@ -51,7 +51,7 @@ const BlogDetails = () => {
       {/* Breadcrumb Header */}
       <div className=" lg:md:pt-24 pt-16 pb-4 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-12 mt-6 md:mt-16 lg:mt-5 xl:pl-12">
-          <nav className="flex items-center flex-wrap gap-x-2 gap-y-1 text-sm sm:text-base text-gray-600">
+          <nav className="flex items-center flex-wrap gap-x-2 gap-y-1 text-sm sm:text-base text-gray-600 pt-10 md:pt-0">
             <Link to="/" className="hover:text-green-600 transition-colors duration-200 font-medium whitespace-nowrap">Home</Link>
             <span className="text-gray-400 hidden sm:inline">/</span>
             <span className="text-gray-400 sm:hidden">/</span>
